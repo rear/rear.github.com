@@ -5,8 +5,9 @@
 
 h1 {
     font-family: Verdana, Arial, sans-serif;
+    font-weight: bold;
     text-align: center;
-    margin: 1em;
+    margin: 0.5em;
 }
 
 h2 {
