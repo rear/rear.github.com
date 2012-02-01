@@ -15,11 +15,10 @@ issue-tracker, but the mailinglist will remain at Sourceforge.
 
 ## Mailinglists
 
-The Rear project offers two mailinglists
+The Rear project offers two mailinglists:
 
  - [Users mailinglist](https://lists.sourceforge.net/lists/listinfo/rear-users)
    used for support and development discussions
-
  - [Announce mailinglist](https://lists.sourceforge.net/lists/listinfo/rear-announce)
    used for release announcements
 
