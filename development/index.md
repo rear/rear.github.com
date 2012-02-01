@@ -5,7 +5,7 @@ title: Rear development
 
 ## Development ##
 
-Currently the Rear project is migration from using
+Currently the Rear project is migrating from using
 [Sourceforge](http://sourceforge.net/rear) for development to the Github
 infrastructure at <http://github.com/rear>.
 
