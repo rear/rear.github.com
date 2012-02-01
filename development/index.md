@@ -26,7 +26,8 @@ The Rear project offers two mailinglists:
 ## Reporting issues ##
 
 The Github interface enables users to report issues or discuss improvements
-and new features through the issue-tracker at <http://github.com/rear/issues>
+and new features through the issue-tracker at:
+<http://github.com/rear/source/issues>
 
 Once reported, one of the contributors can assign it to himself, classify the
 issue by tagging it or link it to a specific milestone release. Managing issues
