@@ -27,11 +27,11 @@ for reported issues and improvements, preferably with details.
 ## Commercial Support ##
 
 If your company depends on Rear as a disaster recovery solution, we kindly ask
-you to support Rear development by making use of support contract or consulting
+you to support Rear development by making use of support contracts or consulting
 services offered by one of the contributors to the project.
 
 The various contributors have invested a lot in the creation and support of Rear:
 
  - [IT3 Consultants](http://www.it3.be/) (Gratien D'haese)
  - [Dagit Linux Solutions](http://dagit.net/) (Dag Wieërs)
- - [Schlomo Schapiro](rear-commercial@schlomo.schapiro.org)
+ - [Schlomo Schapiro](mailto:rear-commercial@schlomo.schapiro.org)
