@@ -12,7 +12,7 @@ h1 {
 
 h2 {
     font-family: Verdana, Arial, sans-serif;
-    margin: 1em;
+    margin-bottom: 1em;
 }
 
 .header ul {
@@ -28,7 +28,7 @@ h2 {
 }
 
 .content {
-    max-width: 60em;
+    max-width: 50em;
     margin: 0 auto;
 }
 
