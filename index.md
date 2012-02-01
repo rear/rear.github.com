@@ -1,4 +1,9 @@
-# Rear website
+---
+layout: default
+title: Rear project
+---
+
+## Welcome to the Relax and Recover website ##
 
 Relax and Recover (Rear) is the leading Open Source disaster recovery
 solution, and successor to mkcdrec. It comprises of a modular framework
