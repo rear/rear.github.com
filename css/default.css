@@ -1,10 +1,18 @@
 * {
+    font-family: sans-serif;
     padding: 0;
     margin: 0;
 }
 
 h1 {
     font-family: Verdana, Arial, sans-serif;
+    text-align: center;
+    margin: 1em;
+}
+
+h2 {
+    font-family: Verdana, Arial, sans-serif;
+    text-align: center;
     margin: 1em;
 }
 
@@ -16,10 +24,15 @@ h1 {
 
 .header li {
     display: inline-block;
+    font-weight: bold;
     padding: 0 1em;
 }
 
 .content {
-    max-width: 80em;
+    max-width: 60em;
     margin: 0 auto;
+}
+
+.content p {
+    margin-bottom: 0.5em;
 }
