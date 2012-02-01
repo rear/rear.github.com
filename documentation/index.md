@@ -12,6 +12,6 @@ The Rear documentation is being revised and updated.
 
 This page will consists of links to:
 
- - the Rear user guide
- - a Rear FAQ
+ - Rear user guide
+ - Rear FAQ
  - Rear presentations

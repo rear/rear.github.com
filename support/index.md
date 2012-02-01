@@ -11,13 +11,12 @@ information on how to collaborate on the project and discuss issues.
 
 We expect users to try the latest release, understand the basic concepts of
 Rear and provide us with as much detail as possible regarding the experienced
-problem(s) in order to quickly resolve user problems.
-
-The details we require may include:
+problem(s) in order to quickly resolve user problems. The details we require
+may include:
 
  - Rear version and distribution version information
- - custom configuration (found in _/etc/rear/_)
- - Rear log (found in _/tmp/rear*.log_)
+ - custom configuration ( found in _/etc/rear/_ )
+ - Rear log ( found in _/tmp/rear*.log_ )
    + Optionally run with debugging enabled
  - screen output
 

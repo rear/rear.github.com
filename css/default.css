@@ -1,7 +1,6 @@
 * {
     font-family: sans-serif;
     padding: 0;
-    margin: 0;
 }
 
 h1 {
@@ -12,7 +11,12 @@ h1 {
 
 h2 {
     font-family: Verdana, Arial, sans-serif;
-    margin-bottom: 1em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.header {
+    margin: 0;
 }
 
 .header ul {
