@@ -4,17 +4,23 @@ title: Rear development
 ---
 
 ## Development ##
-
 Currently the Rear project is migration from using
 [Sourceforge](http://sourceforge.net/rear) for development to the Github
 infrastructure at <http://github.com/rear>.
 
 Github will be used for hosting the website, the source code and the
-issue-tracker, but the mailinglist will remain at Sourceforge.
+issue-tracker, but the mailinglist will remain at Sourceforge for the time
+being..
+
+
+## Release planning ##
+New releases are planned based on outstanding issues, new features and ongoing
+development. You can get an overview of the various milestones the project has
+defined and you can influence new releases by reporting issues and contributing
+fixes at: <https://github.com/rear/source/issues/milestones>
 
 
 ## Mailinglists
-
 The Rear project offers two mailinglists:
 
  - [Users mailinglist](https://lists.sourceforge.net/lists/listinfo/rear-users)
@@ -24,7 +30,6 @@ The Rear project offers two mailinglists:
 
 
 ## Reporting issues ##
-
 The Github interface enables users to report issues or discuss improvements
 and new features through the issue-tracker at:
 <http://github.com/rear/source/issues>
@@ -36,7 +41,6 @@ users and contributors alike.
 
 
 ## Contributing ##
-
 If you are interested in contributing to Rear, you can discuss your area
 of interest on the Rear users mailinglist, or you can simply fork the project
 on Github, make the modifications and then do a pull-request.
