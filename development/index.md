@@ -17,7 +17,7 @@ being..
 New releases are planned based on outstanding issues, new features and ongoing
 development. You can get an overview of the various milestones the project has
 defined and you can influence new releases by reporting issues and contributing
-fixes at: <https://github.com/rear/source/issues/milestones>
+fixes at: <https://github.com/rear/rear/issues/milestones>
 
 
 ## Mailinglists
@@ -32,7 +32,7 @@ The Rear project offers two mailinglists:
 ## Reporting issues ##
 The Github interface enables users to report issues or discuss improvements
 and new features through the issue-tracker at:
-<http://github.com/rear/source/issues>
+<http://github.com/rear/rear/issues>
 
 Once reported, one of the contributors can assign it to himself, classify the
 issue by tagging it or link it to a specific milestone release. Managing issues

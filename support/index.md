@@ -5,7 +5,7 @@ title: Rear support
 
 ## Community support ##
 For voluntary community support, you can use the
-[issue-tracker](http://github.com/rear/source/issues) or the
+[issue-tracker](http://github.com/rear/rear/issues) or the
 [mailinglist](https://lists.sourceforge.net/lists/listinfo/rear-users).
 Please visit the [Development](/development/) page for information on
 how to collaborate on the project and discuss issues.
