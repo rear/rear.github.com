@@ -32,6 +32,7 @@ it as a Disaster Recovery solution:
 
  * Two phase disk layout recovery
    _(enables migrations from e.g. SWRAID to HWRAID, a HWRAID reconfiguration or from partitions to LVM)_
+
    * rescue image contains an abstract disk layout configuration
    * during recovery one can modify this disk layout configuration before restoring
 
@@ -39,6 +40,7 @@ it as a Disaster Recovery solution:
 
  * Various techniques to help troubleshooting
    _(e.g. restoring to modified hardware etc...)_
+
    * structured log-files
    * log-files are moved to recovery image, and to recovered system (available in every step for debugging)
    * advanced debugging options to help trace scripts or develop new functionality
@@ -49,6 +51,7 @@ it as a Disaster Recovery solution:
    _(e.g. let cron recreate and transfer your images upon disk layout changes)_
 
  * Various best practices to assist recovery
+
    * integrates with local bootloader
      _(in case it is still possible, you can restore from local disk through Grub)_
    * automatic network and ssh configuration
