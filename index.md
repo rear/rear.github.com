@@ -3,9 +3,10 @@ layout: default
 title: Relax and Recover - Linux Disaster Recovery
 ---
 
-Relax and Recover (Rear) is a setup-and-forget *Linux disaster recovery* solution. If you use Linux, there is no excuse for not using it.
+Relax and Recover (Rear) is a setup-and-forget *Linux disaster recovery* solution.
+It is easy to set up and requires no maintenance so there is no excuse for not using it.
 
-Learn more about selected usage scenarios:
+Learn more about Rear from the selected usage scenarios below:
 
 <table>
 <tr>
@@ -31,15 +32,11 @@ Learn more about selected usage scenarios:
 </tr>
 </table>
 
-Watch a 4-minute complete backup and restore demo. Real time, no cheating!
+Or watch a 4-minute complete backup and restore demo. Real time, no cheating!
 
-<video controls="controls">
-    <source src="https://github.com/downloads/rear/rear.github.com/rear-mkbackup.webm" type='video/webm; codecs="vp8.0, vorbis"' />
-    <p>Download the <a href="https://github.com/downloads/rear/rear.github.com/rear-mkbackup.webm">video</a> in the github downloads area.</p>
-</video>
+<center>
+    <iframe width="720" height="400" src="http://www.youtube.com/embed/33326XobwYg" frameborder="0" allowfullscreen="" align="center"></iframe>
+</center>
 
-Alternatively, read our comprehensive [documentation](/documentation/) or join/search the project mailing list.
-
-[Download Relax and Recover](/download/) for your distribution.
-
-Your environment not supported? Rear is modular and easy to extend. It's GPL licensed and we welcome all contributions.
+Your environment not supported? Rear is modular and easy to extend.
+It is GPL licensed and we welcome all feedback and contributions.
