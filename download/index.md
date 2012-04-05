@@ -3,13 +3,19 @@ layout: default
 title: Rear download
 ---
 
-## Download latest release ##
-Here you can find the various existing releases:
-<https://github.com/rear/rear/downloads>
+## Download stable releases ##
+The various stable release are available from the
+[Github Downloads](https://github.com/rear/rear/downloads) page.
 
-## Download development snapshots ##
-Github offers the latest development snapshots through the web interface at:
-<https://github.com/rear/rear/tarball/master>
+
+## Download development snapshot ##
+The latest development snapshot is available through the
+[Github tarball](https://github.com/rear/rear/tarball/master) interface.
+
+Or you can get a private copy through:
+
+    ```git clone git://github.com/rear/rear.git```
+
 
 ## Distribution packages ##
 Various distributions ship Rear as part of their distribution, albeit not
@@ -82,6 +88,5 @@ our automated builds:
 
 
 ## Future releases
-We intend to release regularly once the migration to Github is finished.
-Follow the progress through our milestones at: 
+Future releases are planned and communicated through Github milestones at:
 <https://github.com/rear/rear/issues/milestones>
