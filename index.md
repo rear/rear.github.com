@@ -8,22 +8,25 @@ Relax and Recover (Rear) is a setup-and-forget *Linux disaster recovery* solutio
 Learn more about selected usage scenarios:
 
 <table>
-
 <tr>
-    <th>Home user <th>Enterprise user</th>
+    <th>Home user </th> <th>Enterprise user</th>
 </tr>
 <tr class="images">
     <td><img src="/images/laptop.png" /></td> <td><img src="/images/servers.png" /></td>
 </tr>
 <tr>
 <td>
- - recover from a broken hard disk using a bootable USB stick
- - recover a broken system from your bootloader
+    <ul>
+        <li>recover from a broken hard disk using a bootable USB stick</li>
+        <li>recover a broken system from your bootloader</li>
+    </ul>
 </td>
 <td>
- - collect small ISO images on a central server
- - integrate with your backup solution
- - integrate with your monitoring solution
+    <ul>
+        <li>collect small ISO images on a central server</li>
+        <li>integrate with your backup solution</li>
+        <li>integrate with your monitoring solution</li>
+    </ul>
 </td>
 </tr>
 </table>
