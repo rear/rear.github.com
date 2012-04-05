@@ -33,7 +33,7 @@ Learn more about selected usage scenarios:
 
 Watch a 4-minute complete backup and restore demo. Real time, no cheating!
 
-<video controls>
+<video controls="controls">
     <source src="https://github.com/downloads/rear/rear.github.com/rear-mkbackup.webm" type='video/webm; codecs="vp8.0, vorbis"' />
     <p>Download the <a href="https://github.com/downloads/rear/rear.github.com/rear-mkbackup.webm">video</a> in the github downloads area.</p>
 </video>
