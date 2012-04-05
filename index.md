@@ -10,23 +10,28 @@ Learn more about selected usage scenarios:
 <table>
 
 <tr>
-    <th>Home user <th>Enterprise user
+    <th>Home user <th>Enterprise user</th>
+</tr>
 <tr class="images">
-    <td><img src="/images/laptop.png"> <td><img src="/images/servers.png">
+    <td><img src="/images/laptop.png" /></td> <td><img src="/images/servers.png" /></td>
+</tr>
 <tr>
 <td>
  - recover from a broken hard disk using a bootable USB stick
  - recover a broken system from your bootloader
+</td>
 <td>
  - collect small ISO images on a central server
  - integrate with your backup solution
  - integrate with your monitoring solution
+</td>
+</tr>
 </table>
 
 Watch a 4-minute complete backup and restore demo. Real time, no cheating!
 
 <video controls>
-    <source src="https://github.com/downloads/rear/rear.github.com/rear-mkbackup.webm" type='video/webm; codecs="vp8.0, vorbis"'>
+    <source src="https://github.com/downloads/rear/rear.github.com/rear-mkbackup.webm" type='video/webm; codecs="vp8.0, vorbis"' />
     <p>Download the <a href="https://github.com/downloads/rear/rear.github.com/rear-mkbackup.webm">video</a> in the github downloads area.</p>
 </video>
 
