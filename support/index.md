@@ -19,7 +19,7 @@ may include:
  - custom configuration ( found in */etc/rear/* )
  - screen output
  - Rear log ( found in */tmp/rear\*.log* )
-   * Optionally run with debugging enabled
+   - Optionally run with debugging enabled
 
 Rest assured, the Rear developers do not like bugs either and are very grateful
 for reported issues and improvements, preferably with details.
