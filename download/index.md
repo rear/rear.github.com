@@ -15,20 +15,16 @@ Github offers the latest development snapshots through the web interface at:
 Various distributions ship Rear as part of their distribution, albeit not
 always the latest stable release. Here is an overview:
 
- * Arch:
-   *No packages yet*
  * CentOS:
    Add the [EPEL](http://apps.fedoraproject.org/packages/rear) or
    [Repoforge](http://pkgs.repoforge.org/rear/) repository and type:
    ```yum install rear```
  * Debian:
-   *No packages yet, see below*
+   *No official packages yet, see below*
  * Fedora:
    ```yum install rear```
- * Gentoo:
-   *No packages yet*
  * Mandriva:
-   *No packages yet, see below*
+   *No official packages yet, see below*
  * openSUSE:
    ```zyper install rear```
  * RHEL:
@@ -41,6 +37,8 @@ always the latest stable release. Here is an overview:
    ```yum install rear```
  * SLES:
    ```zyper install rear```
+ * Ubuntu:
+   *No official packages yet, see below*
 
 If you are looking for newer stable release or snapshot release, take a look at
 our automated builds from:
@@ -73,6 +71,14 @@ our automated builds from:
     [11_SP1](http://download.opensuse.org/repositories/home:/sschapiro/SLE_11_SP1/),
     [11](http://download.opensuse.org/repositories/home:/sschapiro/SLE_11/),
     [10](http://download.opensuse.org/repositories/home:/sschapiro/SLE_10/)
+ * Ubuntu:
+    [11.10](http://download.opensuse.org/repositories/home:/sschapiro/xUbuntu_11.10/),
+    [11.04](http://download.opensuse.org/repositories/home:/sschapiro/xUbuntu_11.04/),
+    [10.10](http://download.opensuse.org/repositories/home:/sschapiro/xUbuntu_10.10/),
+    [10.04](http://download.opensuse.org/repositories/home:/sschapiro/xUbuntu_10.04/),
+    [9.10](http://download.opensuse.org/repositories/home:/sschapiro/xUbuntu_9.10/),
+    [9.04](http://download.opensuse.org/repositories/home:/sschapiro/xUbuntu_9.04/),
+    [8.04](http://download.opensuse.org/repositories/home:/sschapiro/xUbuntu_8.04/)
 
 
 ## Future releases
