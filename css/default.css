@@ -26,8 +26,7 @@ h1 {
 }
 
 h2 {
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
+    margin: 0.5em;
 }
 
 h1 a {
@@ -63,7 +62,7 @@ td {
 }
 
 ul {
-    margin-left: 1em;
+    margin-left: 2em;
 }
 
 video {
