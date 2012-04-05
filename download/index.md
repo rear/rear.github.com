@@ -18,8 +18,8 @@ always the latest stable release. Here is an overview:
  * Arch:
    *No packages yet*
  * CentOS:
-   Add the <https://apps.fedoraproject.org/packages/rear,EPEL> or 
-   <http://pkgs.repoforge.org/rear/,Repoforge> repository and type:
+   Add the [EPEL](http://apps.fedoraproject.org/packages/rear) or
+   [Repoforge](http://pkgs.repoforge.org/rear/) repository and type:
    ```yum install rear```
  * Debian:
    *No packages yet, see below*
@@ -32,12 +32,12 @@ always the latest stable release. Here is an overview:
  * openSUSE:
    ```zyper install rear```
  * RHEL:
-   Add the <https://apps.fedoraproject.org/packages/rear,EPEL> or 
-   <http://pkgs.repoforge.org/rear/,Repoforge> repository and type:
+   Add the [EPEL](http://apps.fedoraproject.org/packages/rear) or
+   [Repoforge](http://pkgs.repoforge.org/rear/) repository and type:
    ```yum install rear```
  * Scientific Linux:
-   Add the <https://apps.fedoraproject.org/packages/rear,EPEL> or 
-   <http://pkgs.repoforge.org/rear/,Repoforge> repository and type:
+   Add the [EPEL](http://apps.fedoraproject.org/packages/rear) or
+   [Repoforge](http://pkgs.repoforge.org/rear/) repository and type:
    ```yum install rear```
  * SLES:
    ```zyper install rear```
@@ -46,33 +46,33 @@ If you are looking for newer stable release or snapshot release, take a look at
 our automated builds from:
 
  * CentOS:
-    <http://download.opensuse.org/repositories/home:/sschapiro/CentOS_CentOS-6/,6>,
-    <http://download.opensuse.org/repositories/home:/sschapiro/CentOS_5/,5>
+    [6](http://download.opensuse.org/repositories/home:/sschapiro/CentOS_CentOS-6/),
+    [5](http://download.opensuse.org/repositories/home:/sschapiro/CentOS_5/)
  * Debian:
-    <http://download.opensuse.org/repositories/home:/sschapiro/Debian_6.0/,6.0>,
-    <http://download.opensuse.org/repositories/home:/sschapiro/Debian_5.0/,5.0>
+    [6.0](http://download.opensuse.org/repositories/home:/sschapiro/Debian_6.0/),
+    [5.0](http://download.opensuse.org/repositories/home:/sschapiro/Debian_5.0/)
  * Fedora:
-    <http://download.opensuse.org/repositories/home:/sschapiro/Fedora_16/,16>,
-    <http://download.opensuse.org/repositories/home:/sschapiro/Fedora_15/,15>
+    [16](http://download.opensuse.org/repositories/home:/sschapiro/Fedora_16/),
+    [15](http://download.opensuse.org/repositories/home:/sschapiro/Fedora_15/)
  * Mandriva:
-    <http://download.opensuse.org/repositories/home:/sschapiro/Mandriva_2011/,2011>,
-    <http://download.opensuse.org/repositories/home:/sschapiro/Mandriva_2010.1/,2010.1>,
-    <http://download.opensuse.org/repositories/home:/sschapiro/Mandriva_2010/,2010>,
-    <http://download.opensuse.org/repositories/home:/sschapiro/Mandriva_2009.1/,2009.1>
+    [2011](http://download.opensuse.org/repositories/home:/sschapiro/Mandriva_2011/),
+    [2010.1](http://download.opensuse.org/repositories/home:/sschapiro/Mandriva_2010.1/),
+    [2010](http://download.opensuse.org/repositories/home:/sschapiro/Mandriva_2010/),
+    [2009.1](http://download.opensuse.org/repositories/home:/sschapiro/Mandriva_2009.1/)
  * openSUSE:
-    <http://download.opensuse.org/repositories/home:/sschapiro/openSUSE_12.1/,12.1>,
-    <http://download.opensuse.org/repositories/home:/sschapiro/openSUSE_11.4/,11.4>,
-    <http://download.opensuse.org/repositories/home:/sschapiro/openSUSE_11.3/,11.3>,
-    <http://download.opensuse.org/repositories/home:/sschapiro/openSUSE_Factory/,Factory>,
-    <http://download.opensuse.org/repositories/home:/sschapiro/openSUSE_Tumbleweed/,Tumbleweed>
+    [12.1](http://download.opensuse.org/repositories/home:/sschapiro/openSUSE_12.1/),
+    [11.4](http://download.opensuse.org/repositories/home:/sschapiro/openSUSE_11.4/),
+    [11.3](http://download.opensuse.org/repositories/home:/sschapiro/openSUSE_11.3/),
+    [Factory](http://download.opensuse.org/repositories/home:/sschapiro/openSUSE_Factory/),
+    [Tumbleweed](http://download.opensuse.org/repositories/home:/sschapiro/openSUSE_Tumbleweed/)
  * RHEL:
-    <http://download.opensuse.org/repositories/home:/sschapiro/RedHat_RHEL-6/,6>,
-    <http://download.opensuse.org/repositories/home:/sschapiro/RHEL_5/,5>,
-    <http://download.opensuse.org/repositories/home:/sschapiro/RHEL_4/,4>
+    [6](http://download.opensuse.org/repositories/home:/sschapiro/RedHat_RHEL-6/),
+    [5](http://download.opensuse.org/repositories/home:/sschapiro/RHEL_5/),
+    [4](http://download.opensuse.org/repositories/home:/sschapiro/RHEL_4/)
  * SLES:
-    <http://download.opensuse.org/repositories/home:/sschapiro/SLE_11_SP1/,11_SP1>,
-    <http://download.opensuse.org/repositories/home:/sschapiro/SLE_11/,11>,
-    <http://download.opensuse.org/repositories/home:/sschapiro/SLE_10/,10>
+    [11_SP1](http://download.opensuse.org/repositories/home:/sschapiro/SLE_11_SP1/),
+    [11](http://download.opensuse.org/repositories/home:/sschapiro/SLE_11/),
+    [10](http://download.opensuse.org/repositories/home:/sschapiro/SLE_10/)
 
 
 ## Future releases
