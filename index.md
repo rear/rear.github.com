@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Rear project
+title: Relax and Recover : Linux Disaster Recovery
 ---
 
 ## Welcome to the Relax and Recover website ##
