@@ -47,8 +47,8 @@ our automated builds:
     [5](http://download.opensuse.org/repositories/home:/sschapiro/CentOS_5/noarch/),
     [6](http://download.opensuse.org/repositories/home:/sschapiro/CentOS_CentOS-6/noarch/)
  * Debian:
-    [5.0](http://download.opensuse.org/repositories/home:/sschapiro/Debian_5.0/noarch/),
-    [6.0](http://download.opensuse.org/repositories/home:/sschapiro/Debian_6.0/noarch/)
+    [5.0](http://download.opensuse.org/repositories/home:/sschapiro/Debian_5.0/all/),
+    [6.0](http://download.opensuse.org/repositories/home:/sschapiro/Debian_6.0/all/)
  * Fedora:
     [15](http://download.opensuse.org/repositories/home:/sschapiro/Fedora_15/noarch/),
     [16](http://download.opensuse.org/repositories/home:/sschapiro/Fedora_16/noarch/)
@@ -72,13 +72,13 @@ our automated builds:
     [11](http://download.opensuse.org/repositories/home:/sschapiro/SLE_11/noarch/),
     [11_SP1](http://download.opensuse.org/repositories/home:/sschapiro/SLE_11_SP1/noarch/)
  * Ubuntu:
-    [8.04](http://download.opensuse.org/repositories/home:/sschapiro/xUbuntu_8.04/noarch/),
-    [9.04](http://download.opensuse.org/repositories/home:/sschapiro/xUbuntu_9.04/noarch/),
-    [9.10](http://download.opensuse.org/repositories/home:/sschapiro/xUbuntu_9.10/noarch/),
-    [10.04](http://download.opensuse.org/repositories/home:/sschapiro/xUbuntu_10.04/noarch/),
-    [10.10](http://download.opensuse.org/repositories/home:/sschapiro/xUbuntu_10.10/noarch/),
-    [11.04](http://download.opensuse.org/repositories/home:/sschapiro/xUbuntu_11.04/noarch/),
-    [11.10](http://download.opensuse.org/repositories/home:/sschapiro/xUbuntu_11.10/noarch/)
+    [8.04](http://download.opensuse.org/repositories/home:/sschapiro/xUbuntu_8.04/all/),
+    [9.04](http://download.opensuse.org/repositories/home:/sschapiro/xUbuntu_9.04/all/),
+    [9.10](http://download.opensuse.org/repositories/home:/sschapiro/xUbuntu_9.10/all/),
+    [10.04](http://download.opensuse.org/repositories/home:/sschapiro/xUbuntu_10.04/all/),
+    [10.10](http://download.opensuse.org/repositories/home:/sschapiro/xUbuntu_10.10/all/),
+    [11.04](http://download.opensuse.org/repositories/home:/sschapiro/xUbuntu_11.04/all/),
+    [11.10](http://download.opensuse.org/repositories/home:/sschapiro/xUbuntu_11.10/all/)
 
 
 ## Future releases
