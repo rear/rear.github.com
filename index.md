@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Relax and Recover : Linux Disaster Recovery
+title: Relax and Recover - Linux Disaster Recovery
 ---
 
 ## Welcome to the Relax and Recover website ##
