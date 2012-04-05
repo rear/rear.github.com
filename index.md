@@ -17,15 +17,15 @@ Learn more about selected usage scenarios:
 <tr>
 <td>
     <ul>
-        <li>recover from a broken hard disk using a bootable USB stick</li>
-        <li>recover a broken system from your bootloader</li>
+        <li>recover from a broken hard disk using a [bootable USB stick](/usage/#recovery_from_usb)</li>
+        <li>recover a broken system from your [bootloader](/usage/#rescue_system)</li>
     </ul>
 </td>
 <td>
     <ul>
-        <li>collect small ISO images on a central server</li>
-        <li>integrate with your backup solution</li>
-        <li>integrate with your monitoring solution</li>
+        <li>collect small ISO images on a [central server](/usage/#storing_on_a_central_nfs_server)</li>
+        <li>integrate with your [backup solution](/usage/#backup_integration)</li>
+        <li>integrate with your [monitoring solution](/usage/#monitoring_integration)</li>
     </ul>
 </td>
 </tr>
