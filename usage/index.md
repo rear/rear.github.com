@@ -1,0 +1,70 @@
+---
+layout: default
+title: Usage - Relax and Recover
+---
+
+## Usage scenarios ##
+
+### Recovery from USB ###
+
+Prepare your rescue media using
+
+    rear format /dev/sdX
+
+It will be labeled REAR-000. The `/etc/rear/local.conf` can be as simple as:
+
+    BACKUP=NETFS
+    OUTPUT=USB
+    OUTPUT_URL="usb:///dev/disk/by-label/REAR-000"
+
+Run `rear -v mkbackup` to create the rescue media.
+
+### Rescue system ###
+
+Rear will automatically add itself to the Grub bootloader. It copies itself to
+your `/boot` folder.
+
+To disable this, add
+
+    GRUB_RESCUE=
+
+to your local configuration.
+
+The entry in the bootloader is password protected. The default password is REAR.
+Change it in your own `local.conf`
+
+    GRUB_RESCUE_PASSWORD="SECRET"
+
+### Storing on a central NFS server ###
+
+The most straightforward way to store your DR images is using a central NFS
+server. The configuration below will store both a backup and the rescue CD in a
+directory on the share.
+
+    OUTPUT=ISO
+    BACKUP=NETFS
+    BACKUP_URL="nfs://192.168.122.1/nfs/rear/"
+
+### Backup integration ###
+
+Rear integrates with various backup solutions. Your backup software takes care
+of backing up all system files, Rear recreates the filesystems and starts the
+file restore.
+
+Currently Bacula, HP DataProtector, CommVault Galaxy, Symantec NetBackup and IBM
+Tivoli Storage Manager are supported.
+
+The following `local.conf` uses a USB stick for the rescue system. Multiple
+systems can use the USB stick since the size of the rescue system is probably
+less than 40M. It relies on your Bacula infrastructure to restore all files.
+
+    BACKUP=BACULA
+    OUTPUT=USB
+    OUTPUT_URL="usb:///dev/disk/by-label/REAR-000"
+
+### Monitoring integration ###
+
+Rear integrates with your monitoring. Run `rear checklayout`. In good unix 
+tradition this returns 0 if your system is safe. A return code of 1 should lead
+to a red light in your monitoring screen. Create a rescue image and the next
+time `rear checklayout` runs, it will return 0 again.
