@@ -34,9 +34,7 @@ Learn more about Rear from the selected usage scenarios below:
 
 Or watch a 4-minute complete backup and restore demo. Real time, no cheating!
 
-<center>
-    <iframe width="720" height="400" src="http://www.youtube.com/embed/33326XobwYg" frameborder="0" allowfullscreen="" align="center"></iframe>
-</center>
+<iframe width="720" height="400" src="http://www.youtube.com/embed/33326XobwYg" frameborder="0" allowfullscreen=""><p>Rear video</p></iframe>
 
 Your environment not supported? Rear is modular and easy to extend.
 It is GPL licensed and we welcome all feedback and contributions.

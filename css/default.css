@@ -74,3 +74,8 @@ ul {
 pre {
     margin-left: 2em;
 }
+
+iframe {
+    display: block;
+    margin: 1em auto;
+}
