@@ -71,9 +71,6 @@ ul {
     margin-left: 2em;
 }
 
-video {
-    display: block;
-    width: 100%;
-    max-width: 720px;
-    margin: 1em auto;
+pre {
+    margin-left: 2em;
 }
