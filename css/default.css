@@ -6,6 +6,7 @@
 
 html {
     background-image: url(/images/white_texture.png);
+    overflow-y: scroll;
 }
 
 body {
@@ -25,14 +26,18 @@ h1 {
 
 }
 
-h2 {
-    margin: 0.5em;
-}
-
 h1 a {
     color: white;
     font-size: 100%;
     text-decoration: none;
+}
+
+.content {
+    padding: 1em;
+}
+
+h2, h3 {
+    margin: 0.5em 0;
 }
 
 .nav {
@@ -46,7 +51,7 @@ h1 a {
 }
 
 p {
-    margin: 1em 1em;
+    margin: 1em 0;
 }
 
 th {
