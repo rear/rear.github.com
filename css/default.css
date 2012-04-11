@@ -78,4 +78,5 @@ pre {
 iframe {
     display: block;
     margin: 1em auto;
+    border: 0px;
 }
