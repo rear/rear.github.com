@@ -80,3 +80,8 @@ iframe {
     margin: 1em auto;
     border: 0;
 }
+
+.footer {
+    border-top: 1px solid black;
+    text-align: center;
+}
