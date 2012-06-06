@@ -13,4 +13,4 @@ in Berlin May 23-26! A big thank you for the enormous success of this event
 and/or [Rear workshop](http://www.linuxtag.org/2012/de/program/workshops/workshops/vortragsdetails.html?talkid=701)
 
 The rear talk has been placed on-line by Opensusetv:
-<iframe width="420" height="315" src="http://www.youtube.com/embed/jUfFzFU-SWY" frameborder="0" allowfullscreen></iframe>
+<iframe width="420" height="315" src="http://www.youtube.com/embed/jUfFzFU-SWY"><p>Rear presentation</iframe>
