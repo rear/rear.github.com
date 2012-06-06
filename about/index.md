@@ -11,7 +11,7 @@ it as a Disaster Recovery solution:
  * Modular design, written in Bash
    _(makes it possible to extend it with custom functionality)_
 
- * Set up and forget nature _(simple to setup, requires no maintenance)_
+ * Set up and forget nature _(easy to setup, requires no maintenance)_
 
  * Recovery image based on original distribution with original tools
    _(important to guarantee hardware support and improve compatibility)_
