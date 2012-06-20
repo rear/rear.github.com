@@ -1,12 +1,12 @@
 ---
 layout: default
-title: Relax and Recover - Linux Disaster Recovery
+title: Relax-and-Recover - Linux Disaster Recovery
 ---
 
-Relax and Recover (Rear) is a setup-and-forget *Linux disaster recovery* solution.
+Relax-and-Recover (Rear) is a setup-and-forget *Linux disaster recovery* solution.
 It is easy to set up and requires no maintenance so there is no excuse for not using it.
 
-Learn more about Relax and Recover from the selected usage scenarios below:
+Learn more about Relax-and-Recover from the selected usage scenarios below:
 
 <table>
 <tr>
@@ -34,7 +34,7 @@ Learn more about Relax and Recover from the selected usage scenarios below:
 
 Or watch a 4-minute complete backup and restore demo. Real time, no cheating!
 
-<iframe width="720" height="400" src="http://www.youtube.com/embed/33326XobwYg" ><p>Rear video</p></iframe>
+<iframe width="720" height="400" src="http://www.youtube.com/embed/33326XobwYg" ><p>Relax-and-Recover video</p></iframe>
 
-Your environment not supported? Relax and Recover is modular and easy to extend.
+Your environment not supported? Relax-and-Recover is modular and easy to extend.
 It is GPL licensed and we welcome all feedback and contributions.
