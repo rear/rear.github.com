@@ -1,32 +1,28 @@
 ---
 layout: default
-title: Rear development
+title: Relax-and-Recover development
 ---
 
 ## Development ##
-Currently the Rear project is migration from using
-[Sourceforge](http://sourceforge.net/rear) for development to the Github
-infrastructure at <http://github.com/rear>.
-
-Github will be used for hosting the website, the source code and the
-issue-tracker, but the mailinglist will remain at Sourceforge for the time
-being..
+The Relax-and-Recover project has move to Github recently, and is used
+for hosting this website, the source code and the issue-tracker, but
+the mailinglist will remain at Sourceforge for the time being..
 
 
 ## Release planning ##
 New releases are planned based on outstanding issues, new features and ongoing
 development. You can get an overview of the various milestones the project has
-defined and you can influence new releases by reporting issues and contributing
-fixes at: <https://github.com/rear/rear/issues/milestones>
+defined and you can influence new releases by reporting issues and by
+contributing fixes at: <https://github.com/rear/rear/issues/milestones>
 
 
 ## Mailinglists
-The Rear project offers two mailinglists:
+The Relax-and-Recover project offers two mailinglists:
 
- - [Users mailinglist](https://lists.sourceforge.net/lists/listinfo/rear-users)
-   used for support and development discussions
  - [Announce mailinglist](https://lists.sourceforge.net/lists/listinfo/rear-announce)
    used for release announcements
+ - [Users mailinglist](https://lists.sourceforge.net/lists/listinfo/rear-users)
+   used for support and development discussions
 
 
 ## Reporting issues ##
@@ -41,9 +37,9 @@ users and contributors alike.
 
 
 ## Contributing ##
-If you are interested in contributing to Rear, you can discuss your area
-of interest on the Rear users mailinglist, or you can simply fork the project
-on Github, make the modifications and then do a pull-request.
+If you are interested in contributing to Relax-and-Recover, you can discuss
+your area of interest on the users mailinglist, or you can simply fork the
+project on Github, make the modifications and then do a pull-request.
 
 This makes it easy for the project to discuss the changes through the
-pull-request, and when accepted to merge the pull-request in the project.
+pull-request, and when accepted to merge the pull-request into the project.
