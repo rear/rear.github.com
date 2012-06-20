@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Usage - Relax and Recover
+title: Relax-and-Recover usage
 ---
 
 ## Usage scenarios ##
@@ -21,8 +21,8 @@ Run `rear -v mkbackup` to create the rescue media.
 
 ### Rescue system ###
 
-Rear will automatically add itself to the Grub bootloader. It copies itself to
-your `/boot` folder.
+Relax-and-Recover will automatically add itself to the Grub bootloader.
+It copies itself to your `/boot` folder.
 
 To disable this, add
 
@@ -47,9 +47,9 @@ directory on the share.
 
 ### Backup integration ###
 
-Rear integrates with various backup solutions. Your backup software takes care
-of backing up all system files, Rear recreates the filesystems and starts the
-file restore.
+Relax-and-Recover integrates with various backup solutions. Your backup
+software takes care of backing up all system files, Relax-and-Recover
+recreates the filesystems and starts the file restore.
 
 Currently Bacula, HP DataProtector, CommVault Galaxy, Symantec NetBackup and IBM
 Tivoli Storage Manager are supported.
@@ -64,7 +64,7 @@ less than 40M. It relies on your Bacula infrastructure to restore all files.
 
 ### Monitoring integration ###
 
-Rear integrates with your monitoring. Run `rear checklayout`. In good unix 
-tradition this returns 0 if your system is safe. A return code of 1 should lead
-to a red light in your monitoring screen. Create a rescue image and the next
-time `rear checklayout` runs, it will return 0 again.
+Relax-and-Recover integrates with your monitoring. Run `rear checklayout`.
+In good Unix tradition this returns 0 if your system is safe. A return code
+of 1 should lead to a red light in your monitoring screen. Create a rescue
+image and the next time `rear checklayout` runs, it will return 0 again.

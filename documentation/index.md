@@ -1,22 +1,23 @@
 ---
 layout: default
-title: Rear documentation
+title: Relax-and-Recover documentation
 ---
 
-## Rear documentation ##
-The Rear documentation is being revised and updated.
+## Relax-and-Recover documentation ##
+The Relax-and-Recover documentation is being revised and updated.
 
 
 ### Under construction ###
 
 This page will consists of links to:
 
- - Rear user guide
+ - Relax-and-Recover manual page
+ - Relax-and-Recover user guide
    * Features
    * Installation
    * Configuration
    * Use cases
    * Best practices
    * Troubleshooting
- - Rear FAQ
- - Rear presentations
+ - Relax-and-Recover FAQ
+ - Relax-and-Recover presentations

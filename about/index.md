@@ -1,11 +1,11 @@
 ---
 layout: default
-title: Rear project
+title: Relax-and-Recover project
 ---
 
 ## About Relax and Recover ##
 
-Rear has a few interesting characteristics you may find useful when assessing
+Relax-and-Recover has a few interesting characteristics you may find useful when assessing
 it as a Disaster Recovery solution:
 
  * Modular design, written in Bash

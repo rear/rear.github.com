@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Rear download
+title: Relax-and-Recover download
 ---
 
 ## Download stable releases ##
@@ -18,8 +18,8 @@ Or you can get a private copy through:
 
 
 ## Distribution packages ##
-Various distributions ship Rear as part of their distribution, albeit not
-always the latest stable release. Here is an overview:
+Various distributions ship Relax-and-Recover as part of their distribution,
+albeit not always the latest stable release. Here is an overview:
 
  * CentOS:
    Add the [EPEL](http://apps.fedoraproject.org/packages/rear) or
