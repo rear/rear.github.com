@@ -4,16 +4,9 @@ title: Relax-and-Recover development
 ---
 
 ## Development ##
-The Relax-and-Recover project has move to Github recently, and is used
-for hosting this website, the source code and the issue-tracker, but
-the mailinglist will remain at Sourceforge for the time being..
-
-
-## Release planning ##
-New releases are planned based on outstanding issues, new features and ongoing
-development. You can get an overview of the various milestones the project has
-defined and you can influence new releases by reporting issues and by
-contributing fixes at: <https://github.com/rear/rear/issues/milestones>
+The Relax-and-Recover project has moved to Github recently, for hosting
+this website, the source code and the issue-tracker, but the mailinglist
+will remain at Sourceforge for the time being..
 
 
 ## Mailinglists
@@ -34,6 +27,13 @@ Once reported, one of the contributors can assign it to himself, classify the
 issue by tagging it or link it to a specific milestone release. Managing issues
 in this manner helps in collaborating, but also provides full transparency to
 users and contributors alike.
+
+
+## Release planning ##
+New releases are planned based on outstanding issues, new features and ongoing
+development. You can get an overview of the various milestones the project has
+defined and you can influence new releases by reporting issues and by
+contributing fixes at: <https://github.com/rear/rear/issues/milestones>
 
 
 ## Contributing ##
