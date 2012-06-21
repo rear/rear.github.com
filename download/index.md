@@ -53,7 +53,7 @@ albeit not always the latest stable release. Here is an overview:
 If you are looking for newer stable release or snapshot release, take a look at
 our automated builds from the OpenSUSE Build Service:
 
-#### Snapshot releases from Git
+#### Official stable releases
 
  * CentOS:
     [5](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/CentOS_CentOS-5/noarch/),
@@ -94,7 +94,7 @@ our automated builds from the OpenSUSE Build Service:
 #### Snapshot releases from Git
 
  * CentOS:
-    [5](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/CentOS_CentOS_5/noarch/),
+    [5](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/CentOS_CentOS-5/noarch/),
     [6](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/CentOS_CentOS-6/noarch/)
  * Debian:
     [6.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Debian_6.0/all/)
