@@ -3,7 +3,7 @@ layout: default
 title: Relax-and-Recover support
 ---
 
-## Community support ##
+## Community support
 For voluntary community support, you can use the
 [issue-tracker](http://github.com/rear/rear/issues) or the
 [mailinglist](https://lists.sourceforge.net/lists/listinfo/rear-users).
@@ -26,7 +26,7 @@ and are very grateful for reported issues and improvements, preferably
 with details.
 
 
-## Commercial Support ##
+## Professional Support
 If your company depends on Relax-and-Recover as a disaster recovery solution,
 we kindly ask you to support Relax-and-Recover development by taking a support
 contract, sponsor development or make use of consulting services offered by

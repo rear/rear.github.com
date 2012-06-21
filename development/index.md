@@ -3,13 +3,13 @@ layout: default
 title: Relax-and-Recover development
 ---
 
-## Development ##
+## Development
 The Relax-and-Recover project has moved to Github recently, for hosting
 this website, the source code and the issue-tracker, but the mailinglist
 will remain at Sourceforge for the time being..
 
 
-## Mailinglists
+### Mailinglists
 The Relax-and-Recover project offers two mailinglists:
 
  - [Announce mailinglist](https://lists.sourceforge.net/lists/listinfo/rear-announce)
@@ -18,7 +18,7 @@ The Relax-and-Recover project offers two mailinglists:
    used for support and development discussions
 
 
-## Reporting issues ##
+### Reporting issues
 The Github interface enables users to report issues or discuss improvements
 and new features through the issue-tracker at:
 <http://github.com/rear/rear/issues>
@@ -29,14 +29,14 @@ in this manner helps in collaborating, but also provides full transparency to
 users and contributors alike.
 
 
-## Release planning ##
+### Release planning
 New releases are planned based on outstanding issues, new features and ongoing
 development. You can get an overview of the various milestones the project has
 defined and you can influence new releases by reporting issues and by
 contributing fixes at: <https://github.com/rear/rear/issues/milestones>
 
 
-## Contributing ##
+### Contributing
 If you are interested in contributing to Relax-and-Recover, you can discuss
 your area of interest on the users mailinglist, or you can simply fork the
 project on Github, make the modifications and then do a pull-request.

@@ -3,9 +3,9 @@ layout: default
 title: Relax-and-Recover usage
 ---
 
-## Usage scenarios ##
+## Usage scenarios
 
-### Recovery from USB ###
+### Recovery from USB
 
 Prepare your rescue media using
 
@@ -19,7 +19,7 @@ It will be labeled REAR-000. The `/etc/rear/local.conf` can be as simple as:
 
 Run `rear -v mkbackup` to create the rescue media.
 
-### Rescue system ###
+### Rescue system
 
 Relax-and-Recover will automatically add itself to the Grub bootloader.
 It copies itself to your `/boot` folder.
@@ -35,7 +35,7 @@ Change it in your own `local.conf`
 
     GRUB_RESCUE_PASSWORD="SECRET"
 
-### Storing on a central NFS server ###
+### Storing on a central NFS server
 
 The most straightforward way to store your DR images is using a central NFS
 server. The configuration below will store both a backup and the rescue CD in a
@@ -45,7 +45,7 @@ directory on the share.
     BACKUP=NETFS
     BACKUP_URL="nfs://192.168.122.1/nfs/rear/"
 
-### Backup integration ###
+### Backup integration
 
 Relax-and-Recover integrates with various backup solutions. Your backup
 software takes care of backing up all system files, Relax-and-Recover
@@ -62,7 +62,7 @@ less than 40M. It relies on your Bacula infrastructure to restore all files.
     OUTPUT=USB
     OUTPUT_URL="usb:///dev/disk/by-label/REAR-000"
 
-### Monitoring integration ###
+### Monitoring integration
 
 Relax-and-Recover integrates with your monitoring. Run `rear checklayout`.
 In good Unix tradition this returns 0 if your system is safe. A return code

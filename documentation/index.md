@@ -3,11 +3,11 @@ layout: default
 title: Relax-and-Recover documentation
 ---
 
-## Relax-and-Recover documentation ##
+## Relax-and-Recover documentation
 The Relax-and-Recover documentation is being revised and updated.
 
 
-### Under construction ###
+### Under construction
 
 This page will consists of links to:
 

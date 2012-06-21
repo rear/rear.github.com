@@ -3,7 +3,7 @@ layout: default
 title: Relax-and-Recover project
 ---
 
-## About Relax and Recover ##
+## About Relax-and-Recover
 
 Relax-and-Recover has a few interesting characteristics you may find useful when assessing
 it as a Disaster Recovery solution:

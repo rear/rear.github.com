@@ -3,12 +3,14 @@ layout: default
 title: Relax-and-Recover download
 ---
 
-## Download stable releases ##
+## Download Relax-and-Recover
+
+### Stable releases
 The various stable release are available from the
 [Github Downloads](https://github.com/rear/rear/downloads) page.
 
 
-## Download development snapshot ##
+### Development snapshot
 The latest development snapshot is available through the
 [Github tarball](https://github.com/rear/rear/tarball/master) interface.
 
@@ -17,7 +19,7 @@ Or you can get a private copy through:
     ```git clone git://github.com/rear/rear.git```
 
 
-## Distribution packages ##
+### Distribution packages
 Various distributions ship Relax-and-Recover as part of their distribution,
 albeit not always the latest stable release. Here is an overview:
 
@@ -87,6 +89,6 @@ our automated builds:
     [11.10](http://download.opensuse.org/repositories/home:/sschapiro/xUbuntu_11.10/all/)
 
 
-## Future releases
+### Future releases
 Future releases are planned and communicated through Github milestones at:
 <https://github.com/rear/rear/issues/milestones>
