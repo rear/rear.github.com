@@ -4,17 +4,16 @@ title: Relax-and-Recover development
 ---
 
 ## Development
-The Relax-and-Recover project has moved to Github recently, for hosting
-this website, the source code and the issue-tracker, but the mailinglist
-will remain at Sourceforge for the time being..
+The Relax-and-Recover project has moved to Github recently, it is used for
+the website, the issue-tracker and source code management.
 
 
 ### Mailinglists
 The Relax-and-Recover project offers two mailinglists:
 
- - [Announce mailinglist](https://lists.sourceforge.net/lists/listinfo/rear-announce)
+ - [Announce mailinglist](https://lists.relax-and-recover.org/lists/listinfo/rear-announce)
    used for release announcements
- - [Users mailinglist](https://lists.sourceforge.net/lists/listinfo/rear-users)
+ - [Users mailinglist](https://lists.relax-and-recover.org/lists/listinfo/rear-users)
    used for support and development discussions
 
 
