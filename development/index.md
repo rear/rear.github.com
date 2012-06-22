@@ -11,9 +11,9 @@ the website, the issue-tracker and source code management.
 ### Mailinglists
 The Relax-and-Recover project offers two mailinglists:
 
- - [Announce mailinglist](https://lists.relax-and-recover.org/lists/listinfo/rear-announce)
+ - [Announce mailinglist](https://lists.relax-and-recover.org/mailman/listinfo/rear-announce)
    used for release announcements
- - [Users mailinglist](https://lists.relax-and-recover.org/lists/listinfo/rear-users)
+ - [Users mailinglist](https://lists.relax-and-recover.org/mailman/listinfo/rear-users)
    used for support and development discussions
 
 
