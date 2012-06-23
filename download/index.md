@@ -16,29 +16,39 @@ The latest development snapshot is available through the
 
 Or you can get a private copy through:
 
-    ```git clone git://github.com/rear/rear.git```
+    git clone git://github.com/rear/rear.git
 
 
 ### Distribution packages
 Various distributions ship Relax-and-Recover as part of their distribution,
 albeit not always the latest stable release. Here is an overview:
 
- * Debian:
-   *No official packages yet, see below*
- * Fedora:
-   ```yum install rear```
- * Mandriva:
-   *No official packages yet, see below*
- * openSUSE:
-   ```zyper install rear```
- * RHEL, CentOS, Scientific Linux, Oracle Linux:
-   Add the [EPEL](http://apps.fedoraproject.org/packages/rear) or
-   [Repoforge](http://pkgs.repoforge.org/rear/) repository and type:
-   ```yum install rear```
- * SLES:
-   ```zyper install rear```
- * Ubuntu:
-   *No official packages yet, see below*
+#### Debian
+*No official packages yet, see below*
+
+#### Fedora
+
+    yum install rear
+
+#### Mandriva
+*No official packages yet, see below*
+
+#### openSUSE
+
+    zyper install rear
+
+#### RHEL, CentOS, Scientific Linux, Oracle Linux
+Add the [EPEL](http://apps.fedoraproject.org/packages/rear) or
+[Repoforge](http://pkgs.repoforge.org/rear/) repository and type:
+
+    yum install rear
+
+#### SLES
+
+    zyper install rear
+
+#### Ubuntu
+*No official packages yet, see below*
 
 
 ### OpenSUSE Build Service packages
