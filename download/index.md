@@ -23,10 +23,6 @@ Or you can get a private copy through:
 Various distributions ship Relax-and-Recover as part of their distribution,
 albeit not always the latest stable release. Here is an overview:
 
- * CentOS:
-   Add the [EPEL](http://apps.fedoraproject.org/packages/rear) or
-   [Repoforge](http://pkgs.repoforge.org/rear/) repository and type:
-   ```yum install rear```
  * Debian:
    *No official packages yet, see below*
  * Fedora:
@@ -35,11 +31,7 @@ albeit not always the latest stable release. Here is an overview:
    *No official packages yet, see below*
  * openSUSE:
    ```zyper install rear```
- * RHEL:
-   Add the [EPEL](http://apps.fedoraproject.org/packages/rear) or
-   [Repoforge](http://pkgs.repoforge.org/rear/) repository and type:
-   ```yum install rear```
- * Scientific Linux:
+ * RHEL, CentOS, Scientific Linux, Oracle Linux:
    Add the [EPEL](http://apps.fedoraproject.org/packages/rear) or
    [Repoforge](http://pkgs.repoforge.org/rear/) repository and type:
    ```yum install rear```
@@ -55,9 +47,6 @@ our automated builds from the OpenSUSE Build Service:
 
 #### Official stable releases
 
- * CentOS:
-    [5](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/CentOS_CentOS-5/noarch/),
-    [6](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/CentOS_CentOS-6/noarch/)
  * Debian:
     [5.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_5.0/all/)
     [6.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_6.0/all/)
@@ -93,9 +82,6 @@ our automated builds from the OpenSUSE Build Service:
 
 #### Snapshot releases from Git
 
- * CentOS:
-    [5](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/CentOS_CentOS-5/noarch/),
-    [6](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/CentOS_CentOS-6/noarch/)
  * Debian:
     [6.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Debian_6.0/all/)
  * Fedora:
