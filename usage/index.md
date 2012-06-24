@@ -68,7 +68,7 @@ Relax-and-Recover integrates with your monitoring. The `rear checklayout`
 command will tell you if the most recent rescue environment deviates from
 your storage configuration (e.g. LVM changes, filesystem resized, ...)
 
-In good Unix tradition `rear checklauout` returns 0 if your system is in
+In good Unix tradition `rear checklayout` returns 0 if your system is in
 sync with your rescue image.  A return code of 1 should lead to a red
 light in your monitoring screen because a new rescue image is needed. Create
 a rescue image and the next time `rear checklayout` runs, it will return
