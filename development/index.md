@@ -42,3 +42,11 @@ project on Github, make the modifications and then do a pull-request.
 
 This makes it easy for the project to discuss the changes through the
 pull-request, and when accepted to merge the pull-request into the project.
+
+### Professional services
+If your company requires integrating Relax-and-Recover into their DRP setup or
+is interested to sponsor certain development, this is possible by the following
+companies that offer development services:
+
+ - [Dagit Linux Solutions](http://dagit.net/) (Dag Wieërs)
+ - [IT3 Consultants](http://www.it3.be/) (Gratien D'haese)
