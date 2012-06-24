@@ -6,7 +6,8 @@ title: Relax-and-Recover documentation
 ## Relax-and-Recover documentation
 The Relax-and-Recover documentation is being revised and updated.
 
-=== Getting Started
+### Getting Started
+
 This quick start guide will show you how to run Relax-and-Recover from the git
 checkout and create a bootable USB backup.
 
