@@ -4,8 +4,8 @@ title: Relax-and-Recover development
 ---
 
 ## Development
-The Relax-and-Recover project has moved to Github recently, it is used for
-the website, the issue-tracker and source code management.
+The Relax-and-Recover project uses Github for [source code management](https://github.com/rear),
+issue tracking and this website.
 
 
 ### Mailinglists
