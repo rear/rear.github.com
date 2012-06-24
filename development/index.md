@@ -50,3 +50,6 @@ companies that offer development services:
 
  - [Dagit Linux Solutions](http://dagit.net/) (Dag Wieërs)
  - [IT3 Consultants](http://www.it3.be/) (Gratien D'haese)
+
+The various contributors have invested a lot in the creation and support
+of Relax-and-Recover.
