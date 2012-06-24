@@ -15,11 +15,11 @@ Relax-and-Recover and provide us with as much detail as possible regarding
 the experienced problem(s) in order to quickly resolve user problems.
 The details we require may include:
 
- * Relax-and-Recover version and distribution version information
- * Any custom configuration (from */etc/rear/*)
- * Any related screen output
- * Produced logfile (from */var/log/rear/*)
-   * Optionally run with debugging enabled (```rear -Dv```)
+- Relax-and-Recover version and distribution version information
+- Any custom configuration (from */etc/rear/*)
+- Any related screen output
+- Produced logfile (from */var/log/rear/*)
+    * Optionally run with debugging enabled (```rear -Dv```)
 
 Rest assured, the Relax-and-Recover developers do not like bugs either
 and are very grateful for reported issues and improvements, preferably
