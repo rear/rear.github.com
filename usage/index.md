@@ -64,7 +64,16 @@ less than 40M. It relies on your Bacula infrastructure to restore all files.
 
 ### Monitoring integration
 
-Relax-and-Recover integrates with your monitoring. Run `rear checklayout`.
-In good Unix tradition this returns 0 if your system is safe. A return code
-of 1 should lead to a red light in your monitoring screen. Create a rescue
-image and the next time `rear checklayout` runs, it will return 0 again.
+Relax-and-Recover integrates with your monitoring. The `rear checklayout`
+command will tell you if the most recent rescue environment deviates from
+your storage configuration (e.g. LVM changes, filesystem resized, ...)
+
+In good Unix tradition `rear checklauout` returns 0 if your system is in
+sync with your rescue image.  A return code of 1 should lead to a red
+light in your monitoring screen because a new rescue image is needed. Create
+a rescue image and the next time `rear checklayout` runs, it will return
+0 again, and your monitoring will switch to green.
+
+You can also automate the creation of rescue images by adding a cron job for
+`/usr/sbin/rear checklayout || /usr/sbin/rear mkrescue`. And make sure the
+`OUTPUT_URL` points to a central location for storing your rescue images.

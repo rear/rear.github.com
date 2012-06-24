@@ -22,10 +22,10 @@ The Github interface enables users to report issues or discuss improvements
 and new features through the issue-tracker at:
 <http://github.com/rear/rear/issues>
 
-Once reported, one of the contributors can assign it to himself, classify the
-issue by tagging it or link it to a specific milestone release. Managing issues
-in this manner helps in collaborating, but also provides full transparency to
-users and contributors alike.
+Once reported, one of the contributors can assign it to someone, classify it
+and attached it to a milestone release. Managing issues in this manner helps
+in collaborating, but also provides full transparency to users and contributors
+alike.
 
 
 ### Release planning
