@@ -27,8 +27,14 @@ it as a Disaster Recovery solution:
  * Extensive disk layout implementation
    _(with support for HWRAID, SWRAID, LVM, multipathing, DRBD, iSCSI, LUKS, ...)_
 
- * Supports various backup technologies
-   _(incl. DataProtector, Bacula, TSM, NetBackup, tar, rsync)_
+ * Supports various backup technologies, incl.
+   * HP DataProtector
+   * IBM Tivoli Storage Manager (TSM)
+   * Symantec NetBackup
+   * CommVault Galaxy
+   * Bacula
+   * tar
+   * rsync
 
  * Two phase disk layout recovery
    _(enables migrations from e.g. SWRAID to HWRAID, a HWRAID reconfiguration or from partitions to LVM)_
@@ -41,8 +47,8 @@ it as a Disaster Recovery solution:
  * Various techniques to help troubleshooting
    _(e.g. restoring to modified hardware etc...)_
 
-   * structured log-files
-   * log-files are moved to recovery image, and to recovered system (available in every step for debugging)
+   * structured log files
+   * log files are moved to recovery image, and to recovered system (available in every step for debugging)
    * advanced debugging options to help trace scripts or develop new functionality
 
  * Integration with monitoring (examples for Nagios)

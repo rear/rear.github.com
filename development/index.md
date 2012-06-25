@@ -11,10 +11,12 @@ issue tracking and this website.
 ### Mailinglists
 The Relax-and-Recover project offers two mailinglists:
 
- - [Announce mailinglist](http://lists.relax-and-recover.org/mailman/listinfo/rear-announce)
+ - [rear-announce mailinglist](http://lists.relax-and-recover.org/mailman/listinfo/rear-announce)
    used for release announcements
- - [Users mailinglist](http://lists.relax-and-recover.org/mailman/listinfo/rear-users)
-   used for support and development discussions
+ - [rear-ssers mailinglist](http://lists.relax-and-recover.org/mailman/listinfo/rear-users)
+   used for end-user support
+ - [rear-devel mailinglist](http://lists.relax-and-recover.org/mailman/listinfo/rear-devel)
+   used for development discussions
 
 
 ### Reporting issues
@@ -50,6 +52,7 @@ companies that offer development services:
 
  - [Dagit Linux Solutions](http://dagit.net/) (Dag Wieërs)
  - [IT3 Consultants](http://www.it3.be/) (Gratien D'haese)
+ - [Schlomo Schapiro](http://consulting.schlomo.schapiro.org/)
 
 The various contributors have invested a lot in the creation and support
 of Relax-and-Recover.

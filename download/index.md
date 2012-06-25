@@ -4,6 +4,8 @@ title: Relax-and-Recover download
 ---
 
 ## Download Relax-and-Recover
+The project announces new releases on the low-traffic [rear-announce mailinglist](http://lists.relax-and-recover.org/mailman/listinfo/rear-announce).
+
 
 ### Stable releases
 The various stable release are available from the
