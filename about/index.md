@@ -10,7 +10,7 @@ it as a Disaster Recovery solution:
 
  * Modular design, written in Bash
    * easy to extend with custom functionality
-   * targetted at sysadmins, not developers
+   * targetted at sysadmins first, developers second
 
  * Set up and forget nature
    * designed to be easy to setup _(Relax-and-Deploy!)_
