@@ -18,14 +18,29 @@ it as a Disaster Recovery solution:
 
  * Two step recovery, and optional guided menus
 
- * Support for various integrated media types
-   _(incl. ISO, USB, eSATA, OBDR/bootable tape, PXE)_
+ * Support for various integrated boot media types, incl.
+   * ISO
+   * USB
+   * eSATA
+   * OBDR/bootable tape
+   * PXE
 
- * Support for various transport methods
-   _(incl. HTTP, HTTPS, FTP, SFTP, NFS, CIFS, ...)_
+ * Support for various transport methods, incl.
+   * HTTP
+   * HTTPS
+   * FTP
+   * SFTP
+   * NFS
+   * CIFS
 
- * Extensive disk layout implementation
-   _(with support for HWRAID, SWRAID, LVM, multipathing, DRBD, iSCSI, LUKS, ...)_
+ * Extensive disk layout implementation, incl.
+   * HWRAID (HP SmartArray)
+   * SWRAID
+   * LVM
+   * multipathing
+   * DRBD
+   * iSCSI
+   * LUKS (encrypted partitions and filesystems)
 
  * Supports various backup technologies, incl.
    * HP DataProtector
