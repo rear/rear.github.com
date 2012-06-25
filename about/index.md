@@ -9,14 +9,20 @@ Relax-and-Recover has a few interesting characteristics you may find useful when
 it as a Disaster Recovery solution:
 
  * Modular design, written in Bash
-   _(makes it possible to extend it with custom functionality)_
+   * easy to extend with custom functionality
+   * targetted at sysadmins, not developers
 
- * Set up and forget nature _(easy to setup, requires no maintenance)_
+ * Set up and forget nature
+   * designed to be easy to setup _(Relax-and-Deploy!)_
+   * designed to require no maintenance _(new images through cron job)_
 
  * Recovery image based on original distribution with original tools
-   _(important to guarantee hardware support and improve compatibility)_
+   * recovery process remains compatible with original system and applications
+   * hardware support is guaranteed
 
- * Two step recovery, and optional guided menus
+ * Two-step recovery, and optional guided menus
+   * disaster recovery process targetted at operational teams
+   * migration process offers flexibility and control
 
  * Support for various integrated boot media types, incl.
    * ISO
@@ -51,22 +57,20 @@ it as a Disaster Recovery solution:
    * tar
    * rsync
 
- * Two phase disk layout recovery
-   _(enables migrations from e.g. SWRAID to HWRAID, a HWRAID reconfiguration or from partitions to LVM)_
-
-   * rescue image contains an abstract disk layout configuration
-   * during recovery one can modify this disk layout configuration before restoring
+ * Two phase disk layout recovery, allows reconfiguration before recovery, e.g.
+   * migrations from eg. SWRAID to HWRAID, or unencryped to encrypted partitions
+   * HWRAID reconfigurations
+   * migration from partitions to LVM
 
  * Support for P2V, V2P, V2V and P2P scenarios
+   * Various virtualization options supported (KVM, Xen, VMware)
 
  * Various techniques to help troubleshooting
-   _(e.g. restoring to modified hardware etc...)_
-
-   * structured log files
+   * structured log files and guided menus
    * log files are moved to recovery image, and to recovered system (available in every step for debugging)
    * advanced debugging options to help trace scripts or develop new functionality
 
- * Integration with monitoring (examples for Nagios)
+ * Integration with monitoring (examples for Nagios/Opsview)
 
  * Integration with scheduler
    _(e.g. let cron recreate and transfer your images upon disk layout changes)_
