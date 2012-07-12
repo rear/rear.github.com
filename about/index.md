@@ -25,9 +25,9 @@ it as a Disaster Recovery solution:
    * migration process offers flexibility and control
 
  * Bare metal recovery on dissimilar hardware
-   * Support for physical-to-virtual (P2V), virtual-to-physical (V2P)
-   * Support for physical-to-physical (P2P) and virtual-to-virtual (V2V)
-   * Various virtualization options supported (KVM, Xen, VMware)
+   * support for physical-to-virtual (P2V), virtual-to-physical (V2P)
+   * support for physical-to-physical (P2P) and virtual-to-virtual (V2V)
+   * various virtualization options supported (KVM, Xen, VMware)
 
  * Support for various integrated boot media types, incl.
    * ISO
