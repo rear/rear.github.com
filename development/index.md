@@ -9,11 +9,11 @@ issue tracking and this website.
 
 
 ### Mailinglists
-The Relax-and-Recover project offers two mailinglists:
+The Relax-and-Recover project offers three mailinglists:
 
  - [rear-announce mailinglist](http://lists.relax-and-recover.org/mailman/listinfo/rear-announce)
    used for release announcements
- - [rear-ssers mailinglist](http://lists.relax-and-recover.org/mailman/listinfo/rear-users)
+ - [rear-users mailinglist](http://lists.relax-and-recover.org/mailman/listinfo/rear-users)
    used for end-user support
  - [rear-devel mailinglist](http://lists.relax-and-recover.org/mailman/listinfo/rear-devel)
    used for development discussions

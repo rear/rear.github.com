@@ -12,7 +12,7 @@ The various stable release are available from the
 [Github Downloads](https://github.com/rear/rear/downloads) page.
 
 
-### Development snapshot
+### Master branch snapshot
 The latest development snapshot is available through the
 [Github tarball](https://github.com/rear/rear/tarball/master) interface.
 
@@ -25,15 +25,9 @@ Or you can get a private copy through:
 Various distributions ship Relax-and-Recover as part of their distribution,
 albeit not always the latest stable release. Here is an overview:
 
-#### Debian
-*No official packages yet, see below*
-
 #### Fedora
 
     yum install rear
-
-#### Mandriva
-*No official packages yet, see below*
 
 #### openSUSE
 
@@ -48,9 +42,6 @@ Add the [EPEL](http://apps.fedoraproject.org/packages/rear) or
 #### SLES
 
     zyper install rear
-
-#### Ubuntu
-*No official packages yet, see below*
 
 
 ### OpenSUSE Build Service packages
