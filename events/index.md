@@ -13,7 +13,7 @@ in Berlin May 23-26! A big thank you for the enormous success of this event
 and/or [Relax-and-Recover workshop](http://www.linuxtag.org/2012/de/program/workshops/workshops/vortragsdetails.html?talkid=701)
 
 The Relax-and-Recover talk has been placed on-line by Opensusetv:
-<iframe width="420" height="315" src="http://www.youtube.com/embed/jUfFzFU-SWY"><p>Relax-and-Recover talk</p></iframe>
+<iframe width="420" height="315" src="http://www.youtube.com/embed/jUfFzFU-SWY" frameborder="0" allowfullscreen><p>Relax-and-Recover talk</p></iframe>
 
 
 ### FlossUK 2012 Spring conference, Edinburgh, UK
@@ -30,3 +30,8 @@ Europe 2011 in Prague, CZ. The session included a broad overview of
 the design and functionality that Relax-and-Recover offers, real-life
 use-cases and a live demonstration of using Relax-and-Recover with USB
 boot media.
+
+### FOSDEM 2011, Brussels, BE
+Gratien D'haese gave a presentation about Linux disaster recovery in 
+general and Relax-and-Recover in particular at FOSDEM.
+<iframe width="420" height="315" src="http://www.youtube.com/embed/4SMdxIGWxeQ" frameborder="0" allowfullscreen><p>Relax-and-Recover talk</iframe>
