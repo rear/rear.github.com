@@ -24,6 +24,11 @@ it as a Disaster Recovery solution:
    * disaster recovery process targetted at operational teams
    * migration process offers flexibility and control
 
+ * Bare metal recovery on dissimilar hardware
+   * Support for physical-to-virtual (P2V), virtual-to-physical (V2P)
+   * Support for physical-to-physical (P2P) and virtual-to-virtual (V2V)
+   * Various virtualization options supported (KVM, Xen, VMware)
+
  * Support for various integrated boot media types, incl.
    * ISO
    * USB
@@ -61,9 +66,6 @@ it as a Disaster Recovery solution:
    * migrations from eg. SWRAID to HWRAID, or unencryped to encrypted partitions
    * HWRAID reconfigurations
    * migration from partitions to LVM
-
- * Support for P2V, V2P, V2V and P2P scenarios
-   * Various virtualization options supported (KVM, Xen, VMware)
 
  * Various techniques to help troubleshooting
    * structured log files and guided menus
