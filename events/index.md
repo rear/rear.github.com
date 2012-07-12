@@ -14,7 +14,7 @@ in Berlin May 23-26! A big thank you for the enormous success of this event
 and/or [Relax-and-Recover workshop](http://www.linuxtag.org/2012/de/program/workshops/workshops/vortragsdetails.html?talkid=701)
 
 The Relax-and-Recover talk has been placed on-line by OpenSUSE TV.
-<break clear="right">
+<br clear="right">
 
 
 ### FlossUK 2012 Spring conference, Edinburgh, UK
@@ -38,4 +38,4 @@ Gratien D'haese gave a presentation about Linux disaster recovery in
 general and Relax-and-Recover in particular at FOSDEM.
 
 The Relax-and-Recover talk has been placed on-line by FOSDEM.
-<break clear="right">
+<br clear="right">
