@@ -6,14 +6,15 @@ title: Relax-and-Recover events
 ## Relax-and-Recover events
 
 ### LinuxTag 2012, Berlin, DE
+<iframe width="280" height="210" src="http://www.youtube.com/embed/jUfFzFU-SWY" align="right"><p>Relax-and-Recover talk</p></iframe>
 Relax-and-Recover was again present at the [LinuxTag](http://linuxtag.org)
 in Berlin May 23-26! A big thank you for the enormous success of this event
 (a lot of people came to our booth and attended the
 [Relax-and-Recover talk](http://www.linuxtag.org/2012/en/program/program/vortragsdetails.html?no_cache=1&talkid=195)
 and/or [Relax-and-Recover workshop](http://www.linuxtag.org/2012/de/program/workshops/workshops/vortragsdetails.html?talkid=701)
 
-The Relax-and-Recover talk has been placed on-line by Opensusetv:
-<iframe width="420" height="315" src="http://www.youtube.com/embed/jUfFzFU-SWY" frameborder="0" allowfullscreen><p>Relax-and-Recover talk</p></iframe>
+The Relax-and-Recover talk has been placed on-line by OpenSUSE TV.
+<break clear="right">
 
 
 ### FlossUK 2012 Spring conference, Edinburgh, UK
@@ -32,6 +33,9 @@ use-cases and a live demonstration of using Relax-and-Recover with USB
 boot media.
 
 ### FOSDEM 2011, Brussels, BE
-Gratien D'haese gave a presentation about Linux disaster recovery in 
+<iframe width="280" height="210" src="http://www.youtube.com/embed/4SMdxIGWxeQ" align="right"><p>Relax-and-Recover talk</p></iframe>
+Gratien D'haese gave a presentation about Linux disaster recovery in
 general and Relax-and-Recover in particular at FOSDEM.
-<iframe width="420" height="315" src="http://www.youtube.com/embed/4SMdxIGWxeQ" frameborder="0" allowfullscreen><p>Relax-and-Recover talk</iframe>
+
+The Relax-and-Recover talk has been placed on-line by FOSDEM.
+<break clear="right">
