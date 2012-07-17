@@ -31,7 +31,7 @@ albeit not always the latest stable release. Here is an overview:
 
 #### openSUSE
 
-    zyper install rear
+    zypper install rear
 
 #### RHEL, CentOS, Scientific Linux, Oracle Linux
 Add the [EPEL](http://apps.fedoraproject.org/packages/rear) or
@@ -41,7 +41,7 @@ Add the [EPEL](http://apps.fedoraproject.org/packages/rear) or
 
 #### SLES
 
-    zyper install rear
+    zypper install rear
 
 
 ### OpenSUSE Build Service packages
