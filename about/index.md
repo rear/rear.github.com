@@ -10,24 +10,24 @@ it as a Disaster Recovery solution:
 
  * Modular design, written in Bash
    * easy to extend with custom functionality
-   * targetted at sysadmins first, developers second
+   * targeted at sysadmins foremost
 
  * Set up and forget nature
-   * designed to be easy to setup _(Relax-and-Deploy!)_
-   * designed to require no maintenance _(new images through cron job)_
+   * designed to be easy to setup
+   * designed to require no maintenance _(e.g. cron integration, nagios monitoring)_
 
  * Recovery image based on original distribution with original tools
    * recovery process remains compatible with original system and applications
    * hardware support is guaranteed
 
- * Two-step recovery, and optional guided menus
-   * disaster recovery process targetted at operational teams
+ * Two-step recovery, with optional guided menus
+   * disaster recovery process targeted at operational teams
    * migration process offers flexibility and control
 
  * Bare metal recovery on dissimilar hardware
    * support for physical-to-virtual (P2V), virtual-to-physical (V2P)
    * support for physical-to-physical (P2P) and virtual-to-virtual (V2V)
-   * various virtualization options supported (KVM, Xen, VMware)
+   * various virtualization technologies supported (KVM, Xen, VMware)
 
  * Support for various integrated boot media types, incl.
    * ISO
@@ -42,7 +42,7 @@ it as a Disaster Recovery solution:
    * FTP
    * SFTP
    * NFS
-   * CIFS
+   * CIFS (SMB)
 
  * Extensive disk layout implementation, incl.
    * HWRAID (HP SmartArray)
@@ -61,9 +61,10 @@ it as a Disaster Recovery solution:
    * Bacula
    * tar
    * rsync
+   * duplicity / duply
 
  * Two phase disk layout recovery, allows reconfiguration before recovery, e.g.
-   * migrations from eg. SWRAID to HWRAID, or unencryped to encrypted partitions
+   * migrations from e.g. SWRAID to HWRAID, or unencryped to encrypted partitions
    * HWRAID reconfigurations
    * migration from partitions to LVM
 
