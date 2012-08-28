@@ -51,9 +51,9 @@ our automated builds from the OpenSUSE Build Service:
 #### Official stable releases
 
  * Debian:
+    [5.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_5.0/all/)
     [6.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_6.0/all/)
  * Fedora:
-    [15](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Fedora_15/noarch/),
     [16](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Fedora_16/noarch/),
     [17](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Fedora_17/noarch/)
  * Mandriva:
@@ -87,7 +87,6 @@ our automated builds from the OpenSUSE Build Service:
  * Debian:
     [6.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Debian_6.0/all/)
  * Fedora:
-    [15](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Fedora_15/noarch/),
     [16](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Fedora_16/noarch/),
     [17](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Fedora_17/noarch/)
  * Mandriva:
