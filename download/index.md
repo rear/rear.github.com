@@ -85,6 +85,7 @@ our automated builds from the OpenSUSE Build Service:
 #### Snapshot releases from Git
 
  * Debian:
+    [5.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Debian_5.0/all/)
     [6.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Debian_6.0/all/)
  * Fedora:
     [16](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Fedora_16/noarch/),
