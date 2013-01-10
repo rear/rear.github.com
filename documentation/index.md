@@ -74,7 +74,7 @@ backup using:
 
     sudo usr/sbin/rear -v mkbackup
 
-That's it. Your hard disk can now safely fail.
+That is it. Your hard disk can now safely fail.
 
 ### Under construction
 
@@ -83,10 +83,10 @@ This page will consists of links to:
  - Relax-and-Recover manual page
  - Relax-and-Recover user guide
    * Features
-   * Installation
+   * <a href="/documentation/installation">Installation</a>
    * Configuration
    * Use cases
    * Best practices
    * Troubleshooting
- - Relax-and-Recover FAQ
+ - <a href="/documentation/faq">Relax-and-Recover FAQ</a>
  - Relax-and-Recover presentations
