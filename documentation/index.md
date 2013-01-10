@@ -83,7 +83,7 @@ This page will consists of links to:
  - Relax-and-Recover manual page
  - Relax-and-Recover user guide
    * Features
-   * <a href="/documentation/installation">Installation</a>
+   * [Installation](http://relax-and-recover.org/documentation/installation)
    * Configuration
    * Use cases
    * Best practices
