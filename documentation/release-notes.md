@@ -8,10 +8,12 @@ title: Relax-and-Recover Release Notes
 This document contains the release notes for the open source project
 Relax-and-Recover.
 
-Relax-and-Recover website::
+Relax-and-Recover website:
+
     http://relax-and-recover.org/
 
-Github project::
+Github project:
+
     https://github.com/rear/
 
 This document is distributed with the following license: "Creative Commons
@@ -84,22 +86,22 @@ functionality:
 * Support backup software: Bacula, both locally attached tapes (with
   bextract) and network-based backups. Also, in combination with OBDR tapes.
 
-* Create OBDR tapes with method +mkbackup+ and put the backup onto the tape
+* Create OBDR tapes with method `mkbackup` and put the backup onto the tape
   to have a single-tape bootable recovery solution
 
-* Label the OBDR tape with the method +format+ to avoid accidental
+* Label the OBDR tape with the method `format` to avoid accidental
   overwrites with OBDR
 
 * Create bootable disk (eSATA, USB ...) media with the backup included:
-----
-BACKUP_URL=usb:///dev/<device>
-----
-Together with +OUTPUT=USB+ we have now a complete solution on hard disks
+
+    BACKUP_URL=usb:///dev/<device>
+
+Together with `OUTPUT=USB` we have now a complete solution on hard disks
 (booting of it and restoring data).
 
 * DHCP client support (IPv4 and IPv6) has been added. Dhcp client activation
-  can be forced via the variable +USE_DHCLIENT=yes+ (define in _local.conf_).
-  It is also possible to force DHCP at boot time with kernel option 'dhcp'
+  can be forced via the variable _USE_DHCLIENT=yes_ (define in _local.conf_).
+  It is also possible to force DHCP at boot time with kernel option `dhcp`
 
 * Save layout and compare layouts for easy automation of making
   Relax-and-Recover snapshots
@@ -114,7 +116,7 @@ Together with +OUTPUT=USB+ we have now a complete solution on hard disks
   therefore, the USB disk must first be formatted with an ext2, ext3, ext4
   or btrfs based file system
 
-NOTE: Features marked experimental are prone to change with future releases.
+*NOTE*: Features marked experimental are prone to change with future releases.
 
 
 ## Relax-and-Recover Releases
@@ -198,10 +200,10 @@ complete overview see the issue tracker.
 ### Version 1.12.0 (November 2011)
 
 * Multiple copies of Relax-and-Recover backups (of the same or different
-  systems) can be kept on a USB device (with +OUTPUT=USB+).
+  systems) can be kept on a USB device (with `OUTPUT=USB`).
 
-* [*NEW!*] +BACKUP=RSYNC+ workflow using +rsync+ executable. Both +ssh+ and
-  +rsync+ methods are supported. E.g.
+* [*NEW!*] `BACKUP=RSYNC` workflow using `rsync` executable. Both `ssh` and
+  `rsync` methods are supported. E.g.
 ----
 BACKUP=RSYNC
 OUTPUT=ISO
@@ -209,28 +211,28 @@ BACKUP_URL=rsync://username@hostname/path
 BACKUP_PROG=/usr/local/bin/rsync		(instead of the default rsync)
 ----
 
-* Added better named +EXCLUDE_+ variables, better control over what is restored:
-  - +EXCLUDE_BACKUP+ excludes components from backup
-  - +EXCLUDE_RECREATE+ excludes components from the recreate process
-  - +EXCLUDE_RESTORE+ excludes components from the restore process
+* Added better named `EXCLUDE_` variables, better control over what is restored:
+  - `EXCLUDE_BACKUP` excludes components from backup
+  - `EXCLUDE_RECREATE` excludes components from the recreate process
+  - `EXCLUDE_RESTORE` excludes components from the restore process
 
 * The *layout* workflow is now the default instead of the *dr* workflow.
   Under _/var/lib/rear/layout_ all information of the system is kept in files.
 
 * Arch Linux is now supported with Relax-and-Recover.
 
-* The +labeltape+ command has been superseded by the +format+ command. This
+* The `labeltape` command has been superseded by the `format` command. This
   can be used with tapes and external (USB, eSATA) devices. Usage:
 ----
 rear format [/dev/st0|/dev/sdx]
 ----
 
-* Replaced +NETFS_URL+ and +ISO_URL+ by +BACKUP_URL+ and +OUTPUT_URL+. However,
+* Replaced `NETFS_URL` and `ISO_URL` by `BACKUP_URL` and `OUTPUT_URL`. However,
   old references will still be recognized and used.
 
 * Fedora 16 is supported including GRUB 2, and systemd as init replacement.
 
-* Added the +BACKUP_URL=file:///PATH+ with +BACKUP=NETFS+ method (as described
+* Added the `BACKUP_URL=file:///PATH` with `BACKUP=NETFS` method (as described
   in _configuration-examples.txt_)
 
 * Improved multipath functionality
@@ -245,8 +247,8 @@ rear format [/dev/st0|/dev/sdx]
 
 ### Version 1.11.0 (May 2011)
 
-* The +mkobdr+ command has been removed. OBDR-enabled tapes can now be created
-  using the +mkrescue+ command and by defining the proper variables in
+* The `mkobdr` command has been removed. OBDR-enabled tapes can now be created
+  using the `mkrescue` command and by defining the proper variables in
   _/etc/rear/local.conf_:
 ----
 BACKUP=NETFS
@@ -261,9 +263,9 @@ BACKUP_URL=tape:///dev/nst0
   _/etc/rear/local.conf_ file contains only configuration examples as comments
   in order to not interfere with configurations in _site.conf_.
 
-* The +rear+ command is by default quiet, which means if you want the same
-  behavior as in previous versions you need to add the verbose option (+-v+)
-  with the +rear+ command
+* The `rear` command is by default quiet, which means if you want the same
+  behavior as in previous versions you need to add the verbose option (`-v`)
+  with the `rear` command
 
 * The *output* workflow now runs before the *mkbackup* workflow especially done
   to make OBDR tape creation possible with the *mkbackup* workflow as the ISO
@@ -272,7 +274,7 @@ BACKUP_URL=tape:///dev/nst0
   While utmost care has been taken that there would be no adverse side effects
   of this change. We cannot test all possible usage scenarios.
 
-* When using +OUTPUT=USB+ then you have to make sure that the destination (USB)
+* When using `OUTPUT=USB` then you have to make sure that the destination (USB)
   disk is formatted as an ext2, ext3, ext4 or btrfs file-system. Extlinux is
   now the only supported boot loader for bootable disks, syslinux is not
   supported any more.
@@ -294,15 +296,15 @@ BACKUP_URL=tape:///dev/nst0
 
 * Autologin as root in the rescue media (for upstart and systemd based systems).
 
-* +EXCLUDE_MOUNTPOINTS+ should work correctly now (fixed typo).
+* `EXCLUDE_MOUNTPOINTS` should work correctly now (fixed typo).
 
 * Support ext4 on RHEL5 and clones.
 
-* Ignore known errors when using +EXTERNAL+ backup method (set 
-  +EXTERNAL_IGNORE_ERRORS+ to an array of return codes to ignore).
+* Ignore known errors when using `EXTERNAL` backup method (set 
+  `EXTERNAL_IGNORE_ERRORS` to an array of return codes to ignore).
 
-* Use original filesystem mount options for recovery, support +attr+ and
-  +facl+ tools.
+* Use original filesystem mount options for recovery, support `attr` and
+  `facl` tools.
 
 * Support XEN paravirtualized systems (tested only on RHEL5 so far).
 
@@ -314,14 +316,14 @@ BACKUP_URL=tape:///dev/nst0
 * Control exit tasks and subprocesses better. Kill subprocesses before exiting.
 
 * Support adding Relax-and-Recover boot files to local GRUB environment
-  (+GRUB_RESCUE+) and password protect rescue boot (+GRUB_RESCUE_PASSWORD+)
+  (`GRUB_RESCUE`) and password protect rescue boot (`GRUB_RESCUE_PASSWORD`)
   to avoid accidential recovery.
 .
   The default password is *REAR*.
 
-* *[experimental!]* Transfer ISO image to remote URL (+ISO_URL+). Please note
+* *[experimental!]* Transfer ISO image to remote URL (`ISO_URL`). Please note
   that this feature will be extended to cover all output methods. It has been
-  renamed to +OUTPUT_URL+.
+  renamed to `OUTPUT_URL`.
 
 * Removed various warnings, e.g. about NETFS not being a professional backup
   method.
@@ -332,7 +334,7 @@ BACKUP_URL=tape:///dev/nst0
 
 * Make 32/64 bit handling much more robust, especially on systems having /lib32.
 
-* NETFS backup and restore with rsync working now (+BACKUP_PROG=rsync+).
+* NETFS backup and restore with rsync working now (`BACKUP_PROG=rsync`).
 
 * Support udev on RHEL4.
 
@@ -343,7 +345,7 @@ BACKUP_URL=tape:///dev/nst0
   which is a bash bug, various irrelevant error and verbose output).
 
 * checklayout can now also check arbitrary files (through an md5 checksum),
-  extend the +CHECK_CONFIG_FILES+ array to use this feature.
+  extend the `CHECK_CONFIG_FILES` array to use this feature.
 
 ### Version 1.10.0 (February 2011)
 An intermediate release only which fixed some hanging issues of version 1.9.0.
@@ -355,22 +357,22 @@ https://bugzilla.redhat.com/show_bug.cgi?id=680664
 ### Version 1.9.0 (February 2011)
 With version 1.9.0 some new methods were added, such as:
 
-* +rear mkobdr+ : to create an OBDR recovery tape (obsolete since 1.11.0)
+* `rear mkobdr` : to create an OBDR recovery tape (obsolete since 1.11.0)
 
-* +rear labeltape+ : goes together with OBDR tapes. To avoid accidental
-overwrites we force the creation of a label before +rear mkbackup+ will
+* `rear labeltape` : goes together with OBDR tapes. To avoid accidental
+overwrites we force the creation of a label before `rear mkbackup` will
 work. (obsolete since 1.11.0)
 
-* +rear checklayout/savelayout+ : a new method to save the disk layout
-and check if a new +rear mkbackup+ or +rear mkrescue+ is required.
+* `rear checklayout/savelayout` : a new method to save the disk layout
+and check if a new `rear mkbackup` or `rear mkrescue` is required.
 
-* New BACKUP methods were added, Bacula (+BACKUP=BACULA+) and bextract
-(+BACKUP=BEXTRACT+), both are able to work in conjunction with
+* New BACKUP methods were added, Bacula (`BACKUP=BACULA`) and bextract
+(`BACKUP=BEXTRACT`), both are able to work in conjunction with
 *output=TAPE*. See under the doc directory (or _/usr/share/doc/rear-1.9.0/_)
 the _configuration-examples.txt_ text file for beginners instructions.
 
-* +OUTPUT=USB+ method has been extended with +BACKUP=NETFS+ and
-+NETFS_URL=usb:///dev/<device>+ which makes it possible that the
+* `OUTPUT=USB` method has been extended with `BACKUP=NETFS` and
+`NETFS_URL=usb:///dev/<device>` which makes it possible that the
 complete archive is stored on the _/dev/<device>_ and 
 Relax-and-Recover will make the USB stick (or disk) bootable too.
 
@@ -380,9 +382,9 @@ cards and storage adapters are now loaded via udev, or deal with network
 persistent names in udev rules, and firmware loading.
 
 * DHCP client support (IPv4 and IPv6) has been added. Auto detection
-is possible with new variable +USE_DHCLIENT=yes+ (define in _local.conf_),
+is possible with new variable `USE_DHCLIENT=yes` (define in _local.conf_),
 or one can hard-code your special DHCP client with the variables
-+DHCLIENT_BIN+ (for IPv4), and/or +DHCLIENT6_BIN+ (for
+`DHCLIENT_BIN` (for IPv4), and/or `DHCLIENT6_BIN` (for
 IPv6).
 
 Relax-and-Recover version 1.9.0 contain fixes for the following defects:
@@ -391,7 +393,7 @@ Relax-and-Recover version 1.9.0 contain fixes for the following defects:
 Sourceforge patch ID 2963804 - support for USBFS, but this patch has been
 rewritten afterward to incorporate usb support into the NETFS backup method,
 instead of having a separate USBFS backup method. Now, by using
-+NETFS_URL=usb:///dev/<device>+ and the NETFS backup method we achieve the
+`NETFS_URL=usb:///dev/<device>` and the NETFS backup method we achieve the
 same result.
 
 * Sourceforge bug 3153027 : support for RHEV virtio device files
@@ -426,14 +428,14 @@ standard available.
 
 Relax-and-Recover is known to work well on x86 and x86_64 based architectures.
 Relax-and-Recover has also been ported to ia64 and ppc architectures, but
-these are less tested.  Use the '+rear validate+' command after every
+these are less tested.  Use the '`rear validate`' command after every
 successful DR test please and mail us the results.
 
 
 ### Choosing the best compression algorithm
-The default backup program with Relax-and-Recover is (+BACKUP_PROG=tar+)
-GNU tar and the default compression used with tar is +gzip+. However, is
-using +gzip+ the best choice? We have done some tests and published the
+The default backup program with Relax-and-Recover is (`BACKUP_PROG=tar`)
+GNU tar and the default compression used with tar is `gzip`. However, is
+using `gzip` the best choice? We have done some tests and published the
 results. See
 link:http://www.it3.be/Joomla/index.php?option=com_content&view=article&id=76:rear-compression&catid=40:Open%20Source%20Projects&Itemid=54[Relax-and-Recover compression tests]
 
@@ -461,51 +463,48 @@ especially with complex networking scenarios.
 *Issue Description*: An error is encountered while upgrading rear-1.7.* to
 rear-1.9.0:
 
-----
-error: unpacking of archive failed on file /usr/share/rear/finalize/CentOS: cpio: rename failed - Is a directory
-----
+    error: unpacking of archive failed on file /usr/share/rear/finalize/CentOS: cpio: rename failed - Is a directory
 
-.Workaround:
+
+Workaround:
 ****
 First remove the older Relax-and-Recover version by hand and then install
 the new version. The _local.conf_ is saved (as _local.conf.rpmsave_) when
-we execute +rpm -e rear+
+we execute `rpm -e rear`
 ****
 
 *Issue Description*: If SELinux is not disabled during backup (variable
-+BACKUP_SELINUX_DISABLE=+ in _/etc/rear/local.conf_) then we might see
-errors in the +rear-$(hostname).log+ file such as:
+`BACKUP_SELINUX_DISABLE=` in _/etc/rear/local.conf_) then we might see
+errors in the `rear-$(hostname).log` file such as:
 
-----
-tar: var/cache/yum/i386/15/updates/packages: Cannot setfilecon: No such file or directory
-----
+   tar: var/cache/yum/i386/15/updates/packages: Cannot setfilecon: No such file or directory
 
-.Workaround:
+Workaround:
 ****
-Make sure the +BACKUP_URL+ destination understands extended attributes
+Make sure the `BACKUP_URL` destination understands extended attributes
 (CIFS is out of the question and NFS is problematic). When using local
 disks (or external USB devices) make sure the proper mount options are
-given in the +BACKUP_OPTIONS+ variable, e.g.:
+given in the `BACKUP_OPTIONS` variable, e.g.:
 
-----
-BACKUP_OPTIONS="rw,relatime,seclabel,user_xattr,acl,barrier=1,data=ordered"
-----
+
+    BACKUP_OPTIONS="rw,relatime,seclabel,user_xattr,acl,barrier=1,data=ordered"
+
 ****
 
 [TIP]
-+BACKUP_SELINUX_DISABLE=1+ variable has been introduced in the
+`BACKUP_SELINUX_DISABLE=1` variable has been introduced in the
 _/usr/share/rear/conf/default.conf_ file to disable SELinux
 while the backup is running (default setting).
 
 *Issue Description*: Is incremental backup possible? With our default
-settings (+BACKUP=NETFS+ and +BACKUP_PROG=tar+) we do not support
+settings (`BACKUP=NETFS` and `BACKUP_PROG=tar`) we do not support
 incremental backups.
 
-.Workaround:
+Workaround:
 ****
-However, when we change +BACKUP_PROG=rsync+ we can use +rear mkbackuponly+
-option which is in fact an incremental backup using the +rsync+ program.
-The same can be accomplished by using +BACKUP=RSYNC+ and the proper
-+BACKUP_URL=rsync://hostname/PATH+.
+However, when we change `BACKUP_PROG=rsync` we can use `rear mkbackuponly`
+option which is in fact an incremental backup using the `rsync` program.
+The same can be accomplished by using `BACKUP=RSYNC` and the proper
+`BACKUP_URL=rsync://hostname/PATH`.
 ****
 
