@@ -81,6 +81,7 @@ That is it. Your hard disk can now safely fail.
 This page will consists of links to:
 
  - Relax-and-Recover manual page
+ - [Relax-and-Recover Release Notes](http://relax-and-recover.org/documentation/release-notes)
  - Relax-and-Recover user guide
    * Features
    * [Installation](http://relax-and-recover.org/documentation/installation)
