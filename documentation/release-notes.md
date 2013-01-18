@@ -18,7 +18,8 @@ Github project:
 
 This document is distributed with the following license: "Creative Commons
 Attribution-NoDerivs 3.0 Unported (CC BY-ND 3.0)". To read the license deed
-go to: http://creativecommons.org/licenses/by-nd/3.0/
+go to:
+    http://creativecommons.org/licenses/by-nd/3.0/
 
 
 ## Overview
@@ -30,7 +31,7 @@ policy which does not replace in any way a good backup policy.
 
 ### Product Features
 The following features are supported on the most recent releases of
-Relax-and-Recover.  Anything labeled as [*NEW!*] was added as the
+Relax-and-Recover.  Anything labeled as (*NEW!*) was added as the
 most recent release. New functionality for previous releases can be
 seen in the next chapter that details each release.
 
@@ -46,7 +47,7 @@ functionality:
   is enough).
 
 * Support included for most common file systems, such as ext2, ext3, ext4
-  and reiserfs. Other filesystems like jfs, xfs and btrfs [*NEW!*] are also
+  and reiserfs. Other filesystems like jfs, xfs and btrfs (*NEW!*) are also
   implemented, but are less tested. _(Feedback is appreciated)_
 
 * Selected Hardware RAID and (eg. HP SmartArray) and mirroring solutions (eg.
@@ -54,7 +55,7 @@ functionality:
 
 * LVM root volumes are supported.
 
-* [*NEW!*] Multipath support for SAN storage
+* (*NEW!*) Multipath support for SAN storage
  
 * Integrates with external backup solutions such as:
 
@@ -65,7 +66,7 @@ functionality:
   - Symantec NetBacakup (BACKUP=NBU)
   - Galaxy 5, 6 and 7 (BACKUP=GALAXY)
   - Bacula (BACKUP=BACULA)
-  - Duplicity/Duply (BACKUP=DUPLICITY) [*NEW! Experimental*]
+  - Duplicity/Duply (BACKUP=DUPLICITY) (*NEW! Experimental*)
 
 * Udev support (except for some really ancient udev versions) which is
   the base for many new and important features:
@@ -94,13 +95,13 @@ functionality:
 
 * Create bootable disk (eSATA, USB ...) media with the backup included:
 
-    BACKUP_URL=usb:///dev/<device>
+    BACKUP_URL=usb:///dev/device
 
 Together with `OUTPUT=USB` we have now a complete solution on hard disks
 (booting of it and restoring data).
 
 * DHCP client support (IPv4 and IPv6) has been added. Dhcp client activation
-  can be forced via the variable _USE_DHCLIENT=yes_ (define in _local.conf_).
+  can be forced via the variable *USE_DHCLIENT=yes* (define in _/etc/rear/local.conf_).
   It is also possible to force DHCP at boot time with kernel option `dhcp`
 
 * Save layout and compare layouts for easy automation of making
@@ -178,7 +179,7 @@ complete overview see the issue tracker.
 
 * Fix for SF#3481656: missing bacula-console executable for BACKUP=BACULA workflow
 
-* Fix for SF#3479570: /etc/passwd contains ':x:' without /etc/shadow
+* Fix for SF#3479570: /etc/passwd contains `:x:` without /etc/shadow
 
 * Added "migrate HWADDR after cloning" code
 
@@ -186,10 +187,10 @@ complete overview see the issue tracker.
 
 * The DHCLIENT variables were moved from local.conf to rescue.conf. This is done automatically, so the end-user, shouldnot be aware of it.
 
-* At boot time more kernel options are recognized such as 'noip', 'dhcp',
-  'debug'. The 'noip' will give you a rescue environment without any attempt to
-  start networking. The 'dhcp' variable will try to start dhclient on any
-  network interface it finds activated. The 'debug' variable (which is not new
+* At boot time more kernel options are recognized such as `noip`, `dhcp`,
+  `debug`. The `noip` will give you a rescue environment without any attempt to
+  start networking. The `dhcp` variable will try to start dhclient on any
+  network interface it finds activated. The `debug` variable (which is not new
   by the way) will give you the chance to debug the code of our
   Relax-and-Recover code.
 
@@ -202,59 +203,49 @@ complete overview see the issue tracker.
 * Multiple copies of Relax-and-Recover backups (of the same or different
   systems) can be kept on a USB device (with `OUTPUT=USB`).
 
-* [*NEW!*] `BACKUP=RSYNC` workflow using `rsync` executable. Both `ssh` and
-  `rsync` methods are supported. E.g.
-----
-BACKUP=RSYNC
-OUTPUT=ISO
-BACKUP_URL=rsync://username@hostname/path
-BACKUP_PROG=/usr/local/bin/rsync		(instead of the default rsync)
-----
+* (*NEW!*) `BACKUP=RSYNC` workflow using `rsync` executable. Both `ssh` and `rsync` methods are supported. E.g.
+
+    BACKUP=RSYNC
+    OUTPUT=ISO
+    BACKUP_URL=rsync://username@hostname/path
+    BACKUP_PROG=/usr/local/bin/rsync		(instead of the default rsync)
+
 
 * Added better named `EXCLUDE_` variables, better control over what is restored:
   - `EXCLUDE_BACKUP` excludes components from backup
   - `EXCLUDE_RECREATE` excludes components from the recreate process
   - `EXCLUDE_RESTORE` excludes components from the restore process
 
-* The *layout* workflow is now the default instead of the *dr* workflow.
-  Under _/var/lib/rear/layout_ all information of the system is kept in files.
+* The *layout* workflow is now the default instead of the *dr* workflow.  Under _/var/lib/rear/layout_ all information of the system is kept in files.
 
 * Arch Linux is now supported with Relax-and-Recover.
 
-* The `labeltape` command has been superseded by the `format` command. This
-  can be used with tapes and external (USB, eSATA) devices. Usage:
-----
-rear format [/dev/st0|/dev/sdx]
-----
+* The `labeltape` command has been superseded by the `format` command. This can be used with tapes and external (USB, eSATA) devices. Usage:
 
-* Replaced `NETFS_URL` and `ISO_URL` by `BACKUP_URL` and `OUTPUT_URL`. However,
-  old references will still be recognized and used.
+    rear format [/dev/st0|/dev/sdx]
+
+
+* Replaced `NETFS_URL` and `ISO_URL` by `BACKUP_URL` and `OUTPUT_URL`. However, old references will still be recognized and used.
 
 * Fedora 16 is supported including GRUB 2, and systemd as init replacement.
 
-* Added the `BACKUP_URL=file:///PATH` with `BACKUP=NETFS` method (as described
-  in _configuration-examples.txt_)
+* Added the `BACKUP_URL=file:///PATH` with `BACKUP=NETFS` method (as described in _configuration-examples.txt_)
 
 * Improved multipath functionality
 
 * Optional automatic autofs exclusion
 
-* [*NEW! EXPERIMENTAL!*] Basic btrfs file system backup and restore works.
-  Advise is not to trust it (yet). At recreation of the btrfs file system
-  the UUID number is automatically renamed in all configuration files (such
-   as _/etc/fstab_ or _/boot/grub/menu.lst_).
+* (*NEW! EXPERIMENTAL!*) Basic btrfs file system backup and restore works. Advise is not to trust it (yet). At recreation of the btrfs file system the UUID number is automatically renamed in all configuration files (such as _/etc/fstab_ or _/boot/grub/menu.lst_).
 
 
 ### Version 1.11.0 (May 2011)
 
-* The `mkobdr` command has been removed. OBDR-enabled tapes can now be created
-  using the `mkrescue` command and by defining the proper variables in
-  _/etc/rear/local.conf_:
-----
-BACKUP=NETFS
-OUTPUT=OBDR
-BACKUP_URL=tape:///dev/nst0
-----
+* The `mkobdr` command has been removed. OBDR-enabled tapes can now be created using the `mkrescue` command and by defining the proper variables in _/etc/rear/local.conf_:
+
+    BACKUP=NETFS
+    OUTPUT=OBDR
+    BACKUP_URL=tape:///dev/nst0
+
 
 * The site configuration file _/etc/rear/site.conf_ has been removed from the
   Relax-and-Recover package, but can still be used if end-users want. The purpose of this
@@ -303,8 +294,7 @@ BACKUP_URL=tape:///dev/nst0
 * Ignore known errors when using `EXTERNAL` backup method (set 
   `EXTERNAL_IGNORE_ERRORS` to an array of return codes to ignore).
 
-* Use original filesystem mount options for recovery, support `attr` and
-  `facl` tools.
+* Use original filesystem mount options for recovery, support `attr` and `facl` tools.
 
 * Support XEN paravirtualized systems (tested only on RHEL5 so far).
 
@@ -318,10 +308,10 @@ BACKUP_URL=tape:///dev/nst0
 * Support adding Relax-and-Recover boot files to local GRUB environment
   (`GRUB_RESCUE`) and password protect rescue boot (`GRUB_RESCUE_PASSWORD`)
   to avoid accidential recovery.
-.
+
   The default password is *REAR*.
 
-* *[experimental!]* Transfer ISO image to remote URL (`ISO_URL`). Please note
+* *(experimental!)* Transfer ISO image to remote URL (`ISO_URL`). Please note
   that this feature will be extended to cover all output methods. It has been
   renamed to `OUTPUT_URL`.
 
@@ -330,7 +320,7 @@ BACKUP_URL=tape:///dev/nst0
 
 * Partial support for Arch Linux has been added, more testing required.
 
-* [*NEW!*] shell workflow is now really usable.
+* (*NEW!*) shell workflow is now really usable.
 
 * Make 32/64 bit handling much more robust, especially on systems having /lib32.
 
@@ -351,7 +341,7 @@ BACKUP_URL=tape:///dev/nst0
 An intermediate release only which fixed some hanging issues of version 1.9.0.
 Also, a RPM upgrade was fixed by this release from 1.7.25 to 1.9.0, which
 failed because of a wrongly CentOS symbolic link. See
-https://bugzilla.redhat.com/show_bug.cgi?id=680664
+    https://bugzilla.redhat.com/show_bug.cgi?id=680664
 
 
 ### Version 1.9.0 (February 2011)
@@ -373,7 +363,7 @@ the _configuration-examples.txt_ text file for beginners instructions.
 
 * `OUTPUT=USB` method has been extended with `BACKUP=NETFS` and
 `NETFS_URL=usb:///dev/<device>` which makes it possible that the
-complete archive is stored on the _/dev/<device>_ and 
+complete archive is stored on the `/dev/<device>` and 
 Relax-and-Recover will make the USB stick (or disk) bootable too.
 
 * Udev support (except for some really ancient udev versions) which is the
@@ -390,7 +380,8 @@ IPv6).
 Relax-and-Recover version 1.9.0 contain fixes for the following defects:
 
 * Missing support for Scientific Linux, LinuxMint
-Sourceforge patch ID 2963804 - support for USBFS, but this patch has been
+
+* Sourceforge patch ID 2963804 - support for USBFS, but this patch has been
 rewritten afterward to incorporate usb support into the NETFS backup method,
 instead of having a separate USBFS backup method. Now, by using
 `NETFS_URL=usb:///dev/<device>` and the NETFS backup method we achieve the
@@ -400,7 +391,7 @@ same result.
 
 * Novell bugzilla 581292 : cannot load NIC firmware because of missing udev
 support.  Version 1.9 does have udev support, but firmware loading was
-broken. The rule in 00- rear.rules has been changed.
+broken. The rule in 00-rear.rules has been changed.
 
 
 ### Version 1.7.26 (November 2010)
@@ -418,10 +409,10 @@ proper image building on several Fedora versions.
 ## System and Software Requirements
 Relax-and-Recover works on GNU/Linux kernel with version 2.6 and higher.
 For lower kernel versions Relax-and-Recover cannot be used, and for these
-systems, link:http://mkcdrec.sourceforge.net/[mkcdrec] is still a good
+systems, http://mkcdrec.sourceforge.net/[mkcdrec] is still a good
 alternative.
 
-As Relax-and-Recover has been solely written in the bash language we need
+As Relax-and-Recover has been solely written in the *bash* language we need
 the bash shell which is standard available on all GNU/Linux based systems.
 The default backup program Relax-and-Recover uses is GNU/tar which is also
 standard available.
@@ -437,7 +428,7 @@ The default backup program with Relax-and-Recover is (`BACKUP_PROG=tar`)
 GNU tar and the default compression used with tar is `gzip`. However, is
 using `gzip` the best choice? We have done some tests and published the
 results. See
-link:http://www.it3.be/Joomla/index.php?option=com_content&view=article&id=76:rear-compression&catid=40:Open%20Source%20Projects&Itemid=54[Relax-and-Recover compression tests]
+http://www.it3.be/Joomla/index.php?option=com_content&view=article&id=76:rear-compression&catid=40:Open%20Source%20Projects&Itemid=54[Relax-and-Recover compression tests]
 
 
 ## Known Problems and Workarounds
@@ -466,21 +457,21 @@ rear-1.9.0:
     error: unpacking of archive failed on file /usr/share/rear/finalize/CentOS: cpio: rename failed - Is a directory
 
 
-Workaround:
-****
+* Workaround:
+
 First remove the older Relax-and-Recover version by hand and then install
 the new version. The _local.conf_ is saved (as _local.conf.rpmsave_) when
 we execute `rpm -e rear`
-****
+
 
 *Issue Description*: If SELinux is not disabled during backup (variable
 `BACKUP_SELINUX_DISABLE=` in _/etc/rear/local.conf_) then we might see
 errors in the `rear-$(hostname).log` file such as:
 
-   tar: var/cache/yum/i386/15/updates/packages: Cannot setfilecon: No such file or directory
+    tar: var/cache/yum/i386/15/updates/packages: Cannot setfilecon: No such file or directory
 
-Workaround:
-****
+* Workaround:
+
 Make sure the `BACKUP_URL` destination understands extended attributes
 (CIFS is out of the question and NFS is problematic). When using local
 disks (or external USB devices) make sure the proper mount options are
@@ -489,10 +480,8 @@ given in the `BACKUP_OPTIONS` variable, e.g.:
 
     BACKUP_OPTIONS="rw,relatime,seclabel,user_xattr,acl,barrier=1,data=ordered"
 
-****
 
-[TIP]
-`BACKUP_SELINUX_DISABLE=1` variable has been introduced in the
+(TIP) `BACKUP_SELINUX_DISABLE=1` variable has been introduced in the
 _/usr/share/rear/conf/default.conf_ file to disable SELinux
 while the backup is running (default setting).
 
@@ -500,11 +489,10 @@ while the backup is running (default setting).
 settings (`BACKUP=NETFS` and `BACKUP_PROG=tar`) we do not support
 incremental backups.
 
-Workaround:
-****
+* Workaround:
+
 However, when we change `BACKUP_PROG=rsync` we can use `rear mkbackuponly`
 option which is in fact an incremental backup using the `rsync` program.
 The same can be accomplished by using `BACKUP=RSYNC` and the proper
 `BACKUP_URL=rsync://hostname/PATH`.
-****
 
