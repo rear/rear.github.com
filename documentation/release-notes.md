@@ -8,18 +8,13 @@ title: Relax-and-Recover Release Notes
 This document contains the release notes for the open source project
 Relax-and-Recover.
 
-Relax-and-Recover website:
+[Relax-and-Recover website](http://relax-and-recover.org/)
 
-    http://relax-and-recover.org/
-
-Github project:
-
-    https://github.com/rear/
+[Github project](https://github.com/rear/)
 
 This document is distributed with the following license: "Creative Commons
 Attribution-NoDerivs 3.0 Unported (CC BY-ND 3.0)". To read the license deed
-go to:
-    http://creativecommons.org/licenses/by-nd/3.0/
+go to [http://creativecommons.org/licenses/by-nd/3.0/](http://creativecommons.org/licenses/by-nd/3.0/)
 
 
 ## Overview
@@ -129,7 +124,8 @@ Relax-and-Recover, unless otherwise noted.
 
 ### Version 1.14.0 (September 2012)
 
-The references pointing to *fix#nr* refer to our issues tracker https://github.com/rear/rear/issues 
+The references pointing to *fix#nr* refer to our [issues tracker](https://github.com/rear/rear/issues)
+
 Lots of minor bugs were fixed, and not all of them are listed in current release notes. For a
 complete overview see the issue tracker.
 
@@ -205,10 +201,10 @@ complete overview see the issue tracker.
 
 * (*NEW!*) `BACKUP=RSYNC` workflow using `rsync` executable. Both `ssh` and `rsync` methods are supported. E.g.
 
-    BACKUP=RSYNC
-    OUTPUT=ISO
-    BACKUP_URL=rsync://username@hostname/path
-    BACKUP_PROG=/usr/local/bin/rsync		(instead of the default rsync)
+        BACKUP=RSYNC
+        OUTPUT=ISO
+        BACKUP_URL=rsync://username@hostname/path
+        BACKUP_PROG=/usr/local/bin/rsync #(instead of the default rsync)
 
 
 * Added better named `EXCLUDE_` variables, better control over what is restored:
@@ -222,7 +218,7 @@ complete overview see the issue tracker.
 
 * The `labeltape` command has been superseded by the `format` command. This can be used with tapes and external (USB, eSATA) devices. Usage:
 
-    rear format [/dev/st0|/dev/sdx]
+        rear format [/dev/st0|/dev/sdx]
 
 
 * Replaced `NETFS_URL` and `ISO_URL` by `BACKUP_URL` and `OUTPUT_URL`. However, old references will still be recognized and used.
@@ -242,9 +238,9 @@ complete overview see the issue tracker.
 
 * The `mkobdr` command has been removed. OBDR-enabled tapes can now be created using the `mkrescue` command and by defining the proper variables in _/etc/rear/local.conf_:
 
-    BACKUP=NETFS
-    OUTPUT=OBDR
-    BACKUP_URL=tape:///dev/nst0
+        BACKUP=NETFS
+        OUTPUT=OBDR
+        BACKUP_URL=tape:///dev/nst0
 
 
 * The site configuration file _/etc/rear/site.conf_ has been removed from the
@@ -341,7 +337,7 @@ complete overview see the issue tracker.
 An intermediate release only which fixed some hanging issues of version 1.9.0.
 Also, a RPM upgrade was fixed by this release from 1.7.25 to 1.9.0, which
 failed because of a wrongly CentOS symbolic link. See
-    https://bugzilla.redhat.com/show_bug.cgi?id=680664
+[bugzilla#680664](https://bugzilla.redhat.com/show_bug.cgi?id=680664)
 
 
 ### Version 1.9.0 (February 2011)
@@ -409,7 +405,7 @@ proper image building on several Fedora versions.
 ## System and Software Requirements
 Relax-and-Recover works on GNU/Linux kernel with version 2.6 and higher.
 For lower kernel versions Relax-and-Recover cannot be used, and for these
-systems, http://mkcdrec.sourceforge.net/[mkcdrec] is still a good
+systems, [mkcdrec](http://mkcdrec.sourceforge.net/) is still a good
 alternative.
 
 As Relax-and-Recover has been solely written in the *bash* language we need
@@ -428,7 +424,7 @@ The default backup program with Relax-and-Recover is (`BACKUP_PROG=tar`)
 GNU tar and the default compression used with tar is `gzip`. However, is
 using `gzip` the best choice? We have done some tests and published the
 results. See
-http://www.it3.be/Joomla/index.php?option=com_content&view=article&id=76:rear-compression&catid=40:Open%20Source%20Projects&Itemid=54[Relax-and-Recover compression tests]
+[Relax-and-Recover compression tests](http://www.it3.be/Joomla/index.php?option=com_content&view=article&id=76:rear-compression&catid=40:Open%20Source%20Projects&Itemid=54)
 
 
 ## Known Problems and Workarounds
