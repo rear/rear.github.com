@@ -33,11 +33,20 @@ Once the rear package has been saved in the top directory of rear source tree yo
 As rear is written in bash you need bash as a bare minimum. Other requirements are:
 
     mkisofs (or genisoimage)
+    mingetty (rear is depending on it in recovery mode)
     syslinux (for i386 based systems)
     nfs-utils (when using NFS to store the archives)
     cifs-utils (when using SMB to store the archives)
 
 ### Install rear package
-A RPM package of rear can be install as follows:
+A RPM package of rear can be installed as follows (on Redhat, Suse clones):
 
     rpm -ivh rear-1.14-1.git201211211655.fc17.noarch.rpm
+
+A Deb package of rear can be installed as follows:
+
+    dpkg -i rear*.deb
+
+On Debian (Ubuntu) use the following command to install missing dependencies:
+
+    apt-get -f install
