@@ -1,0 +1,241 @@
+---
+layout: default
+title: Relax-and-Recover features
+---
+
+## Relax-and-Recover feautures
+
+### The Workflow System
+Rear is built as a modular framework. A call of rear <command> will invoke
+the following general workflow:
+
+  1. *Configuration:* Collect system information to assemble a correct
+     configuration (default, arch, OS, OS_ARCH, OS_VER, site, local).
+     See the output of +rear dump+ for an example.
+     read 'default.conf' first and 'site.conf', 'local.conf' last.
+
+  2. Create work area in '/tmp/rear.$$/' and start logging to
+     '/var/log/rear/rear-hostname.log'
+
+  3. Run the workflow script for the specified command:
+     '/usr/share/rear/lib/<command>-workflow.sh'
+
+  4. Cleanup work area
+
+### Workflow â Make Rescue Media
+The application will have the following general workflow which is represented
+by appropriately named scripts in various subdirectories:
+
+  1. *Prep:* Prepare the build area by copying a skeleton filesystem layout.
+     This can also come from various sources (FS layout for arch, OS, OS_VER,
+     Backup-SW, Output, ...)
+
+  2. *Analyse (DR)*: Analyse the system to create the '/etc/recovery' data
+
+  3. *Analyse (Rescue):* Analyse the system to create the rescue system
+     (network, binary dependancies, ...)
+
+  4. *Build:* Build the rescue image by copying together everything required
+
+  5. *Pack:* Package the kernel and initrd image together
+
+  6. *Backup:* (Optionally) run the backup sowftware to create a current backup
+
+  7. *Output:* Copy / Install the rescue system (kernel+initrd+(optionally)
+     backups) into the target environemnt (e.g. PXE boot, write on tape,
+     write on CD/DVD)
+
+  8. *Cleanup:* Cleanup the build area from temporary files
+
+The configuration must define the +BACKUP+ and +OUTPUT+ methods. Valid choices are:
+
+
+|NAME   | TYPE    | Description                              | Implement in Phase
+|NFS    | BACKUP  | Copy files to NFS share                  | 1
+|TAPE   | BACKUP  | Copy files to tape(s)                    | 2
+|CDROM  | BACKUP  | Copy files to CD/DVD                     | 2
+|NSR    | BACKUP  | Use Legato Networker                     | 1
+|TSM    | BACKUP  | Use Tivoli Storage Manager               | 1
+|       |         |                                          |
+|CDROM  | OUTPUT  | Write result to CD/DVD                   | 2
+|OBDR   | OUTPUT  | Create OBDR Tape                         | 2
+|PXE    | OUTPUT  | Create PXE bootable files on TFTP server | 1
+|USB    | OUTPUT  | Create bootable USB device               | 2
+
+
+### Workflow Recovery
+The result of the analysis is written into configuration files under
+'/etc/rear/recovery/'. This directory is copied together with the other
+Rear directories onto the rescue system where the same framework runs
+a different workflow â the recovery workflow.
+
+The recovery workflow is triggered by the fact that the root filesystem is
+mounted in a ram disk or tmpfs. Alternatively a âdemoâ recovery workflow
+can be started manually. This will simply recover all data into a
+subdirectory and not touch the hard disks (Phase 2).
+
+The recovery workflow consists of these parts (identically named modules
+are indeed the same):
+
+  1. *Config:* By utilizing the same configuration module, the same
+     configuration variable are available for the recovery, too.
+     This makes writing pairs of backup/restore modules much easier.
+
+  2. *Verify:* Verify the integrity and sanity of the recovery data and
+     check the hardware found to determine, wether a recovery will be
+     likely to suceed. If not, then we abort the workflow so as not to
+     touch the hard disks if we don't believe that we would manage to
+     successfully recover the system on this hardware.
+
+  3. *Recreate:* Recreate the FS layout (partitioning, LVM, raid,
+     filesystems, ...) and mount it under /mnt/local
+
+  4. *Restore:* Restore files and directories from the backup to '/mnt/local/'.
+     This module is the analog to the Backup module
+
+  5. *Finalize:* Install boot loader, finalize system, dump recovery log
+     onto '/var/log/rear/' in the recovered system.
+
+### FS layout
+Rear tries to be as much LSB complient as possible. Therefore rear will be
+installed into the usual locations:
+
+/etc/rear/::
+    Configurations
+
+/usr/bin/rear::
+    Main program
+
+/usr/share/rear/::
+    Internal scripts
+
+/tmp/rear.$$/::
+    Build area
+
+#### Layout of /etc/rear
+default.conf::
+    Default configuration â will define EVERY variable with a sane default
+    setting. Serves also as a reference for the available variables 'site.conf'
+    site wide configuration (optional)
+
+local.conf::
+    local machine configuration (optional)
+
+$(uname -s)-$(uname -i).conf::
+    architecture specific configuration (optional)
+
+$(uname -o).conf::
+    OS system (e.g. GNU/Linux.conf) (optional)
+
+$OS/$OS_VER.conf::
+    OS and OS Version specific configuration (optional)
+
+templates/::
+    Directory to keep user-changeable templates for various files used
+    or generated
+
+templates/PXE_per_node_config::
+    template for pxelinux.cfg per-node configurations
+
+templates/CDROM_isolinux.cfg::
+    isolinux.cfg template
+
+templates/...::
+    other templates as the need arises
+
+recovery/...::
+    Recovery information
+
+#### Layout of /usr/share/rear
+skel/default/::
+    default rescue FS skeleton
+
+skel/$(uname -i)/::
+    arch specific rescue FS skeleton (optional)
+
+skel/$OS_$OS_VER/::
+    OS-specific rescue FS skeleton (optional)
+
+skel/$BACKUP/::
+    Backup-SW specific rescue FS skeleton (optional)
+
+skel/$OUTPUT/::
+    Output-Method specific rescue FS skeleton (optional)
+
+lib/*.sh::
+    function definitions, split into files by their topic
+
+prep/default/*.sh::
+prep/$(uname -i)/*.sh::
+prep/$OS_$OS_VER/*.sh::
+prep/$BACKUP/*.sh::
+prep/$OUTPUT/*.sh::
+    Prep scripts. The scripts get merged from the applicable directories
+    and executed in their alphabetical order. Naming conventions are:
+    
+    ##_name.sh
+    
+    where 00 < ## < 99
+
+dr/default/*.sh::
+dr/$(uname -i)/*.sh::
+dr/$OS_OS_VER/*.sh::
+dr/$BACKUP/*.sh::
+dr/$OUTPUT/*.sh::
+    Analyse-DR scripts. The scripts get merged from the applicable directories
+    and executed in their alphabetical order. Naming conventions are:
+    
+    ##_name.sh
+    
+    where 00 < ## < 99
+
+rescue/...::
+    Analyse-Rescue scripts: ...
+
+build/...::
+    Build scripts: ...
+
+pack/...::
+    Pack scripts: ...
+
+backup/$BACKUP/*.sh::
+    Backup scripts: ...
+
+output/$OUTPUT/*.sh::
+    Output scripts: ...
+
+verify/...::
+    Verify the recovery data against the hardware found, wether we can
+    successfully recover the system
+
+recreate/...::
+    Recreate file systems and their dependancies
+
+restore/$BACKUP/...::
+    Restore data from backup media
+
+finalize/...::
+    Finalization scripts
+
+### Inter-module communication
+The various stages and modules communicate via standarized environment variables:
+
+|NAME             |TYPE         |Descriptions                         |Example
+|CONFIG_DIR       |STRING (RO)  |Configuration dir                    |'/etc/rear/'
+|SHARE_DIR        |STRING (RO)  |Shared data dir                      |'/usr/share/rear/'
+|BUILD_DIR        |STRING (RO)  |Build directory                      |'/tmp/rear.$$/'
+|ROOTFS_DIR       |STRING (RO)  |Root FS directory for rescue system  |'/tmp/rear.$$/initrd/'
+|RESCUE_BINARIES  |LIST         |Program files to copy                |+bash ip route grep ls+ ...
+|RESCUE_MODULES   |LIST         |Modules to copy                      |+af_unix e1000 ide-cd+ ...
+|RESCUE_FILES     |LIST         |Files (with path) to copy as-is      |'/etc/localtime' ...
+|....
+
+RO means that the framework manages this variable and modules and methods shouldn't change it.
+
+#### Config
+
+  - Small user config in /etc/ for personal settings
+
+  - Split out the old Config.sh file into a config directory with sub-directories for ARCH
+    and Ostype (without sub-dirs is also possible)
+
