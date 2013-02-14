@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Relax-and-Recover features
+title: Relax-and-Recover concept
 ---
 
-## Relax-and-Recover feautures
+## Relax-and-Recover concept
 
 ### The Workflow System
 Rear is built as a modular framework. A call of rear *command* will invoke
@@ -11,7 +11,7 @@ the following general workflow:
 
   1. *Configuration:* Collect system information to assemble a correct
      configuration (default, arch, OS, OS_ARCH, OS_VER, site, local).
-     See the output of +rear dump+ for an example.
+     See the output of *rear dump* for an example.
      read 'default.conf' first and 'site.conf', 'local.conf' last.
 
   2. Create work area in '/tmp/rear.$$/' and start logging to
@@ -47,7 +47,7 @@ by appropriately named scripts in various subdirectories:
 
   8. *Cleanup:* Cleanup the build area from temporary files
 
-The configuration must define the +BACKUP+ and +OUTPUT+ methods. Valid choices are:
+The configuration must define the *BACKUP* and *OUTPUT* methods. Valid choices are:
 
 <pre>
 |NAME   | TYPE    | Description                              | Implement in Phase
@@ -72,11 +72,11 @@ Rear directories onto the rescue system where the same framework runs
 a different workflow â the recovery workflow.
 
 The recovery workflow is triggered by the fact that the root filesystem is
-mounted in a ram disk or tmpfs. Alternatively a âdemoâ recovery workflow
+mounted in a ram disk or tmpfs. Alternatively a demo recovery workflow
 can be started manually. This will simply recover all data into a
-subdirectory and not touch the hard disks (Phase 2).
+subdirectory and not touch the hard disks.
 
-The *ecovery workflow* consists of these parts (identically named modules
+The *recovery workflow* consists of these parts (identically named modules
 are indeed the same):
 
   1. *Config:* By utilizing the same configuration module, the same
@@ -102,85 +102,67 @@ are indeed the same):
 Rear tries to be as much LSB complient as possible. Therefore rear will be
 installed into the usual locations:
 
-  - /etc/rear/
-    Configurations
+  - */etc/rear/*: Configurations
 
-  - /usr/bin/rear
-    Main program
+  - */usr/bin/rear*: Main program
 
-  - /usr/share/rear/
-    Internal scripts
+  - */usr/share/rear/*: Internal scripts
 
-  - /tmp/rear.$$/
-    Build area
+  - */tmp/rear.$$/*: Build area
 
 #### Layout of /etc/rear
-  - default.conf
-    Default configuration will define EVERY variable with a sane default
+
+  - *default.conf*: Default configuration will define EVERY variable with a sane default
     setting. Serves also as a reference for the available variables 'site.conf'
     site wide configuration (optional)
 
-  - local.conf
-    local machine configuration (optional)
+  - *local.conf*: local machine configuration (optional)
 
-  - $(uname -s)-$(uname -i).conf
-    architecture specific configuration (optional)
+  - *$(uname -s)-$(uname -i).conf*: architecture specific configuration (optional)
 
-  - $(uname -o).conf
-    OS system (e.g. GNU/Linux.conf) (optional)
+  - *$(uname -o).conf*: OS system (e.g. GNU/Linux.conf) (optional)
 
-  - $OS/$OS_VER.conf
-    OS and OS Version specific configuration (optional)
+  - *$OS/$OS_VER.conf*: OS and OS Version specific configuration (optional)
 
-  - templates/
-    Directory to keep user-changeable templates for various files used
+  - *templates/*: Directory to keep user-changeable templates for various files used
     or generated
 
-  - templates/PXE_per_node_config
-    template for pxelinux.cfg per-node configurations
+  - *templates/PXE_per_node_config*: template for pxelinux.cfg per-node configurations
 
-  - templates/CDROM_isolinux.cfg
-    isolinux.cfg template
+  - *templates/CDROM_isolinux.cfg*: isolinux.cfg template
 
-  - templates/...
-    other templates as the need arises
+  - *templates/...*: other templates as the need arises
 
-  - recovery/...
-    Recovery information
+  - *recovery/...*: Recovery information
 
 #### Layout of /usr/share/rear
-  - skel/default/
-    default rescue FS skeleton
 
-  - skel/$(uname -i)/
-    arch specific rescue FS skeleton (optional)
+  - *skel/default/*: default rescue FS skeleton
 
-  - skel/$OS_$OS_VER/
-    OS-specific rescue FS skeleton (optional)
+  - *skel/$(uname -i)/*: arch specific rescue FS skeleton (optional)
 
-  - skel/$BACKUP/
-    Backup-SW specific rescue FS skeleton (optional)
+  - *skel/$OS_$OS_VER/*: OS-specific rescue FS skeleton (optional)
 
-  - skel/$OUTPUT/
-    Output-Method specific rescue FS skeleton (optional)
+  - *skel/$BACKUP/*: Backup-SW specific rescue FS skeleton (optional)
 
-  - lib/*.sh
-    function definitions, split into files by their topic
+  - *skel/$OUTPUT/*: Output-Method specific rescue FS skeleton (optional)
 
-  - prep/default/*.sh
-  - prep/$(uname -i)/*.sh
-  - prep/$OS_$OS_VER/*.sh
-  - prep/$BACKUP/*.sh
-  - prep/$OUTPUT/*.sh
+  - *lib/\*.sh*: function definitions, split into files by their topic
+
+  - *prep/default/\*.sh*:
+  - *prep/$(uname -i)/\*.sh*:
+  - *prep/$OS_$OS_VER/\*.sh*:
+  - *prep/$BACKUP/\*.sh*:
+  - *prep/$OUTPUT/\*.sh*:
     Prep scripts. The scripts get merged from the applicable directories
     and executed in their alphabetical order. Naming conventions are:
 
     ##_name.sh
     where 00 < ## < 99
 
-  - layout/save/default/*.sh
-  - layout/save/$(uname -i)/*.sh
-  - layout/save/$OS_OS_VER/*.sh
+  - *layout/save/default/\*.sh*:
+  - *layout/save/$(uname -i)/\*.sh*:
+  - *layout/save/$OS_OS_VER/\*.sh*:
     Save layout scripts. The scripts get merged from the applicable directories
     and executed in their alphabetical order. Naming conventions are:
 
@@ -188,32 +170,32 @@ installed into the usual locations:
     where 00 < ## < 99
 
 
-  - rescue/...
+  - *rescue/...*:
     Analyse-Rescue scripts: ...
 
-  - build/...
+  - *build/...*:
     Build scripts: ...
 
-  - pack/...
+  - *pack/...*:
     Pack scripts: ...
 
-  - backup/$BACKUP/*.sh
+  - *backup/$BACKUP/\*.sh*:
     Backup scripts: ...
 
-  - output/$OUTPUT/*.sh
+  - *output/$OUTPUT/\*.sh*:
     Output scripts: ...
 
-  - verify/...
+  - *verify/...*:
     Verify the recovery data against the hardware found, wether we can
     successfully recover the system
 
-  - recreate/...
+  - *recreate/...*:
     Recreate file systems and their dependancies
 
-  - restore/$BACKUP/...
+  - *restore/$BACKUP/...*:
     Restore data from backup media
 
-  - finalize/...
+  - *finalize/...*:
     Finalization scripts
 
 ### Inter-module communication
