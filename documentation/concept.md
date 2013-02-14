@@ -111,7 +111,11 @@ installed into the usual locations:
 
   - */usr/share/rear/*: Internal scripts
 
-  - */tmp/rear.$$/*: Build area
+  - */var/lib/rear/*: Recovery and disk and file system layout information
+
+  - */var/log/rear/*: Log file of rear is kept here
+
+  - */tmp/rear.$$/*: Build area (will be removed by default, use option '-d' to keep)
 
 #### Layout of /etc/rear
 
@@ -137,6 +141,14 @@ installed into the usual locations:
   - *templates/...*: other templates as the need arises
 
   - *recovery/...*: Recovery information
+
+#### Layout of /var/lib/rear
+
+  - *layout/*: Information on disk partitioning and file system layout
+
+  - *output/*: The ISO9660 image or PXE files are kept here
+
+  - *recovery/*: Recovery information such as initrd modules, mount points are kept here
 
 #### Layout of /usr/share/rear
 
