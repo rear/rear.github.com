@@ -6,7 +6,7 @@ title: Relax-and-Recover concept
 ## Relax-and-Recover concept
 
 ### The Workflow System
-Rear is built as a modular framework. A call of rear *command* will invoke
+Rear is built as a modular framework. A call of *rear command* will invoke
 the following general workflow:
 
   1. *Configuration:* Collect system information to assemble a correct
@@ -52,11 +52,14 @@ The configuration must define the *BACKUP* and *OUTPUT* methods. Valid choices a
 <pre>
 |NAME   | TYPE    | Description                              | Implement in Phase
 +-------+---------+------------------------------------------+-------------------
-|NFS    | BACKUP  | Copy files to NFS share                  | OK
+|NETFS  | BACKUP  | Copy files to NFS, CIFS share            | OK
 |TAPE   | BACKUP  | Copy files to tape(s)                    | OK
 |CDROM  | BACKUP  | Copy files to CD/DVD                     | on request
 |NSR    | BACKUP  | Use Legato Networker                     | on request
 |TSM    | BACKUP  | Use Tivoli Storage Manager               | OK 
+|DP     | BACKUP  | Use HP Data Protector                    | OK 
+|BACULA | BACKUP  | Use opensource Bacula                    | OK
+|
 |       |         |                                          |
 |ISO    | OUTPUT  | Write result to ISO9660 image            | OK
 |CDROM  | OUTPUT  | Write result to CD/DVD                   | on request
@@ -69,7 +72,7 @@ The configuration must define the *BACKUP* and *OUTPUT* methods. Valid choices a
 The result of the analysis is written into configuration files under
 '/etc/rear/recovery/'. This directory is copied together with the other
 Rear directories onto the rescue system where the same framework runs
-a different workflow â the recovery workflow.
+a different workflow the recovery workflow.
 
 The recovery workflow is triggered by the fact that the root filesystem is
 mounted in a ram disk or tmpfs. Alternatively a demo recovery workflow
@@ -104,7 +107,7 @@ installed into the usual locations:
 
   - */etc/rear/*: Configurations
 
-  - */usr/bin/rear*: Main program
+  - */usr/sbin/rear*: Main program
 
   - */usr/share/rear/*: Internal scripts
 
@@ -150,9 +153,13 @@ installed into the usual locations:
   - *lib/\*.sh*: function definitions, split into files by their topic
 
   - *prep/default/\*.sh*:
+
   - *prep/$(uname -i)/\*.sh*:
+
   - *prep/$OS_$OS_VER/\*.sh*:
+
   - *prep/$BACKUP/\*.sh*:
+
   - *prep/$OUTPUT/\*.sh*:
     Prep scripts. The scripts get merged from the applicable directories
     and executed in their alphabetical order. Naming conventions are:
@@ -161,7 +168,9 @@ installed into the usual locations:
     where 00 < ## < 99
 
   - *layout/save/default/\*.sh*:
+
   - *layout/save/$(uname -i)/\*.sh*:
+
   - *layout/save/$OS_OS_VER/\*.sh*:
     Save layout scripts. The scripts get merged from the applicable directories
     and executed in their alphabetical order. Naming conventions are:
@@ -171,19 +180,19 @@ installed into the usual locations:
 
 
   - *rescue/...*:
-    Analyse-Rescue scripts: ...
+    Analyse-Rescue scripts ...
 
   - *build/...*:
-    Build scripts: ...
+    Build scripts ...
 
   - *pack/...*:
-    Pack scripts: ...
+    Pack scripts ...
 
   - *backup/$BACKUP/\*.sh*:
-    Backup scripts: ...
+    Backup scripts ...
 
   - *output/$OUTPUT/\*.sh*:
-    Output scripts: ...
+    Output scripts ...
 
   - *verify/...*:
     Verify the recovery data against the hardware found, wether we can
@@ -218,8 +227,6 @@ RO means that the framework manages this variable and modules and methods should
 
 #### Config
 
-  - Small user config in /etc/ for personal settings
+Small user config in /etc/rear/local.conf for personal settings.
 
-  - Split out the old Config.sh file into a config directory with sub-directories for ARCH
-    and Ostype (without sub-dirs is also possible)
 
