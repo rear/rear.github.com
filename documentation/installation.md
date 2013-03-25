@@ -50,3 +50,13 @@ A Deb package of rear can be installed as follows:
 On Debian (Ubuntu) use the following command to install missing dependencies:
 
     apt-get -f install
+
+### Remove rear package
+To remove rear from your system (why should you?) on RPM based systems:
+
+    rpm -e rear
+
+And, on debian based systems:
+
+    apt-get remove -y rear
+
