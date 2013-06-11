@@ -3,7 +3,7 @@ layout: default
 title: Relax-and-Recover Release Notes
 ---
 
-## Release Notes for Relax-and-Recover version 1.14.0
+## Release Notes for Relax-and-Recover version 1.15.0
 
 This document contains the release notes for the open source project
 Relax-and-Recover.
@@ -42,7 +42,7 @@ functionality:
   is enough).
 
 * Support included for most common file systems, such as ext2, ext3, ext4
-  and reiserfs. Other filesystems like jfs, xfs and btrfs (*NEW!*) are also
+  and reiserfs. Other filesystems like jfs, xfs and btrfs are also
   implemented, but are less tested. _(Feedback is appreciated)_
 
 * Selected Hardware RAID and (eg. HP SmartArray) and mirroring solutions (eg.
@@ -50,18 +50,22 @@ functionality:
 
 * LVM root volumes are supported.
 
-* (*NEW!*) Multipath support for SAN storage
- 
+* Multipath support for SAN storage
+
+* UEFI support
+
 * Integrates with external backup solutions such as:
 
-  - GNU tar (BACKUP=NETFS)
-  - rsync (BACKUP=NETFS)
+  - GNU tar (BACKUP=NETFS, BACKUP_PROG=tar)
+  - rsync (BACKUP=NETFS, BACKUP_PROG=rsync)
+  - Rsync (BACKUP=RSYNC, BACKUP_PROG=rsync)
   - Tivoli Storage Manager (BACKUP=TSM)
   - HP Data Protector (BACKUP=DP)
   - Symantec NetBacakup (BACKUP=NBU)
   - Galaxy 5, 6 and 7 (BACKUP=GALAXY)
   - Bacula (BACKUP=BACULA)
-  - Duplicity/Duply (BACKUP=DUPLICITY) (*NEW! Experimental*)
+  - Rsync Backup Made Easy (BACKUP=RBME) (*New!*)
+  - Duplicity/Duply (BACKUP=DUPLICITY) (*Experimental*)
 
 * Udev support (except for some really ancient udev versions) which is
   the base for many new and important features:
@@ -78,6 +82,7 @@ functionality:
   - map hard disks if they do not match (e.g. hda -> sda)
   - remap network MAC addresses
   - rebuild the initial ramdisk if needed (for new storage drivers)
+  - migration to SAN storage (*New!* *Experimental*)
 
 * Support backup software: Bacula, both locally attached tapes (with
   bextract) and network-based backups. Also, in combination with OBDR tapes.
@@ -102,17 +107,17 @@ Together with `OUTPUT=USB` we have now a complete solution on hard disks
 * Save layout and compare layouts for easy automation of making
   Relax-and-Recover snapshots
 
-* The *layout* workflow  is now the default workflow instead of the
+* The *layout* workflow is now the default workflow instead of the
   previous *dr* workflow. The *dr* workflow kept all important
   system information into a directory structure where the new *layout*
   workflow use files to keep the information centralized. The *dr* workflow
-  has been removed in v1.14
+  has been removed in v1.14!
 
 * External USB booting now uses extlinux instead of syslinux, and
   therefore, the USB disk must first be formatted with an ext2, ext3, ext4
   or btrfs based file system
 
-*NOTE*: Features marked experimental are prone to change with future releases.
+*NOTE*: Features marked *experimental* are prone to change with future releases.
 
 
 ## Relax-and-Recover Releases
@@ -121,6 +126,46 @@ in July 2006.  For each release, this chapter lists the new features and
 defect fixes. Note that all releases are cumulative, and that all releases
 of Relax-and-Recover are compatible with previous versions of
 Relax-and-Recover, unless otherwise noted.
+
+### Version 1.15.0 (tbd 2013)
+
+The references pointing to *fix#nr* refer to our [issues tracker](https://github.com/rear/rear/issues)
+
+As usual lots of bug fixes - see the issue tracker.
+
+* Support booting syslinux v5 (issue #238)
+
+* Fix installing grub when /boot is inside the root filesystem (issue #210)
+
+* Deal with BTRFS subvolumes correctlya(issue #233)
+
+* Recognize OracleServer as a Fedora derivate
+
+* Added UEFI integration within rear (including booting ISO images)
+
+* Improved dataprotector GUI interaction (issue #189)
+
+* Secure backup was introduced (issue #196)
+
+* Added fixes recomended by RedHat Bugzilla report #882175
+
+* OUTPUT_URL scheme approvement (issue #37)
+
+* Netbackup improvement for xinetd (issue #180)
+
+* LOGFILE variable can be overruled now (issue #56)
+
+* Support for RBME restores over NFS
+
+* Packaging support introduced for Arch Linux
+
+* Added support for sshfs transport with BACKUP=NETFS (issue #171)
+
+* Re-introduced /dev/disk/by-id migration which was lost since release 1.7.22 (issue #22)
+
+* Updates required for systemd for fedora 18 and 19.
+
+* Check if ROOT_FS filesystem was mounted with 'noexec' attribute (issue #150)
 
 ### Version 1.14.0 (September 2012)
 
