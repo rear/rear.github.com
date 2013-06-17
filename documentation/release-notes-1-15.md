@@ -57,6 +57,7 @@ functionality:
 * Integrates with external backup solutions such as:
 
   - GNU tar (BACKUP=NETFS, BACKUP_PROG=tar)
+  - GNU tar with openssl encryption (BACKUP=NETFS, BACKUP_PROG=tar, BACKUP_PROG_CRYPT_ENABLED=1)
   - rsync (BACKUP=NETFS, BACKUP_PROG=rsync)
   - Rsync (BACKUP=RSYNC, BACKUP_PROG=rsync)
   - Tivoli Storage Manager (BACKUP=TSM)
@@ -129,15 +130,17 @@ Relax-and-Recover, unless otherwise noted.
 
 ### Version 1.15.0 (tbd 2013)
 
-The references pointing to *fix#nr* refer to our [issues tracker](https://github.com/rear/rear/issues)
+The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker](https://github.com/rear/rear/issues)
 
 As usual lots of bug fixes - see the issue tracker.
+
+* Create directory $PXE_TFTP_LOCAL_PATH if it doesn't exist (fix #244, issue #244)
 
 * Support booting syslinux v5 (issue #238)
 
 * Fix installing grub when /boot is inside the root filesystem (issue #210)
 
-* Deal with BTRFS subvolumes correctlya(issue #233)
+* Deal with BTRFS subvolumes correctly (issue #233)
 
 * Recognize OracleServer as a Fedora derivate
 
@@ -146,6 +149,10 @@ As usual lots of bug fixes - see the issue tracker.
 * Improved dataprotector GUI interaction (issue #189)
 
 * Secure backup was introduced (issue #196)
+  
+    Add to /etc/rear/local.conf:
+    BACKUP_PROG_CRYPT_ENABLED=1
+    BACKUP_PROG_CRYPT_KEY="secretkey"
 
 * Added fixes recomended by RedHat Bugzilla report #882175
 
