@@ -5,6 +5,14 @@ title: Relax-and-Recover events
 
 ## Relax-and-Recover events
 
+### Open Source Backup Conference 2013, Cologne, DE
+Gratien will give a presentation around rear on [Open Source Backup Conference 2013](http://www.osbconf.org/Programm) on September, 25th.
+
+<iframe width="280" height="210" src="http://www.youtube.com/embed/IAERu2LObjY" align="right"><p>Relax-and-Recover talk</p></iframe>
+### LinuxTag 2013, Berlin, DE
+Relax-and-Recover was present at the [LinuxTag](http://linuxtag.org) 
+in Berlin May 22-25! Schlomo gave the following presentation on [Integrating UEFI into Relax-and-Recover](http://www.linuxtag.org/2013/en/program/friday-may-24-2013.html?eventid=349)
+
 <iframe width="280" height="210" src="http://www.youtube.com/embed/jUfFzFU-SWY" align="right"><p>Relax-and-Recover talk</p></iframe>
 ### LinuxTag 2012, Berlin, DE
 Relax-and-Recover was again present at the [LinuxTag](http://linuxtag.org)
