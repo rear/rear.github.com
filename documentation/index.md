@@ -82,14 +82,18 @@ This page will consists of links to:
 
  - Relax-and-Recover manual page
  - Relax-and-Recover Release Notes
+
    * [Relax-and-Recover Release Notes 1.15.0](http://relax-and-recover.org/documentation/release-notes-1-15)
    * [Relax-and-Recover Release Notes 1.14.0](http://relax-and-recover.org/documentation/release-notes-1-14)
+
  - Relax-and-Recover user guide
+
    * [Concept](http://relax-and-recover.org/documentation/concept)
    * [Installation](http://relax-and-recover.org/documentation/installation)
    * Configuration
    * Use cases
    * Best practices
    * Troubleshooting
+
  - <a href="/documentation/faq">Relax-and-Recover FAQ</a>
  - Relax-and-Recover presentations

@@ -54,18 +54,22 @@ functionality:
 
 * UEFI support
 
-* Integrates with external backup solutions such as:
+* Integrates with _internal_ backup solutions such as:
 
-  - GNU tar (BACKUP=NETFS, BACKUP_PROG=tar)
-  - GNU tar with openssl encryption (BACKUP=NETFS, BACKUP_PROG=tar, BACKUP_PROG_CRYPT_ENABLED=1)
-  - rsync (BACKUP=NETFS, BACKUP_PROG=rsync)
-  - Rsync (BACKUP=RSYNC, BACKUP_PROG=rsync)
+   - GNU tar (BACKUP=NETFS, BACKUP_PROG=tar)
+   - GNU tar with openssl encryption (BACKUP=NETFS, BACKUP_PROG=tar, BACKUP_PROG_CRYPT_ENABLED=1)
+   - rsync (BACKUP=NETFS, BACKUP_PROG=rsync)
+   - Rsync (BACKUP=RSYNC, BACKUP_PROG=rsync)
+
+* Integrates with _external_ backup solutions such as:
+
   - Tivoli Storage Manager (BACKUP=TSM)
   - HP Data Protector (BACKUP=DP)
   - Symantec NetBacakup (BACKUP=NBU)
   - Galaxy 5, 6 and 7 (BACKUP=GALAXY)
   - Bacula (BACKUP=BACULA)
-  - Rsync Backup Made Easy (BACKUP=RBME) (*New!*)
+  - Bareos (BACKUP=BAREOS) (*New!* A Bacula variant)
+  - Rsync Backup Made Easy (BACKUP=RBME)
   - Duplicity/Duply (BACKUP=DUPLICITY) (*Experimental*)
 
 * Udev support (except for some really ancient udev versions) which is
@@ -98,21 +102,21 @@ functionality:
 
     BACKUP_URL=usb:///dev/device
 
-Together with `OUTPUT=USB` we have now a complete solution on hard disks
-(booting of it and restoring data).
+    Together with `OUTPUT=USB` we have now a complete solution on hard disks
+    (booting of it and restoring data).
 
-* DHCP client support (IPv4 and IPv6) has been added. Dhcp client activation
+* DHCP client support (IPv4 and IPv6). Dhcp client activation
   can be forced via the variable *USE_DHCLIENT=yes* (define in _/etc/rear/local.conf_).
   It is also possible to force DHCP at boot time with kernel option `dhcp`
 
 * Save layout and compare layouts for easy automation of making
   Relax-and-Recover snapshots
 
-* The *layout* workflow is now the default workflow instead of the
-  previous *dr* workflow. The *dr* workflow kept all important
+* The *layout* workflow is the default workflow instead of the
+  deprecated *dr* workflow. The *dr* workflow kept all important
   system information into a directory structure where the new *layout*
   workflow use files to keep the information centralized. The *dr* workflow
-  has been removed in v1.14!
+  has been removed in rear v1.14!
 
 * External USB booting now uses extlinux instead of syslinux, and
   therefore, the USB disk must first be formatted with an ext2, ext3, ext4
@@ -134,13 +138,51 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 As usual lots of bug fixes - see the issue tracker.
 
+* Align the usage of KEEP_OLD_OUTPUT_COPY and NETFS_KEEP_OLD_BACKUP_COPY and make them behave sane.
+  See also issue #192
+
+* Add the --selinux option to be safe with SELinux context restoration (with GNU tar)
+
+* Add an option to exclude modules on the rescue system
+
+  default.conf: EXCLUDE_MODULES=()
+
+* Add integrity check when BACKUP=NETFS and BACKUP_PROG=tar with the option BACKUP_INTEGRITY_CHECK
+
+* Add an option to define a root password to allow SSH connection whithout a public/private key pair (#272)
+  
+  default.conf: SSH_ROOT_PASSWORD=
+
+* Implement the "splitted backup to iso" feature.  To use that, BACKUP_URL has to use the iso://[subdirs] scheme but
+  a different OUTPUT_URL has to be defined (issues #278 and #287). New parameter ISO_MAX_SIZE introduced.
+
+* Fix SELinux autorelabelling (issue #270 and #274)
+
+* Rear support now more then 9 partitions (see issue #263)
+
+* systemd support added for Fedora 19 and OpenSuse 12.x
+
+* Automatic Recover feature on USB devices (label AUTOMATIC RECOVER in rear recover menu)
+
+* Add an option to copy all users and group. It's usefull in the case we want to restore ACL of all users. See default.conf:
+
+  CLONE_ALL_USERS_GROUPS=n
+
+* Example prep script to detect missing lftp (fix #247)
+
+* Using POSIX output format in df.txt (fix #248)
+
+* Recognize OracleServer as a Fedora derivate
+
+* Allow basic network configuration from the command line
+
 * Create directory $PXE_TFTP_LOCAL_PATH if it doesn't exist (fix #244, issue #244)
 
 * Support booting syslinux v5 (issue #238)
 
 * Fix installing grub when /boot is inside the root filesystem (issue #210)
 
-* Deal with BTRFS subvolumes correctly (issue #233)
+* Deal with BTRFS subvolumes correctly (issue #233 and #252)
 
 * Recognize OracleServer as a Fedora derivate
 
