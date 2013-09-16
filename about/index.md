@@ -58,6 +58,7 @@ it as a Disaster Recovery solution:
    * IBM Tivoli Storage Manager (TSM)
    * Symantec NetBackup
    * CommVault Galaxy
+   * EMC NetWorker (Legato)
    * Bacula
    * tar
    * rsync
