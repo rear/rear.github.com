@@ -58,8 +58,8 @@ functionality:
 
    - GNU tar (BACKUP=NETFS, BACKUP_PROG=tar)
    - GNU tar with openssl encryption (BACKUP=NETFS, BACKUP_PROG=tar, BACKUP_PROG_CRYPT_ENABLED=1)
-   - rsync (BACKUP=NETFS, BACKUP_PROG=rsync)
-   - Rsync (BACKUP=RSYNC, BACKUP_PROG=rsync)
+   - rsync on local devices (BACKUP=NETFS, BACKUP_PROG=rsync), such USB and local disks
+   - Rsync over the network (BACKUP=RSYNC, BACKUP_PROG=rsync)
 
 * Integrates with _external_ backup solutions such as:
 
@@ -68,9 +68,10 @@ functionality:
   - Symantec NetBacakup (BACKUP=NBU)
   - Galaxy 5, 6 and 7 (BACKUP=GALAXY)
   - Bacula (BACKUP=BACULA)
-  - Bareos (BACKUP=BAREOS) (*New!* A Bacula variant)
+  - Bareos (BACKUP=BAREOS) (*New!*) (A fork of Bacula)
   - Rsync Backup Made Easy (BACKUP=RBME)
   - Duplicity/Duply (BACKUP=DUPLICITY) (*Experimental*)
+  - EMC Networker, also known as Legato (BACKUP=NSR) (*NEW!*)
 
 * Udev support (except for some really ancient udev versions) which is
   the base for many new and important features:
@@ -86,6 +87,7 @@ functionality:
   - network and storage drivers are adjusted
   - map hard disks if they do not match (e.g. hda -> sda)
   - remap network MAC addresses
+  - use another IP address, or using dhcp via templates or from kernel command line
   - rebuild the initial ramdisk if needed (for new storage drivers)
   - migration to SAN storage (*New!* *Experimental*)
 
@@ -110,7 +112,7 @@ functionality:
   It is also possible to force DHCP at boot time with kernel option `dhcp`
 
 * Save layout and compare layouts for easy automation of making
-  Relax-and-Recover snapshots
+  Relax-and-Recover snapshots (checklayout option)
 
 * The *layout* workflow is the default workflow instead of the
   deprecated *dr* workflow. The *dr* workflow kept all important
@@ -122,6 +124,8 @@ functionality:
   therefore, the USB disk must first be formatted with an ext2, ext3, ext4
   or btrfs based file system
 
+* cron job to check changes in disk layout and trigger `rear mkrescue` if required
+
 *NOTE*: Features marked *experimental* are prone to change with future releases.
 
 
@@ -132,11 +136,16 @@ defect fixes. Note that all releases are cumulative, and that all releases
 of Relax-and-Recover are compatible with previous versions of
 Relax-and-Recover, unless otherwise noted.
 
-### Version 1.15.0 (tbd 2013)
+### Version 1.15.0 (September 2013)
 
 The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker](https://github.com/rear/rear/issues)
 
 As usual lots of bug fixes - see the issue tracker.
+
+* Add EMC NetWorker (Legato) support for doing _external_ backup
+
+* Add Bareos (Backup Archive REcovery Open Sourced) support for doing _external_ backup (bareos
+  is a fork of the open source backup suite Bacula)
 
 * Align the usage of KEEP_OLD_OUTPUT_COPY and NETFS_KEEP_OLD_BACKUP_COPY and make them behave sane.
   See also issue #192
@@ -164,7 +173,7 @@ As usual lots of bug fixes - see the issue tracker.
 
 * Automatic Recover feature on USB devices (label AUTOMATIC RECOVER in rear recover menu)
 
-* Add an option to copy all users and group. It's usefull in the case we want to restore ACL of all users. See default.conf:
+* Add an option to copy all users and group. It is usefull in the case we want to restore ACL of all users. See default.conf:
 
   CLONE_ALL_USERS_GROUPS=n
 
@@ -176,7 +185,7 @@ As usual lots of bug fixes - see the issue tracker.
 
 * Allow basic network configuration from the command line
 
-* Create directory $PXE_TFTP_LOCAL_PATH if it doesn't exist (fix #244, issue #244)
+* Create directory $PXE_TFTP_LOCAL_PATH if it does not exist (fix #244, issue #244)
 
 * Support booting syslinux v5 (issue #238)
 
@@ -577,7 +586,7 @@ _/usr/share/rear/conf/default.conf_ file to disable SELinux
 while the backup is running (default setting).
 
 *Issue Description*: Is incremental backup possible? With our default
-settings (`BACKUP=NETFS` and `BACKUP_PROG=tar`) we do not support
+settings (`BACKUP=NETFS` and `BACKUP_PROG=tar`) we do not yet support
 incremental backups.
 
 * Workaround:
