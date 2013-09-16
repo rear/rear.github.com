@@ -522,6 +522,7 @@ results. See
 
 
 ## Known Problems and Workarounds
+
 *Issue Description*: System reconfiguration still has some weaknesses.
 
 * this has to be tested before relying on it, there are too many unknowns
@@ -586,3 +587,10 @@ option which is in fact an incremental backup using the `rsync` program.
 The same can be accomplished by using `BACKUP=RSYNC` and the proper
 `BACKUP_URL=rsync://hostname/PATH`.
 
+*Issue Description*: Error "Missing usr/lib/systemd/system - too confused to continue"
+
+Above error message might be seen after upgrading rear from a very old version (like rear-1.10) to the latest one.
+
+* Workaround:
+
+Use the command `rpm -V rear` to verify the upgrade went fine. If not, then remove first the old version (with `rpm -e rear`) before installing the latest version.
