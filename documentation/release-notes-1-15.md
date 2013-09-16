@@ -527,7 +527,7 @@ The default backup program with Relax-and-Recover is (`BACKUP_PROG=tar`)
 GNU tar and the default compression used with tar is `gzip`. However, is
 using `gzip` the best choice? We have done some tests and published the
 results. See
-[Relax-and-Recover compression tests](http://www.it3.be/Joomla/index.php?option=com_content&view=article&id=76:rear-compression&catid=40:Open%20Source%20Projects&Itemid=54)
+[Relax-and-Recover compression tests](http://www.it3.be/2013/09/16/NETFS-compression-tests/)
 
 
 ## Known Problems and Workarounds
