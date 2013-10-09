@@ -8,13 +8,13 @@ The project announces new releases on the low-traffic [rear-announce mailinglist
 
 
 ### Stable releases
-The various stable release are available from the
-[Github Downloads](https://github.com/rear/rear/downloads) page.
+The various stable releases are available as tar.gz files from the
+[Sourceforge Downloads](https://sourceforge.net/projects/rear/files/rear/) page.
 
 
 ### Master branch snapshot
 The latest development snapshot is available through the
-[Github tarball](https://github.com/rear/rear/tarball/master) interface.
+[Github Download ZIP](https://github.com/rear/rear/archive/master.zip) button.
 
 Or you can get a private copy through:
 
@@ -50,20 +50,18 @@ our automated builds from the OpenSUSE Build Service:
 
 #### Official stable releases
 
+ * CentOS:
+    [5.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/CentOS_CentOS-5/noarch/),
+    [6.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/CentOS_CentOS-6/noarch/)
  * Debian:
-    [5.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_5.0/all/),
     [6.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_6.0/all/)
  * Fedora:
-    [16](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Fedora_16/noarch/),
     [17](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Fedora_17/noarch/)
- * Mandriva:
-    [2009.1](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Mandriva_2009.1/noarch/),
-    [2010](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Mandriva_2010/noarch/),
-    [2010.1](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Mandriva_2010.1/noarch/),
-    [2011](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Mandriva_2011/noarch/)
  * openSUSE:
     [11.4](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/openSUSE_11.4/noarch/),
     [12.1](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/openSUSE_12.1/noarch/),
+    [12.2](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/openSUSE_12.2/noarch/),
+    [12.3](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/openSUSE_12.3/noarch/),
     [Factory](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/openSUSE_Factory/noarch/),
     [Tumbleweed](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/openSUSE_Tumbleweed/noarch/)
  * RHEL:
@@ -76,28 +74,19 @@ our automated builds from the OpenSUSE Build Service:
     [11_SP1](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/SLE_11_SP1/noarch/),
     [11_SP2](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/SLE_11_SP2/noarch/)
  * Ubuntu:
-    [9.10](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/xUbuntu_9.10/all/),
     [10.04](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/xUbuntu_10.04/all/),
-    [11.04](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/xUbuntu_11.04/all/),
-    [11.10](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/xUbuntu_11.10/all/),
     [12.04](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/xUbuntu_12.04/all/)
 
 #### Snapshot releases from Git
 
  * Debian:
-    [5.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Debian_5.0/all/),
     [6.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Debian_6.0/all/)
  * Fedora:
-    [16](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Fedora_16/noarch/),
     [17](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Fedora_17/noarch/)
- * Mandriva:
-    [2009.1](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Mandriva_2009.1/noarch/),
-    [2010](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Mandriva_2010/noarch/),
-    [2010.1](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Mandriva_2010.1/noarch/),
-    [2011](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Mandriva_2011/noarch/)
  * openSUSE:
-    [11.4](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/openSUSE_11.4/noarch/),
     [12.1](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/openSUSE_12.1/noarch/),
+    [12.2](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/openSUSE_12.2/noarch/),
+    [12.2](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/openSUSE_12.3/noarch/),
     [Factory](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/openSUSE_Factory/noarch/),
     [Tumbleweed](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/openSUSE_Tumbleweed/noarch/)
  * RHEL:
@@ -110,10 +99,7 @@ our automated builds from the OpenSUSE Build Service:
     [11_SP1](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/SLE_11_SP1/noarch/),
     [11_SP2](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/SLE_11_SP2/noarch/)
  * Ubuntu:
-    [9.10](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/xUbuntu_9.10/all/),
     [10.04](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/xUbuntu_10.04/all/),
-    [11.04](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/xUbuntu_11.04/all/),
-    [11.10](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/xUbuntu_11.10/all/),
     [12.04](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/xUbuntu_12.04/all/)
 
 
