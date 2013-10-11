@@ -3,7 +3,7 @@ layout: default
 title: Relax-and-Recover Release Notes
 ---
 
-## Release Notes for Relax-and-Recover version 1.15.0
+## Release Notes for Relax-and-Recover version 1.16.0
 
 This document contains the release notes for the open source project
 Relax-and-Recover.
@@ -57,6 +57,7 @@ functionality:
 * Integrates with _internal_ backup solutions such as:
 
    - GNU tar (BACKUP=NETFS, BACKUP_PROG=tar)
+   - GNU tar (BACKUP=NETFS, BACKUP_PROG=tar, BACKUP_TYPE=incremental, FULLBACKUPDAY="Mon") for using incremental backups with a weekly full backup. Be aware, old tar archives will not be removed automatically!
    - GNU tar with openssl encryption (BACKUP=NETFS, BACKUP_PROG=tar, BACKUP_PROG_CRYPT_ENABLED=1)
    - rsync on local devices (BACKUP=NETFS, BACKUP_PROG=rsync), such USB and local disks
    - Rsync over the network (BACKUP=RSYNC, BACKUP_PROG=rsync)
@@ -135,6 +136,22 @@ in July 2006.  For each release, this chapter lists the new features and
 defect fixes. Note that all releases are cumulative, and that all releases
 of Relax-and-Recover are compatible with previous versions of
 Relax-and-Recover, unless otherwise noted.
+
+### Version 1.16.0 (TDB)
+
+The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker](https://github.com/rear/rear/issues)
+
+As usual lots of bug fixes - see the issue tracker.
+
+* Add automatic recovery mode for Bareos
+
+* Add incremental backup type with GNU tar with weekly backups, define in _/etc/rear/local.conf_ the following:
+
+    BACKUP=NETFS
+    BACKUP_TYPE=incremental
+    FULLBACKUPDAY="Mon"
+
+* 
 
 ### Version 1.15.0 (September 2013)
 
