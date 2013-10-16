@@ -143,15 +143,15 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 As usual lots of bug fixes - see the issue tracker.
 
-* Add automatic recovery mode for Bareos
+* Add automatic recovery mode for Bareos - issue #311
 
-* Add incremental backup type with GNU tar with weekly backups, define in _/etc/rear/local.conf_ the following:
+* Add incremental backup type with GNU tar with weekly backups, define in _/etc/rear/local.conf_ the following (issue #294):
 
     BACKUP=NETFS
     BACKUP_TYPE=incremental
     FULLBACKUPDAY="Mon"
 
-* 
+* Add support for Gentoo kernels - issue #312
 
 ### Version 1.15.0 (September 2013)
 
