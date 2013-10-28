@@ -82,6 +82,8 @@ our automated builds from the OpenSUSE Build Service:
     [12.04](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/xUbuntu_12.04/all/)
     [12.10](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/xUbuntu_12.10/all/)
     [13.04](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/xUbuntu_13.04/all/)
+ * Gentoo:
+    [12.1](https://packages.gentoo.org/package/app-backup/rear)
 
 #### Snapshot releases from Git
 
