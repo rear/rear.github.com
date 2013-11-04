@@ -21,8 +21,8 @@ in Berlin May 22-25! Schlomo gave the following presentation on [Integrating UEF
 Relax-and-Recover was again present at the [LinuxTag](http://linuxtag.org)
 in Berlin May 23-26! A big thank you for the enormous success of this event
 (a lot of people came to our booth and attended the
-[Relax-and-Recover talk](http://www.linuxtag.org/2012/en/program/program/vortragsdetails.html?no_cache=1&talkid=195)
-and/or [Relax-and-Recover workshop](http://www.linuxtag.org/2012/de/program/workshops/workshops/vortragsdetails.html?talkid=701)
+[Relax-and-Recover talk](http://www.linuxtag.org/2012/de/program/program/vortragsdetails-talkid195.html)
+and/or [Relax-and-Recover workshop](http://www.linuxtag.org/2012/de/program/workshops/workshops/vortragsdetails-talkid701.html)
 
 The Relax-and-Recover talk has been placed on-line by OpenSUSE TV.
 <br clear="right">
