@@ -73,6 +73,7 @@ functionality:
   - Rsync Backup Made Easy (BACKUP=RBME)
   - Duplicity/Duply (BACKUP=DUPLICITY) (*Experimental*)
   - EMC Networker, also known as Legato (BACKUP=NSR) (*NEW!*)
+  - SEP Sesam (BACKUP=SESAM) (*NEW!*)
 
 * Udev support (except for some really ancient udev versions) which is
   the base for many new and important features:
@@ -142,6 +143,8 @@ Relax-and-Recover, unless otherwise noted.
 The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker](https://github.com/rear/rear/issues)
 
 As usual lots of bug fixes - see the issue tracker.
+
+* Add SEP Sesam external backup integration - issues #324 and #325
 
 * Add automatic recovery mode for Bareos - issue #311
 
