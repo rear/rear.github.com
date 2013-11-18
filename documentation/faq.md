@@ -7,6 +7,17 @@ title: Relax-and-Recover FAQ
 
 ### Hardware support
 
+### mkrescue support
+
+*Question:* Not enough disk space available in /boot for GRUB rescue image?
+
+If you see above error message then you can edit the `/etc/rear/local.conf` and add
+
+    GRUB_RESCUE=
+
+to avoid the rear generates a rescue image under the `/boot/grub` directory. By default,
+rear is generating a rescue image and adding it to your grub configuration.
+
 ### Backup support
 
 ### System migrations
