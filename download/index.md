@@ -60,6 +60,7 @@ our automated builds from the OpenSUSE Build Service:
     [17](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Fedora_17/noarch/)
     [18](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Fedora_18/noarch/)
     [19](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Fedora_19/noarch/)
+    [20](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Fedora_20/noarch/)
  * openSUSE:
     [11.4](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/openSUSE_11.4/noarch/),
     [12.1](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/openSUSE_12.1/noarch/),
@@ -94,6 +95,7 @@ our automated builds from the OpenSUSE Build Service:
     [17](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Fedora_17/noarch/)
     [18](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Fedora_18/noarch/)
     [19](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Fedora_19/noarch/)
+    [20](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Fedora_20/noarch/)
  * openSUSE:
     [12.1](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/openSUSE_12.1/noarch/),
     [12.2](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/openSUSE_12.2/noarch/),
