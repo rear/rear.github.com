@@ -6,6 +6,7 @@ title: Relax-and-Recover concept
 ## Relax-and-Recover concept
 
 ### The Workflow System
+
 Rear is built as a modular framework. A call of *rear command* will invoke
 the following general workflow:
 
@@ -23,6 +24,7 @@ the following general workflow:
   4. Cleanup work area
 
 ### Workflow Make Rescue Media
+
 The application will have the following general workflow which is represented
 by appropriately named scripts in various subdirectories:
 
@@ -49,26 +51,25 @@ by appropriately named scripts in various subdirectories:
 
 The configuration must define the *BACKUP* and *OUTPUT* methods. Valid choices are:
 
-<pre>
-|NAME   | TYPE    | Description                              | Implement in Phase
-+-------+---------+------------------------------------------+-------------------
-|NETFS  | BACKUP  | Copy files to NFS, CIFS share            | OK
-|TAPE   | BACKUP  | Copy files to tape(s)                    | OK
-|CDROM  | BACKUP  | Copy files to CD/DVD                     | on request
-|NSR    | BACKUP  | Use Legato Networker                     | on request
-|TSM    | BACKUP  | Use Tivoli Storage Manager               | OK 
-|DP     | BACKUP  | Use HP Data Protector                    | OK 
-|BACULA | BACKUP  | Use opensource Bacula                    | OK
-|
-|       |         |                                          |
-|ISO    | OUTPUT  | Write result to ISO9660 image            | OK
-|CDROM  | OUTPUT  | Write result to CD/DVD                   | on request
-|OBDR   | OUTPUT  | Create OBDR Tape                         | OK
-|PXE    | OUTPUT  | Create PXE bootable files on TFTP server | OK
-|USB    | OUTPUT  | Create bootable USB device               | OK
-</pre>
+    |NAME   | TYPE    | Description                              | Implement in Phase
+    +-------+---------+------------------------------------------+-------------------
+    |NETFS  | BACKUP  | Copy files to NFS, CIFS share            | OK
+    |TAPE   | BACKUP  | Copy files to tape(s)                    | OK
+    |CDROM  | BACKUP  | Copy files to ISO image                  | OK
+    |NSR    | BACKUP  | Use Legato Networker                     | OK
+    |TSM    | BACKUP  | Use Tivoli Storage Manager               | OK
+    |DP     | BACKUP  | Use HP Data Protector                    | OK
+    |BACULA | BACKUP  | Use opensource Bacula                    | OK
+    |
+    |       |         |                                          |
+    |ISO    | OUTPUT  | Write result to ISO9660 image            | OK
+    |CDROM  | OUTPUT  | Write result to CD/DVD                   | on request
+    |OBDR   | OUTPUT  | Create OBDR Tape                         | OK
+    |PXE    | OUTPUT  | Create PXE bootable files on TFTP server | OK
+    |USB    | OUTPUT  | Create bootable USB device               | OK
 
 ### Workflow Recovery
+
 The result of the analysis is written into configuration files under
 '/etc/rear/recovery/'. This directory is copied together with the other
 Rear directories onto the rescue system where the same framework runs
@@ -102,6 +103,7 @@ are indeed the same):
      onto '/var/log/rear/' in the recovered system.
 
 ### FS layout
+
 Rear tries to be as much LSB complient as possible. Therefore rear will be
 installed into the usual locations:
 
@@ -176,8 +178,8 @@ installed into the usual locations:
     Prep scripts. The scripts get merged from the applicable directories
     and executed in their alphabetical order. Naming conventions are:
 
-    ##_name.sh
-    where 00 < ## < 99
+    xx_name.sh
+    where 00 < xx < 99
 
   - *layout/save/default/\*.sh*:
 
@@ -187,8 +189,8 @@ installed into the usual locations:
     Save layout scripts. The scripts get merged from the applicable directories
     and executed in their alphabetical order. Naming conventions are:
 
-    ##_name.sh
-    where 00 < ## < 99
+    xx_name.sh
+    where 00 < xx < 99
 
 
   - *rescue/...*:
@@ -220,20 +222,19 @@ installed into the usual locations:
     Finalization scripts
 
 ### Inter-module communication
+
 The various stages and modules communicate via standarized environment variables:
 
-<pre>
-|NAME             |TYPE         |Descriptions                         |Example
-+-----------------+-------------+-------------------------------------+-------------------------
-|CONFIG_DIR       |STRING (RO)  |Configuration dir                    |'/etc/rear/'
-|SHARE_DIR        |STRING (RO)  |Shared data dir                      |'/usr/share/rear/'
-|BUILD_DIR        |STRING (RO)  |Build directory                      |'/tmp/rear.$$/'
-|ROOTFS_DIR       |STRING (RO)  |Root FS directory for rescue system  |'/tmp/rear.$$/initrd/'
-|PROGS            |LIST         |Program files to copy                |+bash ip route grep ls+ ...
-|MODULES          |LIST         |Modules to copy                      |+af_unix e1000 ide-cd+ ...
-|COPY_AS_IS       |LIST         |Files (with path) to copy as-is      |'/etc/localtime' ...
-|....
-</pre>
+    |NAME             |TYPE         |Descriptions                         |Example
+    +-----------------+-------------+-------------------------------------+-------------------------
+    |CONFIG_DIR       |STRING (RO)  |Configuration dir                    |'/etc/rear/'
+    |SHARE_DIR        |STRING (RO)  |Shared data dir                      |'/usr/share/rear/'
+    |BUILD_DIR        |STRING (RO)  |Build directory                      |'/tmp/rear.$$/'
+    |ROOTFS_DIR       |STRING (RO)  |Root FS directory for rescue system  |'/tmp/rear.$$/initrd/'
+    |PROGS            |LIST         |Program files to copy                |+bash ip route grep ls+ ...
+    |MODULES          |LIST         |Modules to copy                      |+af_unix e1000 ide-cd+ ...
+    |COPY_AS_IS       |LIST         |Files (with path) to copy as-is      |'/etc/localtime' ...
+    |....
 
 RO means that the framework manages this variable and modules and methods shouldn't change it.
 
