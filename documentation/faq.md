@@ -9,7 +9,7 @@ title: Relax-and-Recover FAQ
 
 *Question:* rear upgrade fails via `rpm -U`
 
-If you ever have this behavior you better first remove the old version with `rpm -e` and then do a fresh installation again with `rpm -ivh` or `yum install real`
+If you ever have this behavior you better first remove the old version with `rpm -e` and then do a fresh installation again with `rpm -ivh` or `yum install rear`
 
 ### Hardware support
 
