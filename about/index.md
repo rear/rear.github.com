@@ -53,16 +53,20 @@ it as a Disaster Recovery solution:
    * iSCSI
    * LUKS (encrypted partitions and filesystems)
 
- * Supports various backup technologies, incl.
-   * HP DataProtector
-   * IBM Tivoli Storage Manager (TSM)
-   * Symantec NetBackup
+ * Supports various 3rd party backup technologies, incl.
    * CommVault Galaxy
    * EMC NetWorker (Legato)
-   * Bacula
-   * tar
-   * rsync
-   * duplicity / duply
+   * HP DataProtector
+   * IBM Tivoli Storage Manager (TSM)
+   * SEP Sesam
+   * Symantec NetBackup
+   * [Bacula](http://www.bacula.org)
+   * [Bareos](http://www.bareos.org)
+   * [duplicity](http://duplicity.nongnu.org) / [duply](http://duply.net)
+
+ * Supports various internal backup methods
+   * [tar](http://www.gnu.org/software/tar)
+   * [rsync](http://rsync.samba.org)
 
  * Two phase disk layout recovery, allows reconfiguration before recovery, e.g.
    * migrations from e.g. SWRAID to HWRAID, or unencryped to encrypted partitions
