@@ -97,3 +97,7 @@ This page will consists of links to:
 
  - <a href="/documentation/faq">Relax-and-Recover FAQ</a>
  - Relax-and-Recover presentations
+ - External Links
+
+   * [Linux Disaster Recovery mit Relax-and-Recover und EMC Networker (in German)](http://backupinferno.de/?p=358)
+
