@@ -144,6 +144,55 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 As usual lots of bug fixes - see the issue tracker.
 
+* Network script now deals correctly with VLAN tagging as well
+
+* Added 2 new variables to `default.conf` for TSM: `TSM_ARCHIVE_MGMT_CLASS` which defines a backup class to use with TSM, and `TSM_RM_ISOFILE` which triggers (if set to y) to remove the original ISO files from local system once the ISO image has been transferred to TSM
+
+* Guessing the bootloader and saving this in a file in the `$VAR_LIB/recovery/bootloader` (will be picke dup during recovery to assist us in selecting the proper bootloader [ grub, grub2, uefi ])
+
+* Various corrections with `BACKYP=RSYNC` method (issue #200 and #366). In rear 1.16 the old and new style are still recognized, but we might drop the old style in later versions.
+
+----
+#### OLD STYLE:
+# BACKUP_URL=[USER@]HOST:PATH           # using ssh (no rsh)
+# with rsync protocol PATH is a MODULE name defined in remote /etc/rsyncd.conf file
+# BACKUP_URL=[USER@]HOST::PATH          # using rsync
+
+#### NEW STYLE:
+# BACKUP_URL=rsync://[USER@]HOST[:PORT]/PATH    # using ssh
+# BACKUP_URL=rsync://[USER@]HOST[:PORT]::/PATH  # using rsync
+----
+
+* Checking the bootloader files during savelayout section - see issue #234
+
+* Backup method `BACKUP=DUPLICITY` has been fully tested and proven to work well (backup and recover). When using `duply` and automated recovery is possible (Proof of Concept script was added and seems to be working well).
+
+* Variable `SSH_ROOT_PASSWORD` (see `default.conf`) allows to force a password with the rescue image (issue #362)
+
+* TSM version >=6.4 is now supported (issue #356), and point in time restore works better now (issue #358)
+
+* Fix the order of `fs` lines in `checklayout.conf` file when mor ethen 9 partitions are in use (issue #352)
+
+* Avoiding CD/DVD type devices to be added in the disklayout.conf file during savelayout (issue #257)
+
+* Removed `mingetty` executable from `REQUIRED_PROGS` list as RHEL 7 does not ship it anymore. `agetty` is getting more and more the standard now and rear will use this one automatically when `mingetty` is absent
+
+* New variable in `default.conf` file was defined `BACKUP_TYPE=` (empty is full or incremental; only works with the default `BACKUP_PROG=tar`)
+
+* Avoid stale NFS hangs with `df` command (issue #350)
+
+* For TSM a new variable was introduced in `default.conf` file: TSM_RESULT_SAVE (to disable the TSM saving; can be used when you saved the result via `$ISO_URL`, `$OUTPUT_URL`, `$ISO_DIR` or something else)
+
+* `/etc/rear/local.conf` is now empty by default and `/etc/rear/site.conf` now contains `OUTPUT=ISO` setting. This way we are sure that during an upgrade of rear we do not loose our original user settings (local.conf tends te be overwritten).
+
+* Fix for hpacucli where the order logicaldrive and array could be wrong (issue #208)
+
+* New variable TMPDIR allows to overrule the default `/tmp` temporary directory (handy when building big ISO images)
+
+* Added option `-iso-level 3` to `mkisofs` command so we can create ISO image bigger then 4 GB (issue #323)
+
+* detecting 'out of space' errors while building huge ISO images
+
 * Add SEP Sesam external backup integration - issues #324 and #325
 
 * Add automatic recovery mode for Bareos - issue #311
@@ -187,9 +236,9 @@ As usual lots of bug fixes - see the issue tracker.
 
 * Fix SELinux autorelabelling (issue #270 and #274)
 
-* Rear support now more then 9 partitions (see issue #263)
+* Rear supports now more then 9 partitions (see issue #263)
 
-* systemd support added for Fedora 19 and OpenSuse 12.x
+* systemd support added for Fedora 19/20 and OpenSuse 12.x/13.x
 
 * Automatic Recover feature on USB devices (label AUTOMATIC RECOVER in rear recover menu)
 
