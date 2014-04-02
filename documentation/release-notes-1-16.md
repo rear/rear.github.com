@@ -197,9 +197,9 @@ As usual lots of bug fixes - see the issue tracker.
 
 * Add incremental backup type with GNU tar with weekly backups, define in _/etc/rear/local.conf_ the following (issue #294):
 
-    BACKUP=NETFS
-    BACKUP_TYPE=incremental
-    FULLBACKUPDAY="Mon"
+       BACKUP=NETFS
+       BACKUP_TYPE=incremental
+       FULLBACKUPDAY="Mon"
 
 * Add support for Gentoo kernels - issue #312
 
