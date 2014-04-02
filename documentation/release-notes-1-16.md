@@ -153,14 +153,14 @@ As usual lots of bug fixes - see the issue tracker.
 * Various corrections with `BACKYP=RSYNC` method (issue #200 and #366). In rear 1.16 the old and new style are still recognized, but we might drop the old style in later versions.
 
 ----
-#### OLD STYLE:
-# BACKUP_URL=[USER@]HOST:PATH           # using ssh (no rsh)
-# with rsync protocol PATH is a MODULE name defined in remote /etc/rsyncd.conf file
-# BACKUP_URL=[USER@]HOST::PATH          # using rsync
+ OLD STYLE:
+ BACKUP_URL=[USER@]HOST:PATH           # using ssh (no rsh)
+ with rsync protocol PATH is a MODULE name defined in remote /etc/rsyncd.conf file
+ BACKUP_URL=[USER@]HOST::PATH          # using rsync
 
-#### NEW STYLE:
-# BACKUP_URL=rsync://[USER@]HOST[:PORT]/PATH    # using ssh
-# BACKUP_URL=rsync://[USER@]HOST[:PORT]::/PATH  # using rsync
+ NEW STYLE:
+ BACKUP_URL=rsync://[USER@]HOST[:PORT]/PATH    # using ssh
+ BACKUP_URL=rsync://[USER@]HOST[:PORT]::/PATH  # using rsync
 ----
 
 * Checking the bootloader files during savelayout section - see issue #234
@@ -600,6 +600,17 @@ results. See
 
 
 ## Known Problems and Workarounds
+
+*Issue Description*: with RHEL 4 systems extended partitions are recognized as primary partitions
+
+    Error: Expecting a partition number
+
+* Workaround:
+
+Full details can be read in [issue 314](https://github.com/rear/rear/issues/319).
+However, you need to edit `/var/lib/rear/layout/disklayout.conf` file and change for
+partition 4 "primary" to "extended"
+
 
 *Issue Description*: System reconfiguration still has some weaknesses.
 
