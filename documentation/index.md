@@ -100,4 +100,5 @@ This page will consists of links to:
  - External Links
 
    * [Linux Disaster Recovery mit Relax-and-Recover und EMC Networker (in German)](http://backupinferno.de/?p=358)
+   * [Linux Disaster Recovery with Relax-and-Recover und SEP sesam](http://wiki.sepsoftware.com/wiki/index.php/Disaster_Recovery_for_Linux_3.0_en)
 
