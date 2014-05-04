@@ -71,9 +71,9 @@ functionality:
   - Bacula (BACKUP=BACULA)
   - Bareos (BACKUP=BAREOS) (*New!*) (A fork of Bacula)
   - Rsync Backup Made Easy (BACKUP=RBME)
-  - Duplicity/Duply (BACKUP=DUPLICITY) (*Experimental*)
-  - EMC Networker, also known as Legato (BACKUP=NSR) (*NEW!*)
-  - SEP Sesam (BACKUP=SESAM) (*NEW!*)
+  - Duplicity/Duply (BACKUP=DUPLICITY) (*New!*)
+  - EMC Networker, also known as Legato (BACKUP=NSR)
+  - SEP Sesam (BACKUP=SESAM) (*New!*)
 
 * Udev support (except for some really ancient udev versions) which is
   the base for many new and important features:
@@ -128,6 +128,10 @@ functionality:
 
 * cron job to check changes in disk layout and trigger `rear mkrescue` if required
 
+* VLAN tagging support
+
+* Add timestamp of rear run with rc code to the syslog or messages file; sending mail report is also possible
+
 *NOTE*: Features marked *experimental* are prone to change with future releases.
 
 
@@ -138,7 +142,7 @@ defect fixes. Note that all releases are cumulative, and that all releases
 of Relax-and-Recover are compatible with previous versions of
 Relax-and-Recover, unless otherwise noted.
 
-### Version 1.16.0 (TDB)
+### Version 1.16.0 (May 2014)
 
 The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker](https://github.com/rear/rear/issues)
 
@@ -163,7 +167,7 @@ As usual lots of bug fixes - see the issue tracker.
 
 * Checking the bootloader files during savelayout section - see issue #234
 
-* Backup method `BACKUP=DUPLICITY` has been fully tested and proven to work well (backup and recover). When using `duply` and automated recovery is possible (Proof of Concept script was added and seems to be working well).
+* Backup method `BACKUP=DUPLICITY` has been fully tested and proven to work well (backup and recover). When using `duply` and automated recovery is possible. Several updates were made to make duplicity works as well with backup and recover
 
 * Variable `SSH_ROOT_PASSWORD` (see `default.conf`) allows to force a password with the rescue image (issue #362)
 
