@@ -92,7 +92,7 @@ This page will consists of links to:
    * [Concept](http://relax-and-recover.org/documentation/concept)
    * [Installation](http://relax-and-recover.org/documentation/installation)
    * Configuration
-   * Use cases
+   * [Use cases](http://relax-and-recover.org/documentation/usecases)
    * Best practices
    * Troubleshooting
 
