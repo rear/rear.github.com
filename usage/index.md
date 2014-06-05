@@ -51,10 +51,10 @@ Relax-and-Recover integrates with various backup solutions. Your backup
 software takes care of backing up all system files, Relax-and-Recover
 recreates the filesystems and starts the file restore.
 
-Currently Bacula, HP DataProtector, CommVault Galaxy, Symantec NetBackup and IBM
+Currently Bacula, Bareos, SEP Sesam, HP DataProtector, CommVault Galaxy, Symantec NetBackup and IBM
 Tivoli Storage Manager are supported.
 
-The following `local.conf` uses a USB stick for the rescue system. Multiple
+The following `local.conf` uses a USB stick for the rescue system and Bacula for backups. Multiple
 systems can use the USB stick since the size of the rescue system is probably
 less than 40M. It relies on your Bacula infrastructure to restore all files.
 
