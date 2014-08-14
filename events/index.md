@@ -5,6 +5,14 @@ title: Relax-and-Recover events
 
 ## Relax-and-Recover events
 
+### Open Source Backup Conference 2014, Cologne, DE
+Ralf Dannert (SuSe) presents "ReaR for corporate use" on [Open Source Backup Conference 2014](http://osbconf.org/program/).
+<br clear="right">
+
+### LinuxTag 2014, Berlin, DE
+Gratien did a Relax-and-Recover Workshop at [LinuxTag](http://linuxtag.org), and together with Maik Außendorf (Bareos) we had 2 short workshops around Bareos-rear integration.
+<br clear="right">
+
 <iframe width="280" height="210" src="http://www.youtube.com/embed/JDUOL_5ck6k" align="right"><p>Relax-and-Recover talk at OSBConf</p></iframe>
 ### Open Source Backup Conference 2013, Cologne, DE
 Gratien gave a presentation around rear on [Open Source Backup Conference 2013](http://www.osbconf.org/historie/2013/open-source-backup-conference-2013-review).
