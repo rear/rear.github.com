@@ -120,4 +120,4 @@ our automated builds from the OpenSUSE Build Service:
 
 
 ### Future releases
-Future releases are planned and communicated through [Github milestones](https://github.com/rear/rear/issues/milestones)
+Future releases are planned and communicated through [Github milestones](https://github.com/rear/rear/milestones)
