@@ -70,7 +70,8 @@ our automated builds from the OpenSUSE Build Service:
  * RHEL:
     [4](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/RedHat_RHEL-4/noarch/),
     [5](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/RedHat_RHEL-5/noarch/),
-    [6](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/RedHat_RHEL-6/noarch/)
+    [6](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/RedHat_RHEL-6/noarch/),
+    [7](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/RHEL_7/noarch/)
  * SLES:
     [10](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/SLE_10_SDK/noarch/),
     [11](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/SLE_11/noarch/),
