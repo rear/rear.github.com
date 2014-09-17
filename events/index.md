@@ -5,6 +5,10 @@ title: Relax-and-Recover events
 
 ## Relax-and-Recover events
 
+### T-Dose 2014, Eindhoven, NL
+Presentation by Gratien will be given on October, 25th, 2014 called "Building a Business Continuity Plan with Bareos and rear". Full [schedule](http://www.t-dose.org/2014/schedule/full) has been published.
+<br clear="right">
+
 ### Open Source Backup Conference 2014, Cologne, DE
 Ralf Dannert (SuSe) presents "ReaR for corporate use" on [Open Source Backup Conference 2014](http://osbconf.org/program/).
 <br clear="right">
@@ -52,8 +56,6 @@ the design and functionality that Relax-and-Recover offers, real-life
 use-cases and a live demonstration of using Relax-and-Recover with USB
 boot media.
 
-<img src="http://www.linuxfoundation.org/sites/www.linuxfoundation.org/themes/opensourcery/images/footer-logo.png" align="right">
-<br clear="right">
 
 ### FOSDEM 2011, Brussels, BE
 Gratien gave a presentation about Linux disaster recovery in general and Relax-and-Recover in particular at FOSDEM.
