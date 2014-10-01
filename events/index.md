@@ -10,7 +10,10 @@ Presentation by Gratien will be given on October, 25th, 2014 called "Building a 
 <br clear="right">
 
 ### Open Source Backup Conference 2014, Cologne, DE
-Ralf Dannert (SuSe) presents "ReaR for corporate use" on [Open Source Backup Conference 2014](http://osbconf.org/program/).
+Ralf Dannert (SuSe) presents [ReaR for corporate use](http://osbconf.org/wp-content/uploads/2014/09/REAR-by-Ralf-Dannert.pdf) on [Open Source Backup Conference 2014](http://osbconf.org/program/).
+
+<iframe width="280" height="210" src="http://www.youtube.com/embed/4zGll7jlRk4" align="right"><p>Relax-and-Recover talk of Ralf Dannert (SuSe) at OSBC 2014</p></iframe>
+
 <br clear="right">
 
 ### LinuxTag 2014, Berlin, DE
