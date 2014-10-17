@@ -61,7 +61,7 @@ it as a Disaster Recovery solution:
    * [SEP Sesam](http://www.sep.de/de/produkte/disaster-recovery/)
    * Symantec NetBackup
    * [Bacula](http://www.bacula.org)
-   * [Bareos](http://www.bareos.org)
+   * [Bareos](http://www.bareos.org/en/HOWTO/articles/relax-and-recover-with-bareos.html)
    * [duplicity](http://duplicity.nongnu.org) / [duply](http://duply.net)
 
  * Supports various internal backup methods
