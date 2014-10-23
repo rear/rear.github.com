@@ -7,6 +7,8 @@ title: Relax-and-Recover development
 The Relax-and-Recover project uses Github for [source code management](https://github.com/rear),
 issue tracking and this website.
 
+Rear is fully developed with the bash language and we follow the [coding styling described on the rear wiki page](https://github.com/rear/rear/wiki/Coding-Style)
+
 
 ### Mailinglists
 The Relax-and-Recover project offers three mailinglists:
