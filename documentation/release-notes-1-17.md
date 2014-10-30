@@ -631,13 +631,31 @@ results. See
 
 At present (release 1.16.1) there is no workaround in place. If you happen to know how this could be fixed then add your ideas to [issue #417](https://github.com/rear/rear/issues/417)
 
+*Issue Description*: UEFI ISO booting does not work on OpenSuSe 12.x
+
+* Workaround:
+
+At present (release 1.17.x) `genisoimage` cannot produce ISO images that can boot via UEFI on an OpenSuSe distribution (and also SLES). However, if you download the `mkisofs` [sources from Jorg Schilling](http://cdrecord.org/)
+
+*Issue Description*: TSM 7.1.0.0 cp writing dangling symlink libxmlutil-7.1.0.0.so on SLES SP3
+
+* Workaround:
+
+To fix the error you might see:
+
+    ERROR [LipCopyTo] Could not copy '/usr/lib64/../../opt/tivoli/tsm/client/api/bin64/libxmlutil-7.1.0.0.so' to '/tmp/rear.10455/rootfs/lib64'
+
+See [issue 476](https://github.com/rear/rear/issues/476) for the resolution.
+
+
 *Issue Description*: with RHEL 4 systems extended partitions are recognized as primary partitions
+
 
     Error: Expecting a partition number
 
 * Workaround:
 
-Full details can be read in [issue 314](https://github.com/rear/rear/issues/319).
+Full details can be read in [issue 319](https://github.com/rear/rear/issues/319).
 However, you need to edit `/var/lib/rear/layout/disklayout.conf` file and change for
 partition 4 "primary" to "extended"
 
