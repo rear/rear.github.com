@@ -6,11 +6,14 @@ title: Relax-and-Recover events
 ## Relax-and-Recover events
 
 ### T-Dose 2014, Eindhoven, NL
-Presentation by Gratien will be given on October, 25th, 2014 called "Building a Business Continuity Plan with Bareos and rear". Full [schedule](http://www.t-dose.org/2014/schedule/full) has been published.
+Presentation given by Gratien on October, 25th, 2014 called [Building a Business Continuity Plan with Bareos and rear](http://www.t-dose.org/2014/schedule/full).
+
+<iframe width="280" height="210" src="http://www.youtube.com/embed/cNwa2KE5zUU" align="right"><p>T-Dose 2014, Building a Business Continuity Plan with Bareos and rear, Gratien Dhaese</p></iframe>
+
 <br clear="right">
 
 ### Open Source Backup Conference 2014, Cologne, DE
-Ralf Dannert (SuSe) presents [ReaR for corporate use](http://osbconf.org/wp-content/uploads/2014/09/REAR-by-Ralf-Dannert.pdf) on [Open Source Backup Conference 2014](http://osbconf.org/program/).
+Ralf Dannert (SuSe) presented [ReaR for corporate use](http://osbconf.org/wp-content/uploads/2014/09/REAR-by-Ralf-Dannert.pdf) on [Open Source Backup Conference 2014](http://osbconf.org/program/).
 
 <iframe width="280" height="210" src="http://www.youtube.com/embed/4zGll7jlRk4" align="right"><p>Relax-and-Recover talk of Ralf Dannert (SuSe) at OSBC 2014</p></iframe>
 
