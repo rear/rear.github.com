@@ -48,6 +48,15 @@ And, if you forgot these files you can still define a fixed IP address when you 
 
     ip=192.268.1.100 nm=255.255.255.0 gw=192.168.1.1 netdev=eth0
 
+*Question:* Can we force a static IP address with the rescue image?
+
+Yes, even when you are currently using DHCP you can define the variable
+
+    USE_STATIC_NETWORKING=1
+
+in the configuration file `/etc/rear/local.conf`. You might also consider to define a static IP address in `/etc/rear/mappings/ip_addresses` (see previous question).
+
+
 #### P2P
 
 #### P2V
