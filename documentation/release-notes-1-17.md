@@ -67,14 +67,16 @@ functionality:
   - Tivoli Storage Manager (BACKUP=TSM)
   - HP Data Protector (BACKUP=DP)
   - Symantec NetBacakup (BACKUP=NBU)
-  - Galaxy 5, 6 and 7 (BACKUP=GALAXY)
+  - Galaxy 5, 6, and 7 (BACKUP=GALAXY)
+  - Galaxy 10 [Commvault Simpana] (BACKUP=GALAXY10) (*NEW!*)
   - Bacula (BACKUP=BACULA)
   - Bareos (BACKUP=BAREOS) (A fork of Bacula)
   - Rsync Backup Made Easy (BACKUP=RBME)
   - Duplicity/Duply (BACKUP=DUPLICITY)
   - EMC Networker, also known as Legato (BACKUP=NSR)
   - SEP Sesam (BACKUP=SESAM)
-  - Galaxy 10 (Commvault Simpana) (*NEW!*)
+
+* Integrates with [Disaster Recovery Linux Manager (drlm)](http://drlm.org)
 
 * Udev support (except for some really ancient udev versions) which is
   the base for many new and important features:
@@ -148,7 +150,49 @@ Relax-and-Recover, unless otherwise noted.
 The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker](https://github.com/rear/rear/issues)
 
 
-### Version 1.17.0 (?? 2014)
+### Version 1.17.0 (February 2015)
+
+* Commercial backup solution Galaxy 10 support added to rear (issue #471)
+
+* Fixed the error "unary operator expected with BACKUP_TYPE" (issue #422)
+
+* lvm release 2.02.72 had already the knowledge of --norestorefile (issue #462)
+
+* Add prefix $OUTPUT_PREFIX to all PXE related files (issue #464)
+
+* 55-migrate-network-devices.sh: fixed type with /sys/class/net (issue #459)
+
+* Removed Get_Start_Date function with Netbackup because (depending on backup strategy) it led to partial restore only (issue #456)
+
+* 26_crypt_layout.sh: fixed issue when cypher contains `:` (issue #425)
+
+* 55-migrate-network-devices.sh: rebuild the array instead of unset (issue #452)
+
+* skel/default/etc/scripts/system-setup : change `uname -n` by $HOSTNAME to avoid short/long hostname problems (issue #439)
+
+* Added a mkdir for $VAR_DIR/output if dir does not exist (issue #440)
+
+* 95_check_missing_programs.sh to find REQUIRED_PROGS before proceeding (issue #418)
+
+* Added a fix for autorizing and recognizong the boot flag in the partition (issue #443)
+
+* udev showing error message during startup (issue #442)
+
+* Prevent "ntpd -q" from waiting forever if, for example, no network is available, by killing it after 10 seconds (issue #438)
+
+* Several improvements around duply and duplicity [Debian related] (issues #426)
+
+* 95_copy_result_files.sh uses now [*] instead of [@] with array (issue #431)
+
+* New variable introduced for TSM in `default.conf` file called LANG_RECOVER (issue #424)
+
+* Added Pre check script for removing older releases first during upgrade (RPM - issue #361)
+
+* Prevent udev rule rewrites if systemd-udevd is running - issue #405
+
+* Fix "Networker backup fails if pool name contains spaces" (issue #427 and #429)
+
+* Fix the "More than 128 partitions is not supported" problem (issue #373 and #428) during recreating the partition layout
 
 * A new configuration option, `USE_STATIC_NETWORKING=y`, will cause statically configured network settings to be applied even when `USE_DHCLIENT` is in effect (issue #447).
 
@@ -622,6 +666,58 @@ using `gzip` the best choice? We have done some tests and published the
 results. See
 [Relax-and-Recover compression tests](http://www.it3.be/2013/09/16/NETFS-compression-tests/)
 
+## Support
+Relax-and-Recover (rear) is an Open Source project under GPL v2 or higher license which means
+it is free to use and modify. However, the creators of rear have spend many, many hours in 
+development and support. We will only givei *free of charge* support in our free time (andi when work-home balance
+allows it).
+
+That does not mean we let our user basis in the cold as we do deliver support as a service (not free of charge).
+
+## Supported Operating Systems
+Rear-1.17 is supported on the following Linux based operating systems:
+
+* Fedora 20, 21
+* RHEL 5, 6 and 7
+* CentOS 5, 6 and 7
+* ScientificLinux 6 and 7
+* SLES 11 and 12
+* OpenSuSe 11, 12 and 13
+* Debian 6 and 7
+* Ubuntu 12, 13 and 14
+
+Rear-1.17 dropped officially support for the following Linux based operating systems:
+
+* Fedora <20
+* RHEL 3 and 4
+* SLES 9 and 10
+* OpenSuSe <11
+* Debian <6
+* Ubuntu <12
+
+If you require support for *unsupported* Operating Systems you must acquire a *rear support contract* (per system).
+
+## Supported Architectures
+Rear-1.17 is supported on:
+
+* Intel x86 type of processor
+* AMD x86 type of processor
+
+Rear-1.17 may or may not fully work on:
+
+* Intel Itanium processors
+* PPC processors
+
+Rear-1.17 does not support:
+
+* ARM type of processors
+
+If you feel the need to get a fully functional rear working on one of the above mentioned type of processors please buy
+consultancy from one of our developers.
+
+## Supported rear versions
+ 
+
 
 ## Known Problems and Workarounds
 
@@ -655,7 +751,7 @@ See [issue 476](https://github.com/rear/rear/issues/476) for the resolution.
 
 * Workaround:
 
-Full details can be read in [issue 319](https://github.com/rear/rear/issues/319).
+Full details can be read in [issue #319](https://github.com/rear/rear/issues/319).
 However, you need to edit `/var/lib/rear/layout/disklayout.conf` file and change for
 partition 4 "primary" to "extended"
 
@@ -675,21 +771,6 @@ bigger one or making stuff smaller.
 most likely not work. In some cases Relax-and-Recover will print a warning,
 but we are not able to detect all cases. Typically this leads to unbootable
 systems or bad _/etc/fstab_ files
-
-*Issue Description*: The DHCP client is still a little rough around the edges,
-especially with complex networking scenarios.
-
-*Issue Description*: An error is encountered while upgrading rear-1.7.* to
-rear-1.9.0:
-
-    error: unpacking of archive failed on file /usr/share/rear/finalize/CentOS: cpio: rename failed - Is a directory
-
-
-* Workaround:
-
-First remove the older Relax-and-Recover version by hand and then install
-the new version. The _local.conf_ is saved (as _local.conf.rpmsave_) when
-we execute `rpm -e rear`
 
 
 *Issue Description*: If SELinux is not disabled during backup (variable
@@ -713,24 +794,14 @@ given in the `BACKUP_OPTIONS` variable, e.g.:
 _/usr/share/rear/conf/default.conf_ file to disable SELinux
 while the backup is running (default setting).
 
-*Issue Description*: Is incremental backup possible? With our default
-settings (`BACKUP=NETFS` and `BACKUP_PROG=tar`) we do not yet support
-incremental backups.
+*Issue Description*: Is incremental backup possible?
 
-* Workaround:
+With our default settings (`BACKUP=NETFS` and `BACKUP_PROG=tar`) we support
+incremental backups when we add the following extra variables:
 
-However, when we change `BACKUP_PROG=rsync` we can use `rear mkbackuponly`
-option which is in fact an incremental backup using the `rsync` program.
-The same can be accomplished by using `BACKUP=RSYNC` and the proper
-`BACKUP_URL=rsync://hostname/PATH`.
+    BACKUP_TYPE=incremental
+    FULLBACKUPDAY="Mon"
 
-*Issue Description*: Error "Missing usr/lib/systemd/system - too confused to continue"
-
-Above error message might be seen after upgrading rear from a very old version (like rear-1.10) to the latest one.
-
-* Workaround:
-
-Use the command `rpm -V rear` to verify the upgrade went fine. If not, then remove first the old version (with `rpm -e rear`) before installing the latest version.
 
 *Issue Description*: ERROR: FindStorageDrivers called but STORAGE_DRIVERS is empty
 
