@@ -669,7 +669,7 @@ results. See
 ## Support
 Relax-and-Recover (rear) is an Open Source project under GPL v2 or higher license which means
 it is free to use and modify. However, the creators of rear have spend many, many hours in 
-development and support. We will only givei *free of charge* support in our free time (andi when work-home balance
+development and support. We will only give *free of charge* support in our free time (and when work/home balance
 allows it).
 
 That does not mean we let our user basis in the cold as we do deliver support as a service (not free of charge).
@@ -700,8 +700,8 @@ If you require support for *unsupported* Operating Systems you must acquire a *r
 ## Supported Architectures
 Rear-1.17 is supported on:
 
-* Intel x86 type of processor
-* AMD x86 type of processor
+* Intel x86 type of processors
+* AMD x86 type of processors
 
 Rear-1.17 may or may not fully work on:
 
@@ -713,10 +713,12 @@ Rear-1.17 does not support:
 * ARM type of processors
 
 If you feel the need to get a fully functional rear working on one of the above mentioned type of processors please buy
-consultancy from one of our developers.
+consultancy from one of our official developers.
 
 ## Supported rear versions
- 
+Rear has a long history (since 2006) and we cannot supported all released versions anymore. If you have a problem we urge you to install the latest stable rear version or the development version (available on github) before submitting an issue.
+
+However, we do understand that it is not always possible to install on hundreds of systems the latest and greatest version so we are willing to support previous versions of rear if you buy a support contract. Why do we change our policy? We cannot handle the big support requests anymore and we must give paid projects priority, therefore, we urge our customers to buy a support contract for one or more systems. You buy time with our core developers...
 
 
 ## Known Problems and Workarounds
@@ -731,13 +733,13 @@ At present (release 1.16.1) there is no workaround in place. If you happen to kn
 
 * Workaround:
 
-At present (release 1.17.x) `genisoimage` cannot produce ISO images that can boot via UEFI on an OpenSuSe distribution (and also SLES). However, if you download the `mkisofs` [sources from Jorg Schilling](http://cdrecord.org/)
+At present (release 1.17.x) `genisoimage` cannot produce ISO images that can boot via UEFI on an OpenSuSe distribution (and also SLES).
 
 *Issue Description*: TSM 7.1.0.0 cp writing dangling symlink libxmlutil-7.1.0.0.so on SLES SP3
 
 * Workaround:
 
-To fix the error you might see:
+To fix the error (you might see):
 
     ERROR [LipCopyTo] Could not copy '/usr/lib64/../../opt/tivoli/tsm/client/api/bin64/libxmlutil-7.1.0.0.so' to '/tmp/rear.10455/rootfs/lib64'
 
