@@ -152,7 +152,26 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 ### Version 1.17.0 (February 2015)
 
+* Several fixes with mdadm code (issue #480)
+
+* Several fixes in the 10_include_partition_code.sh script (issue #487, #492)
+
+* Being a bit more careful when deleting the outputfs directory when rear finishes (issue #465)
+
+* Add a new config option USE_STATIC_NETWORKING (issue #488)
+
+* Resolving library search with duply (issue #482)
+
+* Improved the RPM package build for SLES, removed the lsb requirement (issue #479)
+
+* Integrated the patch skip_sysconfig_kernel_if_not_exist.diff from SuSe (issue #477)
+
+* Debian 7 reference to grub.conf was corrected (issue #473)
+
+* Debian packing was improved (issue #474, #484)
+
 * Commercial backup solution Galaxy 10 support added to rear (issue #471)
+  Also, point in time recovery was implemented (issue #472)
 
 * Fixed the error "unary operator expected with BACKUP_TYPE" (issue #422)
 
@@ -180,7 +199,7 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 * Prevent "ntpd -q" from waiting forever if, for example, no network is available, by killing it after 10 seconds (issue #438)
 
-* Several improvements around duply and duplicity [Debian related] (issues #426)
+* Several improvements around duply and duplicity [Debian related] (issues #426, #478)
 
 * 95_copy_result_files.sh uses now [*] instead of [@] with array (issue #431)
 
