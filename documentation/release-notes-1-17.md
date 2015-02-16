@@ -76,7 +76,7 @@ functionality:
   - EMC Networker, also known as Legato (BACKUP=NSR)
   - SEP Sesam (BACKUP=SESAM)
 
-* Integrates with [Disaster Recovery Linux Manager (drlm)](http://drlm.org)
+* Integrates with [Disaster Recovery Linux Manager (drlm)](http://drlm.org) (*NEW!*)
 
 * Udev support (except for some really ancient udev versions) which is
   the base for many new and important features:
@@ -152,7 +152,62 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 ### Version 1.17.0 (February 2015)
 
-* Several fixes with mdadm code (issue #480)
+* Adding the Disaster Recovery Linux Manager (drlm) integration code into rear (issue #522)
+  [More info](http://drlm.org) around this new project using rear as its core engine for centralizing a rear server using PXE, NFS
+
+* Adding /etc/crypto-policies/ when openssl is requested (prep/NETFS/default/09_check_encrypted_backup.sh) - required for https://bugzilla.redhat.com/show_bug.cgi?id=1179239 (issue #523)
+
+* Introduced USING_UEFI_BOOTLOADER in default.conf file and modified all the involved scripts to follow the logic (issue #214)
+
+* Archicture PPC64 has been enhanced (partition recognition issue #536, console #537)
+
+* TSM restore filespace has been enhanced (issue #535)
+
+* Correct the usage of set -e and StopIfError function (issue #534, #541)
+
+* With BACKUP_TYPE=incremental disable variable NETFS_KEEP_OLD_BACKUP_COPY (mutual exclusive with this mode) (issue #143)
+
+* Increased to start variable from 32768 to 2097152 in script 10_include_partition_code.sh (issue #492)
+
+* Adding /run/resolvconf/resolv.conf (Ubuntu) to rear image when found (issue #520)
+
+* When using /etc/rear/mappings/ip_addresses IPADDR/cidr must be translated into IPADDR and NETMASK (for RHEL 5 and 6) (issue #460)
+
+* mdadm layout code was changed in RHEL 7; code to deal with it (issue #518)
+
+* Adding missing driver xhci_hcd to GNU/Linux.conf (issue #519)
+
+* Adding findmnt command to GNU/Linux.conf file; request from https://bugzilla.opensuse.org/show_bug.cgi?id=908854
+
+* BTRFS code has been rewritten by J. Meixner/G. D'haese to get SuSe rear116 fork back into our master tree of rear. BTRFS is now properly recreated on Fedora 20 and 21 and on SLES 12 and OpenSuSe 13 (issue #233, #497, #538)
+See also https://bugzilla.opensuse.org/show_bug.cgi?id=908854
+
+* Enhanced the systemd start-up of udev daemons which is different on Fedora 20 and 21 (issue #507, #531)
+
+* BACKUP_PROG_OPTIONS="--anchored" became a default option in default.conf (issue #475)
+
+* Fixed an issue with auto-detection of the client name in BAREOS (issue #542)
+
+* Ubuntu 14.04 did not detect /dev/sda automatically - added upstart script 99-makedev.sh to create missing block devices like sda (issue #446)
+
+* New script usr/share/rear/layout/save/GNU/Linux/34_false_blacklisted.sh added as work-around.
+Sometimes we might see the HP Smart Storage Array disk listed as a multipath device. Most likely this device was not blacklisted in the blacklist section of the /etc/multipath.conf file (do not forget to rebuilt the initial ramdisk after this) e.g. falsempathdev=$( multipath -l | grep "HP,LOGICAL" | awk '{print $1}' )  # mpatha
+
+* Added a systemd service script for SEP Sesam to start sesam client automatically (issue #498)
+
+* Disk Layout Generation with HP SmartArray with more than one Logical Drive correction introduced by issue #208 (issue #455)
+
+* OUTPUT_URL=null was added to avoid 2 ISO images on the local system (issue #501, #419)
+
+* Fix drbd restore code so it can handle multiple volumes in single resource (issue #495)
+
+* Function get_device_name was enhanced to properly translate /dev/vg/lv to /dev/mapper/vg-lv (issue #494)
+
+* Fixed the "lvm wait yes" problem (issue #493)
+
+* Device name conflict when grep disklayout file without proper space (issue #491)
+
+* Several fixes with mdadm code (issue #480, #489, #490, #508, #539)
 
 * Several fixes in the 10_include_partition_code.sh script (issue #487, #492)
 
