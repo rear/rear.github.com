@@ -60,7 +60,7 @@ functionality:
    - GNU tar (BACKUP=NETFS, BACKUP_PROG=tar, BACKUP_TYPE=incremental, FULLBACKUPDAY="Mon") for using incremental backups with a weekly full backup. Be aware, old tar archives will not be removed automatically!
    - GNU tar with openssl encryption (BACKUP=NETFS, BACKUP_PROG=tar, BACKUP_PROG_CRYPT_ENABLED=1)
    - rsync on local devices (BACKUP=NETFS, BACKUP_PROG=rsync), such USB and local disks
-   - Rsync over the network (BACKUP=RSYNC, BACKUP_PROG=rsync)
+   - rsync over the network (BACKUP=RSYNC, BACKUP_PROG=rsync)
 
 * Integrates with _external_ backup solutions such as:
 
@@ -151,6 +151,10 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 
 ### Version 1.17.0 (February 2015)
+
+* RHEL 5 could not mount NFS share as +portmap+ daemon was not started yet. Reason was that script`verify/NETFS/default/08_start_required_daemons.sh` was executed after the mount test instead of before. (issue #547)
+
+* RHEL 6 on PPC64 architecture has problems with *seclabel* mount option. There was a fix which cuts the *seclabel* mount option (as rear is by default not using SELinux) (issue #545)
 
 * Adding the Disaster Recovery Linux Manager (drlm) integration code into rear (issue #522)
   [More info](http://drlm.org) around this new project using rear as its core engine for centralizing a rear server using PXE, NFS
@@ -796,6 +800,23 @@ However, we do understand that it is not always possible to install on hundreds 
 
 
 ## Known Problems and Workarounds
+
+*Issue Description*: BACKUP=NSR on RHEL 6 could break yum
+
+[Issue #387](https://github.com/rear/rear/issues/387) describes a problem seen on RHEL 6 where when `rear` uses NSR and afterwards the link `/lib64/libexpat.so.1` has been changed.
+
+* Workaround:
+
+So far there is *no* workaround for this issue.
+
+*Issue Description*: usage of an alternative configuration directory is different in mkbackup or recover mode
+
+Using `rear -v -c /etc/rear/mydir mkbackup` works fine in production, but when you try (once booted from rescue image) `rear -v -c /etc/rear/mydir recover` it will fail.
+
+* Workaround:
+
+The configuration files are copied to `/etc/rear/` into the rescue image, so you simply need to type: `rear -v recover`
+See issue #512
 
 *Issue Description*: Is there a possibility to add btrfs subvolume to a rsync backup
 
