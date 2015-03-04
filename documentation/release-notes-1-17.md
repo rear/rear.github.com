@@ -152,6 +152,8 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 ### Version 1.17.0 (February 2015)
 
+* rear 1.17 introduced a new stage directory (+init+) which is called before any workflow. Can be used for extra initialization code, custom configurations and other stuff that should happen each time that ReaR is used (was added especially for DRLM as plugin for their DRLM variables) (issue #557)
+
 * RHEL 5 could not mount NFS share as +portmap+ daemon was not started yet. Reason was that script`verify/NETFS/default/08_start_required_daemons.sh` was executed after the mount test instead of before. (issue #547)
 
 * RHEL 6 on PPC64 architecture has problems with *seclabel* mount option. There was a fix which cuts the *seclabel* mount option (as rear is by default not using SELinux) (issue #545)
