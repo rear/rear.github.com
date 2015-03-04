@@ -156,8 +156,7 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 * RHEL 6 on PPC64 architecture has problems with *seclabel* mount option. There was a fix which cuts the *seclabel* mount option (as rear is by default not using SELinux) (issue #545)
 
-* Adding the Disaster Recovery Linux Manager (drlm) integration code into rear (issue #522)
-  [More info](http://drlm.org) around this new project using rear as its core engine for centralizing a rear server using PXE, NFS
+* [Disaster Recovery Linux Manager (DRLM)](http://drlm.org/) is a new Open Source project to centrally manage Disaster Recovery for Linux. ReaR 1.17 adds support for DRLM with a new configuration option `DRLM_MANAGED=y` (issue #522)
 
 * Adding /etc/crypto-policies/ when openssl is requested (prep/NETFS/default/09_check_encrypted_backup.sh) - required for https://bugzilla.redhat.com/show_bug.cgi?id=1179239 (issue #523)
 
