@@ -12,6 +12,8 @@ Relax-and-Recover.
 
 [Github project](https://github.com/rear/)
 
+[ReaR Poll](https://docs.google.com/forms/d/1VnKYXNDLXqaaj37-UK2kuxH4_a9T52egviEjX1cM7Z8/viewform)
+
 This document is distributed with the following license: "Creative Commons
 Attribution-NoDerivs 3.0 Unported (CC BY-ND 3.0)". To read the license deed
 go to [http://creativecommons.org/licenses/by-nd/3.0/](http://creativecommons.org/licenses/by-nd/3.0/)
@@ -139,6 +141,9 @@ functionality:
 
 *NOTE*: Features marked *experimental* are prone to change with future releases.
 
+[*Fill in the ReaR poll*](https://docs.google.com/forms/d/1VnKYXNDLXqaaj37-UK2kuxH4_a9T52egviEjX1cM7Z8/viewform) so we can learn
+better the wishes of our customers and users. We hope we can implement or improve our work with this in the future. We need your input and/or feedback!
+
 
 ## Relax-and-Recover Releases
 The first release of Relax-and-Recover, version 1.0, was posted to the web
@@ -150,17 +155,17 @@ Relax-and-Recover, unless otherwise noted.
 The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker](https://github.com/rear/rear/issues)
 
 
-### Version 1.17.0 (February 2015)
+### Version 1.17.0 (March 2015)
 
-* rear 1.17 introduced a new stage directory (+init+) which is called before any workflow. Can be used for extra initialization code, custom configurations and other stuff that should happen each time that ReaR is used (was added especially for DRLM as plugin for their DRLM variables) (issue #557)
+* rear 1.17 introduced a new stage directory (`init`) which is called before any workflow. Can be used for extra initialization code, custom configurations and other stuff that should happen each time that ReaR is used (was added especially for DRLM as plugin for their DRLM variables) (issue #557)
 
-* RHEL 5 could not mount NFS share as +portmap+ daemon was not started yet. Reason was that script`verify/NETFS/default/08_start_required_daemons.sh` was executed after the mount test instead of before. (issue #547)
+* RHEL 5 could not mount NFS share as `portmap` daemon was not started yet. Reason was that script `verify/NETFS/default/08_start_required_daemons.sh` was executed after the mount test instead of before. (issue #547)
 
 * RHEL 6 on PPC64 architecture has problems with *seclabel* mount option. There was a fix which cuts the *seclabel* mount option (as rear is by default not using SELinux) (issue #545)
 
 * [Disaster Recovery Linux Manager (DRLM)](http://drlm.org/) is a new Open Source project to centrally manage Disaster Recovery for Linux. ReaR 1.17 adds support for DRLM with a new configuration option `DRLM_MANAGED=y` (issue #522)
 
-* Adding /etc/crypto-policies/ when openssl is requested (prep/NETFS/default/09_check_encrypted_backup.sh) - required for https://bugzilla.redhat.com/show_bug.cgi?id=1179239 (issue #523)
+* Adding /etc/crypto-policies/ when openssl is requested (`prep/NETFS/default/09_check_encrypted_backup.sh`) - required for https://bugzilla.redhat.com/show_bug.cgi?id=1179239 (issue #523)
 
 * Introduced USING_UEFI_BOOTLOADER in default.conf file and modified all the involved scripts to follow the logic (issue #214)
 
@@ -756,7 +761,7 @@ That does not mean we let our user basis in the cold as we do deliver support as
 ## Supported Operating Systems
 Rear-1.17 is supported on the following Linux based operating systems:
 
-* Fedora 20, 21
+* Fedora 20, 21 and 22(alpha)
 * RHEL 5, 6 and 7
 * CentOS 5, 6 and 7
 * ScientificLinux 6 and 7
