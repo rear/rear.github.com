@@ -83,6 +83,7 @@ This page will consists of links to:
  - Relax-and-Recover manual page
  - Relax-and-Recover Release Notes
 
+   * [Relax-and-Recover Release Notes 1.17.0](http://relax-and-recover.org/documentation/release-notes-1-17)
    * [Relax-and-Recover Release Notes 1.16.1](http://relax-and-recover.org/documentation/release-notes-1-16)
    * [Relax-and-Recover Release Notes 1.15.0](http://relax-and-recover.org/documentation/release-notes-1-15)
    * [Relax-and-Recover Release Notes 1.14.0](http://relax-and-recover.org/documentation/release-notes-1-14)

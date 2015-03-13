@@ -5,6 +5,12 @@ title: Relax-and-Recover events
 
 ## Relax-and-Recover events
 
+### openSUSE Conference 2015, Den Haag, NL
+Presentation will be given by Gratien called [Relax-and-Recover simplifies Linux Disaster Recovery](https://events.opensuse.org/conference/osc15/proposal/572), 1-4 May, 2015
+
+<br clear="right">
+
+
 ### T-Dose 2014, Eindhoven, NL
 Presentation given by Gratien on October, 25th, 2014 called [Building a Business Continuity Plan with Bareos and rear](http://www.t-dose.org/2014/schedule/full).
 
