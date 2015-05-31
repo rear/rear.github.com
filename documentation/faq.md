@@ -24,6 +24,12 @@ If you see above error message then you can edit the `/etc/rear/local.conf` and 
 to avoid the rear generates a rescue image under the `/boot/grub` directory. By default,
 rear is generating a rescue image and adding it to your grub configuration.
 
+### General Questions
+
+*Question:* cannot make pipe for command substitution: Too many open files
+
+Your linux system linits the amount of open files for the user root to a default which is too low (usually 1024). You should increase it - see details in [issue #586](https://github.com/rear/rear/issues/586)
+
 ### Backup support
 
 ### System migrations
