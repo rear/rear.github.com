@@ -71,7 +71,7 @@ The configuration must define the *BACKUP* and *OUTPUT* methods. Valid choices a
 ### Workflow Recovery
 
 The result of the analysis is written into configuration files under
-'/etc/rear/recovery/'. This directory is copied together with the other
+'/var/lib/rear/recovery/'. This directory is copied together with the other
 Rear directories onto the rescue system where the same framework runs
 a different workflow the recovery workflow.
 
@@ -107,7 +107,7 @@ are indeed the same):
 Rear tries to be as much LSB complient as possible. Therefore rear will be
 installed into the usual locations:
 
-  - */etc/rear/*: Configurations
+  - */etc/rear/*: Local Configuration files
 
   - */usr/sbin/rear*: Main program
 
@@ -119,13 +119,11 @@ installed into the usual locations:
 
   - */tmp/rear.$$/*: Build area (will be removed by default, use option '-d' to keep)
 
-#### Layout of /etc/rear
+#### Layout of /usr/share/rear/conf
 
   - *default.conf*: Default configuration will define EVERY variable with a sane default
     setting. Serves also as a reference for the available variables 'site.conf'
     site wide configuration (optional)
-
-  - *local.conf*: local machine configuration (optional)
 
   - *$(uname -s)-$(uname -i).conf*: architecture specific configuration (optional)
 
@@ -142,7 +140,15 @@ installed into the usual locations:
 
   - *templates/...*: other templates as the need arises
 
-  - *recovery/...*: Recovery information
+#### Layout of /etc/rear
+
+  - *local.conf*: local machine configuration (optional). Remember, only redefine variables which you need. The KISS principle is always a save choice.
+
+  - *site.conf*: local site configuration (optional). Rear will never overwrite or remove a *site.conf* file, so it is a safe way to survive rear upgrades.
+
+  - *rescue.conf*: Rescue configuration file which is created during the 'mkrescue' or 'mkbackup' phase. You should never need to modify this configuration file.
+
+  - *mappings/...*: Re-map information such as IP addresses
 
 #### Layout of /var/lib/rear
 
@@ -231,8 +237,8 @@ The various stages and modules communicate via standarized environment variables
     |SHARE_DIR        |STRING (RO)  |Shared data dir                      |'/usr/share/rear/'
     |BUILD_DIR        |STRING (RO)  |Build directory                      |'/tmp/rear.$$/'
     |ROOTFS_DIR       |STRING (RO)  |Root FS directory for rescue system  |'/tmp/rear.$$/initrd/'
-    |PROGS            |LIST         |Program files to copy                |+bash ip route grep ls+ ...
-    |MODULES          |LIST         |Modules to copy                      |+af_unix e1000 ide-cd+ ...
+    |PROGS            |LIST         |Program files to copy                |bash ip route grep ls ...
+    |MODULES          |LIST         |Modules to copy                      |af_unix e1000 ide-cd ...
     |COPY_AS_IS       |LIST         |Files (with path) to copy as-is      |'/etc/localtime' ...
     |....
 
