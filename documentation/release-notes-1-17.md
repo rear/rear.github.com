@@ -3,7 +3,7 @@ layout: default
 title: Relax-and-Recover Release Notes
 ---
 
-## Release Notes for Relax-and-Recover version 1.17.0
+## Release Notes for Relax-and-Recover version 1.17.1
 
 This document contains the release notes for the open source project
 Relax-and-Recover.
@@ -153,6 +153,42 @@ of Relax-and-Recover are compatible with previous versions of
 Relax-and-Recover, unless otherwise noted.
 
 The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker](https://github.com/rear/rear/issues)
+
+
+### Version 1.17.1 (June 2015)
+
+* Removed the plain password in the logs (and output) coming from BACKUP_PROG_CRYPT_KEY (issue #568)
+
+* Mount vfat file systems without special mount options seems to work better then with these options in recovery mode, therefore,
+  we do not use these anymore (issue #576)
+
+* Elilo support has been added (not fully tested yet) - issue #583
+
+* Grub2 rescue menu has been added (enable this feature with GRUB_RESCUE=y) - issue #589
+
+* splitted script 31_include_uefi_tools.sh in two pieces: 31_include_uefi_tools.sh: to grab the UEFI tools (as long as /boot/efi is mounted), and 32_include_uefi_env.sh: to dig deeper into the configuration when UEFI is active (related to issue #214)
+
+  This is necessary to have to UEFI tools on SLES 11/12 where we cannot create an UEFI bootable ISO image. We must boot in BIOS mode, and need the UEFI tools to make the system bootable over UEFI.
+
+* It is now possible to format an USB disk with a vfat and ext3 partition (for UEFI booting) - issue #593
+
+    rear -v format -- --efi /dev/<usbdevice>
+
+  However, UEFI booting from an USB disk has not yet been implemented.
+
+* Simplified the code for ext* fs and added StopIfError calls to prevent divide by zero (issue #598)
+
+* Syslinux version >6 requires some special handling due to splitting up the package (Ubuntu 15.04) - issue #584
+
+* Debian 8 support added with ISO booting (issues #596, #599 and #600)
+
+* Changed the behavior of SSH_ROOT_PASSWORD - now saved as MD5 hash password, but backwards compatibility is still respected (issue #560)
+ 
+* For EMC NetWorker server/client we added some exclude items to COPY_AS_IS_EXCLUDE_NSR (issue #571)
+
+* Removed the Warning message from main rear script as it was dubious (issues #563 and #564)
+
+* output/ISO/Linux-i386/80_create_isofs.sh: make sure ISO_FILES[@] are copied to isofs directory (issue #569)
 
 
 ### Version 1.17.0 (March 2015)
