@@ -797,14 +797,14 @@ That does not mean we let our user basis in the cold as we do deliver support as
 ## Supported Operating Systems
 Rear-1.17 is supported on the following Linux based operating systems:
 
-* Fedora 20, 21 and 22(alpha)
+* Fedora 20, 21 and 22
 * RHEL 5, 6 and 7
 * CentOS 5, 6 and 7
 * ScientificLinux 6 and 7
 * SLES 11 and 12
 * OpenSuSe 11, 12 and 13
-* Debian 6 and 7
-* Ubuntu 12, 13 and 14
+* Debian 6, 7 and 8
+* Ubuntu 12, 13, 14 and 15
 
 Rear-1.17 dropped officially support for the following Linux based operating systems:
 
@@ -815,7 +815,9 @@ Rear-1.17 dropped officially support for the following Linux based operating sys
 * Debian <6
 * Ubuntu <12
 
-If you require support for *unsupported* Operating Systems you must acquire a *rear support contract* (per system).
+If you require support for *unsupported* Linux Operating System you must acquire a *rear support contract* (per system).
+
+Requests to port *rear* to another Operating System (not Linux) can only be achieved with **serious** sponsoring.
 
 ## Supported Architectures
 Rear-1.17 is supported on:
