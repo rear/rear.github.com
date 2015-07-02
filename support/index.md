@@ -4,8 +4,10 @@ title: Relax-and-Recover support
 ---
 ## Community support
 For voluntary community support, you can use the
-[issue-tracker](http://github.com/rear/rear/issues) or the
-[rear-users mailinglist](http://lists.relax-and-recover.org/mailman/listinfo/rear-users).
+[issue-tracker](http://github.com/rear/rear/issues), the
+[rear-users mailinglist](http://lists.relax-and-recover.org/mailman/listinfo/rear-users)
+or the [chat channel](https://gitter.im/rear/rear)..
+
 Please visit the [Development](/development/) page for information on
 how to collaborate on the project and discuss issues.
 
@@ -34,7 +36,6 @@ contract, sponsor development or make use of consulting services offered by
 one of the contributors to the project:
 
  - [IT3 Consultants](http://www.it3.be/) (Gratien D'haese)
- - [Dagit Linux Solutions](http://dagit.net/) (Dag Wieërs)
  - [Schlomo Schapiro](http://consulting.schlomo.schapiro.org/)
 
 The various contributors have invested a lot in the creation and support
