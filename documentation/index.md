@@ -80,7 +80,7 @@ That is it. Your hard disk can now safely fail.
 
 This page will consists of links to:
 
- - [Relax-and-Recover manual page](https://github.com/rear/rear/blob/master/doc/rear.8.asciidoc)
+ - [Relax-and-Recover Manual](https://github.com/rear/rear/blob/master/doc/rear.8.asciidoc)
 
  - Relax-and-Recover Release Notes
 
@@ -89,7 +89,9 @@ This page will consists of links to:
    * [Relax-and-Recover Release Notes 1.15.0](http://relax-and-recover.org/documentation/release-notes-1-15)
    * [Relax-and-Recover Release Notes 1.14.0](http://relax-and-recover.org/documentation/release-notes-1-14)
 
- - Relax-and-Recover user guide
+ - [Relax-and-Recover User Guide](https://github.com/rear/rear/blob/master/doc/user-guide/relax-and-recover-user-guide.asciidoc)
+
+ - Other documentation not integrated into the User Guide yet
 
    * [Concept](http://relax-and-recover.org/documentation/concept)
    * [Installation](http://relax-and-recover.org/documentation/installation)
