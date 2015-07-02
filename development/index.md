@@ -52,7 +52,6 @@ If your company requires integrating Relax-and-Recover into their DRP setup or
 is interested to sponsor certain development, this is possible by the following
 companies that offer development services:
 
- - [Dagit Linux Solutions](http://dagit.net/) (Dag Wieërs)
  - [IT3 Consultants](http://www.it3.be/) (Gratien D'haese)
  - [Schlomo Schapiro](http://consulting.schlomo.schapiro.org/)
 
