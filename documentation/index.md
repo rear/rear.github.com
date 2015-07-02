@@ -91,14 +91,22 @@ This page will consists of links to:
 
  - [Relax-and-Recover User Guide](https://github.com/rear/rear/blob/master/doc/user-guide/relax-and-recover-user-guide.asciidoc)
 
+   1. [Introduction](https://github.com/rear/rear/blob/master/doc/user-guide/01-introduction.asciidoc)
+   2. [Getting started](https://github.com/rear/rear/blob/master/doc/user-guide/02-getting-started.asciidoc)
+   3. [Configuration](https://github.com/rear/rear/blob/master/doc/user-guide/03-configuration.asciidoc)
+   4. [Scenarios](https://github.com/rear/rear/blob/master/doc/user-guide/04-scenarios.asciidoc)
+   5. [Integration](https://github.com/rear/rear/blob/master/doc/user-guide/05-integration.asciidoc)
+   6. [Layout configuration](https://github.com/rear/rear/blob/master/doc/user-guide/06-layout-configuration.asciidoc)
+   7. [Tips and Tricks](https://github.com/rear/rear/blob/master/doc/user-guide/07-tips-and-tricks.asciidoc)
+   8. [Troubleshooting](https://github.com/rear/rear/blob/master/doc/user-guide/08-troubleshooting.asciidoc)
+   9. [Design concepts](https://github.com/rear/rear/blob/master/doc/user-guide/09-design-concepts.asciidoc)
+
  - Other documentation not integrated into the User Guide yet
 
    * [Concept](http://relax-and-recover.org/documentation/concept)
    * [Installation](http://relax-and-recover.org/documentation/installation)
-   * Configuration
    * [Use cases](http://relax-and-recover.org/documentation/usecases)
    * Best practices
-   * Troubleshooting
 
  - [Relax-and-Recover FAQ](http://relax-and-recover.org/documentation/faq)
 
