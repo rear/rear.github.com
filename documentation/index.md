@@ -37,7 +37,7 @@ title: Relax-and-Recover documentation
 
  - [Relax-and-Recover FAQ](http://relax-and-recover.org/documentation/faq)
 
-// - Relax-and-Recover presentations
+ - Relax-and-Recover presentations
 
  - External Links
 
