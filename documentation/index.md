@@ -80,7 +80,8 @@ That is it. Your hard disk can now safely fail.
 
 This page will consists of links to:
 
- - Relax-and-Recover manual page
+ - [Relax-and-Recover manual page](https://github.com/rear/rear/blob/master/doc/rear.8.asciidoc)
+
  - Relax-and-Recover Release Notes
 
    * [Relax-and-Recover Release Notes 1.17.1](http://relax-and-recover.org/documentation/release-notes-1-17)
@@ -97,8 +98,10 @@ This page will consists of links to:
    * Best practices
    * Troubleshooting
 
- - <a href="/documentation/faq">Relax-and-Recover FAQ</a>
+ - [Relax-and-Recover FAQ](http://relax-and-recover.org/documentation/faq)
+
  - Relax-and-Recover presentations
+
  - External Links
 
    * [Linux Disaster Recovery mit Relax-and-Recover und EMC Networker (in German)](http://backupinferno.de/?p=358)
