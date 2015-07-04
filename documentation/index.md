@@ -7,7 +7,7 @@ title: Relax-and-Recover documentation
 
  - [Getting Started](http://relax-and-recover.org/documentation/getting-started) -- quick start guide
 
- - [Relax-and-Recover Manual](https://github.com/rear/rear/blob/master/doc/rear.8.asciidoc)
+ - [Relax-and-Recover Manual](https://github.com/rear/rear/blob/master/doc/rear.8.adoc)
 
  - Relax-and-Recover Release Notes
 
@@ -18,15 +18,15 @@ title: Relax-and-Recover documentation
 
  - Relax-and-Recover User Guide
 
-   1. [Introduction](https://github.com/rear/rear/blob/master/doc/user-guide/01-introduction.asciidoc)
-   2. [Getting started](https://github.com/rear/rear/blob/master/doc/user-guide/02-getting-started.asciidoc)
-   3. [Configuration](https://github.com/rear/rear/blob/master/doc/user-guide/03-configuration.asciidoc)
-   4. [Scenarios](https://github.com/rear/rear/blob/master/doc/user-guide/04-scenarios.asciidoc)
-   5. [Integration](https://github.com/rear/rear/blob/master/doc/user-guide/05-integration.asciidoc)
-   6. [Layout configuration](https://github.com/rear/rear/blob/master/doc/user-guide/06-layout-configuration.asciidoc)
-   7. [Tips and Tricks](https://github.com/rear/rear/blob/master/doc/user-guide/07-tips-and-tricks.asciidoc)
-   8. [Troubleshooting](https://github.com/rear/rear/blob/master/doc/user-guide/08-troubleshooting.asciidoc)
-   9. [Design concepts](https://github.com/rear/rear/blob/master/doc/user-guide/09-design-concepts.asciidoc)
+   1. [Introduction](https://github.com/rear/rear/blob/master/doc/user-guide/01-introduction.adoc)
+   2. [Getting started](https://github.com/rear/rear/blob/master/doc/user-guide/02-getting-started.adoc)
+   3. [Configuration](https://github.com/rear/rear/blob/master/doc/user-guide/03-configuration.adoc)
+   4. [Scenarios](https://github.com/rear/rear/blob/master/doc/user-guide/04-scenarios.adoc)
+   5. [Integration](https://github.com/rear/rear/blob/master/doc/user-guide/05-integration.adoc)
+   6. [Layout configuration](https://github.com/rear/rear/blob/master/doc/user-guide/06-layout-configuration.adoc)
+   7. [Tips and Tricks](https://github.com/rear/rear/blob/master/doc/user-guide/07-tips-and-tricks.adoc)
+   8. [Troubleshooting](https://github.com/rear/rear/blob/master/doc/user-guide/08-troubleshooting.adoc)
+   9. [Design concepts](https://github.com/rear/rear/blob/master/doc/user-guide/09-design-concepts.adoc)
 
  - Other documentation (not integrated into the User Guide yet)
 
