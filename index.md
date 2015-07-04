@@ -36,7 +36,7 @@ Or watch a 4-minute complete backup and restore demo. Real time, no cheating!
 
 <iframe width="720" height="400" src="http://www.youtube.com/embed/33326XobwYg" ><p>Relax-and-Recover video</p></iframe>
 
-Now try Relax-and-Recover. [Getting Started](http://relax-and-recover.org/documentation/#getting_started) takes only a few minutes!
+Try Relax-and-Recover now. The [Quickstart guide](http://relax-and-recover.org/documentation/getting-started) takes only a few minutes!
 
 Your environment not supported? Relax-and-Recover is modular and easy to extend.
 It is GPL licensed and we welcome all feedback and contributions.
