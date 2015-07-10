@@ -18,7 +18,7 @@ To verify that the basic requirements are met just run now:
 
     rear mkrescue
 
-If rear is able to communicate with the NSR server it will create an ISO image named `/var/lib/rear/output/rear-$(hostname).iso` and you are done from the rear side. The ISO image will automatically being backed up to the NSR server by rear, so, in case of emergency you can always restore the ISO image to another computer to use it to recover this Linxu system.
+If rear is able to communicate with the NSR server it will create an ISO image named `/var/lib/rear/output/rear-$(hostname).iso` and you are done from the rear side. The ISO image will automatically being backed up to the NSR server by rear, so, in case of emergency you can always restore the ISO image to another computer to use it to recover this Linux system.
 
 Just in case you are curious, you could have a look in the `/var/lib/rear/recovery/` directory. You will find there two files starting with `nsr_`
 
