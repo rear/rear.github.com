@@ -30,6 +30,24 @@ rear is generating a rescue image and adding it to your grub configuration.
 
 Your linux system linits the amount of open files for the user root to a default which is too low (usually 1024). You should increase it - see details in [issue #586](https://github.com/rear/rear/issues/586)
 
+*Question:* How to create a bootable USB disk from an ISO image
+
+Using the `BACKUP=NETFS` and `OUTPUT=ISO` method prodices an ISO image to boot from in rescue/rcover mode. However, suppose the system to recover (or clone) cannot use an ISO image to boot from, but does have an USB interface which could be used to boot from. The easiest way would be to copy the ISO image to an USB stick and boot from the USB stick, right?
+
+How can we do this? You can use *UNetbootin* to accomplish this. Only a few steps are required:
+
+    sfdisk /dev/sdd <<EOF
+    ;
+    EOF
+
+    mkfs.vfat -F32 -n REAR-USB  /dev/sdd1
+
+Pull and replug the USB stick. Verify it is mounted.
+
+    unetbootin method=diskimage isofile=/path/to/[ISO].iso installtype=USB targetdrive=/dev/sdd1 autoinstall=yes
+
+More information about unetbootin can be found at [http://sourceforge.net/p/unetbootin/wiki/commands/](http://sourceforge.net/p/unetbootin/wiki/commands/)
+
 ### Backup support
 
 ### System migrations
