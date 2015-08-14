@@ -17,7 +17,7 @@ title: Relax-and-Recover documentation
 
 ### Release notes
 
- - [Relax-and-Recover Release Notes 1.17.1](http://relax-and-recover.org/documentation/release-notes-1-17)
+ - [Relax-and-Recover Release Notes 1.17.2](http://relax-and-recover.org/documentation/release-notes-1-17)
  - [Relax-and-Recover Release Notes 1.16.1](http://relax-and-recover.org/documentation/release-notes-1-16)
  - [Relax-and-Recover Release Notes 1.15.0](http://relax-and-recover.org/documentation/release-notes-1-15)
  - [Relax-and-Recover Release Notes 1.14.0](http://relax-and-recover.org/documentation/release-notes-1-14)
@@ -33,6 +33,7 @@ title: Relax-and-Recover documentation
  7. [Tips and Tricks](https://github.com/rear/rear/blob/master/doc/user-guide/07-tips-and-tricks.adoc)
  8. [Troubleshooting](https://github.com/rear/rear/blob/master/doc/user-guide/08-troubleshooting.adoc)
  9. [Design concepts](https://github.com/rear/rear/blob/master/doc/user-guide/09-design-concepts.adoc)
+10. [Integrating external backup programs into rear](https://github.com/rear/rear/blob/master/doc/user-guide/10-integrating-external-backup.adoc)
 
  Other documentation (not integrated into the User Guide yet)
 
