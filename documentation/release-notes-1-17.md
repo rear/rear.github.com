@@ -164,7 +164,7 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 * Move nfs-client from depends to recommends in Debian control file (issue #633)
 
-* In packaging/rpm/rear.spec replaced "BuildArch: noarch" with "ExclusiveArch: %ix86 x86_64 ppc ppc64" that should tell the user that rear is known to work only on %ix86 x86_64 ppc ppc64 and removed "Requires: yaboot" for ppc ppc64 because that is the default installed bootloader on ppc ppc64 (issues #629 and #631)
+* In `packaging/rpm/rear.spec` replaced "BuildArch: noarch" with "ExclusiveArch: %ix86 x86_64 ppc ppc64" that should tell the user that rear is known to work only on %ix86 x86_64 ppc ppc64 and removed "Requires: yaboot" for ppc ppc64 because that is the default installed bootloader on ppc ppc64 (issues #629 and #631)
 
 * Support the Oracle Linux 6 ksplice module (issue #605)
 
@@ -186,6 +186,8 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 * Insert a 3 seconds sleep after a volume group restauration to give udevd or systemd-udevd time to create needed devices (issue #608 and #617)
 
 * Variable `MANUAL_INCLUDE=YES` has been introduced to work with array `BACKUP_PROG_INCLUDE` (issue #597)
+
+* Add new variable `NSR_DEFAULT_POOL_NAME` (defaulting to `Default`) to use a different default pool name. Renamed the `RETENTION_TIME` variable to `NSR_RETENTION_TIME` (issue #640)
 
 * rear website shows the user guide which is part of the rear software (linked to GitHub)
 
