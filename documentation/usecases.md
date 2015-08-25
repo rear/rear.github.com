@@ -6,6 +6,50 @@ title: Relax-and-Recover use cases
 ## Relax-and-Recover use cases
 This chapter will describe some use cases in more detail.
 
+### Internal backup method using rsync and USB device
+Suppose you want to use an USB device to store and boot the rescue image from. The very first time you want to use the USB device you need to format it (only required once of course). Therefore, connect the USB device and verify which block device name, e.g. /dev/sdb. To actual format the USB device type:
+
+    # rear -v format /dev/sdb
+    Relax-and-Recover 1.17.1 / Git
+    Using log file: /var/log/rear/rear-ubuntu-15-04.log
+    USB device /dev/sdb must be formatted with ext2/3/4 or btrfs file system
+    Please type Yes to format /dev/sdb in ext3 format: Yes
+    Repartition /dev/sdb
+    Creating new ext3 filesystem on /dev/sdb1
+    
+Now, you need to edit the `/etc/rear/site.conf` configuration file (be aware, treat the configuration file as a bash script file) and add the following lines:
+
+    BACKUP=NETFS
+    OUTPUT=USB
+    BACKUP_PROG=rsync
+    BACKUP_URL=usb:///dev/disk/by-label/REAR-000
+    
+The last line (`BACKUP_URL=usb:///dev/disk/by-label/REAR-000`) references the USB device with its label (created by the format command). You could also use `BACKUP_URL=usb:///dev/sdb1` in our case, but a label makes it much clearer what the purpose is of the USB device, no?
+
+To create a full backup of this system just type:
+
+    # rear -v mkbackup
+    Relax-and-Recover 1.17.1 / Git
+    Using log file: /var/log/rear/rear-ubuntu-15-04.log
+    Creating disk layout
+    Creating root filesystem layout
+    TIP: To login as root via ssh you need to set up /root/.ssh/authorized_keys or SSH_ROOT_PASSWORD in your configuration file
+    Copying files and directories
+    Copying binaries and libraries
+    Copying kernel modules
+    Creating initramfs
+    Writing MBR to /dev/sdb
+    Copying resulting files to usb location
+    Encrypting disabled
+    Creating rsync archive '/tmp/rear.ByJY9oowW7EG2wQ/outputfs/rear/ubuntu-15-04/20150825.0930/backup'
+    Archived 1829 MiB [avg 3081 KiB/sec]OK
+    Archived 1829 MiB in 609 seconds [avg 3075 KiB/sec]
+    
+When you do not specify a specific `OUTPUT_URL` definition then `OUTPUT_URL`=`BACKUP_URL`
+
+The backup can be found on the USB device under `/<usb-mountpoint>/rear/$(hostname)/YYYYMMDD.HHMM/backup` directory. Be aware, these files are not encrypted so keep the USB devices in a fault to safe guard it from unauthorized people.
+
+
 ### Integration of EMC NetWorker with Relax-and-Recover
 The EMC NetWorker (or also known as Legato) versions tested with Rear were v8.0.0.1 (and higher?) For brief sake from now on we will use the abbreviation *NSR* for EMC NetWorker. Rear can work with NSR since rear-1.15 and higher.
 We assuming the Linux system is a NSR client that is capable of making a *full backup* towards the NSR server. Be aware, if you rely on an external backup solution to make full backups of your system make sure you have a full backup before trying out a recover via rear. That said, when using an external backup solution as NSR rear will *not* make any backup of the internal disks!
