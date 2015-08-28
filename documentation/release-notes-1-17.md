@@ -157,6 +157,22 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 ### Version 1.17.2 (August 2015)
 
+* Several fixed required to the Debian packaging rules needed so it builds correctly on OBS
+
+* Fixed the NTP startup script (issue #641)
+
+* Fixed the vfat label issue (issue #647)
+
+* Improved the DUPLICITY method with finding all required libraries and python scripts
+
+* Added the `/run` directory to the list of recreating missing directories (issue #619)
+
+* Fix issue with USB disk and rsync as internal backup program (issue #645)
+
+* Fix rsync restore: --anchored invalid rsync option (issue #642)
+
+* A new variable was introduced `NSR_POOLNAME` (issue #640)
+
 * Replaced almost all temporary files from `/tmp/` to `$TMP_DIR/` (issue #607)
   Related to security recommendations for Fedora and RHEL:
   - https://bugzilla.redhat.com/show_bug.cgi?id=1239009 (f22)
@@ -874,6 +890,7 @@ Rear-1.17 may or may not fully work on:
 Rear-1.17 does not support:
 
 * ARM type of processors
+* Partitions of type *gpt_sync_mbr* aka. *hybrid (synced) MBR*
 
 If you feel the need to get a fully functional rear working on one of the above mentioned type of processors please buy
 consultancy from one of our official developers.
