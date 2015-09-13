@@ -49,38 +49,39 @@ If you are looking for newer stable release or snapshot release, take a look at
 our automated builds from the OpenSUSE Build Service:
 
 #### Official stable releases
+Since rear release 1.17.2 you will find the stable packages under the architecture directory, e.g. *i586* or *x86_64* instead of *noarch*. Previous release are still kept under the *noarch* sub-directory.
 
  * CentOS:
-    [5.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/CentOS_CentOS-5/noarch/),
-    [6.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/CentOS_CentOS-6/noarch/),
-    [7.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/CentOS_7/noarch/)
+    [5.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/CentOS_CentOS-5/),
+    [6.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/CentOS_CentOS-6/),
+    [7.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/CentOS_7/)
  * Debian:
     [7.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_7.0/all/),
     [8.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_8.0/all/)
  * Fedora:
-    [20](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Fedora_20/noarch/),
-    [21](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Fedora_21/noarch/)
-    [22](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Fedora_22/noarch/)
+    [20](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Fedora_20/),
+    [21](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Fedora_21/)
+    [22](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Fedora_22/)
  * openSUSE:
-    [11.4](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/openSUSE_11.4/noarch/),
-    [13.1](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/openSUSE_13.1/noarch/),
-    [13.2](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/openSUSE_13.2/noarch/),
-    [Factory](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/openSUSE_Factory/noarch/),
-    [Tumbleweed](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/openSUSE_Tumbleweed/noarch/)
+    [11.4](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/openSUSE_11.4/),
+    [13.1](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/openSUSE_13.1/),
+    [13.2](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/openSUSE_13.2/),
+    [Factory](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/openSUSE_Factory/),
+    [Tumbleweed](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/openSUSE_Tumbleweed/)
  * RHEL:
-    [5](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/RedHat_RHEL-5/noarch/),
-    [6](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/RedHat_RHEL-6/noarch/),
-    [7](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/RHEL_7/noarch/)
+    [5](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/RedHat_RHEL-5/),
+    [6](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/RedHat_RHEL-6/),
+    [7](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/RHEL_7/)
  * ScientificLinux:
-    [6](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/ScientificLinux_6/noarch/),
-    [7](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/ScientificLinux_7/noarch/)
+    [6](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/ScientificLinux_6/),
+    [7](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/ScientificLinux_7/)
  * SLES:
-    [10](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/SLE_10_SDK/noarch/),
-    [11](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/SLE_11/noarch/),
-    [11_SP1](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/SLE_11_SP1/noarch/),
-    [11_SP2](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/SLE_11_SP2/noarch/),
-    [11_SP3](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/SLE_11_SP3/noarch/),
-    [12](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/SLE_12/noarch/)
+    [10](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/SLE_10_SDK/),
+    [11](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/SLE_11/),
+    [11_SP1](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/SLE_11_SP1/),
+    [11_SP2](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/SLE_11_SP2/),
+    [11_SP3](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/SLE_11_SP3/),
+    [12](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/SLE_12/)
  * Ubuntu:
     [12.04](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/xUbuntu_12.04/all/),
     [14.04](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/xUbuntu_14.04/all/),
@@ -92,35 +93,35 @@ our automated builds from the OpenSUSE Build Service:
 #### Snapshot releases from Git
 
  * CentOS:
-    [5.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/CentOS_CentOS-5/noarch/),
-    [6.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/CentOS_CentOS-6/noarch/),
-    [7.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/CentOS_7/noarch/)
+    [5.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/CentOS_CentOS-5/),
+    [6.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/CentOS_CentOS-6/),
+    [7.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/CentOS_7/)
  * Debian:
     [7.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Debian_7.0/all/),
     [8.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Debian_8.0/all/)
  * Fedora:
-    [20](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Fedora_20/noarch/),
-    [21](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Fedora_21/noarch/)
-    [22](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Fedora_22/noarch/)
+    [20](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Fedora_20/),
+    [21](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Fedora_21/)
+    [22](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Fedora_22/)
  * openSUSE:
-    [13.1](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/openSUSE_13.1/noarch/),
-    [13.2](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/openSUSE_13.2/noarch/),
-    [Factory](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/openSUSE_Factory/noarch/),
-    [Tumbleweed](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/openSUSE_Tumbleweed/noarch/)
+    [13.1](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/openSUSE_13.1/),
+    [13.2](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/openSUSE_13.2/),
+    [Factory](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/openSUSE_Factory/),
+    [Tumbleweed](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/openSUSE_Tumbleweed/)
  * RHEL:
-    [5](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/RedHat_RHEL-5/noarch/),
-    [6](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/RedHat_RHEL-6/noarch/),
-    [7](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/RHEL_7/noarch/)
+    [5](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/RedHat_RHEL-5/),
+    [6](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/RedHat_RHEL-6/),
+    [7](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/RHEL_7/)
  * ScientificLinux:
-    [6](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/ScientificLinux_6/noarch/),
-    [7](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/ScientificLinux_7/noarch/)
+    [6](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/ScientificLinux_6/),
+    [7](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/ScientificLinux_7/)
  * SLES:
-    [10](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/SLE_10_SDK/noarch/),
-    [11](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/SLE_11/noarch/),
-    [11_SP1](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/SLE_11_SP1/noarch/),
-    [11_SP2](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/SLE_11_SP2/noarch/),
-    [11_SP3](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/SLE_11_SP3/noarch/),
-    [12](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/SLE_12/noarch/)
+    [10](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/SLE_10_SDK/),
+    [11](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/SLE_11/),
+    [11_SP1](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/SLE_11_SP1/),
+    [11_SP2](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/SLE_11_SP2/),
+    [11_SP3](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/SLE_11_SP3/),
+    [12](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/SLE_12/)
  * Ubuntu:
     [12.04](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/xUbuntu_12.04/all/),
     [14.04](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/xUbuntu_14.04/all/),
