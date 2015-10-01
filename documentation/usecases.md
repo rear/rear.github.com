@@ -108,7 +108,7 @@ The disaster recovery hardware will start FDR/Upstream and register to your stor
 
 When prompted, use FDR/Upstream Director to initiate a restore of the entire `/` filesystem to the `/mnt/local/` directory on the target system.
 
-When the restore is complete, return to your disaster recovery hardware and hit Enter.
+When the restore is complete, return to your disaster recovery hardware and hit `Enter`.
 
 Wait for ReaR to complete, and then reboot into your restored system.
 
