@@ -74,3 +74,40 @@ To recover via NSR, then first of all boot from the ISO file created during the 
     rear -v recover
 
 That should be it, after a full restoration via NSR of all internal file systems, rear will make the disk bootable and keeps everything mount under `/mnt/local` for further inspection before rebooting.
+
+
+### Integration of FDR/Upstream with Relax-and-Recover                              
+Beginning with version 1.18, ReaR has support for FDR/Upstream.  To enable this support, add the following line to either `/etc/rear/local.conf` or `/etc/rear/site.conf`
+
+    BACKUP=FDRUPSTREAM
+
+If your FDR/Upstream software is installed somewhere other than the default location of /opt/fdrupstream, that should be specified as well:
+
+    FDRUPSTREAM_INSTALL_PATH="/some/other/location"
+
+ReaR does not perform FDR/Upstream backups.  ReaR is used to provide a working system to which an FDR/Upstream restore can be performed.  A sample workflow follows.
+
+##### Preparations
+
+On the target system (the system being backed up), edit `/etc/rear/local.conf`
+or `/etc/rear/site.conf` to include:
+
+    BACKUP=FDRUPSTREAM
+
+On the target system, create a bootable ISO image with this command:
+    /usr/sbin/rear -v mkrescue
+
+Find the ISO image in `/var/lib/rear/output/` and put it someplace safe!  Store it offsite, or include it in your regular FDR/Upstream backups.
+
+##### Disaster Recovery Time
+
+On your disaster recovery hardware, boot the ISO image and follow the on-screen instructions.
+
+The disaster recovery hardware will start FDR/Upstream and register to your storage server with the same name as the original target system.
+
+When prompted, use FDR/Upstream Director to initiate a restore of the entire `/` filesystem to the `/mnt/local/` directory on the target system.
+
+When the restore is complete, return to your disaster recovery hardware and hit <enter>.
+
+Wait for ReaR to complete, and then reboot into your restored system.
+
