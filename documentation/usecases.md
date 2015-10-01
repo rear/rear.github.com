@@ -95,6 +95,7 @@ or `/etc/rear/site.conf` to include:
     BACKUP=FDRUPSTREAM
 
 On the target system, create a bootable ISO image with this command:
+
     /usr/sbin/rear -v mkrescue
 
 Find the ISO image in `/var/lib/rear/output/` and put it someplace safe!  Store it offsite, or include it in your regular FDR/Upstream backups.
@@ -107,7 +108,7 @@ The disaster recovery hardware will start FDR/Upstream and register to your stor
 
 When prompted, use FDR/Upstream Director to initiate a restore of the entire `/` filesystem to the `/mnt/local/` directory on the target system.
 
-When the restore is complete, return to your disaster recovery hardware and hit <enter>.
+When the restore is complete, return to your disaster recovery hardware and hit Enter.
 
 Wait for ReaR to complete, and then reboot into your restored system.
 
