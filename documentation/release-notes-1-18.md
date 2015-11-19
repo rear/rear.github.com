@@ -12,7 +12,6 @@ Relax-and-Recover.
 
 [Github project](https://github.com/rear/)
 
-[ReaR Poll](https://docs.google.com/forms/d/1VnKYXNDLXqaaj37-UK2kuxH4_a9T52egviEjX1cM7Z8/viewform)
 
 This document is distributed with the following license: "Creative Commons
 Attribution-NoDerivs 3.0 Unported (CC BY-ND 3.0)". To read the license deed
@@ -142,8 +141,6 @@ functionality:
 
 *NOTE*: Features marked *experimental* are prone to change with future releases.
 
-[*Fill in the ReaR poll*](https://docs.google.com/forms/d/1VnKYXNDLXqaaj37-UK2kuxH4_a9T52egviEjX1cM7Z8/viewform) so we can learn
-better the wishes of our customers and users. We hope we can implement or improve our work with this in the future. We need your input and/or feedback!
 
 
 ## Relax-and-Recover Releases
