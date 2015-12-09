@@ -53,6 +53,7 @@ is interested to sponsor certain development, this is possible by the following
 companies that offer development services:
 
  - [IT3 Consultants](http://www.it3.be/) (Gratien D'haese)
+   * [Rent me for a day to work on issues of your choice](http://www.it3.be/rear-support/)
  - [Schlomo Schapiro](http://consulting.schlomo.schapiro.org/)
 
 The various contributors have invested a lot in the creation and support
