@@ -5,7 +5,11 @@ title: Relax-and-Recover events
 
 ## Relax-and-Recover events
 
+### Fosdem 2016, Belgium, 30-31 January 2016
+Relax-and-Recover project team members will be present at the booth of bareos from time to time. If you want to have a talk face to face then please jump by.
 
+### CentOS Dojo Brussels, Belgium, Friday 29th January 2016
+Presentation by Gratien: [Relax-and-Recover simplifies Linux Disaster Recovery](https://wiki.centos.org/Events/Dojo/Brussels2016)
 
 ### openSUSE Conference 2015, Den Haag, NL
 Presentation given by Gratien called [Relax-and-Recover simplifies Linux Disaster Recovery](https://events.opensuse.org/conference/osc15/proposal/572), 3 May, 2015
