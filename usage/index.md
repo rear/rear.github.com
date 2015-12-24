@@ -21,12 +21,12 @@ Run `rear -v mkbackup` to create the rescue media including the archive of the O
 
 ### Rescue system
 
-Relax-and-Recover will automatically add itself to the Grub bootloader.
+Relax-and-Recover will *not* automatically add itself to the Grub bootloader.
 It copies itself to your `/boot` folder.
 
-To disable this, add
+To enable this, add
 
-    GRUB_RESCUE=
+    GRUB_RESCUE=1
 
 to your local configuration.
 
