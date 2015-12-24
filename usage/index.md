@@ -13,11 +13,11 @@ Prepare your rescue media using
 
 It will be labeled REAR-000. The `/etc/rear/local.conf` can be as simple as:
 
-    BACKUP=NETFS
     OUTPUT=USB
-    OUTPUT_URL="usb:///dev/disk/by-label/REAR-000"
+    BACKUP=NETFS
+    BACKUP_URL="usb:///dev/disk/by-label/REAR-000"
 
-Run `rear -v mkbackup` to create the rescue media.
+Run `rear -v mkbackup` to create the rescue media including the archive of the Operating System.
 
 ### Rescue system
 
@@ -51,10 +51,10 @@ Relax-and-Recover integrates with various backup solutions. Your backup
 software takes care of backing up all system files, Relax-and-Recover
 recreates the filesystems and starts the file restore.
 
-Currently Bacula, Bareos, SEP Sesam, HP DataProtector, CommVault Galaxy, Symantec NetBackup and IBM
-Tivoli Storage Manager are supported.
+Currently Bacula, Bareos, SEP Sesam, HP DataProtector, CommVault Galaxy, Symantec NetBackup,
+EMC NetWorker (Legato) and IBM Tivoli Storage Manager are supported.
 
-The following `local.conf` uses a USB stick for the rescue system and Bacula for backups. Multiple
+The following `/etc/rear/local.conf` uses a USB stick for the rescue system and Bacula for backups. Multiple
 systems can use the USB stick since the size of the rescue system is probably
 less than 40M. It relies on your Bacula infrastructure to restore all files.
 
@@ -77,3 +77,11 @@ a rescue image and the next time `rear checklayout` runs, it will return
 You can also automate the creation of rescue images by adding a cron job for
 `/usr/sbin/rear checklayout || /usr/sbin/rear mkrescue`. And make sure the
 `OUTPUT_URL` points to a central location for storing your rescue images.
+By default, a rear installation via a package manager will automatically install
+a cron entry - see:
+
+     # cat /etc/cron.d/rear
+     30 1 * * * root /usr/sbin/rear checklayout || /usr/sbin/rear mkrescue
+
+Furthermore, rear will write an exit code to the `/var/log/messages` file which
+you could use to search via an integrated monitoring system (search for the *rear* keyword).
