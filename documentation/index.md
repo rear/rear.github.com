@@ -47,3 +47,4 @@ title: Relax-and-Recover documentation
  - [Linux Disaster Recovery mit Relax-and-Recover und EMC Networker (in German)](http://backupinferno.de/?p=358)
  - [Linux Disaster Recovery with Relax-and-Recover and SEP sesam](http://wiki.sepsoftware.com/wiki/index.php/Disaster_Recovery_for_Linux_3.0_en)
  - [Linux Bare Metal Disaster Recovery on USB](http://www.cloudconsulted.com/cloud/linux-labs/linux-bare-metal-disaster-recovery-on-usb)
+ - [P2V-Migration mit ReaR](http://www.heise.de/ix/heft/Umzugshilfe-2458904.html) - article in German language
