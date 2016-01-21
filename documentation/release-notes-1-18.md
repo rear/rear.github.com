@@ -3,7 +3,7 @@ layout: default
 title: Relax-and-Recover Release Notes
 ---
 
-## Release Notes for Relax-and-Recover version 1.17.2
+## Release Notes for Relax-and-Recover version 1.18
 
 This document contains the release notes for the open source project
 Relax-and-Recover.
@@ -76,9 +76,9 @@ functionality:
   - Duplicity/Duply (BACKUP=DUPLICITY)
   - EMC Networker, also known as Legato (BACKUP=NSR)
   - SEP Sesam (BACKUP=SESAM)
-  - FDR/Upstream (BACKUP=FDRUPSTREAM) (*NEW!*)
+  - FDR/Upstream (BACKUP=FDRUPSTREAM)
 
-* Integrates with [Disaster Recovery Linux Manager (drlm)](http://drlm.org)
+* Integrates with [Disaster Recovery Linux Manager (DRLM)](http://drlm.org)
 
 * Udev support (except for some really ancient udev versions) which is
   the base for many new and important features:
@@ -96,7 +96,7 @@ functionality:
   - remap network MAC addresses
   - use another IP address, or using dhcp via templates or from kernel command line
   - rebuild the initial ramdisk if needed (for new storage drivers)
-  - migration to SAN storage (*New!* *Experimental*)
+  - migration to SAN storage (*Experimental*)
 
 * Support backup software: Bacula, both locally attached tapes (with
   bextract) and network-based backups. Also, in combination with OBDR tapes.
@@ -154,6 +154,49 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 
 ### Version 1.18.0 (TBD)
+* Added option --debugscripts to rear (help-workflow) (issue #688)
+
+* Removed dosfslabel as required program for vfat UEFI boot partition (issue #694)
+
+* Bareos team added BAREOS_FILESET and ISO_DEFAULT ro default.conf (for automated testing; issue #686)
+
+* Fix getty/agetty with upstart (issue #685)
+
+* New SLE11-SLE12-SAP-HANA-UEFI-example.conf (issue #683)
+
+* usr/share/rear/conf/examples/SLE12-SP1-btrfs-example.conf added as an example configuration file
+
+* Added support for the SUSE specific gpt_sync_mbr partitioning scheme (issue #544)
+
+* Improved btrfs snapshot support with SLES 12 (issue #556)
+
+* Unload scsi_debug driver in recovery mode for RHEL 7.1 (issue #626)
+
+* Saved the current mount points and permissions; in order to improve and avoid missing mount points after recovery (issue #)
+
+* NSR servername not defined causing rear to hang (issue #637)
+
+* Removed mingetty as a required package (issue #661)
+
+* Adding -scrollprompt=no to dsmc query  in script verify/TSM/default/40_verify_tsm.sh (issue #667)
+
+* Fixed a bug around USB_DEVICE and OUTPUT_URL mis-match (issue #579)
+
+* grub support for ppc64 (issue #673)
+
+* grub2 supported was added for ppc64 (issue #672)
+
+* ppc64le support was added into the rear.spec (issue #665)
+
+* Network code partially rewritten to improve teaming (issue #662)
+
+* Changed default value of USE_CFG2HTML from 1 to empty (means do not run cfg2html by default) (issue #643)
+
+* Move the 50_selinux_autorelabel.sh script to the default location so it gets picked up by all backup methods. This was required for RHEL 7 (issue #650)
+
+* Check via NSR if the ISO image is not obsolete (issue #653)
+
+* Added ebiso support within rear (required for UEFI booting with SLES 11 & 12 (issue #657)
 
 * FDR/Upstream (BACKUP=FDRUPSTREAM) (*NEW!*) (issue #659)
 
