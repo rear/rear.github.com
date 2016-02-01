@@ -158,7 +158,7 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 * Removed dosfslabel as required program for vfat UEFI boot partition (issue #694)
 
-* Bareos team added BAREOS_FILESET and ISO_DEFAULT ro default.conf (for automated testing; issue #686)
+* Bareos team added BAREOS_FILESET and ISO_DEFAULT ro default.conf (for automated DR tests executed by Bareos team; issue #686)
 
 * Fix getty/agetty with upstart (issue #685)
 
@@ -172,7 +172,7 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 * Unload scsi_debug driver in recovery mode for RHEL 7.1 (issue #626)
 
-* Saved the current mount points and permissions; in order to improve and avoid missing mount points after recovery (issue #)
+* Saved the current mount points and permissions; in order to improve and avoid missing mount points after recovery (issue #619)
 
 * NSR servername not defined causing rear to hang (issue #637)
 
@@ -888,7 +888,7 @@ results. See
 [Relax-and-Recover compression tests](http://www.it3.be/2013/09/16/NETFS-compression-tests/)
 
 ## Support
-Relax-and-Recover (rear) is an Open Source project under GPL v2 or higher license which means
+Relax-and-Recover (rear) is an Open Source project under GPL v3 license which means
 it is free to use and modify. However, the creators of rear have spend many, many hours in 
 development and support. We will only give *free of charge* support in our free time (and when work/home balance
 allows it).
@@ -896,9 +896,9 @@ allows it).
 That does not mean we let our user basis in the cold as we do deliver support as a service (not free of charge).
 
 ## Supported Operating Systems
-Rear-1.17 is supported on the following Linux based operating systems:
+Rear-1.18 is supported on the following Linux based operating systems:
 
-* Fedora 20, 21, 22 and 23
+* Fedora 21, 22 and 23
 * RHEL 5, 6 and 7
 * CentOS 5, 6 and 7
 * ScientificLinux 6 and 7
@@ -907,9 +907,9 @@ Rear-1.17 is supported on the following Linux based operating systems:
 * Debian 6, 7 and 8
 * Ubuntu 12, 13, 14 and 15
 
-Rear-1.17 dropped officially support for the following Linux based operating systems:
+Rear-1.18 dropped officially support for the following Linux based operating systems:
 
-* Fedora <20
+* Fedora <21
 * RHEL 3 and 4
 * SLES 9 and 10
 * OpenSuSe <11
@@ -921,7 +921,7 @@ If you require support for *unsupported* Linux Operating System you must acquire
 Requests to port *rear* to another Operating System (not Linux) can only be achieved with **serious** sponsoring.
 
 ## Supported Architectures
-Rear-1.17 is supported on:
+Rear-1.18 is supported on:
 
 * Intel x86 type of processors
 * AMD x86 type of processors
@@ -930,14 +930,13 @@ Rear-1.17 may or may not fully work on:
 
 * Intel Itanium processors
 * PPC processors
-* PPC64 processors (*new*)
-* PPC64LE processors (*new*)
+* PPC64 processors
+* PPC64LE processors
 
-Rear-1.17 does not support:
+Rear-1.18 does not support:
 
 * ARM type of processors
-* s390x type of processors (looking for sponsors)
-* Partitions of type *gpt_sync_mbr* aka. *hybrid (synced) MBR*
+* s390x type of processors
 
 If you feel the need to get a fully functional rear working on one of the above mentioned type of processors please buy
 consultancy from one of our official developers.
@@ -979,13 +978,13 @@ See issue #512
 
 * Workaround:
 
-At present (release 1.16.1) there is no workaround in place. If you happen to know how this could be fixed then add your ideas to [issue #417](https://github.com/rear/rear/issues/417)
+At present (release 1.18) there is no workaround in place. If you happen to know how this could be fixed then add your ideas to [issue #417](https://github.com/rear/rear/issues/417)
 
-*Issue Description*: UEFI ISO booting does not work on OpenSuSe 12.x
+*Issue Description*: UEFI ISO booting does not work on OpenSuSe 12.x, or SLES 11/12
 
 * Workaround:
 
-At present (release 1.17.x) `genisoimage` cannot produce ISO images that can boot via UEFI on an OpenSuSe distribution (and also SLES).
+At present (release 1.18.x) `genisoimage` cannot produce ISO images that can boot via UEFI on an OpenSuSe distribution (and also SLES). However, use the +ebiso+ package instead to create UEFI ISO images on SLES.
 
 *Issue Description*: TSM 7.1.0.0 cp writing dangling symlink libxmlutil-7.1.0.0.so on SLES SP3
 
@@ -996,18 +995,6 @@ To fix the error (you might see):
     ERROR [LipCopyTo] Could not copy '/usr/lib64/../../opt/tivoli/tsm/client/api/bin64/libxmlutil-7.1.0.0.so' to '/tmp/rear.10455/rootfs/lib64'
 
 See [issue 476](https://github.com/rear/rear/issues/476) for the resolution.
-
-
-*Issue Description*: with RHEL 4 systems extended partitions are recognized as primary partitions
-
-
-    Error: Expecting a partition number
-
-* Workaround:
-
-Full details can be read in [issue #319](https://github.com/rear/rear/issues/319).
-However, you need to edit `/var/lib/rear/layout/disklayout.conf` file and change for
-partition 4 "primary" to "extended"
 
 
 *Issue Description*: System reconfiguration still has some weaknesses.
