@@ -154,11 +154,14 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 
 ### Version 1.18.0 (TBD)
+
+* Added support for elilo (used by SLES 11/12) (issue #583)
+
 * Added option --debugscripts to rear (help-workflow) (issue #688)
 
 * Removed dosfslabel as required program for vfat UEFI boot partition (issue #694)
 
-* Bareos team added BAREOS_FILESET and ISO_DEFAULT ro default.conf (for automated DR tests executed by Bareos team; issue #686)
+* Bareos team added BAREOS_FILESET and ISO_DEFAULT to default.conf (for automated DR tests executed by Bareos team; issue #686)
 
 * Fix getty/agetty with upstart (issue #685)
 
