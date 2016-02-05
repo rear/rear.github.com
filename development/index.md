@@ -47,6 +47,11 @@ project on Github, make the modifications and then do a pull-request.
 This makes it easy for the project to discuss the changes through the
 pull-request, and when accepted to merge the pull-request into the project.
 
+### Sponsoring
+We have a list of missing features that were requested but never got to a point
+of being implemented by the team members. If you feel an urgent need to see a
+missing feature added not hesitate to [sponsor us in the ways listed](http://relax-and-recover.org/support/sponsors)
+
 ### Professional services
 If your company requires integrating Relax-and-Recover into their DRP setup or
 is interested to sponsor certain development, this is possible by the following

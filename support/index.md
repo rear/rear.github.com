@@ -6,7 +6,7 @@ title: Relax-and-Recover support
 For voluntary community support, you can use the
 [issue-tracker](http://github.com/rear/rear/issues), the
 [rear-users mailinglist](http://lists.relax-and-recover.org/mailman/listinfo/rear-users)
-or the [chat channel](https://gitter.im/rear/rear)..
+or the [chat channel](https://gitter.im/rear/rear).
 
 Please visit the [Development](/development/) page for information on
 how to collaborate on the project and discuss issues.
@@ -28,6 +28,8 @@ with details.
 If you like our work, and you are not seeking for professional support,
 then [donations](https://www.paypal.com/cgi-bin/webscr?item_name=Donation+to+Relax+and+Recover&cmd=_donations&business=gratien.dhaese%40gmail.com)
 are gladly accepted as a token of appreciation.
+
+We also foresee other means for [sponsoring](http://relax-and-recover.org/support/sponsors)
 
 ## Professional Support
 If your company depends on Relax-and-Recover as a disaster recovery solution,
