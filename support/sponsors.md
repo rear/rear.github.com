@@ -11,8 +11,8 @@ You can sponsor in many ways:
  - create pull requests
  - read, advise and improve the current documentation (with pull requests)
  - [donate an amount of money](https://www.paypal.com/cgi-bin/webscr?item_name=Donation+to+Relax+and+Recover&cmd=_donations&business=gratien.dhaese%40gmail.com)
- - hire us for a day
- - paid consultancy (onsite or remote)
+ - [hire us for a day](http://www.it3.be/rear-support/)
+ - [professionally consultancy (onsite or remote)](http://relax-and-recover.org/development/)
  - take a rear subscription
  - take a support contract
  - organize a workshop around rear
