@@ -154,14 +154,47 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 
 ### Version 1.18.0 (TBD)
+* Code was improved to have network teaming support (issue #655)
 
-* Added support for elilo (used by SLES 11/12) (issue #583)
+* Example configuration to put backup and rescue image on same ISO image, eg. DVD (issue #430)
+
+* Improved the rear documentation
+
+* remove the noatime mount option for cifs mount (issue #752)
+
+* Replace option 'grep -P' to 'grep -E' due to SELinux errors (issue #565, #737)
+
+* Hidding the encryption key while doing the restore in the rear.log (issue #749)
+
+* is_true function was to uniform the different ways of enable/disble variable settings (issue #625)
+
+* Added and use sysctl.conf; rescue mode should honor these settings (issue #748)
+
+* The BACKUP_PROG_COMPRESS variable was not used during incremental backup (issue #743)
+
+* prevent any other workflow in REAR rescue mode then recover (issue #719)
+
+* Exclude Oracle ASM device directory from Rescue System (issue #721)
+
+* SaveBashFlagsAndOptions and RestoreBashFlagsAndOptions in usr/share/rear/lib/framework-functions.sh were added (issue #700)
+
+* /mnt/local became a global variable TARGET_FS_ROOT (issue #708)
+
+* Copy rear.log from recovery into /var/log/rear/recovery/ directory after a 'rear recover' (issue #706)
+
+* wipefs will be used when available (issue #649)
+
+* SAN related improvements with btrfs (issue #695)
+
+* Support for shim.efi (UEFI booting) added (issue #702)
+
+* Added support for elilo (used by SLES 11/12) (issue #583, #691, #692, #693)
 
 * Added option --debugscripts to rear (help-workflow) (issue #688)
 
 * Removed dosfslabel as required program for vfat UEFI boot partition (issue #694)
 
-* Bareos team added BAREOS_FILESET and ISO_DEFAULT to default.conf (for automated DR tests executed by Bareos team; issue #686)
+* Bareos team added BAREOS_FILESET and ISO_DEFAULT to default.conf (for automated DR tests executed by Bareos team; issue #686, #719)
 
 * Fix getty/agetty with upstart (issue #685)
 
@@ -940,6 +973,7 @@ Rear-1.18 does not support:
 
 * ARM type of processors
 * s390x type of processors
+* EVMS is not supported (see issue #567)
 
 If you feel the need to get a fully functional rear working on one of the above mentioned type of processors please buy
 consultancy from one of our official developers.
