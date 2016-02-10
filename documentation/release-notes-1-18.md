@@ -77,6 +77,7 @@ functionality:
   - EMC Networker, also known as Legato (BACKUP=NSR)
   - SEP Sesam (BACKUP=SESAM)
   - FDR/Upstream (BACKUP=FDRUPSTREAM)
+  - Novastor NovaBACKUP DC (BACKUP=NBKDC) (*NEW!*)
 
 * Integrates with [Disaster Recovery Linux Manager (DRLM)](http://drlm.org)
 
@@ -154,6 +155,9 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 
 ### Version 1.18.0 (TBD)
+
+* Added support for new backup method Novastor NovaBACKUP DC (+BACKUP=NBKDC+) (issue #669)
+
 * Code was improved to have network teaming support (issue #655)
 
 * Example configuration to put backup and rescue image on same ISO image, eg. DVD (issue #430)
