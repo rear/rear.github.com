@@ -48,6 +48,10 @@ Pull and replug the USB stick. Verify it is mounted.
 
 More information about unetbootin can be found at [http://sourceforge.net/p/unetbootin/wiki/commands/](http://sourceforge.net/p/unetbootin/wiki/commands/)
 
+*Question:* Cannot create ISO image larger then 4 Gb
+
+Indeed that is try by default setting within rear. We prefer to have smaller boot image on ISO. However, when combining the tar archive and rescue image on the same ISO then it could happen that 4 Gb is not enough. To solve this read [issue #581](https://github.com/rear/rear/issues/581)
+
 ### Backup support
 
 ### System migrations
