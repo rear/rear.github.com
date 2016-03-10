@@ -21,7 +21,7 @@ You can sponsor in many ways:
 
 If you have a missing feature please first [submit an issue](https://github.com/rear/rear/issues). We are informed automatically and we will add it to this list. The community can select any missing feature and decide to sponsor it (via one of the above mentioned possibilities). When a missing feature has been added to this list we will close it. However, it will be re-opened by us when we have found a sponsor for it.
 
- - [Add code to make an ISO image on Linux-s390x architecture #781[(https://github.com/rear/rear/issues/781)
+ - [Add code to make an ISO image on Linux-s390x architecture #781](https://github.com/rear/rear/issues/781)
  - [Missing backup in recovery iso for IBM PowerVM LPAR #697](https://github.com/rear/rear/issues/697)
  - [Remove duplicate ISO image in /var/lib/rear when using BACKUP=TSM #634](https://github.com/rear/rear/issues/634)
  - [UEFI booting from USB disk #603](https://github.com/rear/rear/issues/603)
