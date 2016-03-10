@@ -156,6 +156,21 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 ### Version 1.18.0 (TBD)
 
+* New 99_move_away_restored_files.sh to remove restored files after recover (issue #799)
+  New array was introduced to make this - BACKUP_RESTORE_MOVE_AWAY_FILES=()
+
+* Improved 40-start-udev-or-load-modules.sh script for better udevd handling (issue #766)
+
+* Run ldconfig -X before dhclient gets started at boot time (issue #772)
+
+* Remove the "-c3" option fron rsyslogd start-up (issue #773)
+
+* Add example configuration for NetBackup Master/Media server
+
+* Added backup capabilities; getcap and setcap are used to backup and restore (issue #771)
+
+* Correct bash syntax so rear is compatible with bash v3 and v4 (issue #765, #767)
+
 * Added support for new backup method Novastor NovaBACKUP DC (+BACKUP=NBKDC+) (issue #669)
 
 * Code was improved to have network teaming support (issue #655)
