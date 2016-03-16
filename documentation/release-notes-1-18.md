@@ -1046,7 +1046,7 @@ At present (release 1.18) there is no workaround in place. If you happen to know
 
 * Workaround:
 
-At present (release 1.18.x) `genisoimage` cannot produce ISO images that can boot via UEFI on an OpenSuSe distribution (and also SLES). However, use the [+ebiso+](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/SLE_11_SP3/x86_64/ebiso-0.1.4-1.x86_64.rpm) package instead to create UEFI ISO images on SLES.
+At present (release 1.18.x) `genisoimage` cannot produce ISO images that can boot via UEFI on an OpenSuSe distribution (and also SLES). However, use the [`ebiso`](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/SLE_11_SP3/x86_64/ebiso-0.1.4-1.x86_64.rpm) package instead to create UEFI ISO images on SLES.
 
 *Issue Description*: TSM 7.1.0.0 cp writing dangling symlink libxmlutil-7.1.0.0.so on SLES SP3
 
