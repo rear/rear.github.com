@@ -154,7 +154,14 @@ Relax-and-Recover, unless otherwise noted.
 The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker](https://github.com/rear/rear/issues)
 
 
-### Version 1.18.0 (TBD)
+### Version 1.18.0 (March 2016)
+
+* Support was added for NVME SSD type of disk devices (issue #787)
+
+* For LUKS added the password libraries (issue #679)
+
+* Script 99_sysreqs.sh was added to save the minimal system requirements necessary for cloning
+  a system in a remote DRP data center (issue #798)
 
 * New 99_move_away_restored_files.sh to remove restored files after recover (issue #799)
   New array was introduced to make this - BACKUP_RESTORE_MOVE_AWAY_FILES=()
@@ -981,7 +988,7 @@ Rear-1.18 is supported on:
 * Intel x86 type of processors
 * AMD x86 type of processors
 
-Rear-1.17 may or may not fully work on:
+Rear-1.18 may or may not fully work on:
 
 * Intel Itanium processors
 * PPC processors
@@ -992,7 +999,6 @@ Rear-1.18 does not support:
 
 * ARM type of processors
 * s390x type of processors
-* EVMS is not supported (see issue #567)
 
 If you feel the need to get a fully functional rear working on one of the above mentioned type of processors please buy
 consultancy from one of our official developers.
@@ -1040,7 +1046,7 @@ At present (release 1.18) there is no workaround in place. If you happen to know
 
 * Workaround:
 
-At present (release 1.18.x) `genisoimage` cannot produce ISO images that can boot via UEFI on an OpenSuSe distribution (and also SLES). However, use the +ebiso+ package instead to create UEFI ISO images on SLES.
+At present (release 1.18.x) `genisoimage` cannot produce ISO images that can boot via UEFI on an OpenSuSe distribution (and also SLES). However, use the [+ebiso+](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/SLE_11_SP3/x86_64/ebiso-0.1.4-1.x86_64.rpm) package instead to create UEFI ISO images on SLES.
 
 *Issue Description*: TSM 7.1.0.0 cp writing dangling symlink libxmlutil-7.1.0.0.so on SLES SP3
 
