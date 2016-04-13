@@ -77,6 +77,7 @@ functionality:
   - EMC Networker, also known as Legato (BACKUP=NSR)
   - SEP Sesam (BACKUP=SESAM)
   - FDR/Upstream (BACKUP=FDRUPSTREAM)
+  - Novastor NovaBACKUP DC (BACKUP=NBKDC) (*NEW!*)
 
 * Integrates with [Disaster Recovery Linux Manager (DRLM)](http://drlm.org)
 
@@ -153,15 +154,73 @@ Relax-and-Recover, unless otherwise noted.
 The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker](https://github.com/rear/rear/issues)
 
 
-### Version 1.18.0 (TBD)
+### Version 1.18.0 (March 2016)
 
-* Added support for elilo (used by SLES 11/12) (issue #583)
+* Support was added for NVME SSD type of disk devices (issue #787)
+
+* For LUKS added the password libraries (issue #679)
+
+* Script 99_sysreqs.sh was added to save the minimal system requirements necessary for cloning
+  a system in a remote DRP data center (issue #798)
+
+* New 99_move_away_restored_files.sh to remove restored files after recover (issue #799)
+  New array was introduced to make this - BACKUP_RESTORE_MOVE_AWAY_FILES=()
+
+* Improved 40-start-udev-or-load-modules.sh script for better udevd handling (issue #766)
+
+* Run ldconfig -X before dhclient gets started at boot time (issue #772)
+
+* Remove the "-c3" option fron rsyslogd start-up (issue #773)
+
+* Add example configuration for NetBackup Master/Media server
+
+* Added backup capabilities; getcap and setcap are used to backup and restore (issue #771)
+
+* Correct bash syntax so rear is compatible with bash v3 and v4 (issue #765, #767)
+
+* Added support for new backup method Novastor NovaBACKUP DC (+BACKUP=NBKDC+) (issue #669)
+
+* Code was improved to have network teaming support (issue #655)
+
+* Example configuration to put backup and rescue image on same ISO image, eg. DVD (issue #430)
+
+* Improved the rear documentation
+
+* remove the noatime mount option for cifs mount (issue #752)
+
+* Replace option 'grep -P' to 'grep -E' due to SELinux errors (issue #565, #737)
+
+* Hidding the encryption key while doing the restore in the rear.log (issue #749)
+
+* is_true function was to uniform the different ways of enable/disble variable settings (issue #625)
+
+* Added and use sysctl.conf; rescue mode should honor these settings (issue #748)
+
+* The BACKUP_PROG_COMPRESS variable was not used during incremental backup (issue #743)
+
+* prevent any other workflow in REAR rescue mode then recover (issue #719)
+
+* Exclude Oracle ASM device directory from Rescue System (issue #721)
+
+* SaveBashFlagsAndOptions and RestoreBashFlagsAndOptions in usr/share/rear/lib/framework-functions.sh were added (issue #700)
+
+* /mnt/local became a global variable TARGET_FS_ROOT (issue #708)
+
+* Copy rear.log from recovery into /var/log/rear/recovery/ directory after a 'rear recover' (issue #706)
+
+* wipefs will be used when available (issue #649)
+
+* SAN related improvements with btrfs (issue #695)
+
+* Support for shim.efi (UEFI booting) added (issue #702)
+
+* Added support for elilo (used by SLES 11/12) (issue #583, #691, #692, #693)
 
 * Added option --debugscripts to rear (help-workflow) (issue #688)
 
 * Removed dosfslabel as required program for vfat UEFI boot partition (issue #694)
 
-* Bareos team added BAREOS_FILESET and ISO_DEFAULT to default.conf (for automated DR tests executed by Bareos team; issue #686)
+* Bareos team added BAREOS_FILESET and ISO_DEFAULT to default.conf (for automated DR tests executed by Bareos team; issue #686, #719)
 
 * Fix getty/agetty with upstart (issue #685)
 
@@ -929,7 +988,7 @@ Rear-1.18 is supported on:
 * Intel x86 type of processors
 * AMD x86 type of processors
 
-Rear-1.17 may or may not fully work on:
+Rear-1.18 may or may not fully work on:
 
 * Intel Itanium processors
 * PPC processors
@@ -987,7 +1046,7 @@ At present (release 1.18) there is no workaround in place. If you happen to know
 
 * Workaround:
 
-At present (release 1.18.x) `genisoimage` cannot produce ISO images that can boot via UEFI on an OpenSuSe distribution (and also SLES). However, use the +ebiso+ package instead to create UEFI ISO images on SLES.
+At present (release 1.18.x) `genisoimage` cannot produce ISO images that can boot via UEFI on an OpenSuSe distribution (and also SLES). However, use the [`ebiso`](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/SLE_11_SP3/x86_64/ebiso-0.1.4-1.x86_64.rpm) package instead to create UEFI ISO images on SLES.
 
 *Issue Description*: TSM 7.1.0.0 cp writing dangling symlink libxmlutil-7.1.0.0.so on SLES SP3
 

@@ -17,6 +17,7 @@ title: Relax-and-Recover documentation
 
 ### Release notes
 
+ - [Relax-and-Recover Release Notes 1.18](http://relax-and-recover.org/documentation/release-notes-1-18)
  - [Relax-and-Recover Release Notes 1.17.2](http://relax-and-recover.org/documentation/release-notes-1-17)
  - [Relax-and-Recover Release Notes 1.16.1](http://relax-and-recover.org/documentation/release-notes-1-16)
  - [Relax-and-Recover Release Notes 1.15.0](http://relax-and-recover.org/documentation/release-notes-1-15)
@@ -48,3 +49,4 @@ title: Relax-and-Recover documentation
  - [Linux Disaster Recovery with Relax-and-Recover and SEP sesam](http://wiki.sepsoftware.com/wiki/index.php/Disaster_Recovery_for_Linux_3.0_en)
  - [Linux Bare Metal Disaster Recovery on USB](http://www.cloudconsulted.com/cloud/linux-labs/linux-bare-metal-disaster-recovery-on-usb)
  - [P2V-Migration mit ReaR](http://www.heise.de/ix/heft/Umzugshilfe-2458904.html) - article in German language
+ - [HOWTO: Prune backups made with Relax and Recover](https://www.harperink.de/?p=2735)
