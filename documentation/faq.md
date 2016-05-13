@@ -22,7 +22,7 @@ If you see above error message then you can edit the `/etc/rear/local.conf` and 
     GRUB_RESCUE=
 
 to avoid the rear generates a rescue image under the `/boot/grub` directory. By default,
-rear is generating a rescue image and adding it to your grub configuration.
+rear is not anymore generating a rescue image and adding it to your grub configuration.
 
 ### General Questions
 

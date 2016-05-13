@@ -5,6 +5,11 @@ title: Relax-and-Recover events
 
 ## Relax-and-Recover events
 
+### Open Source Backup Conference, Cologne, Germany, 26-27 September, 2016
+Presentation will be given by Gratien [Building a Business Continuity Plan with Bareos and rear](http://osbconf.org/sessions/building-a-business-continuity-plan-with-bareos-and-rear/)
+
+And, a [workshop around rear](http://osbconf.org/workshops/) is also foreseen. We have created on github the [rear workshop](https://github.com/rear/rear-workshop-osbconf-2016) download section with the scripts for the workshop so you can come prepared.
+
 ### Fosdem 2016, Belgium, 30-31 January 2016
 Relax-and-Recover project team members will be present at the booth of bareos from time to time. If you want to have a talk face to face then please jump by.
 
