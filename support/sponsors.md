@@ -13,8 +13,8 @@ You can sponsor in many ways:
  - [donate an amount of money](https://www.paypal.com/cgi-bin/webscr?item_name=Donation+to+Relax+and+Recover&cmd=_donations&business=gratien.dhaese%40gmail.com)
  - [hire us for a day](http://www.it3.be/rear-support/)
  - [professionally consultancy (onsite or remote)](http://relax-and-recover.org/development/)
- - take a rear subscription
- - take a support contract
+ - [take a rear subscription]((http://www.it3.be/rear-support/)
+ - [take a support contract](http://www.it3.be/rear-support/)
  - organize a workshop around rear
 
 ### Wishlist of missing features
@@ -24,7 +24,7 @@ If you have a missing feature please first [submit an issue](https://github.com/
  - [Add code to make an ISO image on Linux-s390x architecture #781](https://github.com/rear/rear/issues/781)
  - [Missing backup in recovery iso for IBM PowerVM LPAR #697](https://github.com/rear/rear/issues/697)
  - [Remove duplicate ISO image in /var/lib/rear when using BACKUP=TSM #634](https://github.com/rear/rear/issues/634)
- - [UEFI booting from USB disk #603](https://github.com/rear/rear/issues/603)
+ - [UEFI booting from USB disk #603](https://github.com/rear/rear/issues/603) *closed by [pull request #831](https://github.com/rear/rear/pull/837)*
  - [iscsi support - howto example requested #435](https://github.com/rear/rear/issues/435)
  - [Extend PXE_TFTP_PATH and PXE_CONFIG_PATH to support url #193](https://github.com/rear/rear/issues/193)
  - [Add iscsi support #64](https://github.com/rear/rear/issues/64)
