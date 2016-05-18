@@ -50,3 +50,5 @@ title: Relax-and-Recover documentation
  - [Linux Bare Metal Disaster Recovery on USB](http://www.cloudconsulted.com/cloud/linux-labs/linux-bare-metal-disaster-recovery-on-usb)
  - [P2V-Migration mit ReaR](http://www.heise.de/ix/heft/Umzugshilfe-2458904.html) - article in German language
  - [HOWTO: Prune backups made with Relax and Recover](https://www.harperink.de/?p=2735)
+ - [Exploring the Relax and Recoverbackup and rescue system](http://www.admin-magazine.com/Archive/2014/22/Exploring-the-Relax-and-Recoverbackup-and-rescue-system)
+ - [Better Backups](http://www.admin-magazine.com/Articles/Free-Enterprise-Backup-with-Bareos)
