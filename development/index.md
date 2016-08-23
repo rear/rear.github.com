@@ -47,6 +47,41 @@ project on Github, make the modifications and then do a pull-request.
 This makes it easy for the project to discuss the changes through the
 pull-request, and when accepted to merge the pull-request into the project.
 
+Here is how to do it:
+
+Fork the repository first and then clone your fork on your machine:
+
+    $ git clone git@github.com:YOURNAME/rear.git
+    $ cd rear
+
+Add a remote for the upstream repository:
+
+    $ git remote add upstream git@github.com:rear/rear.git
+    $ git fetch upstream
+    From github.com:rear/rear
+    * [new branch]      dev        -> upstream/dev
+    * [new branch]      master     -> upstream/master
+
+
+Create a new topic branch for the changes you want to make, based on the *dev* branch from upstream:
+
+    $ git checkout -b fix-4-issue-999   upstream/dev
+
+Make your changes, test them, commit them and push them to Github:
+
+    $ git commit -a -m 'describe what your modified'
+    $ git push origin fix-4-issue-999
+
+Open a Pull request from `YOURNAME:fix-4-issue-999` to `rear:dev`.
+
+If you want to open another pull request for another change which is independant of the previous one, just create another topic branch based on master ( `git checkout -b fix-4-issue-999-2 upstream/dev` )
+
+Finally, you can remove your branch `fix-4-issue-999` when it has been merged in the `rear:dev` branch.
+
+    $ git checkout master
+    $ git branch -d fix-4-issue-999
+
+
 ### Sponsoring
 We have a list of missing features that were requested but never got to a point
 of being implemented by the team members. If you feel an urgent need to see a
