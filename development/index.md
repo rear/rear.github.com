@@ -74,7 +74,7 @@ Make your changes, test them, commit them and push them to Github:
 
 Open a Pull request from `YOURNAME:fix-4-issue-999` to `rear:dev`.
 
-If you want to open another pull request for another change which is independant of the previous one, just create another topic branch based on master ( `git checkout -b fix-4-issue-999-2 upstream/dev` )
+If you want to open another pull request for another change which is independant of the previous one, just create another topic branch based on the *dev* branch from upstream ( `git checkout -b fix-4-issue-999-2 upstream/dev` )
 
 Finally, you can remove your branch `fix-4-issue-999` when it has been merged in the `rear:dev` branch.
 
