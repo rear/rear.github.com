@@ -56,8 +56,8 @@ Since rear release 1.17.2 you will find the stable packages under the architectu
     [6.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/CentOS_CentOS-6/),
     [7.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/CentOS_7/)
  * Debian:
-    [7.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_7.0/all/),
-    [8.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_8.0/all/)
+    [7.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_7.0/),
+    [8.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_8.0/)
  * Fedora:
     [20](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Fedora_20/),
     [21](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Fedora_21/),
@@ -87,11 +87,12 @@ Since rear release 1.17.2 you will find the stable packages under the architectu
     [12](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/SLE_12/),
     [12_SP1](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/SLE_12_SP1/)
  * Ubuntu:
-    [12.04](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/xUbuntu_12.04/all/),
-    [14.04](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/xUbuntu_14.04/all/),
-    [14.10](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/xUbuntu_14.10/all/),
-    [15.04](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/xUbuntu_15.04/all/),
-    [15.10](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/xUbuntu_15.10/all/)
+    [12.04](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/xUbuntu_12.04/),
+    [14.04](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/xUbuntu_14.04/),
+    [14.10](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/xUbuntu_14.10/),
+    [15.04](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/xUbuntu_15.04/),
+    [15.10](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/xUbuntu_15.10/),
+    [16.04](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/xUbuntu_16.04/)
  * Gentoo:
     [12.1](https://packages.gentoo.org/package/app-backup/rear)
 
@@ -102,8 +103,8 @@ Since rear release 1.17.2 you will find the stable packages under the architectu
     [6.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/CentOS_CentOS-6/),
     [7.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/CentOS_7/)
  * Debian:
-    [7.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Debian_7.0/all/),
-    [8.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Debian_8.0/all/)
+    [7.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Debian_7.0/amd64/),
+    [8.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Debian_8.0/amd64/)
  * Fedora:
     [20](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Fedora_20/),
     [21](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Fedora_21/),
@@ -132,11 +133,12 @@ Since rear release 1.17.2 you will find the stable packages under the architectu
     [12](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/SLE_12/),
     [12_SP1](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/SLE_12_SP1/)
  * Ubuntu:
-    [12.04](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/xUbuntu_12.04/all/),
-    [14.04](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/xUbuntu_14.04/all/),
-    [14.10](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/xUbuntu_14.10/all/),
-    [15.04](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/xUbuntu_15.04/all/),
-    [15.10](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/xUbuntu_15.10/all/)
+    [12.04](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/xUbuntu_12.04/amd64/),
+    [14.04](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/xUbuntu_14.04/amd64/),
+    [14.10](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/xUbuntu_14.10/amd64/),
+    [15.04](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/xUbuntu_15.04/amd64/),
+    [15.10](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/xUbuntu_15.10/amd64/),
+    [16.04](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/xUbuntu_16.04/amd64/)
 
 
 ### Future releases

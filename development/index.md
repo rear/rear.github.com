@@ -79,7 +79,7 @@ If you want to open another pull request for another change which is independant
 Finally, you can remove your branch `fix-4-issue-999` when it has been merged in the `rear:dev` branch.
 
     $ git checkout master
-    $ git branch -d fix-4-issue-999
+    $ git branch -D fix-4-issue-999
 
 
 ### Sponsoring
