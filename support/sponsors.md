@@ -11,7 +11,6 @@ You can sponsor in many ways:
  - create [pull requests](https://help.github.com/articles/using-pull-requests/)
  - read, advise and improve the current documentation (with pull requests)
  - [donate an amount of money](https://www.paypal.com/cgi-bin/webscr?item_name=Donation+to+Relax+and+Recover&cmd=_donations&business=gratien.dhaese%40gmail.com)
- - [hire us for a day](http://www.it3.be/rear-support/)
  - [professionally consultancy (onsite or remote)](http://relax-and-recover.org/development/)
  - [take a rear subscription](http://www.it3.be/rear-support/)
  - [take a support contract](http://www.it3.be/rear-support/)
@@ -31,4 +30,6 @@ If you have a missing feature please first [submit an issue](https://github.com/
  - [Make component-prefix mandatory in layout code #55](https://github.com/rear/rear/issues/55)
  - [Better UI when mapping disks. #48](https://github.com/rear/rear/issues/48)
  - [Add support for excluding logicaldrive #19](https://github.com/rear/rear/issues/19)
-
+ - [Automatic creation of an /etc/rear/os.conf file on Debian/Ubuntu at installation time](//github.com/rear/rear/issues/468)
+ - [SELinux support in backup code](https://github.com/rear/rear/issues/44)
+ - [Partitions not properly aligned for best performance](https://github.com/rear/rear/issues/102)
