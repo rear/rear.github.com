@@ -154,7 +154,11 @@ Relax-and-Recover, unless otherwise noted.
 The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker](https://github.com/rear/rear/issues)
 
 
-### Version 1.19.0 (September  2016)
+### Version 1.19.0 (October  2016)
+
+* Improved documentation and man page in general (issues #918, #930, #1004, #1007, #1008)
+
+* Improved scripting around halting, rebooting and shutdown rescue image (issue #953)
 
 * TSM parameters containing a dot (issue #985 and #986)
 
@@ -1089,6 +1093,13 @@ However, we do understand that it is not always possible to install on hundreds 
 
 
 ## Known Problems and Workarounds
+
+*Issue Description*: tar --test-label is not supported on Centos 5 who have tar version 1.15
+
+* Workaround:
+
+Read the comments in [issue #1014](https://github.com/rear/rear/issues/1014)
+
 
 *Issue Description*: Debian 8 initramfs-tools: / on LVM gets mounted by initrd with kernel device name /dev/dm-X instead of /dev/mapper/XXX name
 
