@@ -1041,9 +1041,9 @@ allows it).
 That does not mean we let our user basis in the cold as we do deliver support as a service (not free of charge).
 
 ## Supported Operating Systems
-Rear-1.18 is supported on the following Linux based operating systems:
+Rear-1.19 is supported on the following Linux based operating systems:
 
-* Fedora 21, 22 and 23
+* Fedora 21, 22, 23 and 24
 * RHEL 5, 6 and 7
 * CentOS 5, 6 and 7
 * ScientificLinux 6 and 7
@@ -1052,7 +1052,7 @@ Rear-1.18 is supported on the following Linux based operating systems:
 * Debian 6, 7 and 8
 * Ubuntu 12, 13, 14 and 15
 
-Rear-1.18 dropped officially support for the following Linux based operating systems:
+Rear-1.19 dropped officially support for the following Linux based operating systems:
 
 * Fedora <21
 * RHEL 3 and 4
