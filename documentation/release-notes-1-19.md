@@ -151,7 +151,7 @@ defect fixes. Note that all releases are cumulative, and that all releases
 of Relax-and-Recover are compatible with previous versions of
 Relax-and-Recover, unless otherwise noted.
 
-The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker](https://github.com/rear/rear/issues)
+The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker](https://github.com/rear/rear/issues).
 
 
 ### Version 1.19.0 (October  2016)
@@ -578,8 +578,6 @@ Sometimes we might see the HP Smart Storage Array disk listed as a multipath dev
 
 ### Version 1.16.0 (May 2014)
 
-As usual lots of bug fixes - see the issue tracker.
-
 * Network script now deals correctly with VLAN tagging as well
 
 * Added 2 new variables to `default.conf` for TSM: `TSM_ARCHIVE_MGMT_CLASS` which defines a backup class to use with TSM, and `TSM_RM_ISOFILE` which triggers (if set to y) to remove the original ISO files from local system once the ISO image has been transferred to TSM
@@ -640,10 +638,6 @@ As usual lots of bug fixes - see the issue tracker.
 * Add support for Gentoo kernels - issue #312
 
 ### Version 1.15.0 (September 2013)
-
-The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker](https://github.com/rear/rear/issues)
-
-As usual lots of bug fixes - see the issue tracker.
 
 * Add EMC NetWorker (Legato) support for doing _external_ backup
 
@@ -729,11 +723,6 @@ As usual lots of bug fixes - see the issue tracker.
 * Check if ROOT_FS filesystem was mounted with 'noexec' attribute (issue #150)
 
 ### Version 1.14.0 (September 2012)
-
-The references pointing to *fix#nr* refer to our [issues tracker](https://github.com/rear/rear/issues)
-
-Lots of minor bugs were fixed, and not all of them are listed in current release notes. For a
-complete overview see the issue tracker.
 
 * Added duply/duplicity with one new backup method duplicity (*Experimental*)
 
@@ -1041,6 +1030,8 @@ allows it).
 That does not mean we let our user basis in the cold as we do deliver support as a service (not free of charge).
 
 ## Supported Operating Systems
+We try to keep our wiki page [Test Matrix rear 1.19](https://github.com/rear/rear/wiki/Test-Matrix-rear-1.19) up-to-date with feedback we receive from the community.
+
 Rear-1.19 is supported on the following Linux based operating systems:
 
 * Fedora 21, 22, 23 and 24
@@ -1066,19 +1057,19 @@ If you require support for *unsupported* Linux Operating System you must acquire
 Requests to port *rear* to another Operating System (not Linux) can only be achieved with **serious** sponsoring.
 
 ## Supported Architectures
-Rear-1.18 is supported on:
+Rear-1.19 is supported on:
 
 * Intel x86 type of processors
 * AMD x86 type of processors
 
-Rear-1.18 may or may not fully work on:
+Rear-1.19 may or may not fully work on:
 
 * Intel Itanium processors
 * PPC processors
 * PPC64 processors
 * PPC64LE processors
 
-Rear-1.18 does not support:
+Rear-1.19 does not support:
 
 * ARM type of processors
 * s390x type of processors
