@@ -158,7 +158,9 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 * Improved documentation and man page in general (issues #918, #930, #1004, #1007, #1008)
 
-* Improved scripting around halting, rebooting and shutdown rescue image (issue #953)
+* New SLE12-SP2-btrfs-example.conf file because since SLES12-SP2 btrfs quota setup for snapper via "snapper setup-quota" is needed (issue #999)
+
+* Simplified reboot halt poweroff and shutdown in the rescue/recovery system in case of systemd (issue #953)
 
 * TSM parameters containing a dot (issue #985 and #986)
 
@@ -170,15 +172,17 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 * USE_STATIC_NETWORKING now really overrides USE_DHCLIENT (issue #964)
 
+* make it safe against wrong btrfs subvolumes on SLES12 (issue #963)
+
 * Encrypted incremental backup cannot read the tar label (issue #952)
 
-* Introduction of the NETWORKING_PREPARATION_COMMANDS variable to override network settings on the client (issue #960)
+* Introduction of the NETWORKING_PREPARATION_COMMANDS variable to prepare network devices setup in the rescue/recovery system (issue #960)
 
 * After migration fs_uuid for root partition wasn't changed in ELILO config file /etc/elilo.conf (issue #956)
 
 * Clarified rear man page and default.conf file around BACKUP_URL=rsync: (issues #930 and #918)
 
-* Exclude btrfs subvolume @/.snapshots/1/snapshot/var/lib/machines from being created to make rear recover work on SLES12-SP2 (issue #950)
+* Make "rear recover" work with default btrfs on SLES12-SP2 (issue #944)
 
 * Removed GRUB_SUPERUSER and GRUB_RESCUE_PASSWORD and replaced these by GRUB_RESCUE_USER and GRUB_RESCUE_PASSWORD.
   Furthermore, GRUB_RESCUE was renamed to DEVEL_GRUB_RESCUE (issues #938, #942)
@@ -195,7 +199,7 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 * Insure /etc/rear/mappings directory exists before doing a recovery (issue #861)
 
-* Implement rear recovery system update support (not finished yet) (issue #841)
+* First steps for rescue/recovery system update support via RECOVERY_UPDATE_URL (issue #841)
 
 * NFS mount points are not recreated after a recover (issue #818)
 
@@ -213,13 +217,13 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 * Adding support for ppc64le PowerNV (non-virtualized aka Bare-Metal) (issue #863)
 
-* Support for  new ftpfs BACKUP_URL scheme (issue #845)
+* First steps to support new ftpfs BACKUP_URL scheme (issue #845)
 
 * Clean up 'url_host()' (issue #856)
 
 * Solving Multipath cannot load due to libaio missing in ramdisk (issue #852)
 
-* Improved the ReaR menu for grub2 (issues #844, #849, #850)
+* Improved the Relax-and-Recover menu for grub2 (issues #844, #849, #850)
 
 * Check for valid BACKUP_URL schemes (issue #842)
 
@@ -229,7 +233,7 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 * Determine EFI virtual disk size automatically (issue #816)
 
-* ebiso image size is too msall if BACKUP=TSM (issue #811)
+* ebiso image size is too small if BACKUP=TSM (issue #811)
 
 * Improving the logics around ebiso usage in UEFI mode (issue #801)
 
