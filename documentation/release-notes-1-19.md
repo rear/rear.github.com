@@ -172,7 +172,7 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 * USE_STATIC_NETWORKING now really overrides USE_DHCLIENT (issue #964)
 
-* make it safe against wrong btrfs subvolumes on SLES12 (issue #963)
+* Make it safe against wrong btrfs subvolumes on SLES12 (issue #963)
 
 * Encrypted incremental backup cannot read the tar label (issue #952)
 
