@@ -162,21 +162,21 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 * Simplified reboot halt poweroff and shutdown in the rescue/recovery system in case of systemd (issue #953)
 
-* TSM parameters containing a dot (issue #985 and #986)
+* If TSM parameters contain a dot, the dot is replaced by an underscore in the TSM_SYS variable names (issue #985 and #986)
 
 * Check if /dev/disk/by-label/RELAXRECOVER exist (issue #979 and #326)
 
-* Added PRE/POST backup scripts in order to be able to do some custom tasks before and after data backup is done (issue #977)
+* Added PRE_BACKUP_SCRIPT and POST_BACKUP_SCRIPT to be able to do custom tasks in the mkbackup/mkbackuponly workflows (issue #977)
 
 * Make TMPDIR work in compliance with Unix standards (issue #969)
 
 * USE_STATIC_NETWORKING now really overrides USE_DHCLIENT (issue #964)
 
-* Make it safe against wrong btrfs subvolumes on SLES12 (issue #963)
+* Make it safe against wrong btrfs subvolumes on SLES12 (issue #963, #966)
 
 * Encrypted incremental backup cannot read the tar label (issue #952)
 
-* Introduction of the NETWORKING_PREPARATION_COMMANDS variable to prepare network devices setup in the rescue/recovery system (issue #960)
+* Introduction of the NETWORKING_PREPARATION_COMMANDS variable to prepare network setup in the rescue/recovery system (issue #960)
 
 * After migration fs_uuid for root partition wasn't changed in ELILO config file /etc/elilo.conf (issue #956)
 
@@ -184,12 +184,11 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 * Make "rear recover" work with default btrfs on SLES12-SP2 (issue #944)
 
-* Removed GRUB_SUPERUSER and GRUB_RESCUE_PASSWORD and replaced these by GRUB_RESCUE_USER and GRUB_RESCUE_PASSWORD.
-  Furthermore, GRUB_RESCUE was renamed to DEVEL_GRUB_RESCUE (issues #938, #942)
+* Dropped GRUB_SUPERUSER and GRUB_RESCUE_PASSWORD to avoid that GRUB_RESCUE could change the behaviour of the GRUB2 bootloader in the currently running system in unexpected ways. With the new optional GRUB_RESCUE_USER setting GRUB_RESCUE works in compliance with the existing GRUB2 configuration (issues #938, #942)
 
 * Bail out if not enough disk space for GRUB and GRUB2 rescue image (issue #913)
 
-* Use BACKUP_PROG_COMPRESS_OPTIONS as an array (issue #904)
+* Use BACKUP_PROG_COMPRESS_OPTIONS as an array so that one can use it to provide more complex values (issue #904)
 
 * Add /usr/lib/syslinux/bios to the search path for mbr.bin (issue #908)
 
@@ -221,15 +220,15 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 * Clean up 'url_host()' (issue #856)
 
-* Solving Multipath cannot load due to libaio missing in ramdisk (issue #852)
+* Fix that libaio (needed for multipath) could be missing in rescue/recovery system because libaio can be located in different directories (issue #852)
 
-* Improved the Relax-and-Recover menu for grub2 (issues #844, #849, #850)
+* Improved the Relax-and-Recover menu for GRUB2 (issues #844, #849, #850)
 
 * Check for valid BACKUP_URL schemes (issue #842)
 
 * USB UEFI boot support (issue #831)
 
-* Fix the problem where the btrfs subvlums are not restored via TSM (issue #833)
+* Mitigate the problem that btrfs subvolums are not restored by default via TSM (issue #833)
 
 * Determine EFI virtual disk size automatically (issue #816)
 
