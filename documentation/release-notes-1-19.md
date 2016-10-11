@@ -156,6 +156,8 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 ### Version 1.19.0 (October  2016)
 
+* Save bootloader info from POWER architecture and rebuild initrd after migration (issues #1029, #1031)
+
 * Improved documentation and man page in general (issues #918, #930, #1004, #1007, #1008)
 
 * New SLE12-SP2-btrfs-example.conf file because since SLES12-SP2 btrfs quota setup for snapper via "snapper setup-quota" is needed (issue #999)
