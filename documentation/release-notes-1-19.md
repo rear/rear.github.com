@@ -238,7 +238,7 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 * Improving the logics around ebiso usage in UEFI mode (issue #801)
 
-* Fix for wrong UUID in initrd for bootfs (issues #649i and #851)
+* Fix for wrong UUID in initrd for bootfs (issues #649 and #851)
 
 
 
