@@ -6,12 +6,16 @@ title: Relax-and-Recover events
 ## Relax-and-Recover events
 
 ### Open Source Backup Conference, Cologne, Germany, 26-27 September, 2016
-Presentation will be given by Gratien [Building a Business Continuity Plan with Bareos and rear](http://osbconf.org/sessions/building-a-business-continuity-plan-with-bareos-and-rear/)
+Presentation was given by Gratien [Building a Business Continuity Plan with Bareos and rear](http://osbconf.org/wp-content/uploads/2016/09/Building-a-Business-Continuity-Plan-with-Bareos-and-REAR-Gratien-D%C2%B4haese.pdf)
 
-And, a [workshop around rear](http://osbconf.org/workshops/) is also foreseen. We have created on github the [rear workshop](https://github.com/rear/rear-workshop-osbconf-2016) download section with the scripts for the workshop so you can come prepared.
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MsL61ZTJVW8?list=PLeoxx10paaAkIjBQC5bjbiEEd73lbqS-U" frameborder="0" allowfullscreen></iframe>
+
+<br clear="right">
+
+A [workshop around rear](http://osbconf.org/workshops/) was also foreseen. We have created on github the [rear workshop](https://github.com/rear/rear-workshop-osbconf-2016) download section with the scripts of the workshop.
 
 ### Fosdem 2016, Belgium, 30-31 January 2016
-Relax-and-Recover project team members will be present at the booth of bareos from time to time. If you want to have a talk face to face then please jump by.
+Relax-and-Recover project team members were be present at the booth of bareos from time to time.
 
 ### CentOS Dojo Brussels, Belgium, Friday 29th January 2016
 Presentation by Gratien: [Relax-and-Recover simplifies Linux Disaster Recovery](https://wiki.centos.org/Events/Dojo/Brussels2016)
