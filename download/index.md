@@ -62,14 +62,16 @@ Since rear release 1.17.2 you will find the stable packages under the architectu
     [20](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Fedora_20/),
     [21](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Fedora_21/),
     [22](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Fedora_22/),
-    [23](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Fedora_23/)
+    [23](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Fedora_23/),
+    [24](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Fedora_24/)
  * openSUSE:
-    [11.4](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/openSUSE_11.4/),
     [13.1](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/openSUSE_13.1/),
     [13.2](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/openSUSE_13.2/),
     [Factory](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/openSUSE_Factory/),
-    [Leap_42.1](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/openSUSE_Leap_42.1/)
-    [Tumbleweed](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/openSUSE_Tumbleweed/)
+    [Leap_42.1](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/openSUSE_Leap_42.1/),
+    [Leap_42.2](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/openSUSE_Leap_42.2/),
+    [Tumbleweed](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/openSUSE_Tumbleweed/),
+    [Factory_PowerPC](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/openSUSE_Factory_PowerPC/)
  * RHEL:
     [5](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/RedHat_RHEL-5/),
     [6](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/RedHat_RHEL-6/),
@@ -109,13 +111,16 @@ Since rear release 1.17.2 you will find the stable packages under the architectu
     [20](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Fedora_20/),
     [21](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Fedora_21/),
     [22](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Fedora_22/),
-    [23](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Fedora_23/)
+    [23](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Fedora_23/),
+    [24](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Fedora_24/)
  * openSUSE:
     [13.1](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/openSUSE_13.1/),
     [13.2](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/openSUSE_13.2/),
     [Factory](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/openSUSE_Factory/),
     [Tumbleweed](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/openSUSE_Tumbleweed/),
-    [Leap_42.1](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/openSUSE_Leap_42.1/)
+    [Leap_42.1](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/openSUSE_Leap_42.1/),
+    [Leap_42.2](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/openSUSE_Leap_42.2/)
+    [Factory_PowerPC](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/openSUSE_Factory_PowerPC/)
  * RHEL:
     [5](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/RedHat_RHEL-5/),
     [6](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/RedHat_RHEL-6/),
