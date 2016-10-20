@@ -5,6 +5,9 @@ title: Relax-and-Recover events
 
 ## Relax-and-Recover events
 
+### FOSDEM 2017, Brussels, 4-5 February, 2017
+Devroom "Backup and Disaster Recovery" Call for Participants/Papers - http://bit.ly/2dBoDi4
+
 ### Open Source Backup Conference, Cologne, Germany, 26-27 September, 2016
 Presentation was given by Gratien [Building a Business Continuity Plan with Bareos and rear](http://osbconf.org/wp-content/uploads/2016/09/Building-a-Business-Continuity-Plan-with-Bareos-and-REAR-Gratien-D%C2%B4haese.pdf)
 
