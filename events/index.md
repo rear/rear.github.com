@@ -8,6 +8,9 @@ title: Relax-and-Recover events
 ### FOSDEM 2017, Brussels, 4-5 February, 2017
 Devroom "Backup and Disaster Recovery" [Call for Participants/Papers](http://bit.ly/2dBoDi4)
 
+### IBM Partner Event, London, 26-27 October, 2016
+Presentation was given by Sebastien Chabrolles (IBM France) ["Relax-and-Recover", an Open Source mksysb for Linux on Power](http://www.slideshare.net/sebastienchabrolles/relax-and-recover-an-open-source-mksysb-for-linux-on-power)
+
 ### Open Source Backup Conference, Cologne, Germany, 26-27 September, 2016
 Presentation was given by Gratien [Building a Business Continuity Plan with Bareos and rear](http://osbconf.org/wp-content/uploads/2016/09/Building-a-Business-Continuity-Plan-with-Bareos-and-REAR-Gratien-D%C2%B4haese.pdf)
 
