@@ -476,7 +476,7 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 * Adding findmnt command to GNU/Linux.conf file; request from https://bugzilla.opensuse.org/show_bug.cgi?id=908854
 
-* BTRFS code has been rewritten by J. Meixner/G. D'haese to get SuSe rear116 fork back into our master tree of rear. BTRFS is now properly recreated on Fedora 20 and 21 and on SLES 12 and OpenSuSe 13 (issue #233, #497, #538)
+* BTRFS code has been rewritten by J. Meixner/G. D'haese to get SUSE rear116 fork back into our master tree of rear. BTRFS is now properly recreated on Fedora 20 and 21 and on SLES 12 and openSUSE 13 (issue #233, #497, #538)
 See also https://bugzilla.opensuse.org/show_bug.cgi?id=908854
 
 * Enhanced the systemd start-up of udev daemons which is different on Fedora 20 and 21 (issue #507, #531)
@@ -516,7 +516,7 @@ Sometimes we might see the HP Smart Storage Array disk listed as a multipath dev
 
 * Improved the RPM package build for SLES, removed the lsb requirement (issue #479)
 
-* Integrated the patch skip_sysconfig_kernel_if_not_exist.diff from SuSe (issue #477)
+* Integrated the patch skip_sysconfig_kernel_if_not_exist.diff from SUSE (issue #477)
 
 * Debian 7 reference to grub.conf was corrected (issue #473)
 
@@ -577,7 +577,7 @@ Sometimes we might see the HP Smart Storage Array disk listed as a multipath dev
 
 * Improvements around btrfs file system recognition and re-creation (issues #408 and #415).
 
-* Important fix for grub2 with OpenSuse 13 (changed LOADER into LOADER_TYPE).
+* Important fix for grub2 with openSUSE 13 (changed LOADER into LOADER_TYPE).
 
 * Added example prep script to verify if extlinux is present (issue #250) - this type of script could be cloned for other important executables in various workflows.
 
@@ -671,7 +671,7 @@ Sometimes we might see the HP Smart Storage Array disk listed as a multipath dev
 
 * Rear supports now more then 9 partitions (see issue #263)
 
-* systemd support added for Fedora 19/20 and OpenSuse 12.x/13.x
+* systemd support added for Fedora 19/20 and openSUSE 12.x/13.x
 
 * Automatic Recover feature on USB devices (label AUTOMATIC RECOVER in rear recover menu)
 
@@ -731,7 +731,7 @@ Sometimes we might see the HP Smart Storage Array disk listed as a multipath dev
 
 * Added duply/duplicity with one new backup method duplicity (*Experimental*)
 
-* Systemd supported on Fedora 17 and OpenSuse 12.2 (fix #115, #126)
+* Systemd supported on Fedora 17 and openSUSE 12.2 (fix #115, #126)
 
 * Create correct yaboot dir on ppc (fix #109)
 
@@ -1044,7 +1044,7 @@ Rear-1.19 is supported on the following Linux based operating systems:
 * CentOS 5, 6 and 7
 * ScientificLinux 6 and 7
 * SLES 11 and 12
-* OpenSuSe 11, 12 and 13
+* openSUSE 11, 12 and 13
 * Debian 6, 7 and 8
 * Ubuntu 12, 13, 14 and 15
 
@@ -1053,7 +1053,7 @@ Rear-1.19 dropped officially support for the following Linux based operating sys
 * Fedora <21
 * RHEL 3 and 4
 * SLES 9 and 10
-* OpenSuSe <11
+* openSUSE <11
 * Debian <6
 * Ubuntu <12
 
@@ -1128,11 +1128,11 @@ See issue #512
 
 At present (release 1.18) there is no workaround in place. If you happen to know how this could be fixed then add your ideas to [issue #417](https://github.com/rear/rear/issues/417)
 
-*Issue Description*: UEFI ISO booting does not work on OpenSuSe 12.x, or SLES 11/12
+*Issue Description*: UEFI ISO booting does not work on openSUSE 12.x, or SLES 11/12
 
 * Workaround:
 
-At present (release 1.18.x) `genisoimage` cannot produce ISO images that can boot via UEFI on an OpenSuSe distribution (and also SLES). However, use the [`ebiso`](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/SLE_11_SP3/x86_64/ebiso-0.1.4-1.x86_64.rpm) package instead to create UEFI ISO images on SLES.
+At present (release 1.18.x) `genisoimage` cannot produce ISO images that can boot via UEFI on an openSUSE distribution (and also SLES). However, use the [`ebiso`](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/SLE_11_SP3/x86_64/ebiso-0.1.4-1.x86_64.rpm) package instead to create UEFI ISO images on SLES.
 
 *Issue Description*: TSM 7.1.0.0 cp writing dangling symlink libxmlutil-7.1.0.0.so on SLES SP3
 
