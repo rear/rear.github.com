@@ -158,7 +158,8 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 ### Version 2.00 (January 2017)
 
-(*Important Note*) ReaR 2.00
+(*Important Note*) ReaR 2.00 introduced the 3-digits scripts instead of the 2-digits script. This means all scripts must begin with 3 digits, e.g. 010-my-script.sh instead of 10-my-script. Therefore, if you wrote your own scripts make sure to renumber these. You could also use the *make validate* to check this.
+
 * Bareos support: add missing directory /var/run/bareos in recovery system (issue #1148)
 
 * Forbid BACKUP_URL=usb for BACKUP_TYPE=incremental/differential (issues #1141 and #1145)
