@@ -6,7 +6,7 @@ title: Relax-and-Recover events
 ## Relax-and-Recover events
 
 ### FOSDEM 2017, Brussels, 4-5 February, 2017
-Devroom "Backup and Disaster Recovery" [Call for Participants/Papers](http://bit.ly/2dBoDi4)
+Devroom ["Backup and Disaster Recovery"](https://fosdem.org/2017/schedule/track/backup_and_disaster_recovery/). Johannes Meixner and Gratien D'haese will be giving presentation around ReaR. Do not hesitate to drop by and talk to us on Saturday 4th, February, 2017 around 17u45 ([Futere Ideas session](https://fosdem.org/2017/schedule/event/backup_dr_future_ideas/)).
 
 ### IBM Partner Event, London, 26-27 October, 2016
 Presentation was given by Sebastien Chabrolles (IBM France) ["Relax-and-Recover", an Open Source mksysb for Linux on Power](http://www.slideshare.net/sebastienchabrolles/relax-and-recover-an-open-source-mksysb-for-linux-on-power)
@@ -14,7 +14,7 @@ Presentation was given by Sebastien Chabrolles (IBM France) ["Relax-and-Recover"
 ### Open Source Backup Conference, Cologne, Germany, 26-27 September, 2016
 Presentation was given by Gratien [Building a Business Continuity Plan with Bareos and rear](http://osbconf.org/wp-content/uploads/2016/09/Building-a-Business-Continuity-Plan-with-Bareos-and-REAR-Gratien-D%C2%B4haese.pdf)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/MsL61ZTJVW8?list=PLeoxx10paaAkIjBQC5bjbiEEd73lbqS-U" frameborder="0" allowfullscreen></iframe>
+<iframe width="280" height="210" src="https://www.youtube.com/embed/MsL61ZTJVW8?list=PLeoxx10paaAkIjBQC5bjbiEEd73lbqS-U" frameborder="0" allowfullscreen></iframe>
 
 <br clear="right">
 
