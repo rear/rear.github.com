@@ -8,7 +8,7 @@ title: Relax-and-Recover quick start
 This quick start guide will show you how to run Relax-and-Recover from the git
 checkout and create a bootable USB backup.
 
-Start by cloning the Relax-and-Recover sources from Github:
+Start by cloning the Relax-and-Recover sources from GitHub:
 
     git clone https://github.com/rear/rear.git
 
@@ -66,7 +66,7 @@ Relax-and-Recover is doing.
 Now reboot your system and try to boot from the USB device.
 
 If that worked, you can dive into the advanced Relax-and-Recover options and
-start creating full backups. If you USB devices has enough space, initiate a
+start creating full backups. If your USB device has enough space, initiate a
 backup using:
 
     sudo usr/sbin/rear -v mkbackup
