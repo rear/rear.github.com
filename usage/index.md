@@ -52,7 +52,7 @@ software takes care of backing up all system files, Relax-and-Recover
 recreates the filesystems and starts the file restore.
 
 Currently Bacula, Bareos, SEP Sesam, HP DataProtector, CommVault Galaxy, Symantec NetBackup,
-EMC NetWorker (Legato) and IBM Tivoli Storage Manager are supported.
+EMC NetWorker (Legato), FDR/Upstream, and IBM Tivoli Storage Manager are supported.
 
 The following `/etc/rear/local.conf` uses a USB stick for the rescue system and Bacula for backups. Multiple
 systems can use the USB stick since the size of the rescue system is probably

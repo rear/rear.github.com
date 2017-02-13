@@ -51,22 +51,23 @@ by appropriately named scripts in various subdirectories:
 
 The configuration must define the *BACKUP* and *OUTPUT* methods. Valid choices are:
 
-    |NAME   | TYPE    | Description                              | Implement in Phase
-    +-------+---------+------------------------------------------+-------------------
-    |NETFS  | BACKUP  | Copy files to NFS, CIFS share            | OK
-    |TAPE   | BACKUP  | Copy files to tape(s)                    | OK
-    |CDROM  | BACKUP  | Copy files to ISO image                  | OK
-    |NSR    | BACKUP  | Use Legato Networker                     | OK
-    |TSM    | BACKUP  | Use Tivoli Storage Manager               | OK
-    |DP     | BACKUP  | Use HP Data Protector                    | OK
-    |BACULA | BACKUP  | Use opensource Bacula                    | OK
+    |NAME        | TYPE    | Description                              | Implement in Phase
+    +------------+---------+------------------------------------------+-------------------
+    |NETFS       | BACKUP  | Copy files to NFS, CIFS share            | OK
+    |TAPE        | BACKUP  | Copy files to tape(s)                    | OK
+    |CDROM       | BACKUP  | Copy files to ISO image                  | OK
+    |NSR         | BACKUP  | Use Legato Networker                     | OK
+    |TSM         | BACKUP  | Use Tivoli Storage Manager               | OK
+    |DP          | BACKUP  | Use HP Data Protector                    | OK
+    |BACULA      | BACKUP  | Use opensource Bacula                    | OK
+    |FDRUPSTREAM | BACKUP  | Use FDR/Upstream                         | OK
     |
-    |       |         |                                          |
-    |ISO    | OUTPUT  | Write result to ISO9660 image            | OK
-    |CDROM  | OUTPUT  | Write result to CD/DVD                   | on request
-    |OBDR   | OUTPUT  | Create OBDR Tape                         | OK
-    |PXE    | OUTPUT  | Create PXE bootable files on TFTP server | OK
-    |USB    | OUTPUT  | Create bootable USB device               | OK
+    |            |         |                                          |
+    |ISO         | OUTPUT  | Write result to ISO9660 image            | OK
+    |CDROM       | OUTPUT  | Write result to CD/DVD                   | on request
+    |OBDR        | OUTPUT  | Create OBDR Tape                         | OK
+    |PXE         | OUTPUT  | Create PXE bootable files on TFTP server | OK
+    |USB         | OUTPUT  | Create bootable USB device               | OK
 
 ### Workflow Recovery
 
