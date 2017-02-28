@@ -5,8 +5,11 @@ title: Relax-and-Recover events
 
 ## Relax-and-Recover events
 
+### CeBIT Open Source Forum 2017, Hannover, 24 March, 2017
+Gratien will be presenting ["Relax-and-Recover Automated Testing"](http://www.cebit.de/veranstaltung/relax-and-recover-automated-testing/VOR/77620) in the Open Source Forum, Hall 3, Stand D35 at 13:45. A complete overview of [all talks](http://www.linux-magazin.de/VIDEOS/Konferenzvideos/CeBIT-Open-Source-Forum-2017)
+
 ### FOSDEM 2017, Brussels, 4-5 February, 2017
-Devroom ["Backup and Disaster Recovery"](https://fosdem.org/2017/schedule/track/backup_and_disaster_recovery/). Johannes Meixner and Gratien D'haese will be giving presentations around ReaR. Do not hesitate to drop by and talk to us on Saturday 4th, February, 2017 around 17u45 ([Futere Ideas session](https://fosdem.org/2017/schedule/event/backup_dr_future_ideas/)).
+Devroom ["Backup and Disaster Recovery"](https://fosdem.org/2017/schedule/track/backup_and_disaster_recovery/). Johannes Meixner and Gratien D'haese gave several presentations around ReaR. Slides and movies are available at the Fosdem.org web-site.
 
 ### IBM Partner Event, London, 26-27 October, 2016
 Presentation was given by Sebastien Chabrolles (IBM France) ["Relax-and-Recover", an Open Source mksysb for Linux on Power](http://www.slideshare.net/sebastienchabrolles/relax-and-recover-an-open-source-mksysb-for-linux-on-power)
