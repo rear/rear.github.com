@@ -23,9 +23,9 @@ If you have a missing feature please first [submit an issue](https://github.com/
  - [Add code to make an ISO image on Linux-s390x architecture #781](https://github.com/rear/rear/issues/781)
  - [Missing backup in recovery iso for IBM PowerVM LPAR #697](https://github.com/rear/rear/issues/697)
  - [Remove duplicate ISO image in /var/lib/rear when using BACKUP=TSM #634](https://github.com/rear/rear/issues/634)
- - UEFI booting from USB disk #603 *closed by [pull request #831](https://github.com/rear/rear/pull/837)*
+ - UEFI booting from USB disk #603 *closed (sponsor: gozora)*
  - [iscsi support - howto example requested #435](https://github.com/rear/rear/issues/435)
- - [Extend PXE_TFTP_PATH and PXE_CONFIG_PATH to support url #193](https://github.com/rear/rear/issues/193)
+ - Extend PXE_TFTP_PATH and PXE_CONFIG_PATH to support url #193 *closed (sponsor: IT3 Consultants)*
  - [Add iscsi support #64](https://github.com/rear/rear/issues/64)
  - [Make component-prefix mandatory in layout code #55](https://github.com/rear/rear/issues/55)
  - [Better UI when mapping disks. #48](https://github.com/rear/rear/issues/48)

@@ -59,10 +59,6 @@ Since rear release 1.17.2 you will find the stable packages under the architectu
     [7.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_7.0/),
     [8.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_8.0/)
  * Fedora:
-    [20](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Fedora_20/),
-    [21](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Fedora_21/),
-    [22](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Fedora_22/),
-    [23](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Fedora_23/),
     [24](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Fedora_24/)
  * openSUSE:
     [13.1](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/openSUSE_13.1/),
@@ -108,10 +104,6 @@ Since rear release 1.17.2 you will find the stable packages under the architectu
     [7.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Debian_7.0/amd64/),
     [8.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Debian_8.0/amd64/)
  * Fedora:
-    [20](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Fedora_20/),
-    [21](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Fedora_21/),
-    [22](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Fedora_22/),
-    [23](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Fedora_23/),
     [24](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Fedora_24/)
  * openSUSE:
     [13.1](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/openSUSE_13.1/),
