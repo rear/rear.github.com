@@ -59,24 +59,23 @@ Add a remote for the upstream repository:
     $ git remote add upstream git@github.com:rear/rear.git
     $ git fetch upstream
     From github.com:rear/rear
-    * [new branch]      dev        -> upstream/dev
     * [new branch]      master     -> upstream/master
 
 
-Create a new topic branch for the changes you want to make, based on the *dev* branch from upstream:
+Create a new topic branch for the changes you want to make, based on the *master* branch from upstream:
 
-    $ git checkout -b fix-4-issue-999   upstream/dev
+    $ git checkout -b fix-4-issue-999   upstream/master
 
 Make your changes, test them, commit them and push them to Github:
 
-    $ git commit -a -m 'describe what your modified'
+    $ git commit -a -m 'describe what you modified'
     $ git push origin fix-4-issue-999
 
-Open a Pull request from `YOURNAME:fix-4-issue-999` to `rear:dev`.
+Open a Pull request from `YOURNAME:fix-4-issue-999` to `rear:master`.
 
-If you want to open another pull request for another change which is independant of the previous one, just create another topic branch based on the *dev* branch from upstream ( `git checkout -b fix-4-issue-999-2 upstream/dev` )
+If you want to open another pull request for another change which is independant of the previous one, just create another topic branch based on the *master* branch from upstream ( `git checkout -b fix-4-issue-999-2 upstream/master` )
 
-Finally, you can remove your branch `fix-4-issue-999` when it has been merged in the `rear:dev` branch.
+Finally, you can remove your branch `fix-4-issue-999` when it has been merged in the `rear:master` branch.
 
     $ git checkout master
     $ git branch -D fix-4-issue-999
