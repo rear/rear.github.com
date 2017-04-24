@@ -80,6 +80,7 @@ Finally, you can remove your branch `fix-4-issue-999` when it has been merged in
     $ git checkout master
     $ git branch -D fix-4-issue-999
 
+If you want to keep a fork, see also [this article](https://2buntu.com/articles/1459/keeping-your-forked-repo-synced-with-the-upstream-source/) for an illustrated guide to keep your forked repo in sync.
 
 ### Sponsoring
 We have a list of missing features that were requested but never got to a point
