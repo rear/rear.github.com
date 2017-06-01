@@ -58,6 +58,7 @@ Since rear release 1.17.2 you will find the stable packages under the architectu
  * Debian:
     [7.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_7.0/),
     [8.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_8.0/)
+    [@debian](https://tracker.debian.org/pkg/rear)
  * Fedora:
     [24](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Fedora_24/)
  * openSUSE:
@@ -91,6 +92,7 @@ Since rear release 1.17.2 you will find the stable packages under the architectu
     [15.04](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/xUbuntu_15.04/),
     [15.10](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/xUbuntu_15.10/),
     [16.04](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/xUbuntu_16.04/)
+    [@ubuntu](https://launchpad.net/ubuntu/+source/rear)
  * Gentoo:
     [12.1](https://packages.gentoo.org/package/app-backup/rear)
 
