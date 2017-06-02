@@ -49,6 +49,8 @@ functionality:
 * Selected Hardware RAID and (eg. HP SmartArray) and mirroring solutions (eg.
   DRBD) are supported.
 
+* NVME disks are supported (*New*)
+
 * LVM root volumes are supported.
 
 * Multipath support for SAN storage
@@ -64,6 +66,8 @@ functionality:
    - rsync on local devices (BACKUP=NETFS, BACKUP_PROG=rsync), such USB and local disks
    - rsync over the network (BACKUP=RSYNC, BACKUP_PROG=rsync)
    - Multiple backup methods ([read the documentation](https://github.com/rear/rear/blob/master/doc/user-guide/11-multiple-backups.adoc)) (*New*)
+   - Windows partitions via BACKUP=BLOCKCLONE (*New*) See [the documention about BLOCKCLONE](https://github.com/rear/rear/blob/master/doc/user-guide/12-BLOCKCLONE.adoc)
+   - BACKUP=ZYPPER is SLES12 only (*experimental*)
 
 * Integrates with _external_ backup solutions such as:
 
@@ -143,6 +147,8 @@ functionality:
 
 * Add timestamp of ReaR run with rc code to the syslog or messages file; sending mail report is also possible
 
+* The possibility to backup Windows partitions via new BACKUP type BLOCKCLONE (*New*)
+
 *NOTE*: Features marked *experimental* are prone to change with future releases.
 
 
@@ -157,8 +163,33 @@ Relax-and-Recover, unless otherwise noted.
 The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker](https://github.com/rear/rear/issues).
 
 ### Version 2.1 (June 2017)
+* Enable SELinux in the rescure/restore ReaR image for tar internal backup method if BACKUP_SELINUX_DISABLE=0 (issue #1215)
 
+* BOOT_OVER_SAN is now fully supported (issues #1190, 
 
+* NVME disks are now fully supported (issue #1191)
+
+* New Backup type ZYPPER has been added (issue #1085)
+
+* Finding UEFI boot loaders on non standard places (issue #1204)
+
+* The USB UEFI partition size (USB_UEFI_PART_SIZE) for kernel image has been increased from 100 to 200 MB (issue #1205)
+
+* REAR_INITRD_COMPRESSION="lz4" was also added (issue #1218)
+
+* For PPC64 initrd compression is now also possible with lzma. A new variable REAR_INITRD_COMPRESSION="lzma" can be used for this purpose. More information can be found in the default.conf file (issue #1142)
+
+* New backup type was added BLOCKCLONE which is able to backup Windows partitions (issues #1172, #1180)
+
+* Bareos 16.2 is now supported (issue #1169)
+
+* New USB_PARTITION_ALIGN_BLOCK_SIZE and USB_DEVICE_FILESYSTEM_PARAMS variables were added (issue #1217)
+
+* Improved the USB backup selection menu during the recovery via USB device (issue #1166)
+
+* Forbid incremental backup to work on BACKUP_URL=usb:// (issue #1146)
+
+* The USB_DEVICE_PARTED_LABEL=gpt setting is now honered while formatting the USB disk (issue #1153)
 
 ### Version 2.00 (January 2017)
 
