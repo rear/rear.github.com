@@ -49,7 +49,7 @@ functionality:
 * Selected Hardware RAID and (eg. HP SmartArray) and mirroring solutions (eg.
   DRBD) are supported.
 
-* NVME disks are supported (*New*)
+* NVME and mmcblk disks are supported (*New*)
 
 * LVM root volumes are supported.
 
@@ -163,15 +163,46 @@ Relax-and-Recover, unless otherwise noted.
 The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker](https://github.com/rear/rear/issues).
 
 ### Version 2.1 (June 2017)
+
+* Support for Grub2 installation with software RAID1 on Linux on POWER (ppc64/ppc64le) (issue #1369)
+
+* REBUILD_INITRAMFS variable was introduced to avoid rebuilding initrd (issue #1321)
+
+* ISO_RECOVER_MODE=unattended mode (issue #1351) - required for automated ReaR testing with OUTPUT=ISO
+
+* MODULES variable understand now different options, like 'all_modules', 'loaded_modules', 'no_modules' (issue #1355)
+
+* Added support for "grub PXE style" on non x86 platform (issue #1339)
+
+* Improved calculations in partitioning code (issues #1269, #1307)
+
+* Improved support on ppc/ppc64/ppc64le architectures (issue #1311
+ 
+* Define hostname in both /etc/HOSTNAME and /etc/hostname in rescue image (for Arch) (issue #1316)
+
+* mmcblk disk types are now supported (issues #1301, #1302)
+
+* NETFS_RESTORE_CAPABILITIES variable introduces to restoration of file capabilities in a proper way (issue #1283)
+
+* More precise XFS file system creation during rear recover (issue #1276)
+
+* Excluded private keys from recovery with DRLM - curl https (issue #1267)
+
+* FIRMWARE_FILES support to exclude firmware files in rescue image to reduce the size of image (issue #1216)
+
+* Improved BOOTLOADER support (issue #1242)
+
+* Security and management improvements with DRLM (issue #1229)
+
 * Enable SELinux in the rescure/restore ReaR image for tar internal backup method if BACKUP_SELINUX_DISABLE=0 (issue #1215)
 
-* BOOT_OVER_SAN is now fully supported (issues #1190, 
+* BOOT_OVER_SAN is now fully supported (issues #1190, #1309, #1314, #1315, #1325, #1329, #1344
 
 * NVME disks are now fully supported (issue #1191)
 
 * New Backup type ZYPPER has been added (issue #1085)
 
-* Finding UEFI boot loaders on non standard places (issue #1204)
+* Finding UEFI boot loaders on non standard places (issues #1204, #1225, #1293)
 
 * The USB UEFI partition size (USB_UEFI_PART_SIZE) for kernel image has been increased from 100 to 200 MB (issue #1205)
 
@@ -262,7 +293,7 @@ BACKUP_TYPE=incremental or BACKUP_TYPE=differential (issues #1074 and #1123)
 
 * Introduction of the NETWORKING_PREPARATION_COMMANDS variable to prepare network setup in the rescue/recovery system (issue #960)
 
-* After migration fs_uuid for root partition wasn't changed in ELILO config file /etc/elilo.conf (issue #956)
+* After migration fs_uuid for root partition was not changed in ELILO config file /etc/elilo.conf (issue #956)
 
 * Clarified rear man page and default.conf file around BACKUP_URL=rsync: (issues #930 and #918)
 
@@ -558,7 +589,7 @@ BACKUP_TYPE=incremental or BACKUP_TYPE=differential (issues #1074 and #1123)
 
 * Adding findmnt command to GNU/Linux.conf file; request from https://bugzilla.opensuse.org/show_bug.cgi?id=908854
 
-* BTRFS code has been rewritten by J. Meixner/G. D'haese to get SUSE rear116 fork back into our master tree of ReaR. BTRFS is now properly recreated on Fedora 20 and 21 and on SLES 12 and openSUSE 13 (issue #233, #497, #538)
+* BTRFS code has been rewritten by J. Meixner/G. Dhaese to get SUSE rear116 fork back into our master tree of ReaR. BTRFS is now properly recreated on Fedora 20 and 21 and on SLES 12 and openSUSE 13 (issue #233, #497, #538)
 See also https://bugzilla.opensuse.org/show_bug.cgi?id=908854
 
 * Enhanced the systemd start-up of udev daemons which is different on Fedora 20 and 21 (issue #507, #531)
@@ -1117,7 +1148,7 @@ allows it).
 That does not mean we let our user basis in the cold as we do deliver support as a service (not free of charge).
 
 ## Supported Operating Systems
-We try to keep our wiki page [Test Matrix rear 2.00](https://github.com/rear/rear/wiki/Test-Matrix-rear-2.00) up-to-date with feedback we receive from the community.
+We try to keep our wiki page [Test Matrix rear 2.1](https://github.com/rear/rear/wiki/Test-Matrix-rear--2.1) up-to-date with feedback we receive from the community.
 
 Rear-2.1 is supported on the following Linux based operating systems:
 
@@ -1130,7 +1161,7 @@ Rear-2.1 is supported on the following Linux based operating systems:
 * Debian 6, 7 and 8
 * Ubuntu 12, 13, 14 and 15
 
-Rear-2.00 dropped officially support for the following Linux based operating systems:
+Rear-2.1 dropped officially support for the following Linux based operating systems:
 
 * Fedora <24
 * RHEL 3 and 4
@@ -1139,7 +1170,7 @@ Rear-2.00 dropped officially support for the following Linux based operating sys
 * Debian <6
 * Ubuntu <12
 
-If you require support for *unsupported* Linux Operating System you must acquire a *ReaR support contract* (per system).
+If you require support for *unsupported* Linux Operating System you must acquire a *ReaR support contract*.
 
 Requests to port *ReaR* to another Operating System (not Linux) can only be achieved with **serious** sponsoring.
 
@@ -1149,7 +1180,7 @@ Rear-2.1 is supported on:
 * Intel x86 type of processors
 * AMD x86 type of processors
 
-Rear-2.00 may or may not fully work on:
+Rear-2.1 may or may not fully work on:
 
 * Intel Itanium processors
 * PPC processors
