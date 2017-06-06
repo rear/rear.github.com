@@ -38,7 +38,7 @@ functionality:
 * Hot maintenance capability. A rescue image can be made online while
   the system is running.
 
-* Command line interface. Relax-and-Recover doesnot require a graphical
+* Command line interface. Relax-and-Recover does not require a graphical
   interface to run, nor in creation mode, nor in rescue mode (console
   is enough).
 
@@ -67,7 +67,7 @@ functionality:
    - rsync over the network (BACKUP=RSYNC, BACKUP_PROG=rsync)
    - Multiple backup methods ([read the documentation](https://github.com/rear/rear/blob/master/doc/user-guide/11-multiple-backups.adoc)) (*New*)
    - Windows partitions via BACKUP=BLOCKCLONE (*New*) See [the documention about BLOCKCLONE](https://github.com/rear/rear/blob/master/doc/user-guide/12-BLOCKCLONE.adoc)
-   - BACKUP=ZYPPER is SLES12 only (*experimental*)
+   - BACKUP=ZYPPER is SLES12 only (*Experimental*)
 
 * Integrates with _external_ backup solutions such as:
 
@@ -149,13 +149,13 @@ functionality:
 
 * The possibility to backup Windows partitions via new BACKUP type BLOCKCLONE (*New*)
 
-*NOTE*: Features marked *experimental* are prone to change with future releases.
+*NOTE*: Features marked *Experimental* are prone to change with future releases.
 
 
 
 ## Relax-and-Recover Releases
 The first release of Relax-and-Recover, version 1.0, was posted to the web
-in July 2006.  For each release, this chapter lists the new features and
+in July 2006. For each release, this chapter lists the new features and
 defect fixes. Note that all releases are cumulative, and that all releases
 of Relax-and-Recover are compatible with previous versions of
 Relax-and-Recover, unless otherwise noted.
@@ -170,53 +170,71 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 * ISO_RECOVER_MODE=unattended mode (issue #1351) - required for automated ReaR testing with OUTPUT=ISO
 
-* MODULES variable understand now different options, like 'all_modules', 'loaded_modules', 'no_modules' (issue #1355)
+* MODULES variable supports now special values like 'all_modules', 'loaded_modules', 'no_modules' (issues #1202, #1355)
 
-* Added support for "grub PXE style" on non x86 platform (issue #1339)
+* Include systemd/network to preserve "Predictable Network Interface Names" (issue #1349)
 
-* Improved calculations in partitioning code (issues #1269, #1307)
+* Various improvements regarding multipath (issues #1190, #1309, #1310, #1311, #1314, #1315, #1324, #1325, #1328, #1329, #1344, #1346)
 
-* Improved support on ppc/ppc64/ppc64le architectures (issue #1311
- 
+* Show OUTPUT variables in `rear dump` (issue #1337)
+
+* Added support for "grub PXE style" via PXE_CONFIG_GRUB_STYLE and PXE_TFTP_IP on non x86 platform (issue #1339)
+
+* Try 'wipefs --force' and use 'dd' as fallback to better clean up disk partitions (issue #1327)
+
+* Reorganized "finalize" scripts ordering and cleanup of the PPC bootloader installation (issue #1323)
+
+* Avoid long default wait in 'dig' when DNS servers are not set (issue #1319)
+
+* Fail-safe calculations in partitioning code (issues #1269, #1307)
+
+* Improved support on ppc/ppc64/ppc64le architectures (issues #1178, #1311, #1313, #1322)
+
 * Define hostname in both /etc/HOSTNAME and /etc/hostname in rescue image (for Arch) (issue #1316)
+
+* Rename network interface when MAC not present in udev (issue #1312)
+
+* Added support for 'nano' editor (in addition to 'vi') (issues #1298, #1306)
 
 * mmcblk disk types are now supported (issues #1301, #1302)
 
-* NETFS_RESTORE_CAPABILITIES variable introduces to restoration of file capabilities in a proper way (issue #1283)
+* NETFS_RESTORE_CAPABILITIES variable was introduced to restore file capabilities in a proper way (issue #1283)
 
-* More precise XFS file system creation during rear recover (issue #1276)
+* Added required libs and files for 'curl' with HTTPs by default (issues #1267, #1279)
 
-* Excluded private keys from recovery with DRLM - curl https (issue #1267)
+* More precise XFS file system creation during `rear recover` (issues #1208, #1213, #1276)
 
-* FIRMWARE_FILES support to exclude firmware files in rescue image to reduce the size of image (issue #1216)
+* DRLM management and security improvements (issue #1252)
 
 * Improved BOOTLOADER support (issue #1242)
 
-* Security and management improvements with DRLM (issue #1229)
+* DRLM support for multiple backups via multiple config files (issue #1229)
 
-* Enable SELinux in the rescure/restore ReaR image for tar internal backup method if BACKUP_SELINUX_DISABLE=0 (issue #1215)
+* FIRMWARE_FILES support to exclude firmware files in rescue image to reduce the size of image (issue #1216)
 
-* BOOT_OVER_SAN is now fully supported (issues #1190, #1309, #1314, #1315, #1325, #1329, #1344
+* Enable SELinux in the rescue image for tar internal backup method if BACKUP_SELINUX_DISABLE=0 (issue #1215)
+
+* BOOT_OVER_SAN is now fully supported (issues #1190, #1309, #1314, #1315, #1325, #1329, #1344)
 
 * NVME disks are now fully supported (issue #1191)
 
-* New Backup type ZYPPER has been added (issue #1085)
+* Some initial basic support for new backup type ZYPPER was added (issues #1085, #1209)
 
 * Finding UEFI boot loaders on non standard places (issues #1204, #1225, #1293)
 
-* The USB UEFI partition size (USB_UEFI_PART_SIZE) for kernel image has been increased from 100 to 200 MB (issue #1205)
+* The USB UEFI partition size USB_UEFI_PART_SIZE for kernel image has been increased from 100 to 200 MB (issue #1205)
 
-* REAR_INITRD_COMPRESSION="lz4" was also added (issue #1218)
+* REAR_INITRD_COMPRESSION variable was introduced to specify initrd compression (e.g. 'lzma' for PPC64) (issues #1142, #1218, #1290)
 
-* For PPC64 initrd compression is now also possible with lzma. A new variable REAR_INITRD_COMPRESSION="lzma" can be used for this purpose. More information can be found in the default.conf file (issue #1142)
-
-* New backup type was added BLOCKCLONE which is able to backup Windows partitions (issues #1172, #1180)
+* New backup type BLOCKCLONE was added to backup non-Linux partitions (e.g. Windows NTFS partitions) (issues #1078, #1162, #1172, #1180)
 
 * Bareos 16.2 is now supported (issue #1169)
 
 * New USB_PARTITION_ALIGN_BLOCK_SIZE and USB_DEVICE_FILESYSTEM_PARAMS variables were added (issue #1217)
 
-* Improved the USB backup selection menu during the recovery via USB device (issue #1166)
+* Improved the USB backup selection menu during the recovery via USB (issue #1166)
+
+* USB_SUFFIX variable was introduced to align backup on USB with backup on NFS (issues #1164, #1160, #1145)
 
 * Forbid incremental backup to work on BACKUP_URL=usb:// (issue #1146)
 
@@ -241,13 +259,13 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 * Implement simulation mode with simulation with the workflows validate and shell (issue #1098)
 
 * Update 11-multiple-backups.adoc : Multiple backups are in general not supported for
-BACKUP_TYPE=incremental or BACKUP_TYPE=differential (issues #1074 and #1123) 
+BACKUP_TYPE=incremental or BACKUP_TYPE=differential (issues #1074 and #1123)
 
 * Using RUNTIME_LOGFILE in all scripts as needed (issue #1119)
 
-* New Backup method was added - BORG (issues #1118, 
+* New Backup method was added - BORG (issues #1030, #1037, #1046, #1048, #1118)
 
-* Multiple backups are now possible (issue #1088, #1102, #1096) - see the [documentation page](https://github.com/rear/rear/blob/master/doc/user-guide/11-multiple-backups.adoc) (*New*)
+* Multiple backups are now possible (issues #1088, #1102, #1096) - see the [documentation page](https://github.com/rear/rear/blob/master/doc/user-guide/11-multiple-backups.adoc) (*New*)
 
 * Support partitioning and formatting huge USB devices (issue #1105)
 
@@ -255,7 +273,7 @@ BACKUP_TYPE=incremental or BACKUP_TYPE=differential (issues #1074 and #1123)
 
 * Fixed and enhanced code for multiple ISOs (issue #1081)
 
-* BACKUP_TYPE=incremental (*New*) and BACKUP_TYPE=differential were updated (issue #974, #1069)
+* BACKUP_TYPE=incremental (*New*) and BACKUP_TYPE=differential were updated (issues #974, #1069)
 
 * Added support for setting a UUID on XFS with enabled CRC (RHEL 7) (issue #1065)
 
