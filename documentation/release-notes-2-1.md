@@ -295,9 +295,9 @@ BACKUP_TYPE=incremental or BACKUP_TYPE=differential (issues #1074 and #1123)
 
 * Simplified reboot halt poweroff and shutdown in the rescue/recovery system in case of systemd (issue #953)
 
-* If TSM parameters contain a dot, the dot is replaced by an underscore in the TSM_SYS variable names (issue #985 and #986)
+* If TSM parameters contain a dot, the dot is replaced by an underscore in the TSM_SYS variable names (issues #985 and #986)
 
-* Check if /dev/disk/by-label/RELAXRECOVER exist (issue #979 and #326)
+* Check if /dev/disk/by-label/RELAXRECOVER exist (issues #979 and #326)
 
 * Added PRE_BACKUP_SCRIPT and POST_BACKUP_SCRIPT to be able to do custom tasks in the mkbackup/mkbackuponly workflows (issue #977)
 
@@ -305,7 +305,7 @@ BACKUP_TYPE=incremental or BACKUP_TYPE=differential (issues #1074 and #1123)
 
 * USE_STATIC_NETWORKING now really overrides USE_DHCLIENT (issue #964)
 
-* Make it safe against wrong btrfs subvolumes on SLES12 (issue #963, #966)
+* Make it safe against wrong btrfs subvolumes on SLES12 (issues #963, #966)
 
 * Encrypted incremental backup cannot read the tar label (issue #952)
 
@@ -397,7 +397,7 @@ BACKUP_TYPE=incremental or BACKUP_TYPE=differential (issues #1074 and #1123)
 
 * Correct bash syntax so ReaR is compatible with bash v3 and v4 (issue #765, #767)
 
-* Added support for new backup method Novastor NovaBACKUP DC (+BACKUP=NBKDC+) (issue #669)
+* Added support for new backup method Novastor NovaBACKUP DC (BACKUP=NBKDC) (issue #669)
 
 * Code was improved to have network teaming support (issue #655)
 
@@ -407,7 +407,7 @@ BACKUP_TYPE=incremental or BACKUP_TYPE=differential (issues #1074 and #1123)
 
 * remove the noatime mount option for cifs mount (issue #752)
 
-* Replace option 'grep -P' to 'grep -E' due to SELinux errors (issue #565, #737)
+* Replace option 'grep -P' to 'grep -E' due to SELinux errors (issues #565, #737)
 
 * Hidding the encryption key while doing the restore in the rear.log (issue #749)
 
@@ -439,7 +439,7 @@ BACKUP_TYPE=incremental or BACKUP_TYPE=differential (issues #1074 and #1123)
 
 * Removed dosfslabel as required program for vfat UEFI boot partition (issue #694)
 
-* Bareos team added BAREOS_FILESET and ISO_DEFAULT to default.conf (for automated DR tests executed by Bareos team; issue #686, #719)
+* Bareos team added BAREOS_FILESET and ISO_DEFAULT to default.conf (for automated DR tests executed by Bareos team; issues #686, #719)
 
 * Fix getty/agetty with upstart (issue #685)
 
@@ -479,7 +479,7 @@ BACKUP_TYPE=incremental or BACKUP_TYPE=differential (issues #1074 and #1123)
 
 * Added ebiso support within ReaR (required for UEFI booting with SLES 11 & 12 (issue #657)
 
-* FDR/Upstream (BACKUP=FDRUPSTREAM) (*NEW!*) (issue #659)
+* FDR/Upstream (BACKUP=FDRUPSTREAM) (*New*) (issue #659)
 
 ### Version 1.17.2 (August 2015)
 
@@ -556,8 +556,6 @@ BACKUP_TYPE=incremental or BACKUP_TYPE=differential (issues #1074 and #1123)
 
     `rear -v format -- --efi /dev/<usbdevice>`
 
-  However, UEFI booting from an USB disk has not been implemented yet (sponsoring?).
-
 * Simplified the code for ext* fs and added StopIfError calls to prevent divide by zero during recovery (issue #598)
 
 * Syslinux version >6 requires some special handling due to splitting up the package (Ubuntu 15.04) (issue #584)
@@ -610,7 +608,7 @@ BACKUP_TYPE=incremental or BACKUP_TYPE=differential (issues #1074 and #1123)
 * BTRFS code has been rewritten by J. Meixner/G. Dhaese to get SUSE rear116 fork back into our master tree of ReaR. BTRFS is now properly recreated on Fedora 20 and 21 and on SLES 12 and openSUSE 13 (issue #233, #497, #538)
 See also https://bugzilla.opensuse.org/show_bug.cgi?id=908854
 
-* Enhanced the systemd start-up of udev daemons which is different on Fedora 20 and 21 (issue #507, #531)
+* Enhanced the systemd start-up of udev daemons which is different on Fedora 20 and 21 (issues #507, #531)
 
 * BACKUP_PROG_OPTIONS="--anchored" became a default option in default.conf (issue #475)
 
@@ -810,21 +808,21 @@ Sometimes we might see the HP Smart Storage Array disk listed as a multipath dev
 
   CLONE_ALL_USERS_GROUPS=n
 
-* Example prep script to detect missing lftp (fix #247)
+* Example prep script to detect missing lftp (issue #247)
 
-* Using POSIX output format in df.txt (fix #248)
+* Using POSIX output format in df.txt (issue #248)
 
 * Recognize OracleServer as a Fedora derivate
 
 * Allow basic network configuration from the command line
 
-* Create directory $PXE_TFTP_LOCAL_PATH if it does not exist (fix #244, issue #244)
+* Create directory $PXE_TFTP_LOCAL_PATH if it does not exist (issue #244)
 
 * Support booting syslinux v5 (issue #238)
 
 * Fix installing grub when /boot is inside the root filesystem (issue #210)
 
-* Deal with BTRFS subvolumes correctly (issue #233 and #252)
+* Deal with BTRFS subvolumes correctly (issues #233 and #252)
 
 * Recognize OracleServer as a Fedora derivate
 
@@ -862,31 +860,31 @@ Sometimes we might see the HP Smart Storage Array disk listed as a multipath dev
 
 * Added duply/duplicity with one new backup method duplicity (*Experimental*)
 
-* Systemd supported on Fedora 17 and openSUSE 12.2 (fix #115, #126)
+* Systemd supported on Fedora 17 and openSUSE 12.2 (issues #115, #126)
 
-* Create correct yaboot dir on ppc (fix #109)
+* Create correct yaboot dir on ppc (issue #109)
 
 * Add new RAMDISK output method. This writes the kernel and the initramfs to the location given in OUTPUT_URL.
 
-* Packaging - introduction of Makefile; cleanup dr workflow (fix #13, #49)
+* Packaging - introduction of Makefile; cleanup dr workflow (issues #13, #49)
 
-* Make ReaR working from checkout of git, w.o.w. path is relocatable (fix #53)
+* Make ReaR working from checkout of git, w.o.w. path is relocatable (issue #53)
 
-* Add bytes_per_inode information for ext* filesystem to layout.conf (fix #86)
+* Add bytes_per_inode information for ext* filesystem to layout.conf (issue #86)
 
-* Fixing ebuild to be Gentoo compliant (fix #93)
+* Fixing ebuild to be Gentoo compliant (issue #93)
 
-* fix shutdown with upstart (fix #41)
+* fix shutdown with upstart (issue #41)
 
-* multiarch support library support (fix #82)
+* multiarch support library support (issue #82)
 
-* Fix serial console on ubuntu 11.04 (fix #83)
+* Fix serial console on ubuntu 11.04 (issue #83)
 
-* Several fixes in layout file (fix #85)
+* Several fixes in layout file (issue #85)
 
-* Added fix for DAT320 tape drive (fix for #35)
+* Added fix for DAT320 tape drive (issue #35)
 
-* Use generic grub code for all distributions (fix for #77)
+* Use generic grub code for all distributions (issue #77)
 
 * list Xen paravirtualized disks in disklayout.conf (fixes #74 and SF3520992)
 
@@ -1175,7 +1173,7 @@ Rear-2.1 is supported on the following Linux based operating systems:
 * CentOS 5, 6 and 7
 * ScientificLinux 6 and 7
 * SLES 11 and 12
-* openSUSE 11, 12 and 13
+* openSUSE Leap and openSUSE Tumbleweed
 * Debian 6, 7 and 8
 * Ubuntu 12, 13, 14 and 15
 
@@ -1184,7 +1182,7 @@ Rear-2.1 dropped officially support for the following Linux based operating syst
 * Fedora <24
 * RHEL 3 and 4
 * SLES 9 and 10
-* openSUSE <11
+* openSUSE <13
 * Debian <6
 * Ubuntu <12
 
