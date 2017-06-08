@@ -48,10 +48,11 @@ title: Relax-and-Recover documentation
 
 ### External Links
 
- - [Linux Disaster Recovery mit Relax-and-Recover und EMC Networker (in German)](http://backupinferno.de/?p=358)
- - [Linux Disaster Recovery with Relax-and-Recover and SEP sesam](http://wiki.sepsoftware.com/wiki/index.php/Disaster_Recovery_for_Linux_3.0_en)
+ - [Linux Disaster Recovery mit Relax-and-Recover und EMC Networker](http://backupinferno.de/?p=358) - in German
+ - Official SEP documentation on [Linux Disaster Recovery with Relax-and-Recover and SEP sesam](http://wiki.sepsoftware.com/wiki/index.php/Disaster_Recovery_for_Linux_3.0_en)
  - [Linux Bare Metal Disaster Recovery on USB](http://www.cloudconsulted.com/cloud/linux-labs/linux-bare-metal-disaster-recovery-on-usb)
- - [P2V-Migration mit ReaR](http://www.heise.de/ix/heft/Umzugshilfe-2458904.html) - article in German language
+ - [iX](http://ix.de) article [P2V-Migration mit ReaR](http://www.heise.de/ix/heft/Umzugshilfe-2458904.html) - article in German language
  - [HOWTO: Prune backups made with Relax and Recover](https://www.harperink.de/?p=2735)
- - [Exploring the Relax and Recoverbackup and rescue system](http://www.admin-magazine.com/Archive/2014/22/Exploring-the-Relax-and-Recoverbackup-and-rescue-system)
- - [Better Backups](http://www.admin-magazine.com/Articles/Free-Enterprise-Backup-with-Bareos)
+ - [Admin Magazine](http://www.admin-magazine.com) article [Exploring the Relax and Recoverbackup and rescue system](http://www.admin-magazine.com/Archive/2014/22/Exploring-the-Relax-and-Recoverbackup-and-rescue-system)
+ - [Admin Magazine](http://www.admin-magazine.com) article [Better Backups](http://www.admin-magazine.com/Articles/Free-Enterprise-Backup-with-Bareos) introduction to Bareos and ReaR
+ - IBM [Power Systems Linux Center Montpellier](https://www.ibm.com/ibm/clientcenter/montpellier/) presentation on [Relax and Recover on POWER (Updated 05-2017)](https://www.slideshare.net/sebastienchabrolles/relax-and-recover-on-power-updated-052017)
