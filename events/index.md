@@ -9,7 +9,10 @@ title: Relax-and-Recover events
 Gratien will present "Relax-and-Recover Automated Testing" on Sunday, 20 August 2017 (in the afternoon).
 
 ### CeBIT Open Source Forum 2017, Hannover, 24 March, 2017
-Gratien presented ["Relax-and-Recover Automated Testing"](http://www.cebit.de/veranstaltung/relax-and-recover-automated-testing/VOR/77620) in the Open Source Forum, Hall 3, Stand D35 at 13:45.a The slide deck is available at [SlideShare](<iframe src="//www.slideshare.net/slideshow/embed_code/key/2L1XovGt4LKGQZ" width="340" height="290" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/gratien_dhaese/relaxandrecover-automated-testing" title="Relax-and-Recover Automated Testing" target="_blank">Relax-and-Recover Automated Testing</a> </strong> from <strong><a target="_blank" href="//www.slideshare.net/gratien_dhaese">Gratien D&#x27;haese</a></strong> </div>).
+Gratien presented ["Relax-and-Recover Automated Testing"](http://www.cebit.de/veranstaltung/relax-and-recover-automated-testing/VOR/77620) in the Open Source Forum, Hall 3, Stand D35 at 13:45. 
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/2L1XovGt4LKGQZ" width="340" height="290" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> 
+<div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/gratien_dhaese/relaxandrecover-automated-testing" title="Relax-and-Recover Automated Testing" target="_blank">Relax-and-Recover Automated Testing</a> </strong> from <strong><a target="_blank" href="//www.slideshare.net/gratien_dhaese">Gratien D&#x27;haese</a></strong> 
+</div>.
 
 ### FOSDEM 2017, Brussels, 4-5 February, 2017
 Devroom ["Backup and Disaster Recovery"](https://fosdem.org/2017/schedule/track/backup_and_disaster_recovery/). Johannes Meixner and Gratien D'haese gave several presentations around ReaR. Slides and movies are available at the Fosdem.org web-site.
