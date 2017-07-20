@@ -192,7 +192,7 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 * Introducing SECURE_BOOT_BOOTLOADER variable in default.conf This variable should enable users booting with Secure Boot, to use whatever custom signed boot loader they like, and removes hard coded entry “shim.efi” from ReaRs code (issue #1374)
 
-* Enhanced and cleaned up making ISO on POWER (ppc64/ppc64le). Now the backup can be stored in the ISO (via BACKUP_URL=iso...) and even multiple ISOs work on POWER now (issues #697 #1383)
+* Enhanced and cleaned up making ISO on POWER (ppc64/ppc64le). Now the backup can be stored in the ISO (via BACKUP_URL=iso...) and even multiple ISOs work on POWER now (issues #697, #1383)
 
 * Create multipath.conf only during migration (from non-mulitpath to multipath), and always copy /etc/multipath/bindings to the TARGET_FS_ROOT (issues #1382, #1393)
 
@@ -201,7 +201,7 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 * Support for Grub2 installation with software RAID1 on Linux on POWER (ppc64/ppc64le) (issue #1369)
 
-* REBUILD_INITRAMFS variable was introduced to avoid rebuilding initrd (issue #1321)
+* REBUILD_INITRAMFS variable was introduced. The new default.conf setting REBUILD_INITRAMFS="yes" rebuilds the initramfs/initrd during "rear recover" to be more on the safe side. With REBUILD_INITRAMFS="" the old behaviour can still be specified (issue #1321)
 
 * ISO_RECOVER_MODE=unattended mode (issue #1351) - required for automated ReaR testing with OUTPUT=ISO
 
