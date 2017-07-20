@@ -182,7 +182,7 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 * Modified the "unattended" into "automatic" with ISO_DEFAULT required for automated recovery tests (issue #1397)
 
-* Added new generic UserInput and UserOutput plus LogUserOutput functions that are intended to replace current user input functionality that calls select or read directly. Redirect both stderr and stdout into the log file (issues #885, #1366, #1398)
+* Added new generic UserInput and UserOutput plus LogUserOutput functions that are intended to replace current user input functionality that calls select or read directly. For the next ReaR version 2.3 it is planned to also redirect stdout into the log file in addition to stderr (issues #885, #1366, #1398)
 
 * The 'make rpm' now relies on 'make srpm' which creates the src.rpm package first. This src.rpm package can then be easily copied to another computer to rebuild a rpm package from it without needed the sources itself (or git checkout) (issue #1389)
 
@@ -831,7 +831,7 @@ Sometimes we might see the HP Smart Storage Array disk listed as a multipath dev
 
 * Fix SELinux autorelabelling (issue #270 and #274)
 
-* Rear supports now more then 9 partitions (see issue #263)
+* ReaR supports now more then 9 partitions (see issue #263)
 
 * systemd support added for Fedora 19/20 and openSUSE 12.x/13.x
 
@@ -1199,7 +1199,7 @@ That does not mean we let our user basis in the cold as we do deliver support as
 ## Supported Operating Systems
 We try to keep our wiki page [Test Matrix rear 2.1](https://github.com/rear/rear/wiki/Test-Matrix-rear--2.1) up-to-date with feedback we receive from the community.
 
-Rear-2.2 is supported on the following Linux based operating systems:
+ReaR-2.2 is supported on the following Linux based operating systems:
 
 * Fedora 24 and 25
 * RHEL 5, 6 and 7
@@ -1210,33 +1210,33 @@ Rear-2.2 is supported on the following Linux based operating systems:
 * Debian 6, 7 and 8
 * Ubuntu 12, 13, 14 and 15
 
-Rear-2.2 dropped officially support for the following Linux based operating systems:
+ReaR-2.2 dropped officially support for the following Linux based operating systems:
 
-* Fedora <24
+* Fedora < 24
 * RHEL 3 and 4
 * SLES 9 and 10
-* openSUSE <13
-* Debian <6
-* Ubuntu <12
+* openSUSE <= 13
+* Debian < 6
+* Ubuntu < 12
 
 If you require support for *unsupported* Linux Operating System you must acquire a *ReaR support contract*.
 
 Requests to port *ReaR* to another Operating System (not Linux) can only be achieved with **serious** sponsoring.
 
 ## Supported Architectures
-Rear-2.1 is supported on:
+ReaR-2.2 is supported on:
 
 * Intel x86 type of processors
 * AMD x86 type of processors
 
-Rear-2.2 may or may not fully work on:
+ReaR-2.2 may or may not fully work on:
 
 * Intel Itanium processors
 * PPC processors
 * PPC64 processors
 * PPC64LE processors
 
-Rear-2.2 does not support:
+ReaR-2.2 does not support:
 
 * ARM type of processors
 * s390x type of processors
@@ -1363,7 +1363,7 @@ incremental backups when we add the following extra variables:
 
 *Issue Description*: ERROR: FindStorageDrivers called but STORAGE_DRIVERS is empty
 
-Above error message might be seen after a fresh installation of the GNU/Linux kernel. Rear got confused between the running kernel version number and the actual fresh kernel available.
+Above error message might be seen after a fresh installation of the GNU/Linux kernel. ReaR got confused between the running kernel version number and the actual fresh kernel available.
 
 * Workaround:
 
