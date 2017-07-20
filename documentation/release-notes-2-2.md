@@ -10,7 +10,7 @@ Relax-and-Recover.
 
 [Relax-and-Recover website](http://relax-and-recover.org/)
 
-[Github project](https://github.com/rear/)
+[GitHub project](https://github.com/rear/)
 
 
 This document is distributed with the following license: "Creative Commons
@@ -1221,7 +1221,7 @@ ReaR-2.2 dropped officially support for the following Linux based operating syst
 
 If you require support for *unsupported* Linux Operating System you must acquire a *ReaR support contract*.
 
-Requests to port *ReaR* to another Operating System (not Linux) can only be achieved with **serious** sponsoring.
+Requests to port ReaR to another Operating System (not Linux) can only be achieved with **serious** sponsoring.
 
 ## Supported Architectures
 ReaR-2.2 is supported on:
@@ -1245,9 +1245,9 @@ If you feel the need to get a fully functional ReaR working on one of the above 
 consultancy from one of our official developers.
 
 ## Supported ReaR versions
-ReaR has a long history (since 2006) and we cannot supported all released versions anymore. If you have a problem we urge you to install the latest stable ReaR version or the development version (available on github) before submitting an issue.
+ReaR has a long history (since 2006) and we cannot support all released versions. If you have a problem we urge you to install the latest stable ReaR version or the development version (available on GitHub) before submitting an issue.
 
-However, we do understand that it is not always possible to install on hundreds of systems the latest and greatest version so we are willing to support previous versions of ReaR if you buy a support contract. Why do we change our policy? We cannot handle the big support requests anymore and we must give paid projects priority, therefore, we urge our customers to buy a support contract for one or more systems. You buy time with our core developers...
+However, we do understand that it is not always possible to install on hundreds of systems the latest version so we are willing to support previous versions of ReaR if you buy a support contract. Why do we change our policy? We cannot handle the big support requests anymore and we must give paid projects priority, therefore, we urge our customers to buy a support contract for one or more systems. You buy time with our core developers.
 
 
 ## Known Problems and Workarounds
