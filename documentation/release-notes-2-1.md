@@ -166,7 +166,7 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 * Support for Grub2 installation with software RAID1 on Linux on POWER (ppc64/ppc64le) (issue #1369)
 
-* REBUILD_INITRAMFS variable was introduced to avoid rebuilding initrd (issue #1321)
+* REBUILD_INITRAMFS variable was introduced. The new default.conf setting REBUILD_INITRAMFS="yes" rebuilds the initramfs/initrd during "rear recover" to be more on the safe side. With REBUILD_INITRAMFS="" the old behaviour can still be specified (issue #1321)
 
 * ISO_RECOVER_MODE=unattended mode (issue #1351) - required for automated ReaR testing with OUTPUT=ISO
 
