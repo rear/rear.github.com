@@ -164,7 +164,7 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 ### Version 2.2 (July 2017)
 
-* Make function get_disk_size () be more tolerant when querying /sys for number of disk blocks (issue #1370)
+* Let the get_disk_size() function retry several times to be more fail-safe when udev needs some time until device files appear. This introduces the new generic helper function retry_command() plus the new config variables REAR_SLEEP_DELAY and REAR_MAX_RETRIES. For details see default.conf and lib/layout-functions.sh (issue #1370)
 
 * ReaR failed to continue due incorrect check of presence of USB device (REAR-000) in /proc/mounts, despite foregoing script (060_mount_NETFS_path.sh) did mounting of this device (issue #1415)
 
@@ -182,7 +182,9 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 * Modified the "unattended" into "automatic" with ISO_DEFAULT required for automated recovery tests (issue #1397)
 
-* Added new generic UserInput and UserOutput plus LogUserOutput functions that are intended to replace current user input functionality that calls select or read directly. For the next ReaR version 2.3 it is planned to also redirect stdout into the log file in addition to stderr (issues #885, #1366, #1398)
+* Use the original fds when ReaR was launched (which are now saved as fd6, fd7, and fd8 for stdin, stdout, and stderr respectively) for actually intended user input and user output. To keep backward compatible behaviour all old deprecated usage of '>&8' is converted into '>/dev/null' but /dev/null usage in general should be cleaned up later (issues #887, #1395)
+
+* Added new generic UserInput and UserOutput plus LogUserOutput functions that are intended to replace current user input functionality that calls select or read directly. For the next ReaR version 2.3 it is planned to also redirect stdout into the log file in addition to stderr (issues #885, #1366, #1398, #1399)
 
 * The 'make rpm' now relies on 'make srpm' which creates the src.rpm package first. This src.rpm package can then be easily copied to another computer to rebuild a rpm package from it without needed the sources itself (or git checkout) (issue #1389)
 
@@ -190,7 +192,7 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 * Introducing SECURE_BOOT_BOOTLOADER variable in default.conf This variable should enable users booting with Secure Boot, to use whatever custom signed boot loader they like, and removes hard coded entry “shim.efi” from ReaRs code (issue #1374)
 
-* Power ppc64(le) related corrections around using multiple ISOs (issues #1383
+* Enhanced and cleaned up making ISO on POWER (ppc64/ppc64le). Now the backup can be stored in the ISO (via BACKUP_URL=iso...) and even multiple ISOs work on POWER now (issues #697 #1383)
 
 * Create multipath.conf only during migration (from non-mulitpath to multipath), and always copy /etc/multipath/bindings to the TARGET_FS_ROOT (issues #1382, #1393)
 
