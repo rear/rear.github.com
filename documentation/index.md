@@ -15,6 +15,8 @@ title: Relax-and-Recover documentation
 
  - [Frequentally asked questions](http://relax-and-recover.org/documentation/faq)
 
+ - [Layout Configuration](https://github.com/rear/rear/blob/master/doc/user-guide/06-layout-configuration.adoc)
+
 ### Release notes
 
  - [Relax-and-Recover Release Notes 2.2](http://relax-and-recover.org/documentation/release-notes-2-2)
