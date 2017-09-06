@@ -6,7 +6,8 @@ title: Relax-and-Recover events
 ## Relax-and-Recover events
 
 ### FrOSCon 2017, Bonn-Rhein-Sieg, 20 August, 2017
-Gratien will present "Relax-and-Recover Automated Testing" on Sunday, 20 August 2017 (in the afternoon).
+Gratien presented "Relax-and-Recover Automated Testing" on Sunday, 20 August 2017 (in the afternoon).
+<iframe width="280" height="210" src="https://media.ccc.de/v/froscon2017-1957-relax-and-recover_automated_testing" align="right" frameborder="0" allowfullscreen><p>Movie of the talk</p></iframe>
 
 ### CeBIT Open Source Forum 2017, Hannover, 24 March, 2017
 Gratien presented ["Relax-and-Recover Automated Testing"](http://www.cebit.de/veranstaltung/relax-and-recover-automated-testing/VOR/77620) in the Open Source Forum, Hall 3, Stand D35 at 13:45. 
