@@ -44,12 +44,14 @@ If you are interested in contributing to Relax-and-Recover, you can discuss
 your area of interest on the users mailinglist, or you can simply fork the
 project on Github, make the modifications and then do a pull-request.
 
+In your browser, navigate to <https://github.com/rear/rear>
+
+Fork this repository by clicking the Fork button on the upper right-hand side. A fork of the repository is generated for you. On the right-hand side of the page of your fork, under 'Clone with HTTPS' or 'Clone with SSH', copy the URL by clicking the Copy to clipboard icon.
+
 This makes it easy for the project to discuss the changes through the
 pull-request, and when accepted to merge the pull-request into the project.
 
-Here is how to do it:
-
-Fork the repository first and then clone your fork on your machine:
+On your computer, follow these steps to setup a local repository to start working on the forked sources of ReaR (in following example we use the 'Clone with SSH' output):
 
     $ git clone git@github.com:YOURNAME/rear.git
     $ cd rear
@@ -57,10 +59,9 @@ Fork the repository first and then clone your fork on your machine:
 Add a remote for the upstream repository:
 
     $ git remote add upstream git@github.com:rear/rear.git
+    $ git checkout master
     $ git fetch upstream
-    From github.com:rear/rear
-    * [new branch]      master     -> upstream/master
-
+    $ git merge upstream/master
 
 Create a new topic branch for the changes you want to make, based on the *master* branch from upstream:
 
@@ -80,6 +81,27 @@ Finally, you can remove your branch `fix-4-issue-999` when it has been merged in
     $ git checkout master
     $ git branch -D fix-4-issue-999
 
+Merging the upstream/master with your local branch is important to maintain an up-to-date master branch in your local repository. Merge the changes on a daily basis from the upstream/master (the official ReaR repository) into your local repository.
+
+Ensure that you do complete this activity before you start working on a feature as well as right before you submit your changes as a pull request.
+
+You can also do this process periodically while you work on your changes to make sure that you are working off the most recent version of the sources of ReaR.
+
+    # Checkout your local 'master' branch.
+    $ git checkout master
+    
+    # Synchronize your local repository with 'upstream/master', so that you have all the latest changes.
+    $ git fetch upstream
+    
+    # Merge the latest changes from the 'upstream/master' into your local 'master' branch to make it up-to-date.
+    $ git merge upstream/master
+    
+    # Checkout your local development branch (e.g.: 'dev').
+    $ git checkout dev
+    
+    # Pull the latest changes into your local development branch.
+    $ git pull master
+    
 If you want to keep a fork, see also [this article](https://2buntu.com/articles/1459/keeping-your-forked-repo-synced-with-the-upstream-source/) for an illustrated guide to keep your forked repo in sync.
 
 ### Sponsoring
