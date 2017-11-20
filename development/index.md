@@ -104,6 +104,8 @@ You can also do this process periodically while you work on your changes to make
     
 If you want to keep a fork, see also [this article](https://2buntu.com/articles/1459/keeping-your-forked-repo-synced-with-the-upstream-source/) for an illustrated guide to keep your forked repo in sync.
 
+To make your life it bit easier we made a very simple script [rebase_myfork_rear.sh](https://github.com/gdha/mismas/blob/master/rebase_myfork_rear.sh) to automate this task for you.
+
 ### Sponsoring
 We have a list of missing features that were requested but never got to a point
 of being implemented by the team members. If you feel an urgent need to see a
