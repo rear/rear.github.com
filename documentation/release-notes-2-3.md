@@ -55,7 +55,7 @@ functionality:
 
 * Multipath support for SAN storage
 
-* UEFI support (including UEFI USB booting
+* UEFI support (including UEFI USB booting)
 
 * Integrates with _internal_ backup solutions such as:
 
@@ -122,7 +122,7 @@ functionality:
 
     BACKUP_URL=usb:///dev/device
 
-    Together with `OUTPUT=USB` we have now a complete solution on hard disks
+    Together with `OUTPUT=USB` we have a complete solution on hard disks
     (booting of it and restoring data).
 
 * DHCP client support (IPv4 and IPv6). Dhcp client activation
@@ -134,7 +134,7 @@ functionality:
 * Save layout and compare layouts for easy automation of making
   Relax-and-Recover snapshots (checklayout option)
 
-* External USB booting now uses extlinux instead of syslinux, and
+* External USB booting uses extlinux (instead of syslinux), and
   therefore, the USB disk must first be formatted with an ext2, ext3, ext4
   or btrfs based file system
 
@@ -171,21 +171,20 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 * Add ntpdate support (issue #1608)
 
-* Fix for XFS file system recreation code. In xfsprogs >= 4.7 log section sunit=0 is considered invalid (issue #1603) 
+* Fix for XFS file system recreation code. In xfsprogs >= 4.7 log section sunit=0 is considered invalid (issue #1603)
 
 * Changed the macro fedora_release into fedora in the rear.spec file (issue #1192 and bz1419512)
 
 * Borg backup as back end now displays progress, when ReaR is launched in verbose mode (issue #1594)
 
-* With the new config variable NON_FATAL_BINARIES_WITH_MISSING_LIBRARY the user can specify an 'egrep' pattern what programs
-(i.e. files in a /bin/ or /sbin/ directory) where the 'ldd' test in build/default/980_verify_rootfs.sh reports 'not found' libraries
-are non-fatal so that those programs in the recovery system do not lead to an Error abort of "rear mkrescue/mkbackup".
+* With the new config variable NON_FATAL_BINARIES_WITH_MISSING_LIBRARY the user can specify
+what programs where the 'ldd' test reports 'not found' libraries are non-fatal
+so that those programs in the recovery system do not lead to an Error abort of "rear mkrescue/mkbackup".
 This is a generic method so that the user can avoid issues in particular with third-party backup tools that soemtimes
 have unexpected ways to use their specific libraries like https://github.com/rear/rear/issues/1533 (for TSM) and
-https://github.com/rear/rear/pull/1560 (for FDR/Upstream). 
+https://github.com/rear/rear/pull/1560 (for FDR/Upstream).
 
 * Add a NSR_CLIENT_MODE to the backup method NSR (issue #1584)
- 
 
 * Let /bin/ldd detect *.so with relative paths (issue #1560)
 
@@ -215,7 +214,7 @@ unattended in migration mode (issues #1573, #1399)
 
 * Implemented USB_DEVICE_FILESYSTEM_LABEL (issue #1535)
 
-* Split network-functions.sh into DHCP setup and general ReaR functions (issue #1517) 
+* Split network-functions.sh into DHCP setup and general ReaR functions (issue #1517)
 
 * Avoid leaking unprotected SSH private key files onto rescue medium (issues #1512, #1513)
 
@@ -229,14 +228,11 @@ unattended in migration mode (issues #1573, #1399)
 
 * Allow btrfsmountedsubvol to be excluded via EXCLUDE_RECREATE (issue #1497)
 
-* Avoid recreation of non-existing btrfs subvolumes (issue #1496) 
+* Avoid recreation of non-existing btrfs subvolumes (issue #1496)
 
 * Add automatically some important kernel parameters to KERNEL_CMDLINE (issue #1495)
 
-* Cleanup and simplified default how any default input is what the user would enter.
-In particular now a numeric default input is no longer the index of a choices array element (starting at '0')
-(that array is an implementation detail of the UserInput function) but now a numeric default input is the choice number that is
-shown to the user (starting at '1') which the user would type in (issue #1498)
+* Cleanup and simplified default input for the UserInput function (issue #1498)
 
 * Avoid systemd log messages about multiple disk partitions with identical name that happened because ReaR used
 a static 'rear-noname' for originally unnamed partitions. Original gpt disk partitions may be unnamed but parted
@@ -249,16 +245,16 @@ requires a name for each gpt partition. Now ReaR uses the basename of the partit
 automated UserInput is always possible for the user. Use and enforce uppercase letters in UserInput IDs
 because the resulting variable names are meant as user config variables (issue #1473)
 
-* Fix UEFI tools integration (issues #1477, #1478) 
+* Fix UEFI tools integration (issues #1477, #1478)
 
 * Added a new YUM backup method which will recreate the system by installing it from scratch via installing RPM packages.
 The YUM backup method uses the yum package manager in the same manner as the ZYPPER backup method (issue #1464)
 
 * BACKUP_PROG_OPTIONS used to be a string variable, turn it into an array (issue #1475)
 
-* Now CLONE_ALL_USERS_GROUPS always extends the CLONE_USERS and CLONE_GROUPS arrays (issues #1471, #1464) 
+* Now CLONE_ALL_USERS_GROUPS always extends the CLONE_USERS and CLONE_GROUPS arrays (issues #1471, #1464)
 
-* PXE code improvements (issue #1466)  
+* PXE code improvements (issue #1466)
 
 * Several improvements in the multipath code to allow full migration (issues #1449, #1450)
 
@@ -271,16 +267,17 @@ plus symbolic link names and link targets of basic directories. Those basic dire
 (except some unwanted "noise" from all what there is mounted) plus the directories of the Filesystem Hierarchy Standard (FHS)
 that actually exist on the system. Additionally with the new DIRECTORIES_TO_CREATE array the user can now explicitly
 specify directories and symlinks that are still missing in his particular environment (issue #1459)
- 
+
 * Fix for cryptsetup hang on `cryptsetup luksOpen ...` when dmsetup is not present in recovery system (issue #1458)
 
-* enhance MOUNTPOINTS_TO_RESTORE into DIRECTORIES_TO_CREATE (issue #1455) 
+* Enhance MOUNTPOINTS_TO_RESTORE into DIRECTORIES_TO_CREATE (issue #1455)
 
-* Several improvements for ppc64le/ppc64 arch;  Systemd automatic serial console detection; lilo and yaboot improvements (issue #1446, #1442)
+* Several improvements for ppc64le/ppc64 archi. Systemd automatic serial console detection, lilo and yaboot improvements (issue #1446, #1442)
 
 * Introduction of UserInput in 300_map_disks.sh (issues 1399 and 1431)
 
-* Adapt /etc/motd when 'rear recover' is running to avoid the additional 'Run rear recover to restore your system' message that only
+* Adapt /etc/motd when 'rear recover' is running to avoid the additional 'Run rear recover to restore your system' message
+that only makes sense as long as 'rear recover' was not ever started (issue 1433)
 
 * SLES12 with btrfs but without snapshots failed to recreate/mount btrfs FS/subvolumes during recovery (issue #1036)
 
@@ -298,7 +295,7 @@ specify directories and symlinks that are still missing in his particular enviro
 * Redirect rsync verbose output to backup log (issue #1387)
 
 * Load storage controllers in rescue system in same order as on host system (issue #1384):
-  - Copy over modules from initrd on SUSE LINUX 
+  - Copy over modules from initrd on SUSE LINUX
   - Prevent sorting of MODULES_LOAD array to keep the order intended
 
 * Add /yaboot to ISO_FILE when running SUSE ppc64 (issue #1414)
@@ -315,7 +312,7 @@ specify directories and symlinks that are still missing in his particular enviro
 
 * Replaced some perl regexp with grep native extended regexp (issue #1376)
 
-* Introducing SECURE_BOOT_BOOTLOADER variable in default.conf This variable should enable users booting with Secure Boot, to use whatever custom signed boot loader they like, and removes hard coded entry “shim.efi” from ReaRs code (issue #1374)
+* Introducing SECURE_BOOT_BOOTLOADER variable in default.conf. This variable should enable users booting with Secure Boot, to use whatever custom signed boot loader they like, and removes hard coded entry 'shim.efi' from the ReaR code (issue #1374)
 
 * Enhanced and cleaned up making ISO on POWER (ppc64/ppc64le). Now the backup can be stored in the ISO (via BACKUP_URL=iso...) and even multiple ISOs work on POWER now (issues #697, #1383)
 
@@ -757,7 +754,7 @@ results. See
 
 ## Support
 Relax-and-Recover (rear) is an Open Source project under GPL v3 license which means
-it is free to use and modify. However, the creators of ReaR have spend many, many hours in 
+it is free to use and modify. However, the creators of ReaR have spend many, many hours in
 development and support. We will only give *free of charge* support in our free time (and when work/home balance
 allows it).
 
