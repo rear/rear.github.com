@@ -272,7 +272,7 @@ specify directories and symlinks that are still missing in his particular enviro
 
 * Enhance MOUNTPOINTS_TO_RESTORE into DIRECTORIES_TO_CREATE (issue #1455)
 
-* Several improvements for ppc64le/ppc64 archi. Systemd automatic serial console detection, lilo and yaboot improvements (issue #1446, #1442)
+* Several improvements for ppc64le/ppc64 arch. Systemd automatic serial console detection, lilo and yaboot improvements (issue #1446, #1442)
 
 * Introduction of UserInput in 300_map_disks.sh (issues 1399 and 1431)
 
