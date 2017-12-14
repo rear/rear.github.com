@@ -90,7 +90,7 @@ functionality:
 * Integrates with [Disaster Recovery Linux Manager (DRLM)](http://drlm.org)
 
 * Udev support (except for some really ancient udev versions) which is
-  the base for many new and important features:
+  the base for many important features:
 
   - kernel drivers for network cards and storage adapters are loaded via udev
   - deal with network persistent names in udev rules
@@ -144,7 +144,7 @@ functionality:
 
 * Add timestamp of ReaR run with rc code to the syslog or messages file; sending mail report is also possible
 
-* The possibility to backup Windows partitions via new BACKUP type BLOCKCLONE
+* The possibility to backup any partition (in particular a Windows partition) via the BACKUP type BLOCKCLONE
 
 * Unattended ReaR recovery has been improved (*New*)
 
@@ -174,15 +174,16 @@ Several user dialogs that had been implemented in ReaR via the bash builtin 'rea
 or the bash 'select' keyword are now implemented via the new UserInput function.
 The UserInput function proceeds with a default input value after a timeout
 so that it is now possible to let ReaR run unattended with its default behaviour.
-Additionally the user can predefine automated input values for each particular
-call of the UserInput function so that it is now also possible for the user
-to predefine exactly what ReaR should do when running unattended.
+Additionally one can predefine an automated input value for each particular
+UserInput function call so that it is now also possible for the user
+to predefine what ReaR should do when running unattended.
 For details see the USER_INPUT_... config variables in default.conf.
 Currently not all user dialogs use the UserInput function so that
 this or that user dialog needs to be adapted when it is reported to us
 via our [issue tracker](https://github.com/rear/rear/issues).
-In contrast when programs that are called by ReaR are interactive
-the program call itself must be adapted towards running unattended,
+In contrast when programs that are called by ReaR work interactive
+(e.g. third-party backup tools that show user dialogs or password prompts)
+the program call itself must be adapted to run unattended (if possible),
 see the section 'It should be possible to run ReaR unattended'
 in our https://github.com/rear/rear/wiki/Coding-Style Wiki article.
 
@@ -200,7 +201,7 @@ Possibly backward incompatible changes:
 
 * In addition to STDERR now also STDOUT is redirected into the ReaR log file.
 Accordingly all output of programs that are called by ReaR is now in the log file
-so that the log file contains all output and there is no longer unintended
+so that the log file content is more complete and there is no longer unintended
 verbose information from programs on the terminal where ReaR was lauched.
 On the other hand this means when programs prompt via STDOUT to get some user input
 (e.g. a program prompts for a user confirmation under this or that circumstances)
@@ -226,8 +227,8 @@ config variables (for details see default.conf).
 By default it is now fatal when 'ldd' reports a 'not found' library for
 any file in a /bin/ or /sbin/ directory in the recovery system so that
 now 'rear mkrescue/mkbackup' may fail where it had (blindly) worked before.
-In particular third-party backup tools sometimes have unexpected ways how they use
-their libraries which can cause 'false alarm' by the 'ldd' test.
+In particular third-party backup tools sometimes use their libraries
+via unexpected ways which can cause 'false alarm' by the 'ldd' test.
 With the new config variable NON_FATAL_BINARIES_WITH_MISSING_LIBRARY
 one can specify for which files a 'not found' library should be
 considered as 'false alarm' (for details see default.conf).
