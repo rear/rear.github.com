@@ -27,7 +27,7 @@ policy which does not replace in any way a good backup policy.
 
 ### Product Features
 The following features are supported on the most recent releases of
-Relax-and-Recover.  Anything labeled as (*New*) was added as the
+Relax-and-Recover. Anything labeled as (*New*) was added as the
 most recent release. New functionality for previous releases can be
 seen in the next chapter that details each release.
 
@@ -155,11 +155,10 @@ functionality:
 
 
 ## Relax-and-Recover Releases
-The first release of Relax-and-Recover, version 1.0, was posted to the web
-in July 2006. For each release, this chapter lists the new features and
-defect fixes. Note that all releases are cumulative, and that all releases
-of Relax-and-Recover are compatible with previous versions of
-Relax-and-Recover, unless otherwise noted.
+The first release of Relax-and-Recover, version 1.0, was posted to the web in July 2006.
+For each release, this chapter lists the new features and defect fixes.
+All releases are cumulative.
+Unless otherwise noted all releases of Relax-and-Recover are compatible with previous versions.
 
 The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker](https://github.com/rear/rear/issues).
 
@@ -661,7 +660,7 @@ BACKUP_TYPE=incremental or BACKUP_TYPE=differential (issues #1074 and #1123)
 
 * Added support for elilo (used by SLES 11/12) (issue #583, #691, #692, #693)
 
-* Added option --debugscripts to rear (help-workflow) (issue #688)
+* Added the --debugscripts command line option (help-workflow) (issue #688)
 
 * Removed dosfslabel as required program for vfat UEFI boot partition (issue #694)
 
@@ -732,7 +731,7 @@ BACKUP_TYPE=incremental or BACKUP_TYPE=differential (issues #1074 and #1123)
 
 * Move nfs-client from depends to recommends in Debian control file (issue #633)
 
-* In `packaging/rpm/rear.spec` replaced "BuildArch: noarch" with "ExclusiveArch: %ix86 x86_64 ppc ppc64" that should tell the user that rear is known to work only on %ix86 x86_64 ppc ppc64 and removed "Requires: yaboot" for ppc ppc64 because that is the default installed bootloader on ppc ppc64 (issues #629 and #631)
+* In `packaging/rpm/rear.spec` replaced "BuildArch: noarch" with "ExclusiveArch: %ix86 x86_64 ppc ppc64" that should tell the user that ReaR is known to work only on %ix86 x86_64 ppc ppc64 and removed "Requires: yaboot" for ppc ppc64 because that is the default installed bootloader on ppc ppc64 (issues #629 and #631)
 
 * Support the Oracle Linux 6 ksplice module (issue #605)
 
@@ -792,7 +791,7 @@ BACKUP_TYPE=incremental or BACKUP_TYPE=differential (issues #1074 and #1123)
 
 * For EMC NetWorker server/client we added some exclude items to COPY_AS_IS_EXCLUDE_NSR (issue #571)
 
-* Removed the Warning message from main rear script as it was misleading (issues #563 and #564)
+* Removed the Warning message from main usr/sbin/rear script as it was misleading (issues #563 and #564)
 
 * output/ISO/Linux-i386/80_create_isofs.sh: make sure ISO_FILES[@] are copied to isofs directory (issue #569)
 
@@ -810,7 +809,7 @@ standard available.
 
 Relax-and-Recover is known to work well on x86 and x86_64 based architectures.
 Relax-and-Recover has also been ported to ia64 and ppc architectures, but
-these are less tested.  Use the '`rear validate`' command after every
+these are less tested. Use the '`rear validate`' command after every
 successful DR test please and mail us the results.
 
 
@@ -822,7 +821,7 @@ results. See
 [Relax-and-Recover compression tests](http://www.it3.be/2013/09/16/NETFS-compression-tests/)
 
 ## Support
-Relax-and-Recover (rear) is an Open Source project under GPL v3 license which means
+Relax-and-Recover (ReaR) is an Open Source project under GPL v3 license which means
 it is free to use and modify. However, the creators of ReaR have spend many, many hours in
 development and support. We will only give *free of charge* support in our free time (and when work/home balance
 allows it).
@@ -885,7 +884,7 @@ However, we do understand that it is not always possible to install on hundreds 
 
 ## Known Problems and Workarounds
 
-*Issue Description*: rear package on ubuntu 14.04 depends on isolinux package (which does not exist)
+*Issue Description*: 'rear' package on Ubuntu 14.04 depends on isolinux package (which does not exist)
 
 * Workaround:
 
