@@ -14,19 +14,22 @@ Relax-and-Recover.
 
 
 This document is distributed with the following license: "Creative Commons
-Attribution-NoDerivs 3.0 Unported (CC BY-ND 3.0)". To read the license deed
+Attribution-NoDerivs 3.0 Unported (CC BY-ND 3.0)". To read the license deed,
 go to [http://creativecommons.org/licenses/by-nd/3.0/](http://creativecommons.org/licenses/by-nd/3.0/)
 
 
 ## Overview
-Relax-and-Recover is a GNU/Linux system administrator tool used to
-create disaster recovery images which makes bare metal restore easier.
-System administrators use Relax-and-Recover as part of disaster recovery
-policy which does not replace in any way a good backup policy.
+Relax-and-Recover is a GNU/Linux system administrator tool used
+to create bootable disaster recovery images which makes bare metal
+disaster recovery including backup restore easier.
+System administrators use Relax-and-Recover as part of their
+disaster recovery policy which does not replace in any way a backup policy.
+Relax-and-Recover does not implement backup but complements it because
+backup happens via external software that is only called by Relax-and-Recover.
 
 
 ### Product Features
-The following features are supported on the most recent releases of
+The following features are supported by the most recent releases of
 Relax-and-Recover. Anything labeled as (*New*) was added as the
 most recent release. New functionality for previous releases can be
 seen in the next chapter that details each release.
@@ -35,16 +38,16 @@ The most recent release of Relax-and-Recover is supported on most GNU/Linux
 based systems with kernel 2.6 or higher. It provides the following
 functionality:
 
-* Hot maintenance capability. A rescue image can be made online while
+* Hot maintenance capability. A recovery/rescue image can be made online while
   the system is running
 
 * Command line interface. Relax-and-Recover does not require a graphical
-  interface to run, nor in creation mode, nor in rescue mode (console
+  interface to run, neither in creation mode, nor in recovery mode (console
   is enough)
 
-* Support included for most common file systems, such as ext2, ext3, ext4
-  and reiserfs. Other filesystems like jfs, xfs and btrfs are also
-  implemented, but are less tested. _(Feedback is appreciated)_
+* Support included for most common file systems, such as ext2, ext3, and ext4.
+  Other filesystems like reiserfs, jfs, xfs, and btrfs are also implemented,
+  but are less tested. _(Feedback is appreciated)_
 
 * Selected Hardware RAID and (eg. HP SmartArray) and mirroring solutions (eg.
   DRBD) are supported
@@ -57,7 +60,7 @@ functionality:
 
 * UEFI support (including UEFI USB booting)
 
-* Integrates with _internal_ backup solutions such as:
+* Integrates with _internal_ backup programs such as:
 
    - GNU tar (BACKUP=NETFS, BACKUP_PROG=tar)
    - GNU tar (BACKUP=NETFS, BACKUP_PROG=tar, BACKUP_TYPE=incremental, FULLBACKUPDAY="Mon") for using incremental backups with a weekly full backup. Be aware, old tar archives will not be removed automatically!
@@ -66,7 +69,7 @@ functionality:
    - rsync on local devices (BACKUP=NETFS, BACKUP_PROG=rsync), such USB and local disks
    - rsync over the network (BACKUP=RSYNC, BACKUP_PROG=rsync)
    - Multiple backup methods ([read the documentation](https://github.com/rear/rear/blob/master/doc/user-guide/11-multiple-backups.adoc))
-   - Windows partitions via BACKUP=BLOCKCLONE. See [the documention about BLOCKCLONE](https://github.com/rear/rear/blob/master/doc/user-guide/12-BLOCKCLONE.adoc)
+   - Any partition (e.g. a Windows partition) via BACKUP=BLOCKCLONE. See [the documention about BLOCKCLONE](https://github.com/rear/rear/blob/master/doc/user-guide/12-BLOCKCLONE.adoc)
    - BACKUP=ZYPPER is SLES12 only (*Experimental*)
    - BACKUP=YUM is for RedHat architectures ony (*Experimental*)
 
@@ -99,9 +102,9 @@ functionality:
 
 * Systemd support for the more recent Linux distributions
 
-* System reconfiguration
+* System migration and reconfiguration ('MIGRATION_MODE')
 
-  - enable recovery on hardware, that is not the same as the original system
+  - facilitate recovery on hardware, that is not the same as the original system
   - network and storage drivers are adjusted
   - map hard disks if they do not match (e.g. hda -> sda)
   - remap network MAC addresses
@@ -118,7 +121,7 @@ functionality:
 * Label the OBDR tape with the method `format` to avoid accidental
   overwrites with OBDR
 
-* Create bootable disk (eSATA, USB ...) media with the backup included:
+* Create bootable disk (eSATA, USB ...) medium with the backup included:
 
     BACKUP_URL=usb:///dev/device
 
@@ -131,7 +134,7 @@ functionality:
 
 * `USE_STATIC_NETWORKING=y`, will cause statically configured network settings to be applied even when `USE_DHCLIENT` is in effect
 
-* Save layout and compare layouts for easy automation of making
+* Save layout and compare layouts for automation of making
   Relax-and-Recover snapshots (checklayout option)
 
 * External USB booting uses extlinux (instead of syslinux), and
@@ -196,6 +199,10 @@ Now during 'rear mkrescue/mkbackup' there is a verification step where 'ldd' tes
 for each program/binary and library in the recovery system whether or not
 its required binaries/libraries can be found in the recovery system.
 
+* Improved autodetection during 'rear recover' when disks on the replacement hardware
+seem to not match compared to what there was on the original system so that
+ReaR is now more fail-safe against recreating on a possibly wrong disk.
+
 Possibly backward incompatible changes:
 
 * In addition to STDERR now also STDOUT is redirected into the ReaR log file.
@@ -232,6 +239,13 @@ With the new config variable NON_FATAL_BINARIES_WITH_MISSING_LIBRARY
 one can specify for which files a 'not found' library should be
 considered as 'false alarm' (for details see default.conf).
 
+* Improved MIGRATION_MODE autodetection when the disk layout looks ambiguous.
+Now 'rear recover' switches by default more often into MIGRATION_MODE
+where manual disk layout configuration happens via several user dialogs
+so that by default 'rear recover' shows more often user dialogs compared to before
+but the intended behaviour can be enforced via the MIGRATION_MODE config variable
+(for details see default.conf).
+
 #### Details (mostly in chronological order):
 
 * Use /etc/os-release and /etc/system-release before falling back to lsb_release check in function SetOSVendorAndVersion (issues #1611, #731)
@@ -245,6 +259,8 @@ considered as 'false alarm' (for details see default.conf).
 * Changed the macro fedora_release into fedora in the rear.spec file (issue #1192 and bz1419512)
 
 * Borg backup as back end now displays progress, when ReaR is launched in verbose mode (issue #1594)
+
+* Better MIGRATION_MODE autodetection (pull request #1593 related to issue #1271)
 
 * With the new config variable NON_FATAL_BINARIES_WITH_MISSING_LIBRARY the user can specify
 what programs where the 'ldd' test reports 'not found' libraries are non-fatal
@@ -912,7 +928,7 @@ Using `rear -v -c /etc/rear/mydir mkbackup` works fine in production, but when y
 
 * Workaround:
 
-The configuration files are copied to `/etc/rear/` into the rescue image, so you simply need to type: `rear -v recover`
+The configuration files are copied to `/etc/rear/` into the rescue image, so you need to type: `rear -v recover`
 See issue #512
 
 *Issue Description*: Is there a possibility to add btrfs subvolume to a rsync backup
