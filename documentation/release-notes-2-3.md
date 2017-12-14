@@ -860,18 +860,18 @@ ReaR-2.3 is supported on:
 
 * Intel x86 type of processors
 * AMD x86 type of processors
-
-ReaR-2.3 may or may not fully work on:
-
-* Intel Itanium processors
-* PPC processors
 * PPC64 processors
 * PPC64LE processors
+
+ReaR-2.3 may or may not work on:
+
+* Intel Itanium processors
 
 ReaR-2.3 does not support:
 
 * ARM type of processors
 * s390x type of processors
+* old PPC (32bit) processors
 
 If you feel the need to get a fully functional ReaR working on one of the above mentioned type of processors please buy
 consultancy from one of our official developers.
