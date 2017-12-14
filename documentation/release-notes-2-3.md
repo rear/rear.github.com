@@ -792,13 +792,13 @@ ReaR-2.3 is supported on:
 
 * Intel x86 type of processors
 * AMD x86 type of processors
+* PPC64 processors
+* PPC64LE processors
 
 ReaR-2.3 may or may not fully work on:
 
 * Intel Itanium processors
 * PPC processors
-* PPC64 processors
-* PPC64LE processors
 
 ReaR-2.3 does not support:
 
