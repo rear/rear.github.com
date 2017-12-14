@@ -165,6 +165,75 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 ### Version 2.3 (December 2017)
 
+#### Abstract
+
+New features and bigger enhancements:
+
+* First steps towards running Relax-and-Recover unattended in general.
+Several user dialogs that had been implemented in ReaR via the bash builtin 'read'
+or the bash 'select' keyword are now implemented via the new UserInput function.
+The UserInput function proceeds with a default input value after a timeout
+so that it is now possible to let ReaR run unattended with its default behaviour.
+Additionally the user can predefine automated input values for each particular
+call of the UserInput function so that it is now also possible for the user
+to predefine exactly what ReaR should do when running unattended.
+For details see the USER_INPUT_... config variables in default.conf.
+Currently not all user dialogs use the UserInput function so that
+this or that user dialog needs to be adapted when it is reported to us
+via our [issue tracker](https://github.com/rear/rear/issues).
+In contrast when programs that are called by ReaR are interactive
+the program call itself must be adapted towards running unattended,
+see the section 'It should be possible to run ReaR unattended'
+in our https://github.com/rear/rear/wiki/Coding-Style Wiki article.
+
+* SSH support in the ReaR rescue/recovery system was overhauled.
+By default it is now secure which means the recovery system is free of SSH secrets.
+Individual settings can be specified via the SSH_FILES, SSH_UNPROTECTED_PRIVATE_KEYS,
+and SSH_ROOT_PASSWORD config variables (for details see default.conf).
+
+* Improved verification of the ReaR rescue/recovery system contents.
+Now during 'rear mkrescue/mkbackup' there is a verification step where 'ldd' tests
+for each program/binary and library in the recovery system whether or not
+its required binaries/libraries can be found in the recovery system.
+
+Possibly backward incompatible changes:
+
+* In addition to STDERR now also STDOUT is redirected into the ReaR log file.
+Accordingly all output of programs that are called by ReaR is now in the log file
+so that the log file contains all output and there is no longer unintended
+verbose information from programs on the terminal where ReaR was lauched.
+On the other hand this means when programs prompt via STDOUT to get some user input
+(e.g. a program prompts for a user confirmation under this or that circumstances)
+the program STDOUT prompt is no longer visible to the user when the program was
+not called properly in the particular ReaR script as described
+in the section 'What to do with stdin, stdout, and stderr'
+in our https://github.com/rear/rear/wiki/Coding-Style Wiki article.
+We tried to fix as many program calls as possible but it is impossible
+(with reasonable effort / with a reasonable amount of time)
+to check all program calls in all ReaR scripts so that this or that
+unnoticed program call will need to be fixed when it is reported to us
+via our [issue tracker](https://github.com/rear/rear/issues).
+
+* SSH support in the ReaR rescue/recovery system is now secure by default.
+There are are no longer private SSH keys in the recovery system by default and
+a RSA key is generated from scratch when starting sshd during recovery system startup.
+Accordingly it does no longer work by default to use SSH in the recovery system
+via the SSH keys that exist on the original system. To get SSH keys included
+in the recovery system use the SSH_FILES and SSH_UNPROTECTED_PRIVATE_KEYS
+config variables (for details see default.conf).
+
+* Verification of required binaries/libraries in the ReaR rescue/recovery system.
+By default it is now fatal when 'ldd' reports a 'not found' library for
+any file in a /bin/ or /sbin/ directory in the recovery system so that
+now 'rear mkrescue/mkbackup' may fail where it had (blindly) worked before.
+In particular third-party backup tools sometimes have unexpected ways how they use
+their libraries which can cause 'false alarm' by the 'ldd' test.
+With the new config variable NON_FATAL_BINARIES_WITH_MISSING_LIBRARY
+one can specify for which files a 'not found' library should be
+considered as 'false alarm' (for details see default.conf).
+
+#### Details (mostly in chronological order):
+
 * Use /etc/os-release and /etc/system-release before falling back to lsb_release check in function SetOSVendorAndVersion (issues #1611, #731)
 
 * Make BACKUP_URL=iso for mkrescue and mkbackuponly no longer fatal (issue #1613)
@@ -188,14 +257,13 @@ https://github.com/rear/rear/pull/1560 (for FDR/Upstream).
 
 * Let /bin/ldd detect *.so with relative paths (issue #1560)
 
-* Add support for Bridge Interfaces. This patch enables configurations as shown below (issue #1570):
-
-1. Bridge over simple Ethernet
-2. Bridge over Bond
-3. Bridge over Vlan interface
-
-Usually, virtual interfaces are skipped, but for Bridges to work, we consider Bridges as physical interfaces,
+* Add support for Bridge Interfaces(issue #1570). Usually, virtual interfaces are skipped,
+but for Bridges to work, we consider Bridges as physical interfaces,
 because the Bridge interface holds the IP address, not the physical interface attached to the Bridge.
+This patch enables those configurations:
+  - Bridge over simple Ethernet
+  - Bridge over Bond
+  - Bridge over Vlan interface
 
 * Use UserInput in some more usual places to improve that 'rear recover' can run
 unattended in migration mode (issues #1573, #1399)
