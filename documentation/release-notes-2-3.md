@@ -215,7 +215,7 @@ so that the log file content is more complete and there is no longer unintended
 verbose information from programs on the terminal where ReaR was lauched.
 On the other hand this means when programs prompt via STDOUT to get some user input
 (e.g. a program prompts for a user confirmation under this or that circumstances)
-the program STDOUT prompt is no longer visible to the user when the program was
+the program's STDOUT prompt is no longer visible to the user when the program was
 not called properly in the particular ReaR script as described
 in the section 'What to do with stdin, stdout, and stderr'
 in our https://github.com/rear/rear/wiki/Coding-Style Wiki article.
