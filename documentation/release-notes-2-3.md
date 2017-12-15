@@ -19,13 +19,13 @@ go to [http://creativecommons.org/licenses/by-nd/3.0/](http://creativecommons.or
 
 
 ## Overview
-Relax-and-Recover is a GNU/Linux system administrator tool used
-to create bootable disaster recovery images which makes bare metal
-disaster recovery including backup restore easier.
-System administrators use Relax-and-Recover as part of their
-disaster recovery policy which does not replace in any way a backup policy.
-Relax-and-Recover does not implement backup but complements it because
-backup happens via external software that is only called by Relax-and-Recover.
+Relax-and-Recover is a GNU/Linux system administrator tool and framework
+used to create bootable disaster recovery images which makes bare metal
+disaster recovery (including backup restore) easier.
+System administrators use the Relax-and-Recover framework to set up a disaster recovery procedure
+as part of their disaster recovery policy (which does not replace in any way a backup policy).
+Relax-and-Recover does not implement backup but complements it because backup (and restore)
+happens via external backup software that is only called by Relax-and-Recover.
 
 
 ### Product Features
@@ -161,7 +161,11 @@ functionality:
 The first release of Relax-and-Recover, version 1.0, was posted to the web in July 2006.
 For each release, this chapter lists the new features and defect fixes.
 All releases are cumulative.
-Unless otherwise noted all releases of Relax-and-Recover are compatible with previous versions.
+Unless otherwise noted all releases of Relax-and-Recover are intended to work backward compatible with previous versions.
+In addition to the GPL disclaimer of warranty and liability there is no guarantee that things work backward compatible.
+In general the older the system is the less likely it is that a newer Relax-and-Recover version works.
+For each Relax-and-Recover version upgrade and for each change of a software that is used by Relax-and-Recover and
+for each change of your basic system you must re-validate that your disaster recovery procedure still works for you.
 
 The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker](https://github.com/rear/rear/issues).
 
