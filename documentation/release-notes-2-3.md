@@ -187,7 +187,7 @@ For details see the USER_INPUT_... config variables in default.conf.
 Currently not all user dialogs use the UserInput function so that
 this or that user dialog needs to be adapted when it is reported to us
 via our [issue tracker](https://github.com/rear/rear/issues).
-In contrast when programs that are called by ReaR work interactive
+In contrast when programs that are called by ReaR work interactively
 (e.g. third-party backup tools that show user dialogs or password prompts)
 the program call itself must be adapted to run unattended (if possible),
 see the section 'It should be possible to run ReaR unattended'
