@@ -14,20 +14,23 @@ Relax-and-Recover.
 
 
 This document is distributed with the following license: "Creative Commons
-Attribution-NoDerivs 3.0 Unported (CC BY-ND 3.0)". To read the license deed
+Attribution-NoDerivs 3.0 Unported (CC BY-ND 3.0)". To read the license deed,
 go to [http://creativecommons.org/licenses/by-nd/3.0/](http://creativecommons.org/licenses/by-nd/3.0/)
 
 
 ## Overview
-Relax-and-Recover is a GNU/Linux system administrator tool used to
-create disaster recovery images which makes bare metal restore easier.
-System administrators use Relax-and-Recover as part of disaster recovery
-policy which does not replace in any way a good backup policy.
+Relax-and-Recover is a GNU/Linux system administrator tool and framework
+used to create bootable disaster recovery images which makes bare metal
+disaster recovery (including backup restore) easier.
+System administrators use the Relax-and-Recover framework to set up a disaster recovery procedure
+as part of their disaster recovery policy (which does not replace in any way a backup policy).
+Relax-and-Recover does not implement backup but complements it because backup (and restore)
+happens via external backup software that is only called by Relax-and-Recover.
 
 
 ### Product Features
-The following features are supported on the most recent releases of
-Relax-and-Recover.  Anything labeled as (*New*) was added as the
+The following features are supported by the most recent releases of
+Relax-and-Recover. Anything labeled as (*New*) was added as the
 most recent release. New functionality for previous releases can be
 seen in the next chapter that details each release.
 
@@ -35,16 +38,16 @@ The most recent release of Relax-and-Recover is supported on most GNU/Linux
 based systems with kernel 2.6 or higher. It provides the following
 functionality:
 
-* Hot maintenance capability. A rescue image can be made online while
+* Hot maintenance capability. A recovery/rescue image can be made online while
   the system is running
 
 * Command line interface. Relax-and-Recover does not require a graphical
-  interface to run, nor in creation mode, nor in rescue mode (console
+  interface to run, neither in creation mode, nor in recovery mode (console
   is enough)
 
-* Support included for most common file systems, such as ext2, ext3, ext4
-  and reiserfs. Other filesystems like jfs, xfs and btrfs are also
-  implemented, but are less tested. _(Feedback is appreciated)_
+* Support included for most common file systems, such as ext2, ext3, and ext4.
+  Other filesystems like reiserfs, jfs, xfs, and btrfs are also implemented,
+  but are less tested. _(Feedback is appreciated)_
 
 * Selected Hardware RAID and (eg. HP SmartArray) and mirroring solutions (eg.
   DRBD) are supported
@@ -57,7 +60,7 @@ functionality:
 
 * UEFI support (including UEFI USB booting)
 
-* Integrates with _internal_ backup solutions such as:
+* Integrates with _internal_ backup programs such as:
 
    - GNU tar (BACKUP=NETFS, BACKUP_PROG=tar)
    - GNU tar (BACKUP=NETFS, BACKUP_PROG=tar, BACKUP_TYPE=incremental, FULLBACKUPDAY="Mon") for using incremental backups with a weekly full backup. Be aware, old tar archives will not be removed automatically!
@@ -66,7 +69,7 @@ functionality:
    - rsync on local devices (BACKUP=NETFS, BACKUP_PROG=rsync), such USB and local disks
    - rsync over the network (BACKUP=RSYNC, BACKUP_PROG=rsync)
    - Multiple backup methods ([read the documentation](https://github.com/rear/rear/blob/master/doc/user-guide/11-multiple-backups.adoc))
-   - Windows partitions via BACKUP=BLOCKCLONE. See [the documention about BLOCKCLONE](https://github.com/rear/rear/blob/master/doc/user-guide/12-BLOCKCLONE.adoc)
+   - Any partition (e.g. a Windows partition) via BACKUP=BLOCKCLONE. See [the documention about BLOCKCLONE](https://github.com/rear/rear/blob/master/doc/user-guide/12-BLOCKCLONE.adoc)
    - BACKUP=ZYPPER is SLES12 only (*Experimental*)
    - BACKUP=YUM is for RedHat architectures ony (*Experimental*)
 
@@ -90,7 +93,7 @@ functionality:
 * Integrates with [Disaster Recovery Linux Manager (DRLM)](http://drlm.org)
 
 * Udev support (except for some really ancient udev versions) which is
-  the base for many new and important features:
+  the base for many important features:
 
   - kernel drivers for network cards and storage adapters are loaded via udev
   - deal with network persistent names in udev rules
@@ -99,9 +102,9 @@ functionality:
 
 * Systemd support for the more recent Linux distributions
 
-* System reconfiguration
+* System migration and reconfiguration ('MIGRATION_MODE')
 
-  - enable recovery on hardware, that is not the same as the original system
+  - facilitate recovery on hardware, that is not the same as the original system
   - network and storage drivers are adjusted
   - map hard disks if they do not match (e.g. hda -> sda)
   - remap network MAC addresses
@@ -118,7 +121,7 @@ functionality:
 * Label the OBDR tape with the method `format` to avoid accidental
   overwrites with OBDR
 
-* Create bootable disk (eSATA, USB ...) media with the backup included:
+* Create bootable disk (eSATA, USB ...) medium with the backup included:
 
     BACKUP_URL=usb:///dev/device
 
@@ -131,7 +134,7 @@ functionality:
 
 * `USE_STATIC_NETWORKING=y`, will cause statically configured network settings to be applied even when `USE_DHCLIENT` is in effect
 
-* Save layout and compare layouts for easy automation of making
+* Save layout and compare layouts for automation of making
   Relax-and-Recover snapshots (checklayout option)
 
 * External USB booting uses extlinux (instead of syslinux), and
@@ -144,7 +147,7 @@ functionality:
 
 * Add timestamp of ReaR run with rc code to the syslog or messages file; sending mail report is also possible
 
-* The possibility to backup Windows partitions via new BACKUP type BLOCKCLONE
+* The possibility to backup any partition (in particular a Windows partition) via the BACKUP type BLOCKCLONE
 
 * Unattended ReaR recovery has been improved (*New*)
 
@@ -155,15 +158,99 @@ functionality:
 
 
 ## Relax-and-Recover Releases
-The first release of Relax-and-Recover, version 1.0, was posted to the web
-in July 2006. For each release, this chapter lists the new features and
-defect fixes. Note that all releases are cumulative, and that all releases
-of Relax-and-Recover are compatible with previous versions of
-Relax-and-Recover, unless otherwise noted.
+The first release of Relax-and-Recover, version 1.0, was posted to the web in July 2006.
+For each release, this chapter lists the new features and defect fixes.
+All releases are cumulative.
+Unless otherwise noted all releases of Relax-and-Recover are intended to work backward compatible with previous versions.
+In addition to the GPL disclaimer of warranty and liability there is no guarantee that things work backward compatible.
+In general the older the system is the less likely it is that a newer Relax-and-Recover version works.
+For each Relax-and-Recover version upgrade and for each change of a software that is used by Relax-and-Recover and
+for each change of your basic system you must re-validate that your disaster recovery procedure still works for you.
 
 The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker](https://github.com/rear/rear/issues).
 
 ### Version 2.3 (December 2017)
+
+#### Abstract
+
+New features and bigger enhancements:
+
+* First steps towards running Relax-and-Recover unattended in general.
+Several user dialogs that had been implemented in ReaR via the bash builtin 'read'
+or the bash 'select' keyword are now implemented via the new UserInput function.
+The UserInput function proceeds with a default input value after a timeout
+so that it is now possible to let ReaR run unattended with its default behaviour.
+Additionally one can predefine an automated input value for each particular
+UserInput function call so that it is now also possible for the user
+to predefine what ReaR should do when running unattended.
+For details see the USER_INPUT_... config variables in default.conf.
+Currently not all user dialogs use the UserInput function so that
+this or that user dialog needs to be adapted when it is reported to us
+via our [issue tracker](https://github.com/rear/rear/issues).
+In contrast when programs that are called by ReaR work interactively
+(e.g. third-party backup tools that show user dialogs or password prompts)
+the program call itself must be adapted to run unattended (if possible),
+see the section 'It should be possible to run ReaR unattended'
+in our https://github.com/rear/rear/wiki/Coding-Style Wiki article.
+
+* SSH support in the ReaR rescue/recovery system was overhauled.
+By default it is now secure which means the recovery system is free of SSH secrets.
+Individual settings can be specified via the SSH_FILES, SSH_UNPROTECTED_PRIVATE_KEYS,
+and SSH_ROOT_PASSWORD config variables (for details see default.conf).
+
+* Improved verification of the ReaR rescue/recovery system contents.
+Now during 'rear mkrescue/mkbackup' there is a verification step where 'ldd' tests
+for each program/binary and library in the recovery system whether or not
+its required binaries/libraries can be found in the recovery system.
+
+* Improved autodetection during 'rear recover' when disks on the replacement hardware
+seem to not match compared to what there was on the original system so that
+ReaR is now more fail-safe against recreating on a possibly wrong disk.
+
+Possibly backward incompatible changes:
+
+* In addition to STDERR now also STDOUT is redirected into the ReaR log file.
+Accordingly all output of programs that are called by ReaR is now in the log file
+so that the log file content is more complete and there is no longer unintended
+verbose information from programs on the terminal where ReaR was lauched.
+On the other hand this means when programs prompt via STDOUT to get some user input
+(e.g. a program prompts for a user confirmation under this or that circumstances)
+the program STDOUT prompt is no longer visible to the user when the program was
+not called properly in the particular ReaR script as described
+in the section 'What to do with stdin, stdout, and stderr'
+in our https://github.com/rear/rear/wiki/Coding-Style Wiki article.
+We tried to fix as many program calls as possible but it is impossible
+(with reasonable effort / with a reasonable amount of time)
+to check all program calls in all ReaR scripts so that this or that
+unnoticed program call will need to be fixed when it is reported to us
+via our [issue tracker](https://github.com/rear/rear/issues).
+
+* SSH support in the ReaR rescue/recovery system is now secure by default.
+There are are no longer private SSH keys in the recovery system by default and
+a RSA key is generated from scratch when starting sshd during recovery system startup.
+Accordingly it does no longer work by default to use SSH in the recovery system
+via the SSH keys that exist on the original system. To get SSH keys included
+in the recovery system use the SSH_FILES and SSH_UNPROTECTED_PRIVATE_KEYS
+config variables (for details see default.conf).
+
+* Verification of required binaries/libraries in the ReaR rescue/recovery system.
+By default it is now fatal when 'ldd' reports a 'not found' library for
+any file in a /bin/ or /sbin/ directory in the recovery system so that
+now 'rear mkrescue/mkbackup' may fail where it had (blindly) worked before.
+In particular third-party backup tools sometimes use their libraries
+via unexpected ways which can cause 'false alarm' by the 'ldd' test.
+With the new config variable NON_FATAL_BINARIES_WITH_MISSING_LIBRARY
+one can specify for which files a 'not found' library should be
+considered as 'false alarm' (for details see default.conf).
+
+* Improved MIGRATION_MODE autodetection when the disk layout looks ambiguous.
+Now 'rear recover' switches by default more often into MIGRATION_MODE
+where manual disk layout configuration happens via several user dialogs
+so that by default 'rear recover' shows more often user dialogs compared to before
+but the intended behaviour can be enforced via the MIGRATION_MODE config variable
+(for details see default.conf).
+
+#### Details (mostly in chronological order):
 
 * Use /etc/os-release and /etc/system-release before falling back to lsb_release check in function SetOSVendorAndVersion (issues #1611, #731)
 
@@ -177,6 +264,8 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 * Borg backup as back end now displays progress, when ReaR is launched in verbose mode (issue #1594)
 
+* Better MIGRATION_MODE autodetection (pull request #1593 related to issue #1271)
+
 * With the new config variable NON_FATAL_BINARIES_WITH_MISSING_LIBRARY the user can specify
 what programs where the 'ldd' test reports 'not found' libraries are non-fatal
 so that those programs in the recovery system do not lead to an Error abort of "rear mkrescue/mkbackup".
@@ -188,14 +277,13 @@ https://github.com/rear/rear/pull/1560 (for FDR/Upstream).
 
 * Let /bin/ldd detect *.so with relative paths (issue #1560)
 
-* Add support for Bridge Interfaces. This patch enables configurations as shown below (issue #1570):
-
-1. Bridge over simple Ethernet
-2. Bridge over Bond
-3. Bridge over Vlan interface
-
-Usually, virtual interfaces are skipped, but for Bridges to work, we consider Bridges as physical interfaces,
+* Add support for Bridge Interfaces(issue #1570). Usually, virtual interfaces are skipped,
+but for Bridges to work, we consider Bridges as physical interfaces,
 because the Bridge interface holds the IP address, not the physical interface attached to the Bridge.
+This patch enables those configurations:
+  - Bridge over simple Ethernet
+  - Bridge over Bond
+  - Bridge over Vlan interface
 
 * Use UserInput in some more usual places to improve that 'rear recover' can run
 unattended in migration mode (issues #1573, #1399)
@@ -592,7 +680,7 @@ BACKUP_TYPE=incremental or BACKUP_TYPE=differential (issues #1074 and #1123)
 
 * Added support for elilo (used by SLES 11/12) (issue #583, #691, #692, #693)
 
-* Added option --debugscripts to rear (help-workflow) (issue #688)
+* Added the --debugscripts command line option (help-workflow) (issue #688)
 
 * Removed dosfslabel as required program for vfat UEFI boot partition (issue #694)
 
@@ -663,7 +751,7 @@ BACKUP_TYPE=incremental or BACKUP_TYPE=differential (issues #1074 and #1123)
 
 * Move nfs-client from depends to recommends in Debian control file (issue #633)
 
-* In `packaging/rpm/rear.spec` replaced "BuildArch: noarch" with "ExclusiveArch: %ix86 x86_64 ppc ppc64" that should tell the user that rear is known to work only on %ix86 x86_64 ppc ppc64 and removed "Requires: yaboot" for ppc ppc64 because that is the default installed bootloader on ppc ppc64 (issues #629 and #631)
+* In `packaging/rpm/rear.spec` replaced "BuildArch: noarch" with "ExclusiveArch: %ix86 x86_64 ppc ppc64" that should tell the user that ReaR is known to work only on %ix86 x86_64 ppc ppc64 and removed "Requires: yaboot" for ppc ppc64 because that is the default installed bootloader on ppc ppc64 (issues #629 and #631)
 
 * Support the Oracle Linux 6 ksplice module (issue #605)
 
@@ -723,7 +811,7 @@ BACKUP_TYPE=incremental or BACKUP_TYPE=differential (issues #1074 and #1123)
 
 * For EMC NetWorker server/client we added some exclude items to COPY_AS_IS_EXCLUDE_NSR (issue #571)
 
-* Removed the Warning message from main rear script as it was misleading (issues #563 and #564)
+* Removed the Warning message from main usr/sbin/rear script as it was misleading (issues #563 and #564)
 
 * output/ISO/Linux-i386/80_create_isofs.sh: make sure ISO_FILES[@] are copied to isofs directory (issue #569)
 
@@ -741,7 +829,7 @@ standard available.
 
 Relax-and-Recover is known to work well on x86 and x86_64 based architectures.
 Relax-and-Recover has also been ported to ia64 and ppc architectures, but
-these are less tested.  Use the '`rear validate`' command after every
+these are less tested. Use the '`rear validate`' command after every
 successful DR test please and mail us the results.
 
 
@@ -753,7 +841,7 @@ results. See
 [Relax-and-Recover compression tests](http://www.it3.be/2013/09/16/NETFS-compression-tests/)
 
 ## Support
-Relax-and-Recover (rear) is an Open Source project under GPL v3 license which means
+Relax-and-Recover (ReaR) is an Open Source project under GPL v3 license which means
 it is free to use and modify. However, the creators of ReaR have spend many, many hours in
 development and support. We will only give *free of charge* support in our free time (and when work/home balance
 allows it).
@@ -795,15 +883,15 @@ ReaR-2.3 is supported on:
 * PPC64 processors
 * PPC64LE processors
 
-ReaR-2.3 may or may not fully work on:
+ReaR-2.3 may or may not work on:
 
 * Intel Itanium processors
-* PPC processors
 
 ReaR-2.3 does not support:
 
 * ARM type of processors
 * s390x type of processors
+* old PPC (32bit) processors
 
 If you feel the need to get a fully functional ReaR working on one of the above mentioned type of processors please buy
 consultancy from one of our official developers.
@@ -816,7 +904,7 @@ However, we do understand that it is not always possible to install on hundreds 
 
 ## Known Problems and Workarounds
 
-*Issue Description*: rear package on ubuntu 14.04 depends on isolinux package (which does not exist)
+*Issue Description*: 'rear' package on Ubuntu 14.04 depends on isolinux package (which does not exist)
 
 * Workaround:
 
@@ -844,7 +932,7 @@ Using `rear -v -c /etc/rear/mydir mkbackup` works fine in production, but when y
 
 * Workaround:
 
-The configuration files are copied to `/etc/rear/` into the rescue image, so you simply need to type: `rear -v recover`
+The configuration files are copied to `/etc/rear/` into the rescue image, so you need to type: `rear -v recover`
 See issue #512
 
 *Issue Description*: Is there a possibility to add btrfs subvolume to a rsync backup
