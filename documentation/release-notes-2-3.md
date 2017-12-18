@@ -153,6 +153,9 @@ functionality:
 
 * Improved security model related to SSH keys (*New*)
 
+  - SSH_FILES='avoid_sensitive_files' (see details in _/usr/share/rear/conf/default.conf_)
+  - SSH_UNPROTECTED_PRIVATE_KEYS='no' (see details in _/usr/share/rear/conf/default.conf_)
+
 *NOTE*: Features marked *Experimental* are prone to change with future releases.
 
 
