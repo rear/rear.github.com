@@ -229,7 +229,7 @@ unnoticed program call will need to be fixed when it is reported to us
 via our [issue tracker](https://github.com/rear/rear/issues).
 
 * SSH support in the ReaR rescue/recovery system is now secure by default.
-There are are no longer private SSH keys in the recovery system by default and
+There are no longer private SSH keys in the recovery system by default and
 a RSA key is generated from scratch when starting sshd during recovery system startup.
 Accordingly it does no longer work by default to use SSH in the recovery system
 via the SSH keys that exist on the original system. To get SSH keys included
