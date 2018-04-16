@@ -8,6 +8,9 @@ title: Relax-and-Recover events
 ### FlossUK Spring Conference, Edinburgh, 26-27 April, 2018
 Gratien will present ["Relax-and-Recover Automated Testing"](https://www.flossuk.org/membership/spring-conference-2018/spring-2018-talks/)
 
+### Loadays, Wilrijk, 21-22 April, 2018
+Gratien will talk and give a demo around ["Relax-and-Recover Automated Testing"](http://loadays.org/pages/schedule.html)
+
 ### FrOSCon 2017, Bonn-Rhein-Sieg, 20 August, 2017
 Gratien presented "Relax-and-Recover Automated Testing" on Sunday, 20 August 2017 [movie of the talk at FrOSCon](https://media.ccc.de/v/froscon2017-1957-relax-and-recover_automated_testing)
 
