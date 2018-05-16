@@ -9,7 +9,8 @@ title: Relax-and-Recover events
 Gratien will present ["Relax-and-Recover Automated Testing"](https://www.flossuk.org/membership/spring-conference-2018/spring-2018-talks/)
 
 ### Loadays, Wilrijk, 21-22 April, 2018
-Gratien will talk and give a demo around ["Relax-and-Recover Automated Testing"](http://loadays.org/pages/schedule.html)
+Gratien talked and gave a demo around ["Relax-and-Recover Automated Testing"](http://loadays.org/pages/schedule.html)
+<iframe width="340" height="290" src="https://www.youtube.com/embed/JZ6KNj0BwWs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 ### FrOSCon 2017, Bonn-Rhein-Sieg, 20 August, 2017
 Gratien presented "Relax-and-Recover Automated Testing" on Sunday, 20 August 2017 [movie of the talk at FrOSCon](https://media.ccc.de/v/froscon2017-1957-relax-and-recover_automated_testing)
