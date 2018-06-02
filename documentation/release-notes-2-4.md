@@ -181,9 +181,9 @@ New features and bigger enhancements:
 
 #### Details (mostly in chronological order):
 
-* Several minor fixes in the TSM area (issues #1803
+* Several minor fixes in the TSM area (issues #1803, #1744
 
-* Copy backup TSM restore log into recreated system (issue #1797)
+* Several improvements within the TSM backup area (issues #1797, #1348)
 
 * Sesam integration: add sesam bin directory to LD_LIBRARY_PATH (issue #1817)
 
@@ -197,7 +197,31 @@ New features and bigger enhancements:
 
 * In the DRLM specific function drlm_import_runtime_config() solve problem with some variables loading config from DRLM (issue #1794)
 
-* Fix KEYMAPS_DEFAULT_DIRECTORY description (issue #1781)
+* Introduced KEYMAPS_DEFAULT_DIRECTORY variable; full description in default.conf file (issue #1781)
+
+* Introduced NON_FATAL_BINARIES_WITH_MISSING_LIBRARY variable (see default.conf file for a description)
+
+* Several improvements around multipath code (issue #1765)
+
+* HP RAID code was updated as the new executable is now called as "ssacli" (issue #1760)
+
+* Exclude docker file systems from layout (issue #1749)
+
+* Replace pstree by ps command (issue #1755)
+
+* Run exit tasks code with default bash flags and options (issues #700 and #1747)
+
+* Code improvement around AUTORESIZE_PARTITIONS (issue #1746)
+
+* YUM+backup adds the ability to backup and restore files to the YUM method (issue 1464)
+
+* Use grub2-install --no-nvram on PowerNV system (issue #1742)
+
+* We can chronyd as time syncing mechanism now as well (issue #1739) 
+
+* Borg Backup can now use USB disk as well as backup storage area (issue #1730)
+
+* Initial support for ARM (issue #1662)
 
 
 ### Version 2.3 (December 2017)
