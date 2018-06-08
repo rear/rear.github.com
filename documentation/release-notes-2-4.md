@@ -76,7 +76,7 @@ functionality:
 * Integrates with _external_ backup solutions such as:
 
   - Tivoli Storage Manager (BACKUP=TSM)
-  - HP Data Protector (BACKUP=DP)
+  - Data Protector (BACKUP=DP)
   - Symantec NetBackup (BACKUP=NBU)
   - Galaxy 5, 6, and 7 (BACKUP=GALAXY)
   - Galaxy 10 [Commvault Simpana] (BACKUP=GALAXY10)
@@ -85,6 +85,7 @@ functionality:
   - Rsync Backup Made Easy (BACKUP=RBME)
   - Duplicity/Duply (BACKUP=DUPLICITY)
   - EMC Networker, also known as Legato (BACKUP=NSR)
+  - EMC Avamar (BACKUP=AVA)
   - SEP Sesam (BACKUP=SESAM)
   - FDR/Upstream (BACKUP=FDRUPSTREAM)
   - Novastor NovaBACKUP DC (BACKUP=NBKDC)
@@ -143,13 +144,13 @@ functionality:
 
 * cron job to check changes in disk layout and trigger `rear mkrescue` if required
 
-* VLAN tagging and bridge support
+* VLAN tagging, teaming and bridge support
 
 * Add timestamp of ReaR run with rc code to the syslog or messages file; sending mail report is also possible
 
 * The possibility to backup any partition (in particular a Windows partition) via the BACKUP type BLOCKCLONE
 
-* Unattended ReaR recovery has been improved (*New*)
+* Unattended ReaR recovery has been improved
 
 * Improved security model related to SSH keys (*New*)
 
@@ -178,10 +179,15 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 New features and bigger enhancements:
 
+* EMC Avamar support has been added
+
+* Duplicity backup has been seriously enhanced
+
+* TCG Opal support
 
 #### Details (mostly in chronological order):
 
-* Several minor fixes in the TSM area (issues #1803, #1744
+* Several minor fixes in the TSM area (issues #1803, #1744, #1534
 
 * Several improvements within the TSM backup area (issues #1797, #1348)
 
@@ -223,6 +229,29 @@ New features and bigger enhancements:
 
 * Initial support for ARM (issue #1662)
 
+* Improve the network parameters on the Linux Kernel command line (issue #1725)
+
+* Improve the LAN interface status check (issue #1701)
+
+* Fix duplicity backup (issue #1695)
+
+* Support GPT partitiins with blanks in label (issues #212 and #1563)
+
+* Improvements around BORGBACKUP (issues #1700, 1698 )
+
+* Automatically add 'missing' devices to MD arrays with not enough physical devices upon restore (issue #1697)
+
+* Network script has been strongly reworked to support bonding, bridges, vlans and teaming (issue #1574)
+
+* Fixed restore backup when BACKUP_INTEGRITY_CHECK=1 (issue #1685)
+
+* Support TCG Opal 2-compliant self-encrypting disks and RAWDISK output (issue #1659)
+
+* Add EMC Avamar backup (issues #1677, #1621)
+
+* Any many minor fixes (too many to list them all - use git log to view them)
+  A big thank you to all contributors as without you it would be impossible to keep up with the development
+  in the Linux area. We love you all... :-)
 
 ### Version 2.3 (December 2017)
 
@@ -882,8 +911,8 @@ the bash shell which is standard available on all GNU/Linux based systems.
 The default backup program Relax-and-Recover uses is GNU/tar which is also
 standard available.
 
-Relax-and-Recover is known to work well on x86 and x86_64 based architectures.
-Relax-and-Recover has also been ported to ia64 and ppc architectures, but
+Relax-and-Recover is known to work well on x86, x86_64 and ppc64(le) based architectures.
+Relax-and-Recover has also been ported to ia64 and arm architectures, but
 these are less tested. Use the '`rear validate`' command after every
 successful DR test please and mail us the results.
 
@@ -904,11 +933,11 @@ allows it).
 That does not mean we let our user basis in the cold as we do deliver support as a service (not free of charge).
 
 ## Supported Operating Systems
-We try to keep our wiki page [Test Matrix rear 2.3](https://github.com/rear/rear/wiki/Test-Matrix-rear-2.3) up-to-date with feedback we receive from the community.
+We try to keep our wiki page [Test Matrix rear 2.4](https://github.com/rear/rear/wiki/Test-Matrix-rear-2.4) up-to-date with feedback we receive from the community.
 
-ReaR-2.3 is supported on the following Linux based operating systems:
+ReaR-2.4 is supported on the following Linux based operating systems:
 
-* Fedora 25 and 26
+* Fedora 26 and 27
 * RHEL 5, 6 and 7
 * CentOS 5, 6 and 7
 * ScientificLinux 6 and 7
@@ -917,9 +946,9 @@ ReaR-2.3 is supported on the following Linux based operating systems:
 * Debian 6, 7, 8 and 9
 * Ubuntu 12, 13, 14 and 15
 
-ReaR-2.3 dropped officially support for the following Linux based operating systems:
+ReaR-2.4 dropped officially support for the following Linux based operating systems:
 
-* Fedora < 25
+* Fedora < 26
 * RHEL 3 and 4
 * SLES 9 and 10
 * openSUSE <= 13
@@ -931,20 +960,20 @@ If you require support for *unsupported* Linux Operating System you must acquire
 Requests to port ReaR to another Operating System (not Linux) can only be achieved with **serious** sponsoring.
 
 ## Supported Architectures
-ReaR-2.3 is supported on:
+ReaR-2.4 is supported on:
 
 * Intel x86 type of processors
 * AMD x86 type of processors
 * PPC64 processors
 * PPC64LE processors
 
-ReaR-2.3 may or may not work on:
+ReaR-2.4 may or may not work on:
 
 * Intel Itanium processors
-
-ReaR-2.3 does not support:
-
 * ARM type of processors
+
+ReaR-2.4 does not support:
+
 * s390x type of processors
 * old PPC (32bit) processors
 
