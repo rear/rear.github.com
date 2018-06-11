@@ -208,7 +208,7 @@ For some examples see https://github.com/rear/rear/pull/1733
 
 * Network setup was completely reworked to support bonding, bridges, vlans and teaming.
 There is a full rewrite of the 310_network_devices.sh script generating network interfaces
-for use during the ReaR recovery early boot via the 60-network-devices.sh script.
+for use during ReaR rescue/recovery system networking setup via the 60-network-devices.sh script.
 It also handles corner cases/odd setups that can be found from time to time,
 typically when the administrator uses bonding plus bridges plus vlans as well as teaming. 
 
