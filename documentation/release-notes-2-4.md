@@ -329,9 +329,9 @@ you need to include the first FAT partition (with the MLO or bootcode.bin) in yo
 
 * Duplicity: Add Support for NETFS URLs (issues #1554, #1665, #1668, #1669)
 
-* Any many minor fixes (too many to list them all - use git log to view them)
-  A big thank you to all contributors as without you it would be impossible to keep up with the development
-  in the Linux area. We love you all... :-)
+Many minor fixes (too many to list them all - use 'git log' to view them).
+A big thank you to all contributors as without you it would be impossible to keep up with the development
+in the Linux area. We love you all... :-)
 
 ### Version 2.3 (December 2017)
 
