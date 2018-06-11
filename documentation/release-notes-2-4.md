@@ -195,7 +195,7 @@ of arbitrary partitions on a disk.
 The new config variables AUTORESIZE_PARTITIONS
 AUTORESIZE_EXCLUDE_PARTITIONS
 AUTOSHRINK_DISK_SIZE_LIMIT_PERCENTAGE
-UTOINCREASE_DISK_SIZE_THRESHOLD_PERCENTAGE
+AUTOINCREASE_DISK_SIZE_THRESHOLD_PERCENTAGE
 determine how ReaR behaves in migration mode
 when partitions can or must be resized.
 With AUTORESIZE_PARTITIONS='yes' the old behaviour is done. 
