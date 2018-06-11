@@ -1021,7 +1021,7 @@ ReaR-2.4 is supported on the following Linux based operating systems:
 * RHEL 5, 6 and 7
 * CentOS 5, 6 and 7
 * ScientificLinux 6 and 7
-* SLES 11 and 12
+* SLES 11, 12 and 15
 * openSUSE Leap and openSUSE Tumbleweed
 * Debian 6, 7, 8 and 9
 * Ubuntu 12, 13, 14 and 15
