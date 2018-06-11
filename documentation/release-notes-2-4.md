@@ -177,53 +177,119 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 #### Abstract
 
-New features and bigger enhancements:
+New features, bigger enhancements, and possibly backward incompatible changes:
 
-* EMC Avamar support has been added
+* Major rework and changed default behaviour how ReaR behaves
+in migration mode when partitions can or must be resized
+to fit on replacement disks with different size.
+The new default behaviour is that only the partition end value 
+of the last partition on a disk (and therefore its partition size) 
+may get changed if really needed but no partition start value 
+gets changed to avoid changes of the partition alignment. 
+The new 420_autoresize_last_partitions script implements 
+the new behaviour and the old 400_autoresize_disks was 
+renamed into 430_autoresize_all_partitions to still provide 
+the old behaviour if that is explicitly requested by the user 
+but the old behaviour may result unexpected changes 
+of arbitrary partitions on a disk. 
+The new config variables AUTORESIZE_PARTITIONS
+AUTORESIZE_EXCLUDE_PARTITIONS
+AUTOSHRINK_DISK_SIZE_LIMIT_PERCENTAGE
+UTOINCREASE_DISK_SIZE_THRESHOLD_PERCENTAGE
+determine how ReaR behaves in migration mode
+when partitions can or must be resized.
+With AUTORESIZE_PARTITIONS='yes' the old behaviour is done. 
+With AUTORESIZE_PARTITIONS='no' no partition is resized by ReaR. 
+With the default AUTORESIZE_PARTITIONS='' at most the last active 
+partition on each active disk gets resized but only if really needed 
+which also depends on the settings of the other config variables above. 
+For details see default.conf and the two 'autoresize' scripts.
+For some examples see https://github.com/rear/rear/pull/1733 
 
-* Duplicity backup has been seriously enhanced
+* Network setup was completely reworked to support bonding, bridges, vlans and teaming.
+There is a full rewrite of the 310_network_devices.sh script generating network interfaces
+for use during the ReaR recovery early boot via the 60-network-devices.sh script.
+It also handles corner cases/odd setups that can be found from time to time,
+typically when the administrator uses bonding plus bridges plus vlans as well as teaming. 
 
-* TCG Opal support
+* Initial (limited) support for certain ARM based hardware.
+It should work with Raspberry Pis, most TI and Allwinner devices.
+There are two ARM specific BOOTLOADER variable values where
+'ARM-ALLWINNER' is for Allwinner devices that will backup and restore the 2nd stage bootloader
+versus plain 'ARM' which is a dummy that does nothing so that on Raspberry Pi and most TI devices
+you need to include the first FAT partition (with the MLO or bootcode.bin) in your backup.
+
+* Simplified and enhanced TSM restore plus first draft of TSM backup.
+
+* EMC Avamar support has been added.
+
+* Duplicity backup has been seriously enhanced.
+
+* Support for TCG Opal 2-compliant self-encrypting disks and RAWDISK output.
+
+* YUM+backup adds the ability to backup and restore files to the YUM method.
 
 #### Details (mostly in chronological order):
 
-* Several minor fixes in the TSM area (issues #1803, #1744, #1534
-
-* Several improvements within the TSM backup area (issues #1797, #1348)
+* Copy backup restore log into recreated system (issue #1803)
 
 * Sesam integration: add sesam bin directory to LD_LIBRARY_PATH (issue #1817)
 
-* ReaR recovery fails when the OS contains a Thin Pool/Volume (issue #1380)
+* ReaR recovery fails when the OS contains a Thin Pool/Volume (issues #1380, #1806)
 
-* Make SLES12-GA/SP0 btrfs recovery work for a SLES12-SP1 (and later) btrfs subvolumes setup (issue #1796)
+* Make SLES12-GA/SP0 btrfs recovery work again (issues #1796, #1813)
+
+* Verify if dm-X is a partition before adding to sysfs_paths (issue #1805)
+
+* Do not start multipathd when not needed (issue #1804)
+
+* Better way to get multiapth partion name (issue #1802)
 
 * Exclude multipath device that does not have mounted fs (issue #1801)
 
-* man page BACKUP SOFTWARE INTEGRATION update (issue #1788)
+* Do not print each files restores by TSM in main output (issue #1797)
+
+* man page BACKUP SOFTWARE INTEGRATION update (issues #1788, #1791)
 
 * In the DRLM specific function drlm_import_runtime_config() solve problem with some variables loading config from DRLM (issue #1794)
 
-* Introduced KEYMAPS_DEFAULT_DIRECTORY variable; full description in default.conf file (issue #1781)
+* Better describe NON_FATAL_BINARIES_WITH_MISSING_LIBRARY in default.conf (issues #1792, #1693)
 
-* Introduced NON_FATAL_BINARIES_WITH_MISSING_LIBRARY variable (see default.conf file for a description)
+* Introduced KEYMAPS_DEFAULT_DIRECTORY and KEYMAP variables, see the default.conf file (issues #1781, #1787)
 
-* Several improvements around multipath code (issue #1765)
+* Fix multipath partition replacement and multipath partition naming (issue #1765)
+
+* Skip LUKS encrypted disks when guessing bootloader (issue #1779)
+
+* First draft of TSM backup (issue #1348)
 
 * HP RAID code was updated as the new executable is now called as "ssacli" (issue #1760)
 
 * Exclude docker file systems from layout (issue #1749)
 
-* Replace pstree by ps command (issue #1755)
+* Added migation mode confirmation at beginning of finalize stage (issue #1758)
 
-* Run exit tasks code with default bash flags and options (issues #700 and #1747)
+* Show descendant processes PIDs with their commands in the log via pstree or ps as fallback (issues #1755, #1756)
 
-* Code improvement around AUTORESIZE_PARTITIONS (issue #1746)
+* Check for 'Hah!IdontNeedEFI' GUID number for a GPT BIOS boot partition (issues #1752, #1754, #1780)
 
-* YUM+backup adds the ability to backup and restore files to the YUM method (issue 1464)
+* Fixed invalid reported return code (always 0) upon NBU restoration failure (issue #1751)
 
-* Use grub2-install --no-nvram on PowerNV system (issue #1742)
+* Run exit tasks code with default bash flags and options (issues #700, #1747, #1748)
 
-* We can chronyd as time syncing mechanism now as well (issue #1739) 
+* Major rework and changed default behaviour regarding AUTORESIZE_PARTITIONS (issues #102, #1731, #1733, #1746)
+
+* YUM+backup adds the ability to backup and restore files to the YUM method (issues #1464, #1740)
+
+* Add dbus user and group by default (issues #1710, #1743)
+
+* Add gsk libs to TSM_LD_LIBRARY_PATH (issue #1744)
+
+* Use 'grub2-install --no-nvram' on PowerNV system (issue #1742)
+
+* We can use chronyd as time syncing mechanism now as well (issue #1739) 
+
+* Trace and fix broken symbolic links in rootfs (issues #1638, #1734)
 
 * Borg Backup can now use USB disk as well as backup storage area (issue #1730)
 
@@ -231,23 +297,37 @@ New features and bigger enhancements:
 
 * Improve the network parameters on the Linux Kernel command line (issue #1725)
 
-* Improve the LAN interface status check (issue #1701)
+* Clean termination of descendant processes (issues #1712, #1720)
+
+* Simpler and more fail-safe SLE btrfs-example.conf files (issues #1714, #1716)
+
+* Use a fallback to get interface state using the 'carrier' status (issues #1701, #1719)
 
 * Fix duplicity backup (issue #1695)
 
-* Support GPT partitiins with blanks in label (issues #212 and #1563)
+* Include Bareos plugin directory to make bareos-fd start reliably (issues #1692, #1708)
 
-* Improvements around BORGBACKUP (issues #1700, 1698 )
+* Again support GPT partition names with blanks (issues #212, #1563, #1706)
+
+* Improvements around Borg Backup (issues #1698, #1700)
 
 * Automatically add 'missing' devices to MD arrays with not enough physical devices upon restore (issue #1697)
 
-* Network script has been strongly reworked to support bonding, bridges, vlans and teaming (issue #1574)
+* Network setup was completely reworked to support bonding, bridges, vlans and teaming (issue #1574)
 
 * Fixed restore backup when BACKUP_INTEGRITY_CHECK=1 (issue #1685)
 
 * Support TCG Opal 2-compliant self-encrypting disks and RAWDISK output (issue #1659)
 
-* Add EMC Avamar backup (issues #1677, #1621)
+* Add EMC Avamar backup (issues #1621, #1677, #1687)
+
+* Avoid falsely detected changed layout for 'rear checklayout' (issues #1657, #1658, #1673)
+
+* Simplified TSM dsmc restore and improved TSM connection test (issues #1534, #1643, #1645)
+
+* Duplicity with duply waits forever (issues #1664, #1672)
+
+* Duplicity: Add Support for NETFS URLs (issues #1554, #1665, #1668, #1669)
 
 * Any many minor fixes (too many to list them all - use git log to view them)
   A big thank you to all contributors as without you it would be impossible to keep up with the development
