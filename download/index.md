@@ -92,7 +92,7 @@ Since rear release 1.17.2 you will find the stable packages under the architectu
     [12_SP2](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/SLE_12_SP2/)
     [12_SP3](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/SLE_12_SP3/)
     [12_SP4](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/SLE_12_SP4/)
-    [15](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/SLE_5/)
+    [15](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/SLE_15/)
  * Ubuntu:
     [12.04](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/xUbuntu_12.04/),
     [14.04](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/xUbuntu_14.04/),
