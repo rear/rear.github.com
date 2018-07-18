@@ -179,9 +179,35 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 New features, bigger enhancements, and possibly backward incompatible changes:
 
+* Now during "rear mkrescue/mkbackup" md5sums are created for all regular files in in the recovery system
+and stored as /md5sums.txt in the recovery system. During recovery system startup it verifies those md5sums.
+Via the new config variable EXCLUDE_MD5SUM_VERIFICATION (see default.conf) the user can specify
+what files should be excluded from being verified to avoid errors on "false positives".
+
+* GRUB2 installation on x86 and ppc64le architecture was completely rewritten
+and enhanced by the new config variable GRUB2_INSTALL_DEVICES (see default.conf)
+so that now the user can specify what he wants if needed and in MIGRATION_MODE
+disk mappings are applied when devices in GRUB2_INSTALL_DEVICES match.
+
 #### Details (mostly in chronological order):
 
+* Wait for systemd-udevd to avoid broken pipe error in 40-start-udev-or-load-modules.sh (issue #1832)
 
+* Aviod duplicate UUID in boot menuentry when snapper is used (issue #1871)
+
+* Added choice to confirm identical layout mapping only once plus disabling MIGRATION_MODE (issue #1857)
+
+* Verify md5sums of files in recovery system (issue #1859)
+
+* Fedora28: syslinux needs libcom32.c32 to boot from HD (issue #1866)
+
+* Add support for Slackware UEFI/USB (issues #1853, #1863)
+
+* Fedora28: missing ldlinux.c32 prevents PXE booting (issue #1861)
+
+* RAWDISK output portability improvements (issue #1846)
+
+* Fixed, simplified, and enhanced GRUB2 installation on x86 and ppc64le architecture (issues #1828, #1845, #1847, #1437)
 
 ### Version 2.4 (June 2018)
 
