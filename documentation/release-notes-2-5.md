@@ -173,7 +173,7 @@ for each change of your basic system you must re-validate that your disaster rec
 
 The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker](https://github.com/rear/rear/issues).
 
-### Version 2.5 (TBD)
+### Version 2.5 (work in progress)
 
 #### Abstract
 
@@ -189,7 +189,7 @@ and enhanced by the new config variable GRUB2_INSTALL_DEVICES (see default.conf)
 so that now the user can specify what he wants if needed and in MIGRATION_MODE
 disk mappings are applied when devices in GRUB2_INSTALL_DEVICES match.
 
-#### Details (mostly in chronological order):
+#### Details (mostly in chronological order - newest topmost):
 
 * Wait for systemd-udevd to avoid broken pipe error in 40-start-udev-or-load-modules.sh (issue #1832)
 
