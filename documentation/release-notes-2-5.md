@@ -199,11 +199,10 @@ disk mappings are applied when devices in GRUB2_INSTALL_DEVICES match.
 
 * Verify md5sums of files in recovery system (issue #1859)
 
-* Fedora28: syslinux needs libcom32.c32 and libutil.c32 to boot from HD (issue #1866)
+* Fedora28: syslinux needs libcom32.c32 to boot from HD and
+missing ldlinux.c32 and libutil.c32 prevents PXE booting (issues issue #1861, #1866)
 
 * Add support for Slackware UEFI/USB (issues #1853, #1863)
-
-* Fedora28: missing ldlinux.c32 prevents PXE booting (issue #1861)
 
 * RAWDISK output portability improvements (issue #1846)
 
