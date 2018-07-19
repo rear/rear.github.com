@@ -200,7 +200,7 @@ disk mappings are applied when devices in GRUB2_INSTALL_DEVICES match.
 * Verify md5sums of files in recovery system (issue #1859)
 
 * Fedora28: syslinux needs libcom32.c32 to boot from HD and
-missing ldlinux.c32 and libutil.c32 prevents PXE booting (issues issue #1861, #1866)
+missing ldlinux.c32 and libutil.c32 prevents PXE booting (issues #1861, #1866)
 
 * Add support for Slackware UEFI/USB (issues #1853, #1863)
 
