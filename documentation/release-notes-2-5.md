@@ -191,6 +191,14 @@ disk mappings are applied when devices in GRUB2_INSTALL_DEVICES match.
 
 #### Details (mostly in chronological order - newest topmost):
 
+* Now the Error function shows some last messages of the last sourced script to the user (issues #1877 #1875)
+
+* Duplicity: Misc improvements (issues #1876 #1879 #1882)
+
+* Added code to recognize persistent LAN interface and manipulate KERNEL_CMDLINE (issue #1874)
+
+* Initial tentative support for OBDR on ppc64le (issue #1868)
+
 * Wait for systemd-udevd to avoid broken pipe error in 40-start-udev-or-load-modules.sh (issue #1832)
 
 * Aviod duplicate UUID in boot menuentry when snapper is used (issue #1871)
