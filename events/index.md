@@ -5,21 +5,29 @@ title: Relax-and-Recover events
 
 ## Relax-and-Recover events
 
+### OSBConf 2018 Conference, Cologne, 26 September, 2018
+<p>
+<a href="https://osbconf.org/schedule-2/" title="OSBConf 2018 Schedule"><img src="/images/OSBConf2018.png" border="0" align="right" alt="OSBConf 2018 banner" /></a>
+<br clear="right">
+</p>
+
 ### FlossUK Spring Conference, Edinburgh, 26-27 April, 2018
-Gratien will present ["Relax-and-Recover Automated Testing"](https://www.flossuk.org/membership/spring-conference-2018/spring-2018-talks/)
+Gratien presented ["Relax-and-Recover Automated Testing"](https://www.flossuk.org/membership/spring-conference-2018/spring-2018-talks/) - no link to movie is published (yet)
 
 ### Loadays, Wilrijk, 21-22 April, 2018
 Gratien talked and gave a demo around ["Relax-and-Recover Automated Testing"](http://loadays.org/pages/schedule.html)
-<iframe width="340" height="290" src="https://www.youtube.com/embed/JZ6KNj0BwWs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<iframe width="280" height="210" src="https://www.youtube.com/embed/JZ6KNj0BwWs" align="right" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+<br clear="right">
 
 ### FrOSCon 2017, Bonn-Rhein-Sieg, 20 August, 2017
 Gratien presented "Relax-and-Recover Automated Testing" on Sunday, 20 August 2017 [movie of the talk at FrOSCon](https://media.ccc.de/v/froscon2017-1957-relax-and-recover_automated_testing)
 
 ### CeBIT Open Source Forum 2017, Hannover, 24 March, 2017
 Gratien presented ["Relax-and-Recover Automated Testing"](http://www.cebit.de/veranstaltung/relax-and-recover-automated-testing/VOR/77620) in the Open Source Forum, Hall 3, Stand D35 at 13:45. 
-<iframe src="//www.slideshare.net/slideshow/embed_code/key/2L1XovGt4LKGQZ" width="340" height="290" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> 
+<iframe src="//www.slideshare.net/slideshow/embed_code/key/2L1XovGt4LKGQZ" width="280" height="210" align="right" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe> 
 <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/gratien_dhaese/relaxandrecover-automated-testing" title="Relax-and-Recover Automated Testing" target="_blank">Relax-and-Recover Automated Testing</a> </strong> from <strong><a target="_blank" href="//www.slideshare.net/gratien_dhaese">Gratien D&#x27;haese</a></strong> 
 </div>
+<br clear="right">
 
 ### FOSDEM 2017, Brussels, 4-5 February, 2017
 Devroom ["Backup and Disaster Recovery"](https://fosdem.org/2017/schedule/track/backup_and_disaster_recovery/). Johannes Meixner and Gratien D'haese gave several presentations around ReaR. Slides and movies are available at the Fosdem.org web-site.
@@ -99,8 +107,6 @@ The Relax-and-Recover talk has been placed on-line by OpenSUSE TV.
 
 ### FlossUK 2012 Spring conference, Edinburgh, UK
 Another great conference where we presented the functionality and use-cases Relax-and-Recover offers.
-
-<img src="http://www.flossuk.org/moin_static193/common/flossuk-182x70.png" align="right">
 <br clear="right">
 
 ### LinuxCon Europe 2011, Prague, CZ
