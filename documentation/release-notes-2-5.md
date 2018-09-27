@@ -1097,7 +1097,7 @@ ReaR-2.4 is supported on the following Linux based operating systems:
 * Debian 6, 7, 8 and 9
 * Ubuntu 12, 13, 14 and 15
 
-ReaR-2.4 dropped officially support for the following Linux based operating systems:
+ReaR-2.4 dropped official support for the following Linux based operating systems:
 
 * Fedora < 26
 * RHEL 3 and 4
@@ -1105,6 +1105,10 @@ ReaR-2.4 dropped officially support for the following Linux based operating syst
 * openSUSE <= 13
 * Debian < 6
 * Ubuntu < 12
+
+ReaR-2.4 (and probably also some earlier versions) is known to no longer work reasonably well for the following Linux based operating systems:
+
+* SLES 9 and 10 (issue #1842)
 
 If you require support for *unsupported* Linux Operating System you must acquire a *ReaR support contract*.
 
