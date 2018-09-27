@@ -233,7 +233,7 @@ information when a disk has 4K block size (issue #1884)
 
 * Added choice to confirm identical layout mapping only once plus disabling MIGRATION_MODE (issue #1857)
 
-* Verify md5sums of files in recovery system (issue #1859)
+* Verify md5sums of files in recovery system (issues #1859 #1895)
 
 * Fedora28: syslinux needs libcom32.c32 to boot from HD and
 missing ldlinux.c32 and libutil.c32 prevents PXE booting (issues #1861, #1866)
