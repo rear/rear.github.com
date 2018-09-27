@@ -1083,7 +1083,7 @@ allows it).
 
 That does not mean we let our user basis in the cold as we do deliver support as a service (not free of charge).
 
-## Supported Operating Systems
+## Supported and Unsupported Operating Systems
 We try to keep our wiki page [Test Matrix rear 2.4](https://github.com/rear/rear/wiki/Test-Matrix-rear-2.4) up-to-date with feedback we receive from the community.
 
 ReaR-2.4 is supported on the following Linux based operating systems:
@@ -1114,7 +1114,7 @@ If you require support for *unsupported* Linux Operating System you must acquire
 
 Requests to port ReaR to another Operating System (not Linux) can only be achieved with **serious** sponsoring.
 
-## Supported Architectures
+## Supported and Unsupported Architectures
 ReaR-2.4 is supported on:
 
 * Intel x86 type of processors
