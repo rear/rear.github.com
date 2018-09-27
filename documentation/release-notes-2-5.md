@@ -191,6 +191,34 @@ disk mappings are applied when devices in GRUB2_INSTALL_DEVICES match.
 
 #### Details (mostly in chronological order - newest topmost):
 
+* Added exclusion of zram devices from device mapping in default.conf.
+By default zram devices are not to be mapped, exactly as it is done
+for ramdisk and loop devices (issue #1916)
+
+* Fixed a non-working awk command in the generate_layout_dependencies() function
+that falsely also matched commented '#btrfsmountedsubvol' entries in disklayout.conf
+with an egrep command that is more in line with how it had worked before (issue #1497)
+
+* Fixed and enhanced NETFS+tar backup pipe exit code handling (issue #1913)
+
+* Moved the functionality of the recovery system setup script 67-check-by-label-cdrom.sh
+into the mount_url function 'iso' case plus additional enhancements there
+with a user dialog if things are not o.k. and removed the no longer
+needed 67-check-by-label-cdrom.sh (issues #1893 #1891 #326)
+
+* Fixed that on LPAR/PPC64 PowerVM the boot devices order list was incorrectly
+set (via 'bootlist') when having multiple 'prep' partitions. Now handling of
+multiple 'prep' partitions was added plus enhanced handling of multiple prep
+partitions and multipath (issue #1886)
+
+* Fixed and enhanced the get_disk_size and get_block_size functions 
+so that now by default blockdev is used (if exists) to retrieve the size
+of the disk and its block size and compute partition start using 512 bytes
+blocks (this is hardcoded in the Linux kernel) to fix wrong partition
+information when a disk has 4K block size (issue #1884)
+
+* Print multipath device name during "rear recover" when "firendly_name" option is off (issue #1889)
+
 * Now the Error function shows some last messages of the last sourced script to the user (issues #1877 #1875)
 
 * Duplicity: Misc improvements (issues #1876 #1879 #1882)
