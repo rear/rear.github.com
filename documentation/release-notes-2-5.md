@@ -191,6 +191,34 @@ disk mappings are applied when devices in GRUB2_INSTALL_DEVICES match.
 
 #### Details (mostly in chronological order - newest topmost):
 
+* Added exclusion of zram devices from device mapping in default.conf.
+By default zram devices are not to be mapped, exactly as it is done
+for ramdisk and loop devices (issue #1916)
+
+* Fixed a non-working awk command in the generate_layout_dependencies() function
+that falsely also matched commented '#btrfsmountedsubvol' entries in disklayout.conf
+with an egrep command that is more in line with how it had worked before (issue #1497)
+
+* Fixed and enhanced NETFS+tar backup pipe exit code handling (issue #1913)
+
+* Moved the functionality of the recovery system setup script 67-check-by-label-cdrom.sh
+into the mount_url function 'iso' case plus additional enhancements there
+with a user dialog if things are not o.k. and removed the no longer
+needed 67-check-by-label-cdrom.sh (issues #1893 #1891 #326)
+
+* Fixed that on LPAR/PPC64 PowerVM the boot devices order list was incorrectly
+set (via 'bootlist') when having multiple 'prep' partitions. Now handling of
+multiple 'prep' partitions was added plus enhanced handling of multiple prep
+partitions and multipath (issue #1886)
+
+* Fixed and enhanced the get_disk_size and get_block_size functions 
+so that now by default blockdev is used (if exists) to retrieve the size
+of the disk and its block size and compute partition start using 512 bytes
+blocks (this is hardcoded in the Linux kernel) to fix wrong partition
+information when a disk has 4K block size (issue #1884)
+
+* Print multipath device name during "rear recover" when "firendly_name" option is off (issue #1889)
+
 * Now the Error function shows some last messages of the last sourced script to the user (issues #1877 #1875)
 
 * Duplicity: Misc improvements (issues #1876 #1879 #1882)
@@ -205,7 +233,7 @@ disk mappings are applied when devices in GRUB2_INSTALL_DEVICES match.
 
 * Added choice to confirm identical layout mapping only once plus disabling MIGRATION_MODE (issue #1857)
 
-* Verify md5sums of files in recovery system (issue #1859)
+* Verify md5sums of files in recovery system (issues #1859 #1895)
 
 * Fedora28: syslinux needs libcom32.c32 to boot from HD and
 missing ldlinux.c32 and libutil.c32 prevents PXE booting (issues #1861, #1866)
@@ -1055,7 +1083,7 @@ allows it).
 
 That does not mean we let our user basis in the cold as we do deliver support as a service (not free of charge).
 
-## Supported Operating Systems
+## Supported and Unsupported Operating Systems
 We try to keep our wiki page [Test Matrix rear 2.4](https://github.com/rear/rear/wiki/Test-Matrix-rear-2.4) up-to-date with feedback we receive from the community.
 
 ReaR-2.4 is supported on the following Linux based operating systems:
@@ -1069,7 +1097,7 @@ ReaR-2.4 is supported on the following Linux based operating systems:
 * Debian 6, 7, 8 and 9
 * Ubuntu 12, 13, 14 and 15
 
-ReaR-2.4 dropped officially support for the following Linux based operating systems:
+ReaR-2.4 dropped official support for the following Linux based operating systems:
 
 * Fedora < 26
 * RHEL 3 and 4
@@ -1078,11 +1106,15 @@ ReaR-2.4 dropped officially support for the following Linux based operating syst
 * Debian < 6
 * Ubuntu < 12
 
+ReaR-2.4 (and probably also some earlier versions) is known to no longer work reasonably well for the following Linux based operating systems:
+
+* SLES 9 and 10 (issue #1842)
+
 If you require support for *unsupported* Linux Operating System you must acquire a *ReaR support contract*.
 
 Requests to port ReaR to another Operating System (not Linux) can only be achieved with **serious** sponsoring.
 
-## Supported Architectures
+## Supported and Unsupported Architectures
 ReaR-2.4 is supported on:
 
 * Intel x86 type of processors

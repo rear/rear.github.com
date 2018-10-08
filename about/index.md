@@ -58,7 +58,7 @@ it as a Disaster Recovery solution:
    * EMC NetWorker (Legato)
    * HP DataProtector
    * IBM Tivoli Storage Manager (TSM)
-   * [SEP Sesam](http://www.sep.de/de/produkte/disaster-recovery/)
+   * [SEP Sesam](https://www.sepsoftware.com/sep-sesam/disaster-recovery/)
    * Symantec NetBackup
    * [Bacula](http://www.bacula.org)
    * [Bareos](http://www.bareos.org/en/HOWTO/articles/relax-and-recover-with-bareos.html)
