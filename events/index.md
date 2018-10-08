@@ -7,8 +7,7 @@ title: Relax-and-Recover events
 
 ### OSBConf 2018 Conference, Cologne, 26 September, 2018
 The slides of the talk of Gratien around ["Relax-and-Recover Automated Testing with Bareos"](https://osbconf.org/wp-content/uploads/2018/09/rear-automated-testing-with-BAREOS.pdf).
-<p>
-<a href="https://osbconf.org/2018-2/" title="OSBConf 2018 Archive"><img src="/images/OSBConf2018.png" border="0" width="280" height="210" align="right" alt="OSBConf 2018 picture of Gratien" /></a></p>
+<a href="https://osbconf.org/2018-2/" title="OSBConf 2018 Archive"><img src="/images/OSBConf2018.png" border="0" width="280" height="210" align="right" alt="OSBConf 2018 picture of Gratien" /></a>
 <br clear="right">
 
 ### FlossUK Spring Conference, Edinburgh, 26-27 April, 2018
