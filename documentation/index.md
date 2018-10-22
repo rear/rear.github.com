@@ -13,7 +13,7 @@ title: Relax-and-Recover documentation
 
  - [Manual page](https://github.com/rear/rear/blob/master/doc/rear.8.adoc)
 
- - [Frequentally asked questions](http://relax-and-recover.org/documentation/faq)
+ - [Frequently Asked Questions](http://relax-and-recover.org/documentation/faq)
 
  - [Layout Configuration](https://github.com/rear/rear/blob/master/doc/user-guide/06-layout-configuration.adoc)
 
