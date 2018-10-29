@@ -159,9 +159,8 @@ functionality:
 
 *NOTE*: Features marked *Experimental* are prone to change with future releases.
 
-
-
 ## Relax-and-Recover Releases
+
 The first release of Relax-and-Recover, version 1.0, was posted to the web in July 2006.
 For each release, this chapter lists the new features and defect fixes.
 All releases are cumulative.
@@ -184,12 +183,46 @@ and stored as /md5sums.txt in the recovery system. During recovery system startu
 Via the new config variable EXCLUDE_MD5SUM_VERIFICATION (see default.conf) the user can specify
 what files should be excluded from being verified to avoid errors on "false positives".
 
-* GRUB2 installation on x86 and ppc64le architecture was completely rewritten
+* GRUB2 installation on x86 and ppc64le architecture was completely rewritten*
 and enhanced by the new config variable GRUB2_INSTALL_DEVICES (see default.conf)
 so that now the user can specify what he wants if needed and in MIGRATION_MODE
 disk mappings are applied when devices in GRUB2_INSTALL_DEVICES match.
 
 #### Details (mostly in chronological order - newest topmost):
+
+* Fixed that the FindStorageDrivers function failed on kernels with no modules.
+When MODULES=( 'no_modules' ) is set FindStorageDrivers() is now skipped (issue #1941)
+
+* Increase the default USB_UEFI_PART_SIZE from 200 to 400 MiB (issue #1205)
+
+* Enhanced rescue/GNU/Linux/310_network_devices.sh for Bonding and Teaming
+when it is configured with LACP. Bonding should not be simplified in this case
+plus added code for non-simplified Teaming (issue #1926).
+Furthermore simplified/hardened the tests/setup1 and tests/setup2 testbeds.
+
+* In 500_clone_keyboard_mappings.sh avoid running find
+in the whole tree of filesystems which takes ages (issue #1906)
+
+* Let 100_include_partition_code.sh error out
+when the parted command is not there (issue #1933)
+
+* Suppress bash stderr messages like 'unary operator expected'
+or 'integer expression expected' where a particular 'test'
+intentionally also fails this way (issue #1931)
+
+* Show errors to the user via LogPrintError instead of only LogPrint
+because LogPrint outputs only in case of verbose mode (issue #1914)
+
+* Avoid dangling symlinks when copying ReaR config files into the ReaR recovery system
+by copying the content of the symlink target via 'cp -L' (issue #1923)
+
+* Avoid 'nullglob' pitfalls in 250_populate_efibootimg.sh
+and generally overhalued that script (issue #1921)
+
+* Check that CONFIG_DIR is a directory (issue #1815)
+
+* Avoid bash error messages like: "eq: unary operator expected"
+when using older versions of xfsprogs (issue #1915)
 
 * Added exclusion of zram devices from device mapping in default.conf.
 By default zram devices are not to be mapped, exactly as it is done
