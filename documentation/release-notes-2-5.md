@@ -183,7 +183,7 @@ and stored as /md5sums.txt in the recovery system. During recovery system startu
 Via the new config variable EXCLUDE_MD5SUM_VERIFICATION (see default.conf) the user can specify
 what files should be excluded from being verified to avoid errors on "false positives".
 
-* GRUB2 installation on x86 and ppc64le architecture was completely rewritten*
+* GRUB2 installation on x86 and ppc64le architecture was completely rewritten
 and enhanced by the new config variable GRUB2_INSTALL_DEVICES (see default.conf)
 so that now the user can specify what he wants if needed and in MIGRATION_MODE
 disk mappings are applied when devices in GRUB2_INSTALL_DEVICES match.
@@ -193,7 +193,7 @@ disk mappings are applied when devices in GRUB2_INSTALL_DEVICES match.
 * Fixed that the FindStorageDrivers function failed on kernels with no modules.
 When MODULES=( 'no_modules' ) is set FindStorageDrivers() is now skipped (issue #1941)
 
-* Increase the default USB_UEFI_PART_SIZE from 200 to 400 MiB (issue #1205)
+* Increased the default USB_UEFI_PART_SIZE from 200 to 400 MiB (issue #1205)
 
 * Enhanced rescue/GNU/Linux/310_network_devices.sh for Bonding and Teaming
 when it is configured with LACP. Bonding should not be simplified in this case
