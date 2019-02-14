@@ -178,10 +178,18 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 New features, bigger enhancements, and possibly backward incompatible changes:
 
-* Now during "rear mkrescue/mkbackup" md5sums are created for all regular files in in the recovery system
-and stored as /md5sums.txt in the recovery system. During recovery system startup it verifies those md5sums.
-Via the new config variable EXCLUDE_MD5SUM_VERIFICATION (see default.conf) the user can specify
-what files should be excluded from being verified to avoid errors on "false positives".
+* Basic support for EFISTUB booting: Via the new config variable EFI_STUB
+(see default.conf) the user can (and if needed must) specify that
+the recreated system should boot via EFISTUB. If EFI_STUB is specified
+but some boot loader like GRUB2 or ELILO is used on the original system,
+the recreated system gets migrated to boot (only) via EFISTUB.
+
+* Now during "rear mkrescue/mkbackup" md5sums are created for all regular files
+in in the recovery system and stored as /md5sums.txt in the recovery system.
+During recovery system startup it verifies those md5sums.
+Via the new config variable EXCLUDE_MD5SUM_VERIFICATION (see default.conf)
+the user can specify what files should be excluded from being verified
+to avoid errors on "false positives".
 
 * GRUB2 installation on x86 and ppc64le architecture was completely rewritten
 and enhanced by the new config variable GRUB2_INSTALL_DEVICES (see default.conf)
@@ -189,6 +197,38 @@ so that now the user can specify what he wants if needed and in MIGRATION_MODE
 disk mappings are applied when devices in GRUB2_INSTALL_DEVICES match.
 
 #### Details (mostly in chronological order - newest topmost):
+
+* Fix for GRUB2 EFI modules search directory location: Instead of looking for GRUB2 modules only in /boot also find them in /usr/lib/grub*, where GRUB2 modules are normally installed by default (issue #2039)
+
+* Basic support for EFISTUB booting plus documentation (issues #1942 #2030)
+
+* Multipath optimizations: Optimized get_device_name() by calling "dmsetup info" only once, and for "dm" devices only. Removed collecting output of /sys/class/fc_transport since it can be very slow and is not used (issues #2020 #2034)
+
+* Suppress dispensable 'set -x' debug output unless called with '--debugscripts x': A noticeable part (25% and more) of the 'set -x' debugscripts output is usually of no interest and therefore such output is suppressed by default (e.g. when rear is called with '-D') unless rear is called with '--debugscripts x' where the full debugscripts output is still there as it was before (issue #2024)
+
+* Cleaned up the Docker specific exclude part in 230_filesystem_layout.sh: Determine docker_root_dir only once and try to be safer against possibly crippled Docker installations (e.g. timeout 'docker info') and be safe against empty docker_root_dir (otherwise all mountpoints would match the empty string and we would would skip all mountpoints) and show possible errors to the user in any case (issues #1989 #2021)
+
+* Improved setup of etc/resolv.conf in the recovery system: By default in the recovery system a plain traditional /etc/resolv.conf file with an entry of a remote 'nameserver DNS.server.IP.address' is needed. It cannot work when /etc/resolv.conf contains only loopback IP addresses (which happens when the stub resolver systemd-resolved is used) or when there is no nameserver entry so that "rear mkrescue/mkbackup" errors out in this case. For non-default cases the user must specify what he wants via the new USE_RESOLV_CONF variable (issue #2015)
+
+* Improved 'rear dump' output to clearly distinguish array elements. The whole 'rear dump' output format was changed. Now it shows normal string variables as `STRING="string of words"` and arrays as a beautified/simplified 'declare -p' output as `ARRAY=("first element" "second element" ... )` unless in debug mode where the plain 'declare -p' output is shown like `declare -- STRING="string of words"` and `declare -a ARRAY=([0]="first element" [1]="second element" ... )` that is needed for complicated array elements that contain brackets. Furthermore now the 'rear dump' output can be directly sourced (issue #2014)
+
+* Error out when we cannot make a bootable EFI image of GRUB2 which is required when UEFI is used (issue 2013)
+
+* Allow non-interactive authentication with rsync by using BACKUP_RSYNC_OPTIONS to specify the "--password-file=/full/path/to/file" rsync option (issue #2011)
+
+* Add possibility for user to specify whether or not show Borg stats at the end of backup session (issue #2008)
+
+* Adaption for Fedora 29: grub2-efi-x64-modules does not contain linuxefi module (issue #2001)
+
+* Let the user optionally specify mkfs.xfs options if needed to recreate XFS filesystems with different options than before (e.g. in MIGRATION_MODE because of different replacement hardware) via the new MKFS_XFS_OPTIONS config variable (issue #2005)
+
+* Network interface renaming: Automatically map device to its new name when device is found on the system with same MAC address but different name (issue #2004)
+
+* It is no BugError when neither getty nor agetty are avaiable. Such a case it is an Error because the user must have the programs in REQUIRED_PROGS installed on his system
+
+* Fix for 'error:unrecognized number' when booting ISO on PPC: Issue is caused by incorrect, according to PAPR specification, bootinfo entity parsing code in GRUB2 (issue #1978)
+
+* Fixed that in recovery system DHCP client did not iterate through all network interfaces. It incorrectly took only the first one. If the interface that is intended for recovery was not the first one, it had failed (issue #1986)
 
 * Automatically exclude BUILD_DIR from the backup. When TMPDIR was specified to something not in /tmp, BUILD_DIR was not automatically excluded from the backup (issue #1993)
 
