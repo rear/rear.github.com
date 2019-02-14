@@ -190,6 +190,36 @@ disk mappings are applied when devices in GRUB2_INSTALL_DEVICES match.
 
 #### Details (mostly in chronological order - newest topmost):
 
+* Automatically exclude BUILD_DIR from the backup. When TMPDIR was specified to something not in /tmp, BUILD_DIR was not automatically excluded from the backup (issue #1993)
+
+* Support ISOs bigger than 4GiB with OUTPUT=ISO by including the udf kernel module into the recovery system when mkisofs or genisoimage is used (not needed for xorrisoifs) and enable creating an hybrid iso9660/udf DVD (issue #1836)
+
+* Cleaned up how KERNEL_FILE is set: Now the KERNEL_FILE variable is set in the 'prep' stage only by the new prep/GNU/Linux/400_guess_kernel.sh that replaces the old pack/GNU/Linux/400_guess_kernel.sh  and all the various different 300_copy_kernel.sh scripts (except output/USB/Linux-i386/830_copy_kernel_initrd.sh) are removed because the 300_copy_kernel.sh scripts had also only set the KERNEL_FILE variable in various ways. Additionally it errors out in various output stage scripts when kernel or initrd are missing and it shows aligned error messages in those cases to the user. Finally it errors out when the file does not exist or is a broken symlink. (issues #1851 #1983 #1985)
+
+* Enhanced and more robust exclude of vfat filesystem (ESP) from SELinux relabeling during recover process (issue #1977)
+
+* Fixed NBU (NetBackup) not working since ReaR 2.4: With NetBackup, too many binaries were included, causing the recovery system verification to fail or print error messages. A new NBU_LD_LIBRARY_PATH variable is used during verification. The RequiredSharedOjects() function was fixed to not list the left part of the ldd mapping when there is a right part: Some NetBackup libraries have a mapping such as "/lib/ld64.so => /lib64/ld-linux-x86-64.so.2", causing the RequiredSharedOjects() function to print "/lib/ld64.so" which does not resolve (issue #1974)
+
+* Add /etc/ca-certificates directory to recovery system (issue #1971)
+
+* Skip 630_run_efibootmgr.sh when UEFI_BOOTLOADER is empty or not a regular file and determine the ESP mountpoint from UEFI_BOOTLOADER and use $TARGET_FS_ROOT/boot/efi as fallback plus corrected logic whether or not NOBOOTLOADER is set empty (issues #1942 #1945)
+
+* Missing libraries in recovery system caused executables to fail because libraries were skipped from copying when their library path was a substring of another already copied library, for example /path/to/lib was skipped when /other/path/to/lib was already copied (issue #1975)
+
+* Check for carriage return in local/site/rescue.conf files (issue #1965)
+
+* Specific required programs are added to REQUIRED_PROGS depending on what component keywords are used in disklayout.conf (issue #1963)
+
+* Cleanup and enhancement of REQUIRED_PROGS and PROGS checks (issue #1962)
+
+* Moved PROGS from GNU/Linux.conf to default.conf REQUIRED_PROGS (issue #892)
+
+* Record permanent mac address when device is enslaved in a bond, or else /etc/mac-addresses will record broken information (issue #1954)
+
+* For Slackware Linux: Added automatic OS vendor and version detection. Added logic to search for kernel files when the standard ELILO kernel install paths come up empty. Added legacy LILO bootloader support.
+
+* Enhanced and cleaned up 985_fix_broken_links.sh to find symlinks in the recovery system where the link target is outside of the recovery system and in such cases the missing link target gets copied into the recovery system plus more verbose error reporting to the user (issue #1638)
+
 * Fixed that the FindStorageDrivers function failed on kernels with no modules.
 When MODULES=( 'no_modules' ) is set FindStorageDrivers() is now skipped (issue #1941)
 
