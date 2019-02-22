@@ -184,6 +184,9 @@ the recreated system should boot via EFISTUB. If EFI_STUB is specified
 but some boot loader like GRUB2 or ELILO is used on the original system,
 the recreated system gets migrated to boot (only) via EFISTUB.
 
+* The whole 'rear dump' output format need to be changed to improve it
+to clearly distinguish array elements.
+
 * Now during "rear mkrescue/mkbackup" md5sums are created for all regular files
 in in the recovery system and stored as /md5sums.txt in the recovery system.
 During recovery system startup it verifies those md5sums.
@@ -197,6 +200,14 @@ so that now the user can specify what he wants if needed and in MIGRATION_MODE
 disk mappings are applied when devices in GRUB2_INSTALL_DEVICES match.
 
 #### Details (mostly in chronological order - newest topmost):
+
+* Now /proc /sys /dev and /run are bind-mounted into TARGET_FS_ROOT at the beginning of the finalize stage via the new 110_bind_mount_proc_sys_dev_run.sh script and existing code in various finalize scripts for mounting /proc /sys /dev and things like that was removed and the finalize scripts were adapted and renumbered as needed (issues #2045 #2035)
+
+* Added eno-fix.rules to RULE_FILES for LAN interface MAC address changes to the ens-style LAN interface names instead of the older eno-type LAN names and aligned RULE_FILES content in the involved scripts (issue #2046)
+
+* Fixed 58-start-dhclient.sh script to make it work reliably with multiple network interfaces (issue #2038)
+
+* Borg backup restore enhancements and fixes: Added checks whether we can read Borg archive, user can enable progress display via BORGBACKUP_SHOW_PROGRESS="yes", corrected mounting of USB device when using Borg (issues #2029 #2037)
 
 * Fix for GRUB2 EFI modules search directory location: Instead of looking for GRUB2 modules only in /boot also find them in /usr/lib/grub*, where GRUB2 modules are normally installed by default (issue #2039)
 
