@@ -208,8 +208,8 @@ For details see the MODULES description in default.conf.
 * The new verify script layout/save/default/950_verify_disklayout_file.sh
 verifies the disklayout.conf file that is created by "rear mkrescue/mkbackup".
 Currently only some very basic verification is implemented: It verifies that
-the 'disk' entries look sytactically correct (only basic value type testing),
-the 'part' entries look sytactically correct (only basic value type testing),
+the 'disk' entries look syntactically correct (only basic value type testing),
+the 'part' entries look syntactically correct (only basic value type testing),
 the 'part' entries specify consecutive partitions.
 The latter is needed to make ReaR more fail-safe in case of sparse partition
 schemes (i.e. when there are non-consecutive partitions) because currently
