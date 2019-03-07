@@ -189,7 +189,7 @@ medium (e.g. iso9660) can be read (issue #1202).
 Furthermore this is helpful to be on the safe side against possibly missing
 dependant kernel modules that are not automatically found (issue #1355).
 The drawback of MODULES=( 'all_modules' ) is that it makes the recovery system
-(and its ISO image) somewhat bigger (see issue# 2041 for some numbers).
+(and its ISO image) somewhat bigger (see issue #2041 for some numbers).
 With `MODULES=()` the old behaviour can be still specified.
 There is a minor backward incompatible change:
 Before the user had to specify in etc/rear/local.conf
