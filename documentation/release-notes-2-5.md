@@ -178,6 +178,50 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 New features, bigger enhancements, and possibly backward incompatible changes:
 
+* Now there is in default.conf `MODULES=( 'all_modules' )`
+which means that now by default all kernel modules
+get included in the recovery system (issue #2041).
+Usually this is required when migrating to different hardware. 
+Additionaly it makes the recovery system better prepared when this or that
+additional kernel module is needed, e.g. to ensure a USB keyboard is usable
+in the recovery system (issue #1870) or to ensure data on external
+medium (e.g. iso9660) can be read (issue #1202).
+Furthermore this is helpful to be on the safe side against possibly missing
+dependant kernel modules that are not automatically found (issue #1355).
+The drawback of MODULES=( 'all_modules' ) is that it makes the recovery system
+(and its ISO image) somewhat bigger (see issue# 2041 for some numbers).
+With `MODULES=()` the old behaviour can be still specified.
+There is a minor backward incompatible change:
+Before the user had to specify in etc/rear/local.conf
+`MODULES=( "${MODULES[@]}" 'moduleX' 'moduleY' )`
+to get some specific modules included in addition to the ones
+via an empty MODULES=() but now the user must specify
+`MODULES=( 'moduleX' 'moduleY' )`
+for that because with "${MODULES[@]}" the new default value 'all_modules'
+would be kept which would trigger that all modules get included
+so that now `MODULES=( "${MODULES[@]}" 'moduleX' 'moduleY' )`
+includes all kernel modules in the recovery system which includes
+in particular 'moduleX' and 'moduleY' so that things still work
+but with a bigger recovery system.
+For details see the MODULES description in default.conf. 
+
+* The new verify script layout/save/default/950_verify_disklayout_file.sh
+verifies the disklayout.conf file that is created by "rear mkrescue/mkbackup".
+Currently only some very basic verification is implemented: It verifies that
+the 'disk' entries look sytactically correct (only basic value type testing),
+the 'part' entries look sytactically correct (only basic value type testing),
+the 'part' entries specify consecutive partitions.
+The latter is needed to make ReaR more fail-safe in case of sparse partition
+schemes (i.e. when there are non-consecutive partitions) because currently
+"rear recover" fails when there are non-consecutive partitions (issue #1681).
+In general verification of the created disklayout.conf should help
+to avoid failures when it is too late (i.e. when "rear recover" fails).
+It is better to error out early during "rear mkrescue/mkbackup".
+It may happen that layout/save/default/950_verify_disklayout_file.sh
+falsely lets "rear mkrescue/mkbackup" error out because of false alarm.
+The immediate workaround for the user in such cases is to remove that script
+or skip what it does by adding a 'return 0' command at its very beginning.
+
 * Basic support for EFISTUB booting: Via the new config variable EFI_STUB
 (see default.conf) the user can (and if needed must) specify that
 the recreated system should boot via EFISTUB. If EFI_STUB is specified
@@ -200,6 +244,16 @@ so that now the user can specify what he wants if needed and in MIGRATION_MODE
 disk mappings are applied when devices in GRUB2_INSTALL_DEVICES match.
 
 #### Details (mostly in chronological order - newest topmost):
+
+* Now there is in default.conf MODULES=( 'all_modules' ) which means that now by default all kernel modules get included in the recovery system (issues #2041 #1870 #1202 #1355)
+
+* New verify script layout/save/default/950_verify_disklayout_file.sh to verify disklayout.conf that was created by "rear mkrescue/mkbackup" (issues #2060 #1681)
+
+* Refresh udev with trigger before activating multipath (issue #2064): Ensure that all information from multipath devices is updated by udev into /sys before activating multipath. This helps to mitigate certain kind of issues when something wrong in the SAN zoning configuration (issues #2002 #2016 #2019)
+
+* For backup NSR: It is of additional use to not skip the retrieval of the filesystems even in NSR_CLIENT_MODE so that this is now also done in NSR_CLIENT_MODE: Due to saving the save sets filesystem information in $VAR_DIR/recovery/nsr_paths within the recovery image one is able to retrieve/read this information during a recovery process i.e. for advising the EMC networker server team to recover the appropriate filesystem(-structure) from the backups beeing made (issue #2058)
+
+* Skip patching absolute symlinks during finalize stage (issue #2055). That does not actually fix issue #1338 but for now it should at least avoid patching wrong files. Furthermore do no longer create udev rules in the recreated system that have not been there. This way one can avoid that ReaR creates udev rules that are created and maintained by systemd/udev like /etc/udev/rules.d/70-persistent-net.rules when one excludes such udev rules from being restored from the backup or by moving them away via BACKUP_RESTORE_MOVE_AWAY_FILES (issue #770)
 
 * Now /proc /sys /dev and /run are bind-mounted into TARGET_FS_ROOT at the beginning of the finalize stage via the new 110_bind_mount_proc_sys_dev_run.sh script and existing code in various finalize scripts for mounting /proc /sys /dev and things like that was removed and the finalize scripts were adapted and renumbered as needed (issues #2045 #2035)
 
