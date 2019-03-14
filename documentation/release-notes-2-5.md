@@ -1260,7 +1260,7 @@ That does not mean we let our user basis in the cold as we do deliver support as
 ## Supported and Unsupported Operating Systems
 We try to keep our wiki page [Test Matrix rear 2.4](https://github.com/rear/rear/wiki/Test-Matrix-rear-2.4) up-to-date with feedback we receive from the community.
 
-ReaR-2.4 is supported on the following Linux based operating systems:
+ReaR-2.5 is supported on the following Linux based operating systems:
 
 * Fedora 26 and 27
 * RHEL 5, 6 and 7
@@ -1271,7 +1271,7 @@ ReaR-2.4 is supported on the following Linux based operating systems:
 * Debian 6, 7, 8 and 9
 * Ubuntu 12, 13, 14 and 15
 
-ReaR-2.4 dropped official support for the following Linux based operating systems:
+ReaR-2.5 dropped official support for the following Linux based operating systems:
 
 * Fedora < 26
 * RHEL 3 and 4
@@ -1280,7 +1280,7 @@ ReaR-2.4 dropped official support for the following Linux based operating system
 * Debian < 6
 * Ubuntu < 12
 
-ReaR-2.4 (and probably also some earlier versions) is known to no longer work reasonably well for the following Linux based operating systems:
+ReaR-2.5. and ReaR-2.4 (and probably also some earlier versions) are known to no longer work reasonably well for the following Linux based operating systems:
 
 * SLES 9 and 10 (issue #1842)
 
@@ -1289,19 +1289,19 @@ If you require support for *unsupported* Linux Operating System you must acquire
 Requests to port ReaR to another Operating System (not Linux) can only be achieved with **serious** sponsoring.
 
 ## Supported and Unsupported Architectures
-ReaR-2.4 is supported on:
+ReaR-2.5 is supported on:
 
 * Intel x86 type of processors
 * AMD x86 type of processors
 * PPC64 processors
 * PPC64LE processors
 
-ReaR-2.4 may or may not work on:
+ReaR-2.5 may or may not work on:
 
 * Intel Itanium processors
 * ARM type of processors
 
-ReaR-2.4 does not support:
+ReaR-2.5 does not support:
 
 * s390x type of processors
 * old PPC (32bit) processors
