@@ -245,6 +245,14 @@ disk mappings are applied when devices in GRUB2_INSTALL_DEVICES match.
 
 #### Details (mostly in chronological order - newest topmost):
 
+* Updated the OPALPBA workflow: Set USE_RESOLV_CONF='no' as networking is not required/available in the PBA. Avoid copying in the entire /etc/alternatives directory as its links could pull in lots of unwanted stuff, which is not required in rescue systems. Clean up plymouth/unlock service startup (issue #2083)
+
+* Network: Record permanent mac address when device is enslaved in a Team, or else /etc/mac-addresses will record broken information. Use "ethtool -P" as the preferred method to retrieve the MAC address. Otherwise fall back to other methods, which may lead to some invalid MAC address when using Teams (issues #1954 #2065)
+
+* Added 'net-tools' to Debian dependencies as required for 'route' command which belongs to the REQUIRED_PROGS (issue #2082)
+
+* Added an additional separated new btrfs_subvolumes_setup_generic() function to recreate all mounted Btrfs subvolumes in a more generic way. The old btrfs_subvolumes_setup function was renamed into btrfs_subvolumes_setup_SLES and this one is called as fallback to be backward compatible. For both btrfs_subvolumes_setup implementations it is individually configurable which one is used for which btrfs device via the new config variables BTRFS_SUBVOLUME_SLES_SETUP and BTRFS_SUBVOLUME_GENERIC_SETUP. Currently it is not documented because it is work in progress where arbitrary further changes will happen (e.g. the current btrfs_subvolumes_setup_generic function makes diskrestore.sh fail on older systems where 'btrfs subvolume set-default' needs two arguments) so one has to inspect the current code and comments in the layout/prepare/GNU/Linux/13X_include_... scripts to see how things currently work (issues #2067 #2079 #2080 #2084 #2085)
+
 * Fixed SSH root login on the recovery system with some configurations: On Ubuntu 18.04 with OpenSSH 7.6, /etc/ssh/sshd_config contains commented-out lines for 'PermitRootLogin' and other options. This fix makes sure that settings changed for sshd in the ReaR recovery system will be real, not comments (issue #2070)
 
 * RAWDISK output: Improved device partition detection (e.g. Ubuntu 18.04). On Ubuntu 18.04, it has been observed that after creating a loop device and creating a properly sized VFAT file system >250 MB on it, after mounting the file system size was actually just 30 MB. Reason: The partition detection did not pick up the correct partition sizes of the associated image file. This change uses losetup's --partscan option (supported by util-linux v2.21 and above) to offer one additional opportunity to detect partitions. If the option is not available, a traditional losetup call will be used as a fallback (issue #2071)
