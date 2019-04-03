@@ -178,6 +178,13 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 New features, bigger enhancements, and possibly backward incompatible changes:
 
+* Enhancements to better support mmcblk/eMMC disks:
+An "eMMC" device could be not only one single disk but actually consist
+of several 'disk' type block devices for example the actually usable
+disk /dev/mmcblk0 (with its partitions like /dev/mmcblk0p1 and /dev/mmcblk0p2)
+plus special additional disks on the same eMMC device like /dev/mmcblk0boot0
+and /dev/mmcblk0boot1 and /dev/mmcblk0rpmb (issue #2087).
+
 * Now there is in default.conf `MODULES=( 'all_modules' )`
 which means that now by default all kernel modules
 get included in the recovery system (issue #2041).
@@ -244,6 +251,18 @@ so that now the user can specify what he wants if needed and in MIGRATION_MODE
 disk mappings are applied when devices in GRUB2_INSTALL_DEVICES match.
 
 #### Details (mostly in chronological order - newest topmost):
+
+* Fixed disk device name in efibootmgr call for eMMC devices: For eMMC devices the trailing 'p' in the disk device name (as in /dev/mmcblk0p that is derived from /dev/mmcblk0p1) needs to be stripped (to get /dev/mmcblk0), otherwise the efibootmgr call fails because of a wrong disk device name (issue #2103)
+
+* For Ubuntu 18.x use /run/systemd/resolve/resolv.conf as /etc/resolv.conf in the recovery system: Basically the /etc/resolv.conf symlink target and /lib/systemd/resolv.conf contain only the systemd-resolved stub resolver "nameserver 127.0.0.53" and only /run/systemd/resolve/resolv.conf contains a real nameserver (issues #2018 #2101)
+
+* When mktemp needs to be called with a TEMPLATE call it with sufficent XXXXXXXXXX in the TEMPLATE, otherwise use the mktemp default (issue #2092)
+
+* LPAR/PPC64 bootlist was incorrectly set when having multiple 'prep' partitions: Use the specific right syntax for array expansion of the boot_list array (issues #2096 #2097 #2098 #1068)
+
+* Ensure that the Error function results a direct and complete exit of the whole running 'rear' program even if the Error function was called from a (possibly nested) subshell in a sourced script: Now the Error function terminates all descendant processes of MASTER_PID except MASTER_PID and the current (subshell) process that runs the Error function and when Error was called from a subshell it finally exits its own subshell so that when the Error function finished only MASTER_PID is still running and finally MASTER_PID exits as usual via the DoExitTasks function (issues #2088 #2089 #2099)
+
+* Ignore special additional disks on eMMC devices named "rpmb" and "boot": Now the extract_partitions() function skips device nodes on eMMC devices like /dev/mmcblk0rpmb or /dev/mmcblk0boot0 and /dev/mmcblk0boot1 because ReaR wrongly recognized those 'disk' type block devices as if they were 'part' type block devices, i.e. those are no partitions, but special additional disks on the eMMC device (issue #2087)
 
 * Updated the OPALPBA workflow: Set USE_RESOLV_CONF='no' as networking is not required/available in the PBA. Avoid copying in the entire /etc/alternatives directory as its links could pull in lots of unwanted stuff, which is not required in rescue systems. Clean up plymouth/unlock service startup (issue #2083)
 
