@@ -1293,7 +1293,7 @@ ReaR-2.5 is supported on the following Linux based operating systems:
 * RHEL 5, 6 and 7
 * CentOS 5, 6 and 7
 * ScientificLinux 6 and 7
-* SLES 11, 12 and 15
+* SLES 12 and 15
 * openSUSE Leap and openSUSE Tumbleweed
 * Debian 6, 7, 8 and 9
 * Ubuntu 12, 13, 14 and 15
@@ -1302,14 +1302,18 @@ ReaR-2.5 dropped official support for the following Linux based operating system
 
 * Fedora < 26
 * RHEL 3 and 4
-* SLES 9 and 10
+* SLES 9, 10 and 11
 * openSUSE <= 13
 * Debian < 6
 * Ubuntu < 12
 
 ReaR-2.5. and ReaR-2.4 (and probably also some earlier versions) are known to no longer work reasonably well for the following Linux based operating systems:
 
-* SLES 9 and 10 (issue #1842)
+* SLES 9 and 10: See issue #1842
+
+ReaR-2.5. is known to no longer work reasonably well for the following Linux based operating systems:
+
+* SLES 11: It does not work to bind-mount /dev into TARGET_FS_ROOT (see issue #2045) because within the ReaR recovery system /dev is no mountpoint (in a running SLES 11 system 'udev' is mounted on /dev) and subsequently 'mkinitrd' reports failures within the ReaR recovery system and in the end the recreated system cannot be booted (unless the initrd is manually recreated and the bootloader is manually reinstalled after "rear recover")
 
 If you require support for *unsupported* Linux Operating System you must acquire a *ReaR support contract*.
 
