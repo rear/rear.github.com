@@ -252,6 +252,18 @@ disk mappings are applied when devices in GRUB2_INSTALL_DEVICES match.
 
 #### Details (mostly in chronological order - newest topmost):
 
+* Added comment to default.conf that tells when KEEP_BUILD_DIR is automatically set to true (issue #2121)
+
+* Added /usr/openv/netbackup/sec/at/lib/ to NBU_LD_LIBRARY_PATH in default.conf (issues #2105 #2122)
+
+* Simplified awk constructs in 320_include_uefi_env.sh into using plain grep and a bash array to avoid inexplicable wrong behaviour in some cases that is somehow related to the nullglob bash option together with different kind of awk (issues #2095 #2115)
+
+* For older systems (e.g. like SLES11) where /dev is no mountpoint in the recovery system we first mount TARGET_FS_ROOT/dev as 'tmpfs' and then we copy all /dev contents from the recovery system into TARGET_FS_ROOT/dev to make all recovery system /dev contents available at TARGET_FS_ROOT/dev (which are needed therein for things like "chroot TARGET_FS_ROOT mkinitrd") but only as long as the recovery system runs. On the rebooted target system its pristine /dev will be there. This is basically what finalize/default/100_populate_dev.sh had done but now without dirty remainders on the user's target system disk (issue #2113).
+
+* Do not copy symlink targets in /proc/ /sys/ /dev/ or /run/ into the ReaR recovery system. For example on SLES11 /lib/udev/devices/core is a symlink to /proc/kcore so that "rear mkrescue" basically hangs up while copying /proc/kcore because it is huge (issue #2112)
+
+* Avoid needless things when there is more than one disk: Avoid tot go into MIGRATION_MODE in any case when there is more than one disk. Avoid that GRUB2 gets needlessly installed two times on the same device (issue #2108)
+
 * Fixed disk device name in efibootmgr call for eMMC devices: For eMMC devices the trailing 'p' in the disk device name (as in /dev/mmcblk0p that is derived from /dev/mmcblk0p1) needs to be stripped (to get /dev/mmcblk0), otherwise the efibootmgr call fails because of a wrong disk device name (issue #2103)
 
 * For Ubuntu 18.x use /run/systemd/resolve/resolv.conf as /etc/resolv.conf in the recovery system: Basically the /etc/resolv.conf symlink target and /lib/systemd/resolv.conf contain only the systemd-resolved stub resolver "nameserver 127.0.0.53" and only /run/systemd/resolve/resolv.conf contains a real nameserver (issues #2018 #2101)
