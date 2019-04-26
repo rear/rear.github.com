@@ -252,6 +252,8 @@ disk mappings are applied when devices in GRUB2_INSTALL_DEVICES match.
 
 #### Details (mostly in chronological order - newest topmost):
 
+* Replace RULE_FILES with a global UDEV_NET_MAC_RULE_FILES in default.conf (issues #2074 #2123)
+
 * Added comment to default.conf that tells when KEEP_BUILD_DIR is automatically set to true (issue #2121)
 
 * Added /usr/openv/netbackup/sec/at/lib/ to NBU_LD_LIBRARY_PATH in default.conf (issues #2105 #2122)
