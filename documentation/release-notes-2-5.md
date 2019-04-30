@@ -252,6 +252,8 @@ disk mappings are applied when devices in GRUB2_INSTALL_DEVICES match.
 
 #### Details (mostly in chronological order - newest topmost):
 
+* Fixed layout mapping error when TCG Opal 2 self-encrypting disks were present but had to be excluded due to a non-existent disk during recovery. This exclusion was not handled properly (issue #2126)
+
 * In build/default/995_md5sums_rootfs.sh also exclude all files with a trailing '~' in their name because those are also excluded when the recovery system initrd is made by pack/GNU/Linux/900_create_initramfs.sh (issue #2127)
 
 * Suppressed unwanted "Welcome to Relax-and-Recover ..." etc/motd messages from 'chroot $ROOTFS_DIR /bin/bash --login ...' calls that appear in the log file or in the stdout of the chroot call when the output is further processes by 'grep' by redirecting stdin of the chroot call to /dev/null because no input is needed (issues #2120 #2125)
