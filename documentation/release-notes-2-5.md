@@ -252,6 +252,10 @@ disk mappings are applied when devices in GRUB2_INSTALL_DEVICES match.
 
 #### Details (mostly in chronological order - newest topmost):
 
+* In layout/prepare/GNU/Linux/135_include_btrfs_subvolumes_generic_code.sh fixed 'btrfs subvolume set-default' command for older versions of 'btrfsprogs' where that command requires both arguments 'subvolid' and 'path' (issue #2119) 
+
+* For backup NBU: Exclude the whole '/usr/openv/netbackup/logs' directory instead of only the files in that directory (issue #2132)
+
 * Fixed layout mapping error when TCG Opal 2 self-encrypting disks were present but had to be excluded due to a non-existent disk during recovery. This exclusion was not handled properly (issue #2126)
 
 * In build/default/995_md5sums_rootfs.sh also exclude all files with a trailing '~' in their name because those are also excluded when the recovery system initrd is made by pack/GNU/Linux/900_create_initramfs.sh (issue #2127)
