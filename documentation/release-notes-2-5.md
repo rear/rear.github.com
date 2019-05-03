@@ -1311,29 +1311,29 @@ allows it).
 That does not mean we let our user basis in the cold as we do deliver support as a service (not free of charge).
 
 ## Supported and Unsupported Operating Systems
-We try to keep our wiki page [Test Matrix rear 2.4](https://github.com/rear/rear/wiki/Test-Matrix-rear-2.4) up-to-date with feedback we receive from the community.
+We try to keep our wiki page [Test Matrix rear 2.5](https://github.com/rear/rear/wiki/Test-Matrix-rear-2.5) up-to-date with feedback we receive from the community.
 
 ReaR-2.5 is supported on the following Linux based operating systems:
 
-* Fedora 26 and 27
+* Fedora 28 and 29
 * RHEL 5, 6 and 7
 * CentOS 5, 6 and 7
 * ScientificLinux 6 and 7
 * SLES 11, 12 and 15
 * openSUSE Leap and openSUSE Tumbleweed
 * Debian 6, 7, 8 and 9
-* Ubuntu 12, 13, 14 and 15
+* Ubuntu 12, 14, 16, 17 and 18
 
 ReaR-2.5 dropped official support for the following Linux based operating systems:
 
-* Fedora < 26
+* Fedora < 28
 * RHEL 3 and 4
 * SLES 9 and 10
 * openSUSE <= 13
 * Debian < 6
 * Ubuntu < 12
 
-ReaR-2.5. and ReaR-2.4 (and probably also some earlier versions) are known to no longer work reasonably well for the following Linux based operating systems:
+ReaR-2.5 and ReaR-2.4 (and probably also some earlier versions) are known to no longer work reasonably well for the following Linux based operating systems:
 
 * SLES 9 and 10: See issue #1842
 
