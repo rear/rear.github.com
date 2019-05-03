@@ -252,6 +252,8 @@ disk mappings are applied when devices in GRUB2_INSTALL_DEVICES match.
 
 #### Details (mostly in chronological order - newest topmost):
 
+* Improved handling of broken symlinks inside the recovery system: Relative symbolic links are now properly handled. Directories, which are link targets, are not copied into the recovery system but a meaningful hint is printed that COPY_AS_IS can be used for that (issues #2129 #2130)
+
 * In layout/prepare/GNU/Linux/135_include_btrfs_subvolumes_generic_code.sh fixed 'btrfs subvolume set-default' command for older versions of 'btrfsprogs' where that command requires both arguments 'subvolid' and 'path' (issue #2119) 
 
 * For backup NBU: Exclude the whole '/usr/openv/netbackup/logs' directory instead of only the files in that directory (issue #2132)
