@@ -1311,7 +1311,7 @@ allows it).
 That does not mean we let our user basis in the cold as we do deliver support as a service (not free of charge).
 
 ## Supported and Unsupported Operating Systems
-We try to keep our wiki page [Test Matrix rear 2.5](https://github.com/rear/rear/wiki/Test-Matrix-rear-2.5) up-to-date with feedback we receive from the community.
+We try to keep our wiki page [Test Matrix rear 2.5](https://github.com/rear/rear/wiki/Test-Matrix-rear--2.5) up-to-date with feedback we receive from the community.
 
 ReaR-2.5 is supported on the following Linux based operating systems:
 
