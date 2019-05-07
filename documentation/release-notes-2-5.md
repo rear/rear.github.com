@@ -252,6 +252,8 @@ disk mappings are applied when devices in GRUB2_INSTALL_DEVICES match.
 
 #### Details (mostly in chronological order - newest topmost):
 
+* In packaging/rpm/rear.spec reenabled 'BuildRoot' and 'defattr' because both are required for building 'rear' RPM packages on SLES 11 and RHEL 5 / CentOS 5 via the openSUSE Build Service (issues #2135 #1855 #1856 #1908)
+
 * In layout/prepare/default/420_autoresize_last_partitions.sh continue with the next disk if the current one has no partitions otherwise the "Find the last partition for the current disk" code fails (issue #2134)
 
 * Improved handling of broken symlinks inside the recovery system: Relative symbolic links are now properly handled. Directories, which are link targets, are not copied into the recovery system but a meaningful hint is printed that COPY_AS_IS can be used for that (issues #2129 #2130 #2131)
