@@ -252,7 +252,7 @@ disk mappings are applied when devices in GRUB2_INSTALL_DEVICES match.
 
 #### Details (mostly in chronological order - newest topmost):
 
-* In packaging/rpm/rear.spec reenabled 'BuildRoot' and 'defattr' because both are required for building 'rear' RPM packages on SLES 11 and RHEL 5 / CentOS 5 via the openSUSE Build Service (issues #2135 #1855 #1856 #1908)
+* In packaging/rpm/rear.spec reactivated 'BuildRoot' and 'defattr' because both are required for building 'rear' RPM packages on SLES 11 and RHEL 5 / CentOS 5 via the openSUSE Build Service and removed /etc/cron.d/rear and related things (issues #2135 #1855 #1856 #1908 #1892)
 
 * In layout/prepare/default/420_autoresize_last_partitions.sh continue with the next disk if the current one has no partitions otherwise the "Find the last partition for the current disk" code fails (issue #2134)
 
