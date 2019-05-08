@@ -172,7 +172,7 @@ for each change of your basic system you must re-validate that your disaster rec
 
 The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker](https://github.com/rear/rear/issues).
 
-### Version 2.5 (work in progress)
+### Version 2.5 (May 2019)
 
 #### Abstract
 
