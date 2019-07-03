@@ -142,8 +142,6 @@ functionality:
   therefore, the USB disk must first be formatted with an ext2, ext3, ext4
   or btrfs based file system
 
-* cron job to check changes in disk layout and trigger `rear mkrescue` if required
-
 * VLAN tagging, teaming and bridge support
 
 * Add timestamp of ReaR run with rc code to the syslog or messages file; sending mail report is also possible
