@@ -876,7 +876,7 @@ that only makes sense as long as 'rear recover' was not ever started (issue 1433
 
 * Enhanced and cleaned up making ISO on POWER (ppc64/ppc64le). Now the backup can be stored in the ISO (via BACKUP_URL=iso...) and even multiple ISOs work on POWER now (issues #697, #1383)
 
-* Create multipath.conf only during migration (from non-mulitpath to multipath), and always copy /etc/multipath/bindings to the TARGET_FS_ROOT (issues #1382, #1393)
+* Create multipath.conf only during migration (from non-multipath to multipath), and always copy /etc/multipath/bindings to the TARGET_FS_ROOT (issues #1382, #1393)
 
 
 ### Version 2.1 (June 2017)
