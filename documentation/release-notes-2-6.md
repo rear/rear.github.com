@@ -90,6 +90,7 @@ functionality:
   - FDR/Upstream (BACKUP=FDRUPSTREAM)
   - Novastor NovaBACKUP DC (BACKUP=NBKDC)
   - Borg Backup (BACKUP=BORG)
+  - Rubrik Cloud Data Management (BACKUP=CDM) (*New*) 
 
 * Integrates with [Disaster Recovery Linux Manager (DRLM)](http://drlm.org)
 
@@ -150,7 +151,7 @@ functionality:
 
 * Unattended ReaR recovery has been improved
 
-* Improved security model related to SSH keys (*New*)
+* Improved security model related to SSH keys
 
   - SSH_FILES='avoid_sensitive_files' (see details in _/usr/share/rear/conf/default.conf_)
   - SSH_UNPROTECTED_PRIVATE_KEYS='no' (see details in _/usr/share/rear/conf/default.conf_)
@@ -170,13 +171,224 @@ for each change of your basic system you must re-validate that your disaster rec
 
 The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker](https://github.com/rear/rear/issues).
 
-### Version 2.6 (??? 2019)
+### Version 2.6 (??? 2019) currently work in progress
 
 #### Abstract
 
 New features, bigger enhancements, and possibly backward incompatible changes:
 
+* New BACKUP=CDM method to support Rubrik Cloud Data Management (CDM):
+The Rubrik CDM backup and restore method for ReaR allows Rubrik CDM
+to perform bare metal recovery of Linux systems.
+It does this by including the Rubrik CDM RBS agent files in the
+ReaR recovery system so that during `rear recover` the Rubrik CDM RBS agent
+can be used to restore from Rubrik CDM (issue #2248).
+
+* New use-case for BLOCKCLONE backup method with the "multiple backups" approach
+for a more complex LUKS setup with different passphrases or keys:
+The usual support for LUKS-encrypted filesystems means that during `reare recover`
+a new encrypted filesystem will be created with new encryption keys.
+To recover the exact LUKS setup including its keys from the original system
+it is now possible to use the "multiple backups" approach by first ignoring
+the encrypted filesystem during the "base system" phase, and then
+using a second BLOCKCLONE phase with a `dd` image that contains
+the encrypted filesystem. The new config variable BLOCKCLONE_TRY_UNMOUNT
+is needed here: It will try to unmount the encrypted filesystem
+before creating its image and before restoring it (issue #2200).
+
+* Enable creation of non consecutive partitions.
+`parted` is not capable of creating non-consecutive partitions.
+To still be able to do so, the trick consists in creating dummy partitions
+to fill the gaps between partition numbers. Allocation of these dummy partitions
+is done from the end of the target partition, because parted is not capable
+of resizing a partition from the beginning (issues #2081 #1771 #1681).
+
 #### Details (mostly in chronological order - newest topmost):
+
+* New BACKUP=CDM method for Rubrik Cloud Data Management (CDM)
+see doc/user-guide/16-Rubrik-CDM.adoc (issues #2248 #2249).
+
+* In verify/NETFS/default/050_start_required_nfs_daemons.sh 
+all kind of '2>/dev/null' (i.e. also '&>/dev/null') are removed 
+(so that '&>/dev/null' is replaced by '1>/dev/null') 
+because in general '2>/dev/null' is unhelpful
+because it needlessly suppresses error messages in the log 
+that would be helpful to see when something fails (issues #2250 #1395).
+
+* Update 06-layout-configuration.adoc : Changed section title
+from "Including/Excluding components" to only "Excluding components".
+The latter avoids possible misunderstanding that there would be
+a config variable to explicitly include something but "including" here
+describes only to disable autoecludes (issue #2229).
+
+* Update default.conf : At AUTOEXCLUDE_DISKS removed the comment
+`Explicitly excluding/including devices is generally a safer option`
+because it is not acually helpful and even misleading because there is
+currently no config variable to explicitly include devices (issue #2229).
+
+* Do not keep the build dir when ReaR is run noninteractively
+by additional special values for the KEEP_BUILD_DIR config variable,
+see its desctiption in default.conf (issue #2218).
+
+* Fix LVM2 thin pool recreation logic / use of vgcfgrestore is broken :
+Removing forcibly (with '--force' passed twice) seems to work for now.
+But our use of vgcfgrestore is probably not appropriate at all.
+It works by chance. Typically, it works only for Linear volumes,
+and won't probably for Caches and Raid hierarchies
+or when there are existing Snapshots on the system.
+The only proper solution is perhaps stop relying on vgcfgrestore at all,
+but then we are not capable of restoring volume groups and logical volumes
+with all properties from original system (issue #2222).
+
+* Use `mountpoint` instead of `mount | grep` (issue #2225).
+
+* Updated default.conf :
+Replaced `ARRAY=( "${ARRAY[@]}" additional elements )`
+with simpler and more fail safe `ARRAY+=( additional elements )`
+(related to issues #2223 #2220).
+
+* Append to the CLONE_USERS and CLONE_GROUPS arrays by using `+=`
+instead of expanding the previous value to an empty element
+which then causes problems later (issues #2223 #699).
+
+* Update 900_clone_users_and_groups.sh :
+Skip empty user and group values (issue #2220).
+
+* New use-case for BLOCKCLONE backup method for complex LUKS-encrypted filesystems
+by usinng the "multiple backups" approach with a second BLOCKCLONE phase with a `dd` image that contains the encrypted filesystem where unmounting the encrypted filesystem
+before creating its image and before restoring it has to be done via the new
+config variable BLOCKCLONE_TRY_UNMOUNT (issue #2200).
+
+* Fixed when ReaR does not detect an uncompressed kernel
+that is named 'vmlinux' (instead of 'vmlinuz').
+
+* Added $BACKUP_OPTIONS to the line with mount_url in 800_copy_to_tftp.sh
+and 810_create_pxelinux_cfg.sh otherwise in case of OUTPUT=PXE
+mounting the NFS will fail.
+
+* UEFI: Search for Grub2 modules in /usr/lib/grub*/x86_64-efi and not in /boot.
+On Fedora and RHEL systems, Grub2 UEFI modules live in
+/usr/lib/grub*/x86_64-efi, not /boot, unless grub2-install is executed,
+but executing this tool is not needed with UEFI.
+On SUSE systems, Grub2 UEFI modules also live in /usr/lib/grub*/x86_64-efi
+but there is also a copy in /boot, so it's not needed searching in /boot at all.
+Additionally, only UEFI modules should be looked for,
+so /boot cannot be searched but only /boot/grub2/x86_64-efi
+(similarly /usr/lib/grub*/x86_64-efi, not just /usr/lib/grub*),
+otherwise we could get some false positives on dual boot systems
+(UEFI + Legacy), since modules for Legacy will also match,
+which is wrong (issues #2199 #2001). 
+
+* RAWDISK and TCG Opal 2 Self-Encrypting Disks: Add Secure Boot support (issue #2166).
+
+* Avoid that disklayout.conf contains duplicate 'lvmvol' lines:
+Create the 'lvmvol' lines commented out when multiple segments exist for a given LV.
+This is not an issue unless Migration Mode is used.
+In such case, using 'lvcreate' commands already does best effort
+and loses LV information (issues #2194 #2187).
+Additionally do not overload the `kval` variable
+(that is intended for passing options to lvcreate)
+by adding extra keys to it, which are not supported by lvcreate.
+Introduce another variable `infokval` for this purpose and print
+those unsupported and purely informational keys only in comments (issue #2196).
+
+* Apply layout mappings also to other relevant files 
+via layout/prepare/default/320_apply_mappings.sh 
+In migration mode apply the disk layout mappings 
+not only to disklayout.conf but also to other files 
+that are also used to migrate the disk layout, namely 
+VAR_DIR/layout/config/df.txt and /etc/rear/rescue.conf 
+Additionally re-read the BTRFS_SUBVOLUME_SLES_SETUP 
+variable from /etc/rear/rescue.conf because its value could 
+have been migrated to a new value (issue #2181).
+
+* In the function apply_layout_mappings (therein in its "step 3") 
+treat leftover temporary replacement words (like `_REAR1_`) 
+as an error only if they are in a non-comment line (issue #2183).
+
+* When 420_autoresize_last_partitions.sh resizes the last partition 
+on a GPT disk it leaves 33 LBA blocks at the end of the disk 
+so that 420_autoresize_last_partitions.sh produces a fully correct 
+disklayout.conf file where no further automated adjustments by 
+a subsequent script like 100_include_partition_code.sh are done (issue #2182).
+
+* Error out when DHCLIENT_BIN and DHCLIENT6_BIN 
+are empty and USE_DHCLIENT is set (issue #2184).
+
+* In build/default/990_verify_rootfs.sh 
+skip the ldd test for kernel modules because in general 
+running ldd on kernel modules does not make sense 
+and sometimes running ldd on kernel modules causes 
+needless errors because sometimes that segfaults (issue #2177).
+
+* Bacula: Fixed 'bconsole' prompt not displaying at all
+when doing a recover (issue #2173).
+
+* Fixed that the EFI Boot Manager cannot be installed
+when the system has a NVMe SSD, because the device name
+is resolved as /dev/nvme0n1p rather than /dev/nvme0n1
+so for NVMe devices the trailing 'p' in the Disk value
+as in /dev/nvme0n1p that is derived from /dev/nvme0n1p1
+needs to be stripped to get /dev/nvme0n1 (issues #2160 #1564).
+
+* Changed double quotes (") to single quotes(') in documentation
+related to BORG_PASSPHRASE variable. Double quotes will not avoid
+expanding of variable when '$' sign is used inside pass phrase string,
+which can lead to unsuccessful opening of Borg archive (issue #2205).
+
+* More fail safe BACKUP_PROG_CRYPT_KEY handling 
+Use double quotes "$BACKUP_PROG_CRYPT_KEY" so that 
+the BACKUP_PROG_CRYPT_KEY value can contain spaces. 
+Escape special regexp characters in the BACKUP_PROG_CRYPT_KEY 
+value when it is used as a regexp in grep or sed. 
+Use single quotes BACKUP_PROG_CRYPT_KEY='my_passphrase' 
+in the documentation examples so that the BACKUP_PROG_CRYPT_KEY 
+value can contain special characters (except single quote). 
+Recommend in default.conf to not use special characters in the 
+BACKUP_PROG_CRYPT_KEY value to be to be on the safe side 
+against things breaking in unexpected weird ways when certain code 
+in ReaR is not yet safe against arbitrary special characters in values
+(issues #2157 #1372).
+
+* Avoid that the BACKUP_PROG_CRYPT_KEY value appears in a log file
+in particular when 'rear' is run in debugscript mode where 'set -x' is set
+by redirecting STDERR to /dev/null for those confidential commands
+that use the BACKUP_PROG_CRYPT_KEY value, cf. the comment of the
+UserInput function how to keep things confidential when 'rear'
+is run in debugscript mode (issues #2155 #2156).
+
+* Fix when recovery fails on LUKS-encrypted filesystem using simple password
+because only the first 2 parameters in /etc/crypttab are mandatory (issue #2151).
+
+* Generic enhancements for IBM Z (s390) to support 'dasd' disks 
+and SUSE specific enhancements to install during "rear recover" 
+the special GRUB2 plus ZIPL bootloader on SLES12 and later via the 
+new finalize/SUSE_LINUX/s390/660_install_grub2_and_zipl.sh script
+(issues #2137 #2150).
+
+* Cleanup of the OUTPUT=RAMDISK code.
+Overhauled 900_copy_ramdisk.sh as architecture independent 
+new script output/RAMDISK/default/900_copy_ramdisk.sh that 
+replaces output/RAMDISK/Linux-i386/900_copy_ramdisk.sh 
+and overhauled conf/templates/RESULT_usage_RAMDISK.txt 
+plus better description of OUTPUT=RAMDISK 
+and RESULT_FILES in default.conf (issue #2148).
+
+* Enable creation of non consecutive partitions (issues #2081 #1771 #1681).
+
+* The new SUSE-specific script finalize/SUSE_LINUX/i386/675_install_shim.sh 
+calls 'shim-install' inside chroot on the recreated target system 
+and uses boot/grub2/grub.cfg as input to recreate two needed 
+(identical) EFI files /boot/grub2/x86_64-efi/core.efi
+and /boot/efi/EFI/opensuse/grubx64.efi (issue #2116).
+
+* Fixed that output/default/950_copy_result_files.sh falsely errors out
+when an output method OUTPUT=FOO is used where there is no matching
+usr/share/rear/conf/templates/RESULT_usage_FOO.txt because when it is missing
+it is no sufficient reason to error out.
+Furthermore now 950_copy_result_files.sh is skipped  when RESULT_FILES is empty
+because that means there is no actual output and then it is not needed
+to only copy VERSION README and LOGFILE to the output location (issue #2147).
 
 ### Version 2.5 (May 2019)
 
