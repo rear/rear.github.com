@@ -205,6 +205,11 @@ of resizing a partition from the beginning (issues #2081 #1771 #1681).
 
 #### Details (mostly in chronological order - newest topmost):
 
+* Added explanatory comments to default.conf about backup restore
+that may fail for things like BACKUP_PROG_COMPRESS_OPTIONS=("--zstd")
+due to missing zstd binaries in the ReaR recovery system
+probably also for --lzip --lzma --lzop (issue #2241).
+
 * New BACKUP=CDM method for Rubrik Cloud Data Management (CDM)
 see doc/user-guide/16-Rubrik-CDM.adoc (issues #2248 #2249).
 
