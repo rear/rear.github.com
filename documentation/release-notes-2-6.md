@@ -336,12 +336,12 @@ related to BORG_PASSPHRASE variable. Double quotes will not avoid
 expanding of variable when '$' sign is used inside pass phrase string,
 which can lead to unsuccessful opening of Borg archive (issue #2205).
 
-* More fail safe BACKUP_PROG_CRYPT_KEY handling 
-Use double quotes "$BACKUP_PROG_CRYPT_KEY" so that 
+* More fail safe BACKUP_PROG_CRYPT_KEY handling:
+Use double quotes `"$BACKUP_PROG_CRYPT_KEY"` so that 
 the BACKUP_PROG_CRYPT_KEY value can contain spaces. 
 Escape special regexp characters in the BACKUP_PROG_CRYPT_KEY 
 value when it is used as a regexp in grep or sed. 
-Use single quotes BACKUP_PROG_CRYPT_KEY='my_passphrase' 
+Use single quotes `BACKUP_PROG_CRYPT_KEY='my_passphrase'`
 in the documentation examples so that the BACKUP_PROG_CRYPT_KEY 
 value can contain special characters (except single quote). 
 Recommend in default.conf to not use special characters in the 
