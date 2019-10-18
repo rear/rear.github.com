@@ -212,6 +212,16 @@ documented in doc/user-guide/06-layout-configuration.adoc (issues #2234 #2236).
 
 #### Details (mostly in chronological order - newest topmost):
 
+* Removed '2>/dev/null' redirection where possible: 
+Some general cleanup for ReaR 2.6. in all scripts 
+by removing '2>/dev/null' where it makes sense 
+and replacing '&>/dev/null' by '1>/dev/null' where it makes sense 
+or also removing '&>/dev/null' where that seems to be better (issue #1395).
+By the way verify/TSM/default/390_request_point_in_time_restore_parameters.sh
+and verify/NBU/default/390_request_point_in_time_restore_parameters.sh 
+have been somewhat overhauled but both scripts still abort 'rear recover'
+when the user did an invalid date or time input (issue #2253).
+
 * Fix including of multipath disks in backup: 
 The AUTOEXCLUDE_DISKS logic traverses filesystems and tries 
 to determine the associated underlying disks that should be kept. 
