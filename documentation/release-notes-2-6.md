@@ -203,7 +203,44 @@ to fill the gaps between partition numbers. Allocation of these dummy partitions
 is done from the end of the target partition, because parted is not capable
 of resizing a partition from the beginning (issues #2081 #1771 #1681).
 
+* Improved handling of partition label type for multipath disks plus
+including of multipath disks in backup (unless AUTOEXCLUDE_MULTIPATH is true).
+Now the partition label type for multipath devices (same as is already done
+for normal disks) is stored in 'multipath' entries in disklayout.conf
+so that the syntax of those entries changed and that new syntax is now
+documented in doc/user-guide/06-layout-configuration.adoc (issues #2234 #2236).
+
 #### Details (mostly in chronological order - newest topmost):
+
+* Fix including of multipath disks in backup: 
+The AUTOEXCLUDE_DISKS logic traverses filesystems and tries 
+to determine the associated underlying disks that should be kept. 
+When having a filesystem fs:/A that is present on a multipath 
+device MP and the root filesystem fs:/ that is present on a normal 
+disk D, the code first established that fs:/A depends on fs:/ 
+resulting in marking D as used and then short-circuited processing 
+of multipath devices. This resulted in MP not being considered 
+as a used device and removed from the backup. 
+The problem is fxed by removing the short-circuit logic in 
+find_disk_and_multipath() so multipath devices get processed 
+too unless AUTOEXCLUDE_MULTIPATH is true (issue #2236).
+
+* Improve handling of partition label type for multipath disks: 
+When recording information about a multipath disk, 
+ReaR did not store information about its partition label type 
+in the 'multipath' entry in disklayout.conf. 
+The recovery code tried to automatically detect the label type 
+using a heuristic that depends on GPT partition names. 
+The logic would incorrectly detect the device as having the 
+MBR label type instead of GPT if one of the partition names 
+was exactly "primary", "extended" or "logical". 
+The problem is solved by explicitly storing the partition label type 
+for multipath devices (same as is already done for normal disks) 
+so that the syntax of the 'multipath' entries in disklayout.conf 
+is changed and that new syntax is now documented in 
+doc/user-guide/06-layout-configuration.adoc 
+The recovery code is accordingly updated to utilize this
+information (issue #2234).
 
 * In doc/user-guide/16-Rubrik-CDM.adoc updated links to SUSE documentation: 
 Replaced the outdated link 
