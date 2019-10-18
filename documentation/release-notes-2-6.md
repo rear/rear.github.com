@@ -205,6 +205,17 @@ of resizing a partition from the beginning (issues #2081 #1771 #1681).
 
 #### Details (mostly in chronological order - newest topmost):
 
+* In doc/user-guide/16-Rubrik-CDM.adoc updated links to SUSE documentation: 
+Replaced the outdated link 
+https://www.suse.com/documentation/sle-ha-12/book_sleha/data/cha_ha_rear.html 
+that gets redirected to a not really helpful standard fallback page 
+by the currently valid URL for the most recent SLE-HA-15-SP1 
+https://documentation.suse.com/sle-ha/15-SP1/html/SLE-HA-all/cha-ha-rear.html 
+because meanwhile the SUSE documentation was moved to its own server. 
+The more general and more comprehensive documentation URL 
+https://en.opensuse.org/SDB:Disaster_Recovery 
+is kept and listed topmost (issue #2255).
+
 * Added explanatory comments to default.conf about backup restore
 that may fail for things like BACKUP_PROG_COMPRESS_OPTIONS=("--zstd")
 due to missing zstd binaries in the ReaR recovery system
