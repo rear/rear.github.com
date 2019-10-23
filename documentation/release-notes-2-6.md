@@ -210,7 +210,23 @@ for normal disks) is stored in 'multipath' entries in disklayout.conf
 so that the syntax of those entries changed and that new syntax is now
 documented in doc/user-guide/06-layout-configuration.adoc (issues #2234 #2236).
 
+* The config variable WAIT_SECS default value was aligned
+with the USER_INPUT_TIMEOUT default value so that now
+the default timeout for user input is always 300 seconds.
+The former WAIT_SECS default value of 30 seconds was too short
+because the 'read -t' timeout interrupts ongoing user input.
+The timeout must be sufficiently long for the user to read and
+understand the possibly unexpected user input request message
+and then some more time to make a decision what to enter and
+finally even more time to enter the right value (issue #2257).
+
 #### Details (mostly in chronological order - newest topmost):
+
+* Do not abort in case of invalid user input but retry if possible.
+When input values can be (syntactically) validated there is now
+a retry loop until the user provided valid input (or intentionally aborts)
+except those cases where it was not possible to implement validation
+when it is unknown what is valid for third-party tools (issue #2253).
 
 * Removed '2>/dev/null' redirection where possible: 
 Some general cleanup for ReaR 2.6. in all scripts 
