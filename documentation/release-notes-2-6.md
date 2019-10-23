@@ -201,7 +201,7 @@ before creating its image and before restoring it (issue #2200).
 To still be able to do so, the trick consists in creating dummy partitions
 to fill the gaps between partition numbers. Allocation of these dummy partitions
 is done from the end of the target partition, because parted is not capable
-of resizing a partition from the beginning (issues #2081 #1771 #1681).
+of resizing a partition from the beginning (issues #2081 #1793 #1771 #1681).
 
 * Improved handling of partition label type for multipath disks plus
 including of multipath disks in backup (unless AUTOEXCLUDE_MULTIPATH is true).
@@ -453,7 +453,7 @@ and overhauled conf/templates/RESULT_usage_RAMDISK.txt
 plus better description of OUTPUT=RAMDISK 
 and RESULT_FILES in default.conf (issue #2148).
 
-* Enable creation of non consecutive partitions (issues #2081 #1771 #1681).
+* Enable creation of non consecutive partitions (issues #2081 #1793 #1771 #1681).
 
 * The new SUSE-specific script finalize/SUSE_LINUX/i386/675_install_shim.sh 
 calls 'shim-install' inside chroot on the recreated target system 
