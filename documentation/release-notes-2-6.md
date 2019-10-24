@@ -220,7 +220,22 @@ understand the possibly unexpected user input request message
 and then some more time to make a decision what to enter and
 finally even more time to enter the right value (issue #2257).
 
+* Enhanced default AUTOEXCLUDE_PATH=( /media /run /mnt /tmp )
+to automatically exclude temporarily mounted things (e.g. USB devices)
+because mountpoints for temporarily mounted things are usually
+sub-directories below /media /run (like /run/media) /mnt
+and /tmp (issue #2239).
+
 #### Details (mostly in chronological order - newest topmost):
+
+* Enhanced default AUTOEXCLUDE_PATH=( /media /run /mnt /tmp )
+plus explanatory comment in default.conf how AUTOEXCLUDE_PATH works
+(issues #2239 #2261).
+
+* Use is_true() for AUTOEXCLUDE_MULTIPATH and
+cleanup of the get_partition_number function
+that now errors out with BugError in cases that are
+likely a bug in ReaR (issues #2245 #2260).
 
 * Do not abort in case of invalid user input but retry if possible.
 When input values can be (syntactically) validated there is now
