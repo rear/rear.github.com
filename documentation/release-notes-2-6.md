@@ -1440,7 +1440,7 @@ BACKUP_TYPE=incremental or BACKUP_TYPE=differential (issues #1074 and #1123)
 
 * The BACKUP_PROG_COMPRESS variable was not used during incremental backup (issue #743)
 
-* prevent any other workflow in REAR rescue mode then recover (issue #719)
+* prevent any other workflow in ReaR rescue mode then recover (issue #719)
 
 * Exclude Oracle ASM device directory from Rescue System (issue #721)
 
