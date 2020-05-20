@@ -205,6 +205,12 @@ the encrypted filesystem. The new config variable BLOCKCLONE_TRY_UNMOUNT
 is needed here: It will try to unmount the encrypted filesystem
 before creating its image and before restoring it (issue #2200).
 
+* Initial draft implementation of the new 'mountonly' workflow
+to use ReaR as rescue system, therein mount the filesystems
+of the target system so that one can manually repair it.
+This is described in doc/user-guide/04-scenarios.adoc
+(issue #2247).
+
 * Enable creation of non consecutive partitions.
 `parted` is not capable of creating non-consecutive partitions.
 To still be able to do so, the trick consists in creating dummy partitions
