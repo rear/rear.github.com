@@ -177,6 +177,15 @@ The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker
 
 New features, bigger enhancements, and possibly backward incompatible changes:
 
+* Initial preliminary first basic support for IBM Z architecture "s390x"
+(a.k.a. "z Systems", formerly "System/390", simply called "s390") :
+Currently primarily for Red Hat and SUSE enterprise systems
+so that interested users can try out early how far things work
+in their particular IBM Z environments and provide feedback
+preferably plus needed fixes, adaptions, and enhancements
+to ReaR upstream at https://github.com/rear/rear
+(issues #2137 #2142).
+
 * New BACKUP=CDM method to support Rubrik Cloud Data Management (CDM):
 The Rubrik CDM backup and restore method for ReaR allows Rubrik CDM
 to perform bare metal recovery of Linux systems.
@@ -226,7 +235,408 @@ because mountpoints for temporarily mounted things are usually
 sub-directories below /media /run (like /run/media) /mnt
 and /tmp (issue #2239).
 
+* Now we have CLONE_ALL_USERS_GROUPS="true" by default.
+See the explanation in default.conf what that means.
+(issue #2345)
+
+* Replaced grub-mkimage with more sophisticated grub-mkstandalone when
+building GRUB2 image for using GRUB2 as recovery system UEFI bootloader
+(issue #2293).
+
 #### Details (mostly in chronological order - newest topmost):
+
+* ReaR was using hard-coded set of Grub2 modules for UEFI boot-loader.
+New GRUB2_MODULES_UEFI and GRUB2_MODULES_UEFI_LOAD config variables
+for installing GRUB2 as recovery system UEFI bootloader
+so that user can add or remove GRUB2 modules as needed
+(issues #2283 #2293 #2392)
+
+* No longer load GRUB2 modules efi_gop and efi_uga in function create_grub2_cfg :
+In the create_grub2_cfg function in lib/bootloader-functions.sh
+do no longer enfore loading the GRUB2 modules efi_gop and efi_uga
+because loading only the module all_video is sufficient and fail-safe
+because moddep.lst contains "all_video: efi_gop efi_uga"
+(issue #2388).
+
+* No longer load video_bochs and video_cirrus by the create_grub2_cfg function.
+In the create_grub2_cfg function in usr/share/rear/lib/bootloader-functions.sh
+that is used in case of UEFI to set up GRUB2 as bootloader for the recovery system
+do no longer let GRUB2 load the modules video_bochs and video_cirrus
+because those are not available as GRUB2 modules in case of UEFI (x86_64-efi)
+and the generic "insmod all_video" that is still there should be sufficient for GRUB2
+(issue #2388).
+
+* Allow to boot original system from Grub menu (UEFI) :
+This change adds following:
+Possibility to boot original system for UEFI boot with OUTPUT=NETFS
+and OUTPUT=USB (similarly to non UEFI ReaR rescue system).
+Replaces grub-mkimage for building of Grub2 boot image for OUTPUT=USB
+with build_bootx86_efi() (grub-mkstandalone).
+Replaces separate Grub configuration for OUTPUT=USB with create_grub2_cfg().
+Using build_bootx86_efi() and create_grub2_cfg() in OUTPUT=USB will
+unify process of Grub boot image creation with OUTPUT=NETFS.
+(issue #2326)
+
+* Replace grub-mkimage with more sophisticated grub-mkstandalone when
+building GRUB2 image for using GRUB2 as recovery system UEFI bootloader
+(issue #2293).
+
+* When transferring ReaR recovery system ISO,
+create also destination directory structure (including parents).
+This is useful because when destination directory structure does not exist
+(or is incomplete), Lftp puts files into first available directory in OUTPUT_URL scheme
+(issue  #2401).
+
+* Have CLONE_ALL_USERS_GROUPS="true" by default and explain it in default.conf
+(issue #2345).
+
+* New OUTPUT_LFTP_OPTIONS config variable for lftp custom parameters
+(issue #2384).
+
+* Update 950_check_missing_programs.sh :
+When checking for required programs also test for "basename program"
+because when required programs are specified with absolute path
+those programs appears in the ReaR recovery system in /bin/
+so testing their original path would falsely fail during "rear recover"
+(issue #2206).
+
+* New prep/USB/<non-i386-arch>/350_safeguard_error_out.sh
+safeguard scripts to let "rear mkrescue/mkbackup" error out
+in case of false usage of OUTPUT=USB on non PC-compatible
+(non-i386/x86/x86_64) architectures because with OUTPUT=USB
+on those architectures the USB medium cannot be booted
+(for those architectures there are no scripts that install a bootloader)
+and documented that in the OUTPUT=USB section in default.conf
+(issues #2348 #2396).
+
+* Error out for unsupported workflows in any case :
+Before init/default/050_check_rear_recover_mode.sh did only error out
+when in the recovery system an unsupported workflow should be run.
+Now it also errors out when on the normal/original system
+an unsupported workflow that is likely destructive
+(in particular recover layoutonly restoreonly finalizeonly and mountonly)
+should be run
+(issues #2387 #2395).
+
+* Improve BorgBackup (short: Borg) integration into ReaR :
+Several improvements e.g. error handling, output to logfile etc.
+(issue #2382).
+
+* In backup/NETFS/default/500_make_backup.sh add "bs=1M" to
+SPLIT_COMMAND="dd of=$backuparchive bs=1M"
+to let 'dd' read and write up to 1MiB at a time to speed up things
+for example from only 500KiB/s (with the 'dd' default of 512 bytes)
+via a 100MBit network connection to about its full capacity
+(issue #2369).
+
+*  Error out during "rear mkrescue/mkbackup" when LUKS version 2 is used
+because LUKS version 2 is not suppported.
+When LUKS version 2 is used it fails at least to determine the hash value
+so we use an empty hash value as a simple test if gathering crypt information
+was successful and error out if not.
+(issues #2204 #2381)
+
+* Auto-detect DHCP client with systemd-networkd
+plus completely overhauled and simplified code in
+prep/GNU/Linux/210_include_dhclient.sh
+with resulting simplification of
+skel/default/etc/scripts/system-setup.d/58-start-dhclient.sh
+(issue #2375).
+
+* Filter out duplicate entries in COPY_AS_IS
+but keep the ordering of the elements
+i.e. only the first occurrence of an element is kept.
+Also remove duplicates in the copy_as_is_filelist_file
+with 'sort -u' because here the ordering does not matter.
+(issue #2377)
+
+*  Update 250_find_all_libs.sh :
+Removed unreliably working code that intends to filter out
+duplicates in the LIBS and COPS_AS_IS arrays via
+echo "${ARRAY[@]}" | tr ' ' '\n' | sort -u | tr '\n' ' '
+that fails when array elements contain spaces
+so better code should be used e.g. like
+printf '%s\n' "${ARRAY[@]}" | awk '!seen[$0]++'
+but filtering out duplicates is not needed
+and by the way cleaned up the whole script a bit.
+(issue #2377)
+
+* Skip Longhorn Engine replica devices (issue #2373).
+
+* Update 400_prep_yum.sh :
+For BACKUP=YUM error out if BACKUP_PROG_CRYPT_ENABLED is set
+because BACKUP=YUM does not support backup encryption
+(issue #2374).
+
+* Fail-safe patching of etc/ssh/sshd_config in the recovery system
+to ensure the needed ReaR settings/overrides actually apply.
+For example if etc/ssh/sshd_config contains a Match section
+at the end of the file e.g. appending "PermitRootLogin yes"
+will not be effective as a global setting but only in the Match section.
+Therefore now the needed ReaR settings are inserted at the beginning
+and all subsequent entries of that kind are disabled (commented out)
+to ensure that the ReaR global setting is the only one that is effective.
+(issue #2362)
+
+* Run what was build/default/985_fix_broken_links.sh
+now earlier as build/default/490_fix_broken_links.sh
+before files get modified in recovery system because
+otherwise e.g. if etc/ssh/sshd_config is a symbolic link
+build/default/500_ssh_setup.sh will fail to apply patches
+(issue #2360).
+
+ * Use simpler and more fail-safe syntax
+ ARRAY+=( additional elements )
+ everywhere (issue #2364).
+
+* Update 58-start-dhclient.sh : Fixed issue #2354.
+
+* Added usr/share/rear/restore/OPALPBA/ directory
+to pass the test for $SHARE_DIR/restore/$BACKUP
+in prep/default/035_valid_backup_methods.sh
+because the mkopalpba workflow uses the nonexistent
+BACKUP method OPALPBA to create a PBA image
+(issue #2351).
+
+* Fix OPALPBA: Could not change password on multiple SEDs at once.
+"rear opaladmin changePW" (when used without any extra argument
+or with multiple arguments) is meant to change the disk password
+on multiple self-encrypting drives in a single invocation.
+However, it stopped after successfully changing the password on the first drive
+and the password of subsequent drives had not been changed. 
+(issue #2349)
+
+* Update 035_valid_backup_methods.sh :
+Simplified prep/default/035_valid_backup_methods.sh
+to make it work more predictable and fail-safe
+(issue #2353).
+
+* Have a hardcoded '-iso-level 3' option in
+output/ISO/Linux-ppc64le/820_create_iso_image.sh
+because it is also hardcoded in
+output/ISO/Linux-i386/820_create_iso_image.sh
+and it seems to also work in general on PPC64LE architecture
+(issue #2344).
+
+* Update default.conf : Adapt the explanation in default.conf how ISO_MAX_SIZE works
+(issue #2347).
+
+* Cleaned up and enhanced the ISO_MAX_SIZE implementation
+in backup/NETFS/default/500_make_backup.sh to make it in particular more safe
+against erroneous settings of the ISO_MAX_SIZE variable
+(issue #2344).
+
+* Added required NFS users for proper rpcbind startup: Usually 'rpcuser' is used
+but 'rpc' is used in RHEL7.x and '_rpc' is used in Debian 10
+(issues #2341 #2342 #2250)
+
+* Cleaned up and enhanced 320_migrate_network_configuration_files.sh
+plus some bugfixes where the old code presumably did not work.
+(issues #2310 #2313 #2312)
+   
+* Update 890_finish_checks.sh : In the WARNING message at the end of "rear recover"
+when no bootloader could be installed also mention
+usr/share/rear/finalize/Linux-ppc64le/660_install_grub2.sh
+as an example script how one could install a bootloader on POWER architecture.
+Furthermore since finalize/default/110_bind_mount_proc_sys_dev_run.sh
+it is no longer needed to manually mount /proc.
+(issues #2339 #2045)
+
+* Update 095_exclude_non_essential_files.sh : Added also /usr/lib/grub2
+and /usr/share/grub2 to COPY_AS_IS_EXCLUDE because since openSUSE Leap 15.1
+things were moved from /usr/lib/grub2/ to /usr/share/grub2/
+(issue #2338).
+
+* Update 270_create_grub2_efi_bootloader.sh : Test for Grub 2 EFI
+components directories /usr/lib/grub/x86_64-efi and now also for
+/usr/lib/grub2/x86_64-efi or /usr/share/grub2/x86_64-efi
+because since openSUSE Leap 15.1 things were moved
+from /usr/lib/grub2/ to /usr/share/grub2/
+(issue #2338).
+
+* Update uefi-functions.sh : Use /usr/*/grub*/x86_64-efi/partmap.lst
+instead of /usr/lib/grub*/x86_64-efi/partmap.lst because since
+openSUSE Leap 15.1 things were moved from /usr/lib/grub2/ to /usr/share/grub2/
+(issue #2338).
+
+* Update 630_install_grub.sh and 650_install_elilo.sh :
+Show the actual missing directory in the Error message
+(issue #2337).
+
+* Moved backup/default/005_valid_backup_methods.sh
+to prep/default/035_valid_backup_methods.sh to also
+check for valid backup methods during "rear mkrescue"
+because for most external backup methods only "rear mkrescue" is used,
+cf. the section "BACKUP SOFTWARE INTEGRATION" in 'man rear'
+(issue #2337).
+
+* Changes to Data Protector branding, adjustment required to support
+the new Data Protector 10.x agent with Secure Socket Communication.
+Fixed some problems related to SessionID format and problems with
+object names like host type vs. file system backup
+(issue #2335).
+
+* Hard-coded root home directory string ("/root") was replaced
+with $ROOT_HOME_DIR that is the eeal home directory of root user
+(issue #2334).
+
+* Make USE_DHCLIENT and USE_STATIC_NETWORKING more fail-safe
+in ReaR recovery system (issue #2325).
+
+* For FDR backups, if the path for $FDRUPSTREAM_DATA_PATH does not exist,
+then create it. This change is FDR specific for s390 and is only in effect
+if ZVM_NAMING is "Y" (issue #2320).
+
+* Overhauled rescue/default/010_merge_skeletons.sh :
+Made 010_merge_skeletons.sh behave more reliably. 
+Now it errors out when things really went wrong.
+Now is is also supported that both a $skel_dir directory
+(e.g. usr/share/rear/skel/default/) plus a $skel_dir.tar.gz
+(e.g. usr/share/rear/skel/default.tar.gz) exist and
+then both get copied into the recovery system,
+first the directory and then the tar.gz so that
+via the tar.gz files from the $skel_dir directory
+could be overwritten if needed.
+(issues #2307 #2317)
+
+* Added $FDRUPSTREAM_DATA_PATH/rear to $COPY_AS_IS_EXCLUDE_FDRUPSTREAM
+(issue #2318).
+
+* Added documentation about possible (dirty) workarounds 
+for needed bind9-export libraries for CentOS 7.7 and 8.0
+which is somewhat related to Rubrik-CDM
+(issues #2266 #2284).
+
+* Enhanced recovery system BIOS boot default settings for USB and ISO :
+For OUTPUT=ISO the user can now explicitly specify
+what to boot by default when booting the ISO on BIOS systems via
+ISO_DEFAULT="boothd0" to boot from the first disk and
+ISO_DEFAULT="boothd1" to boot from the second disk.
+For OUTPUT=USB the user can now explicitly specify
+what to boot by default when booting the disk on BIOS systems via
+USB_BIOS_BOOT_DEFAULT="boothd0" to boot from the first disk.
+The default USB_BIOS_BOOT_DEFAULT="" boots the second disk.
+(issues #2276 #2303)
+
+* Remove outdated /root/rear-DATE-TIMESTAMP.log symlinks.
+Before creating the current symlink to the current log file
+test all files that match the file name pattern of such symlinks
+and remove those already existing (old) symlinks where its
+now outdated symlink target is the current log file
+(issue #2301).
+
+* Initial preliminary first basic support for IBM Z architecture "s390x"
+(a.k.a. "z Systems", formerly "System/390", simply called "s390") :
+Currently primarily for Red Hat and SUSE enterprise systems
+so that interested users can try out early how far things work
+in their particular IBM Z environments and provide feedback
+preferably plus needed fixes, adaptions, and enhancements
+to ReaR upstream at https://github.com/rear/rear
+(issues #2137 #2142).
+
+* Improved 'is_multipath_path' function to be more fail safe
+that now tests (via "multipath -l" output) if multipath is used.
+Additionally have 'lsblk' output as disklayout.conf header comments
+to make it easier to understand the values in the subsequent entries.
+Furthermore added 'xdd' to the PROGS array because sometimes
+a tool to display binary files is required in the recovery system.
+(issue #2298).
+
+* Error out during "rear mkrescue" in case of insufficient LVM tools:
+Overhauled layout/save/GNU/Linux/220_lvm_layout.sh
+where now the exit code of the "lvm ..." calls are checked
+and it errors out if one fails in particular to avoid that
+entries in disklayout.conf are missing or broken
+when too old LVM tools are used that do not support
+the needed options of those "lvm ..." calls.
+Also in layout/save/default/950_verify_disklayout_file.sh
+a simple test was added to verify that the 'lvm...' entries
+in disklayout.conf look syntactically correct.
+Furthermore in 06-layout-configuration.adoc in the
+"Disk layout file syntax" section the exact same syntax
+for the "lvm..." entries is now listed as the headers
+of the "lvm..." entries in disklayout.conf are.
+(issues #2259 #2291)
+
+* Fixed missing delete_dummy_partitions_and_resize_real_ones calls :
+Use same code as for disks for multipath devices (these are just regular disks),
+including MBR erasing and partition creation and cleanup : create_multipath()
+cannot call create_disk() because create_disk() verifies that the device
+is a block device, which it isn't with multipath because it's a symlink
+to a device mapper instead. Make sure new code handling re-creation
+of partitions and cleanup is used because Software Raid can have partitions
+since these are virtual disks.
+(issue #2281)
+
+* Moved 'route' back from REQUIRED_PROGS to PROGS.
+ReaR uses 'ip route' everywhere so 'route' is not actually required.
+As 'route' is no longer always installed nowadays, having it
+in REQUIRED_PROGS lets ReaR falsely error out on such systems
+(issues #1961 #1652).
+
+* Update 990_verify_rootfs.sh : Use a FDRUPSTREAM-specific
+LD_LIBRARY_PATH to find FDR libraries (issue #2296).
+
+* Do not run 'ldd' on untrusted files to mitigate
+possible ldd security issues because some versions
+of ldd may directly execute the file (see "man ldd")
+which happens as user 'root' during "rear mkrescue".
+The new TRUSTED_FILE_OWNERS user config array
+contains user names that are trusted owners of files
+where RequiredSharedObjects calls ldd (cf. COPY_AS_IS)
+and where a ldd test is run inside the recovery system
+that tests all binaries for 'not found' libraries.
+Furthermore use '2>>/dev/$DISPENSABLE_OUTPUT_DEV'
+at more places to avoid that the "rear -D mkrescue" log
+file size would grow from about 5 MiB to about 17 MiB
+so that now that log file size even shrinked to about 2 MiB.
+(issue #2279)
+
+* Initial draft implementation of the new 'mountonly' workflow
+to use ReaR as rescue system, therein mount the filesystems
+of the target system so that one can manually repair it.
+This is described in doc/user-guide/04-scenarios.adoc
+(issue #2247).
+
+* Feature RAWDISK and OPALPBA improvements :
+RAWDISK: include additional Grub modules from
+/boot/grub (and /boot/grub2) which had formerly been missing.
+OPALPBA: improve Plymouth boot animation on Ubuntu,
+provide integration capabilities for other distros.
+RAWDISK: add support for distros which use 'grub2' naming.
+(issue #2275)
+
+* Improved check for missing libraries in 990_verify_rootfs.sh
+so that now also libraries are checked that are no executables
+plus skipped the ldd test for firmware files
+(issue #2279).
+
+* Update default.conf : More explanatory comment in default.conf
+how COPY_AS_IS versus LIBS, PROGS, and REQUIRED_PROGS are meant to be used
+(issue #2278).
+
+* Accommodate logs from multiple FDR/Upstream services.
+Users may run multiple FDR/Upstream services on a single machine.
+This code change allows ReaR to copy FDR/Upstream logs from the
+recovery environment to the restored system for all running services.
+Previously the code was expecting to find only one set of logs
+and reports in the FDR/Upstream installation directory.
+For several years now, logs and reports have been stored in a new
+location ($FDRUPSTREAM_DATA_PATH), so we check here instead
+(issue #2251).
+
+* Update format-workflow.sh : Set EXIT_FAIL_MESSAGE=0 before exiting
+in "rear format -- --help" to avoid the
+"rear format failed, check ...rear...log for details"
+message that is pointless in this case.
+
+* Added alternative for 'poweroff.com' that is 'poweroff.c32' on RHEL8
+(issue #2238).
+
+* Removed unnecessary line that sets NSRSERVER
+in layout/save/NSR/default/650_check_iso_recoverable.sh
+which prevented setting NSRSERVER in local.conf 
+(issue #2162).
 
 * Enhanced default AUTOEXCLUDE_PATH=( /media /run /mnt /tmp )
 plus explanatory comment in default.conf how AUTOEXCLUDE_PATH works
