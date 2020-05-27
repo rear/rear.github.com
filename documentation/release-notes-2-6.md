@@ -2048,8 +2048,8 @@ We try to keep our wiki page [Test Matrix rear 2.6](https://github.com/rear/rear
 ReaR-2.6 is supported on the following Linux based operating systems:
 
 * Fedora 28 and 29
-* RHEL 6 and 7
-* CentOS 6 and 7
+* RHEL 6, 7, and 8
+* CentOS 6, 7, and 8
 * ScientificLinux 6 and 7
 * SLES 12 and 15
 * openSUSE Leap 15.x
