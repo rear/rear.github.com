@@ -2050,22 +2050,25 @@ ReaR-2.6 is supported on the following Linux based operating systems:
 * Fedora 29
 * RHEL 6, 7, and 8
 * CentOS 6, 7, and 8
-* ScientificLinux 6 and 7
+* Scientific Linux 6 and 7
 * SLES 12 and 15
 * openSUSE Leap 15.x
-* Debian 6, 7, 8, and 9
-* Ubuntu 12, 14, 16, 17, and 18
+* Debian 8, and 9
+* Ubuntu 16, 17, and 18
 
 ReaR-2.6 dropped official support for the following Linux based operating systems:
 
 * Fedora < 29
 * RHEL < 6
 * CentOS < 6
+* Scientific Linux < 6
 * SLES < 12
 * openSUSE Leap 42.x and before (i.e. openSUSE <= 13)
 * openSUSE Tumbleweed
-* Debian < 6
-* Ubuntu < 12
+* Debian < 8
+* Ubuntu < 16
+
+Usually ReaR-2.6 should also work on newer versions of the above listed supported Linux based operating systems but sometimes arbitrary failures can happen when software that is used by ReaR (like partitioning tools, filesystem tools, bootloader tools, ISO image creating tools, networking tools, and so on) changes in not fully backward compatible ways or when there are innovations of the basic system (like kernel, storage, bootloader, init, networking, and so on) that are not yet supported by ReaR.
 
 In theory ReaR-2.6 should work on openSUSE Tumbleweed but in practice arbitrary failures could happen at any time because the Tumbleweed distribution is a pure rolling release version of openSUSE containing the latest stable versions of all software (cf. https://en.opensuse.org/Portal:Tumbleweed) so arbitrary changes of any software are possible at any time that could arbitrarily break how ReaR works.
 
