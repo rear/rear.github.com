@@ -171,7 +171,7 @@ for each change of your basic system you must re-validate that your disaster rec
 
 The references pointing to *fix #nr* or *issue #nr* refer to our [issues tracker](https://github.com/rear/rear/issues).
 
-### Version 2.6 (??? 2019) currently work in progress
+### Version 2.6 (June 2020)
 
 #### Abstract
 
@@ -2047,7 +2047,7 @@ We try to keep our wiki page [Test Matrix rear 2.6](https://github.com/rear/rear
 
 ReaR-2.6 is supported on the following Linux based operating systems:
 
-* Fedora 28 and 29
+* Fedora 29
 * RHEL 6, 7, and 8
 * CentOS 6, 7, and 8
 * ScientificLinux 6 and 7
@@ -2058,7 +2058,7 @@ ReaR-2.6 is supported on the following Linux based operating systems:
 
 ReaR-2.6 dropped official support for the following Linux based operating systems:
 
-* Fedora < 28
+* Fedora < 29
 * RHEL < 6
 * CentOS < 6
 * SLES < 12
