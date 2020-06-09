@@ -251,11 +251,61 @@ building GRUB2 image for using GRUB2 as recovery system UEFI bootloader
 
 #### Details (mostly in chronological order - newest topmost):
 
+* Overhauled how SSH config files are parsed for 'IdentityFile' values
+to find (and remove) unprotected SSH keys in the recovery system.
+Now "find ./etc/ssh" ensures that SSH 'Include' config files
+e.g. in /etc/ssh/ssh_config.d/ are also parsed
+(issue #2421).
+
+* Update default.conf:
+Describe usage of non-quoted globbing patterns like VAR+=( /directory/* )
+versus quoted globbing patterns like VAR+=( '/directory/*' )
+and also describe how to prepend to an array in contrast to append to it
+(issue #2417).
+
+* When creating md5sums of the files in the recovery system
+be safe against blanks or special characters in file names
+by using appropriate options for all commands in the pipe
+(issues #2407 #1372).
+
+* Evaluate OUTPUT_LFTP_OPTIONS at the beginning of lftp operations.
+Before OUTPUT_LFTP_OPTIONS had been evaluated after connection
+to destination host was established which prohibited using
+OUTPUT_LFTP_OPTIONS also for connection specific settings.
+Now OUTPUT_LFTP_OPTIONS is moved to the beginning of lftp command
+before any other lftp command is executed
+(issue #2410).
+
+* For BACKUP=BORG implemented pagination when selecting the Borg archive
+to restore from: During "rear recover" all Borg archives are shown.
+In case of a long list only the last items had been visble to the user.
+Now pagination happens with a configurable number of Borg archives,
+see BORGBACKUP_RESTORE_ARCHIVES_SHOW_MAX in default.conf
+(issue #2408).
+
+* For BACKUP=BORG updated generated locale filename
+from "rear.UTF-8" to "en_US.UTF-8"
+(issue #2402).
+
+* Use plain ${COPY_AS_IS[*]} instead of quoted "${COPY_AS_IS[@]}"
+in the tar command call that copies things into the recovery system
+to ensure "things work as usually expected" for any methods
+that are used to add elements to the COPY_AS_IS array and
+better explain in default.conf how COPY_AS_IS works,
+in particular that symlinks cannot be followed and
+that files or directories that contain blanks or
+other $IFS characters cannot be specified
+(issue #2405).
+
+* For RAWDISK output add distribution-specific GRUB2 module 'linuxefi.mod'
+otherwise GRUB2 could not boot a UEFI rescue medium on Ubuntu 18.04 or 20.04
+(issue #2419).
+
 * ReaR was using hard-coded set of Grub2 modules for UEFI boot-loader.
 New GRUB2_MODULES_UEFI and GRUB2_MODULES_UEFI_LOAD config variables
 for installing GRUB2 as recovery system UEFI bootloader
 so that user can add or remove GRUB2 modules as needed
-(issues #2283 #2293 #2392)
+(issues #2283 #2293 #2392).
 
 * No longer load GRUB2 modules efi_gop and efi_uga in function create_grub2_cfg :
 In the create_grub2_cfg function in lib/bootloader-functions.sh
@@ -272,7 +322,7 @@ because those are not available as GRUB2 modules in case of UEFI (x86_64-efi)
 and the generic "insmod all_video" that is still there should be sufficient for GRUB2
 (issue #2388).
 
-* Allow to boot original system from Grub menu (UEFI) :
+* Allow to boot original system from Grub menu (UEFI):
 This change adds following:
 Possibility to boot original system for UEFI boot with OUTPUT=NETFS
 and OUTPUT=USB (similarly to non UEFI ReaR rescue system).
@@ -299,7 +349,7 @@ This is useful because when destination directory structure does not exist
 * New OUTPUT_LFTP_OPTIONS config variable for lftp custom parameters
 (issue #2384).
 
-* Update 950_check_missing_programs.sh :
+* Update 950_check_missing_programs.sh:
 When checking for required programs also test for "basename program"
 because when required programs are specified with absolute path
 those programs appears in the ReaR recovery system in /bin/
@@ -315,7 +365,7 @@ on those architectures the USB medium cannot be booted
 and documented that in the OUTPUT=USB section in default.conf
 (issues #2348 #2396).
 
-* Error out for unsupported workflows in any case :
+* Error out for unsupported workflows in any case:
 Before init/default/050_check_rear_recover_mode.sh did only error out
 when in the recovery system an unsupported workflow should be run.
 Now it also errors out when on the normal/original system
@@ -324,7 +374,7 @@ an unsupported workflow that is likely destructive
 should be run
 (issues #2387 #2395).
 
-* Improve BorgBackup (short: Borg) integration into ReaR :
+* Improve BorgBackup (short: Borg) integration into ReaR:
 Several improvements e.g. error handling, output to logfile etc.
 (issue #2382).
 
@@ -356,7 +406,7 @@ Also remove duplicates in the copy_as_is_filelist_file
 with 'sort -u' because here the ordering does not matter.
 (issue #2377)
 
-*  Update 250_find_all_libs.sh :
+* Update 250_find_all_libs.sh:
 Removed unreliably working code that intends to filter out
 duplicates in the LIBS and COPS_AS_IS arrays via
 echo "${ARRAY[@]}" | tr ' ' '\n' | sort -u | tr '\n' ' '
@@ -369,7 +419,7 @@ and by the way cleaned up the whole script a bit.
 
 * Skip Longhorn Engine replica devices (issue #2373).
 
-* Update 400_prep_yum.sh :
+* Update 400_prep_yum.sh:
 For BACKUP=YUM error out if BACKUP_PROG_CRYPT_ENABLED is set
 because BACKUP=YUM does not support backup encryption
 (issue #2374).
@@ -395,7 +445,7 @@ build/default/500_ssh_setup.sh will fail to apply patches
  ARRAY+=( additional elements )
  everywhere (issue #2364).
 
-* Update 58-start-dhclient.sh : Fixed issue #2354.
+* Update 58-start-dhclient.sh: Fixed issue #2354.
 
 * Added usr/share/rear/restore/OPALPBA/ directory
 to pass the test for $SHARE_DIR/restore/$BACKUP
@@ -412,7 +462,7 @@ However, it stopped after successfully changing the password on the first drive
 and the password of subsequent drives had not been changed. 
 (issue #2349)
 
-* Update 035_valid_backup_methods.sh :
+* Update 035_valid_backup_methods.sh:
 Simplified prep/default/035_valid_backup_methods.sh
 to make it work more predictable and fail-safe
 (issue #2353).
@@ -424,7 +474,7 @@ output/ISO/Linux-i386/820_create_iso_image.sh
 and it seems to also work in general on PPC64LE architecture
 (issue #2344).
 
-* Update default.conf : Adapt the explanation in default.conf how ISO_MAX_SIZE works
+* Update default.conf: Adapt the explanation in default.conf how ISO_MAX_SIZE works
 (issue #2347).
 
 * Cleaned up and enhanced the ISO_MAX_SIZE implementation
@@ -440,7 +490,7 @@ but 'rpc' is used in RHEL7.x and '_rpc' is used in Debian 10
 plus some bugfixes where the old code presumably did not work.
 (issues #2310 #2313 #2312)
    
-* Update 890_finish_checks.sh : In the WARNING message at the end of "rear recover"
+* Update 890_finish_checks.sh: In the WARNING message at the end of "rear recover"
 when no bootloader could be installed also mention
 usr/share/rear/finalize/Linux-ppc64le/660_install_grub2.sh
 as an example script how one could install a bootloader on POWER architecture.
@@ -448,24 +498,24 @@ Furthermore since finalize/default/110_bind_mount_proc_sys_dev_run.sh
 it is no longer needed to manually mount /proc.
 (issues #2339 #2045)
 
-* Update 095_exclude_non_essential_files.sh : Added also /usr/lib/grub2
+* Update 095_exclude_non_essential_files.sh: Added also /usr/lib/grub2
 and /usr/share/grub2 to COPY_AS_IS_EXCLUDE because since openSUSE Leap 15.1
 things were moved from /usr/lib/grub2/ to /usr/share/grub2/
 (issue #2338).
 
-* Update 270_create_grub2_efi_bootloader.sh : Test for Grub 2 EFI
+* Update 270_create_grub2_efi_bootloader.sh: Test for Grub 2 EFI
 components directories /usr/lib/grub/x86_64-efi and now also for
 /usr/lib/grub2/x86_64-efi or /usr/share/grub2/x86_64-efi
 because since openSUSE Leap 15.1 things were moved
 from /usr/lib/grub2/ to /usr/share/grub2/
 (issue #2338).
 
-* Update uefi-functions.sh : Use /usr/*/grub*/x86_64-efi/partmap.lst
+* Update uefi-functions.sh: Use /usr/*/grub*/x86_64-efi/partmap.lst
 instead of /usr/lib/grub*/x86_64-efi/partmap.lst because since
 openSUSE Leap 15.1 things were moved from /usr/lib/grub2/ to /usr/share/grub2/
 (issue #2338).
 
-* Update 630_install_grub.sh and 650_install_elilo.sh :
+* Update 630_install_grub.sh and 650_install_elilo.sh:
 Show the actual missing directory in the Error message
 (issue #2337).
 
@@ -493,7 +543,7 @@ in ReaR recovery system (issue #2325).
 then create it. This change is FDR specific for s390 and is only in effect
 if ZVM_NAMING is "Y" (issue #2320).
 
-* Overhauled rescue/default/010_merge_skeletons.sh :
+* Overhauled rescue/default/010_merge_skeletons.sh:
 Made 010_merge_skeletons.sh behave more reliably. 
 Now it errors out when things really went wrong.
 Now is is also supported that both a $skel_dir directory
@@ -513,7 +563,7 @@ for needed bind9-export libraries for CentOS 7.7 and 8.0
 which is somewhat related to Rubrik-CDM
 (issues #2266 #2284).
 
-* Enhanced recovery system BIOS boot default settings for USB and ISO :
+* Enhanced recovery system BIOS boot default settings for USB and ISO:
 For OUTPUT=ISO the user can now explicitly specify
 what to boot by default when booting the ISO on BIOS systems via
 ISO_DEFAULT="boothd0" to boot from the first disk and
@@ -564,7 +614,7 @@ for the "lvm..." entries is now listed as the headers
 of the "lvm..." entries in disklayout.conf are.
 (issues #2259 #2291)
 
-* Fixed missing delete_dummy_partitions_and_resize_real_ones calls :
+* Fixed missing delete_dummy_partitions_and_resize_real_ones calls:
 Use same code as for disks for multipath devices (these are just regular disks),
 including MBR erasing and partition creation and cleanup : create_multipath()
 cannot call create_disk() because create_disk() verifies that the device
@@ -580,7 +630,7 @@ As 'route' is no longer always installed nowadays, having it
 in REQUIRED_PROGS lets ReaR falsely error out on such systems
 (issues #1961 #1652).
 
-* Update 990_verify_rootfs.sh : Use a FDRUPSTREAM-specific
+* Update 990_verify_rootfs.sh: Use a FDRUPSTREAM-specific
 LD_LIBRARY_PATH to find FDR libraries (issue #2296).
 
 * Do not run 'ldd' on untrusted files to mitigate
@@ -604,7 +654,7 @@ of the target system so that one can manually repair it.
 This is described in doc/user-guide/04-scenarios.adoc
 (issue #2247).
 
-* Feature RAWDISK and OPALPBA improvements :
+* Feature RAWDISK and OPALPBA improvements:
 RAWDISK: include additional Grub modules from
 /boot/grub (and /boot/grub2) which had formerly been missing.
 OPALPBA: improve Plymouth boot animation on Ubuntu,
@@ -617,7 +667,7 @@ so that now also libraries are checked that are no executables
 plus skipped the ldd test for firmware files
 (issue #2279).
 
-* Update default.conf : More explanatory comment in default.conf
+* Update default.conf: More explanatory comment in default.conf
 how COPY_AS_IS versus LIBS, PROGS, and REQUIRED_PROGS are meant to be used
 (issue #2278).
 
@@ -631,7 +681,7 @@ For several years now, logs and reports have been stored in a new
 location ($FDRUPSTREAM_DATA_PATH), so we check here instead
 (issue #2251).
 
-* Update format-workflow.sh : Set EXIT_FAIL_MESSAGE=0 before exiting
+* Update format-workflow.sh: Set EXIT_FAIL_MESSAGE=0 before exiting
 in "rear format -- --help" to avoid the
 "rear format failed, check ...rear...log for details"
 message that is pointless in this case.
@@ -725,13 +775,13 @@ because in general '2>/dev/null' is unhelpful
 because it needlessly suppresses error messages in the log 
 that would be helpful to see when something fails (issues #2250 #1395).
 
-* Update 06-layout-configuration.adoc : Changed section title
+* Update 06-layout-configuration.adoc: Changed section title
 from "Including/Excluding components" to only "Excluding components".
 The latter avoids possible misunderstanding that there would be
 a config variable to explicitly include something but "including" here
 describes only to disable autoecludes (issue #2229).
 
-* Update default.conf : At AUTOEXCLUDE_DISKS removed the comment
+* Update default.conf: At AUTOEXCLUDE_DISKS removed the comment
 `Explicitly excluding/including devices is generally a safer option`
 because it is not acually helpful and even misleading because there is
 currently no config variable to explicitly include devices (issue #2229).
@@ -740,7 +790,7 @@ currently no config variable to explicitly include devices (issue #2229).
 by additional special values for the KEEP_BUILD_DIR config variable,
 see its desctiption in default.conf (issue #2218).
 
-* Fix LVM2 thin pool recreation logic / use of vgcfgrestore is broken :
+* Fix LVM2 thin pool recreation logic / use of vgcfgrestore is broken:
 Removing forcibly (with '--force' passed twice) seems to work for now.
 But our use of vgcfgrestore is probably not appropriate at all.
 It works by chance. Typically, it works only for Linear volumes,
@@ -752,7 +802,7 @@ with all properties from original system (issue #2222).
 
 * Use `mountpoint` instead of `mount | grep` (issue #2225).
 
-* Updated default.conf :
+* Updated default.conf:
 Replaced `ARRAY=( "${ARRAY[@]}" additional elements )`
 with simpler and more fail safe `ARRAY+=( additional elements )`
 (related to issues #2223 #2220).
@@ -761,7 +811,7 @@ with simpler and more fail safe `ARRAY+=( additional elements )`
 instead of expanding the previous value to an empty element
 which then causes problems later (issues #2223 #699).
 
-* Update 900_clone_users_and_groups.sh :
+* Update 900_clone_users_and_groups.sh:
 Skip empty user and group values (issue #2220).
 
 * New use-case for BLOCKCLONE backup method for complex LUKS-encrypted filesystems
