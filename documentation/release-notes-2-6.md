@@ -251,6 +251,12 @@ building GRUB2 image for using GRUB2 as recovery system UEFI bootloader
 
 #### Details (mostly in chronological order - newest topmost):
 
+* Added DHCP auto-configuration for Network Manager (Ubuntu 20.04 Desktop):
+While ReaR supports DHCP auto-detection during 'rear mkrescue' of some DHCP setups,
+the Network Manager flavor on Ubuntu 20.04 Desktop was not supported
+so DHCP for the recovery system was not auto-enabled there
+(issue #2427).
+
 * OPALPBA (OUTPUT=RAWDISK): Workaround for EFI firmware glitch
 which prevents booting the real OS after unlocking SEDs.
 Symptom: Boot hangs when Grub hands over control to the Linux kernel.
