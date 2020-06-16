@@ -251,6 +251,19 @@ building GRUB2 image for using GRUB2 as recovery system UEFI bootloader
 
 #### Details (mostly in chronological order - newest topmost):
 
+* OPALPBA (OUTPUT=RAWDISK): Workaround for EFI firmware glitch
+which prevents booting the real OS after unlocking SEDs.
+Symptom: Boot hangs when Grub hands over control to the Linux kernel.
+Seen on an HPE ML10Gen9 server. The workaround is to add and remove
+a UEFI 'next boot' entry (essentially a no-op) which should convince
+the EFI firmware to use the boot order to determine the effective
+boot entry for the next boot
+(issue #2425).
+
+* Update default.conf:
+Describe LUKS_CRYPTSETUP_OPTIONS usage with some examples
+(issue #2389).
+
 * Overhauled how SSH config files are parsed for 'IdentityFile' values
 to find (and remove) unprotected SSH keys in the recovery system.
 Now "find ./etc/ssh" ensures that SSH 'Include' config files
