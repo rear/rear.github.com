@@ -2116,7 +2116,7 @@ We try to keep our wiki page [Test Matrix rear 2.6](https://github.com/rear/rear
 
 ReaR-2.6 is supported on the following Linux based operating systems:
 
-* Fedora 29
+* Fedora 29, 30, 31, and 32
 * RHEL 6, 7, and 8
 * CentOS 6, 7, and 8
 * Scientific Linux 6 and 7
