@@ -2148,9 +2148,9 @@ ReaR 2.6, ReaR-2.5, and ReaR-2.4 (and probably also some earlier versions) are k
 * RHEL 5 (and probably also CentOS 5): See issue #1766
 * SLES 9 and 10: See issue #1842
 
-If you require support for *unsupported* Linux Operating System you must acquire a *ReaR support contract*.
+If you require support for *unsupported* Linux operating systems you must acquire a *ReaR support contract*.
 
-Requests to port ReaR to another Operating System (not Linux) can only be achieved with **serious** sponsoring.
+Requests to port ReaR to another operating system (not Linux) can only be achieved with **serious** sponsoring.
 
 ## Supported and Unsupported Architectures
 ReaR-2.6 is supported on:
