@@ -31,8 +31,8 @@ If you have a missing feature please first [submit an issue](https://github.com/
  - [Add support for excluding logicaldrive #19](https://github.com/rear/rear/issues/19)
  - [Automatic creation of an /etc/rear/os.conf file on Debian/Ubuntu at installation time](//github.com/rear/rear/issues/468)
  - [SELinux support in backup code](https://github.com/rear/rear/issues/44)
- - [Partitions not properly aligned for best performance](https://github.com/rear/rear/issues/102)
  - CLOSED issues with sponsorship:
  - UEFI booting from USB disk #603 *closed (sponsor: gozora)*
+ - [Partitions not properly aligned for best performance](https://github.com/rear/rear/issues/102) *closed (sponsor: jsmeix)*
  - Extend PXE_TFTP_PATH and PXE_CONFIG_PATH to support url #193 *closed (sponsor: IT3 Consultants)*
 
