@@ -62,7 +62,7 @@ Since rear release 1.17.2 you will find the stable packages under the architectu
     [7.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_7.0/),
     [8.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_8.0/),
     [9.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_9.0/)
-    [10.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_10.0/)
+    [10.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Debian_10/)
     [@debian](https://tracker.debian.org/pkg/rear)
  * Fedora:
     [30](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear/Fedora_30/),
@@ -120,7 +120,7 @@ Since rear release 1.17.2 you will find the stable packages under the architectu
     [7.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Debian_7.0/amd64/),
     [8.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Debian_8.0/amd64/),
     [9.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Debian_9.0/amd64/)
-    [10.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Debian_10.0/amd64/)
+    [10.0](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Debian_10/amd64/)
  * Fedora:
     [30](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Fedora_30/),
     [31](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/Fedora_31/),
