@@ -35,6 +35,8 @@ title: Relax-and-Recover documentation
 
 ### User guide
 
+A new sub-project is born to create a proper [ReaR User Guide](https://relax-and-recover.org/rear-user-guide/). Please submit your [ideas](https://github.com/rear/rear-user-guide/issues), [pull requests](https://github.com/rear/rear-user-guide/pulls) or buy some time with a [ReaR subscription](https://relax-and-recover.org/rear-user-guide/welcome/index.html).
+
  1. [Introduction](https://github.com/rear/rear/blob/master/doc/user-guide/01-introduction.adoc)
  2. [Getting started](https://github.com/rear/rear/blob/master/doc/user-guide/02-getting-started.adoc)
  3. [Configuration](https://github.com/rear/rear/blob/master/doc/user-guide/03-configuration.adoc)
