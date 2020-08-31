@@ -34,7 +34,7 @@ Learn more about Relax-and-Recover from the selected usage scenarios below:
 
 Or watch a 4-minute complete backup and restore demo. Real time, no cheating!
 
-<iframe width="720" height="400" src="http://www.youtube.com/embed/33326XobwYg" ><p>Relax-and-Recover video</p></iframe>
+<iframe width="720" height="400" src="//www.youtube.com/embed/33326XobwYg" ><p>Relax-and-Recover video</p></iframe>
 
 Try Relax-and-Recover now. The [Quickstart guide](http://relax-and-recover.org/documentation/getting-started) takes only a few minutes!
 
