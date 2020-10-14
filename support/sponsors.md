@@ -12,15 +12,18 @@ You can sponsor in many ways:
  - read, advise and improve the current documentation (with pull requests)
  - [donate an amount of money](https://www.paypal.com/cgi-bin/webscr?item_name=Donation+to+Relax+and+Recover&cmd=_donations&business=gratien.dhaese%40gmail.com)
  - [professionally consultancy (onsite or remote)](http://relax-and-recover.org/development/)
- - [take a rear subscription](http://www.it3.be/rear-support/)
- - [take a support contract](http://www.it3.be/rear-support/)
- - organize a workshop around rear
+ - [a ReaR subscription to foresee in continuous development](https://www.it3.be/rear-support/)
+ - [sponsor the ReaR User Guide writing](https://www.it3.be/projects/rear-user-guide/)
+ - [a support contract as insurance](https://www.it3.be/rear-support/)
+ - [a workshop around ReaR](https://github.com/rear/rear-workshop)
 
 ### Wishlist of missing features
 
 If you have a missing feature please first [submit an issue](https://github.com/rear/rear/issues). We are informed automatically and we will add it to this list. The community can select any missing feature and decide to sponsor it (via one of the above mentioned possibilities). When a missing feature has been added to this list we will close it. However, it will be re-opened by us when we have found a sponsor for it.
 
- - [Full list of ReaR issues waiting on sponsorship on GitHub](https://github.com/rear/rear/issues?q=is%3Aopen+is%3Aissue+label%3A%22needs+sponsorship%22)
+#### Issues waiting on sponsorship:
+
+ - [Full list of ReaR issues waiting on sponsorship on GitHub](https://github.com/rear/rear/issues?q=is%3Aissue+label%3A%22needs+sponsorship%22)
  - [Missing backup in recovery iso for IBM PowerVM LPAR #697](https://github.com/rear/rear/issues/697)
  - [Align OUTPUT_URL=null description of man page #734](https://github.com/rear/rear/issues/734)
  - [Remove duplicate ISO image in /var/lib/rear when using BACKUP=TSM #634](https://github.com/rear/rear/issues/634)
@@ -31,8 +34,10 @@ If you have a missing feature please first [submit an issue](https://github.com/
  - [Add support for excluding logicaldrive #19](https://github.com/rear/rear/issues/19)
  - [Automatic creation of an /etc/rear/os.conf file on Debian/Ubuntu at installation time](//github.com/rear/rear/issues/468)
  - [SELinux support in backup code](https://github.com/rear/rear/issues/44)
- - CLOSED issues with sponsorship:
- - UEFI booting from USB disk #603 *closed (sponsor: gozora)*
- - [Partitions not properly aligned for best performance](https://github.com/rear/rear/issues/102) *closed (sponsor: jsmeix)*
- - Extend PXE_TFTP_PATH and PXE_CONFIG_PATH to support url #193 *closed (sponsor: IT3 Consultants)*
+
+#### CLOSED issues with sponsorship:
+
+ - UEFI booting from USB disk #603 *(sponsor: gozora)*
+ - [Partitions not properly aligned for best performance](https://github.com/rear/rear/issues/102) *(sponsor: jsmeix)*
+ - Extend PXE_TFTP_PATH and PXE_CONFIG_PATH to support url #193 *(sponsor: IT3 Consultants)*
 
