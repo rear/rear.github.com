@@ -71,14 +71,14 @@ Presentation given by Gratien on April, 12th, 2015 called [Building a Business C
 ### T-Dose 2014, Eindhoven, NL
 Presentation given by Gratien on October, 25th, 2014 called [Building a Business Continuity Plan with Bareos and rear](http://www.t-dose.org/2014/schedule/full).
 
-<iframe width="280" height="210" src="http://www.youtube.com/embed/cNwa2KE5zUU" align="right"><p>T-Dose 2014, Building a Business Continuity Plan with Bareos and rear, Gratien Dhaese</p></iframe>
+<iframe width="280" height="210" src="http://www.youtube.com/embed/cNwa2KE5zUU" align="right" frameborder="0" allowfullscreen><p>T-Dose 2014, Building a Business Continuity Plan with Bareos and rear, Gratien Dhaese</p></iframe>
 
 <br clear="right">
 
 ### Open Source Backup Conference 2014, Cologne, DE
 Ralf Dannert (SuSe) presented [ReaR for corporate use](http://osbconf.org/wp-content/uploads/2014/09/REAR-by-Ralf-Dannert.pdf) on [Open Source Backup Conference 2014](http://osbconf.org/program/).
 
-<iframe width="280" height="210" src="http://www.youtube.com/embed/4zGll7jlRk4" align="right"><p>Relax-and-Recover talk of Ralf Dannert (SuSe) at OSBC 2014</p></iframe>
+<iframe width="280" height="210" src="http://www.youtube.com/embed/4zGll7jlRk4" align="right" frameborder="0" allowfullscreen><p>Relax-and-Recover talk of Ralf Dannert (SuSe) at OSBC 2014</p></iframe>
 
 <br clear="right">
 
@@ -87,16 +87,16 @@ Gratien did a Relax-and-Recover Workshop at [LinuxTag](http://linuxtag.org), and
 <br clear="right">
 
 ### Open Source Backup Conference 2013, Cologne, DE
-Gratien gave a presentation around rear on [Open Source Backup Conference 2013](http://www.osbconf.org/historie/2013/open-source-backup-conference-2013-review).
+Gratien gave a presentation around rear on [Open Source Backup Conference 2013](https://osbconf.org/archiv/2013-2/).
 
-<iframe width="280" height="210" src="http://www.youtube.com/embed/JDUOL_5ck6k" align="right"><p>Relax-and-Recover talk at OSBConf</p></iframe>
+<iframe width="280" height="210" src="http://www.youtube.com/embed/JDUOL_5ck6k" align="right" frameborder="0" allowfullscreen><p>Relax-and-Recover talk at OSBConf</p></iframe>
 <br clear="right">
 
 ### LinuxTag 2013, Berlin, DE
 Relax-and-Recover was present at the [LinuxTag](http://linuxtag.org) 
 in Berlin May 22-25! Schlomo gave the following presentation on [Integrating UEFI into Relax-and-Recover](http://www.linuxtag.org/2013/en/program/friday-may-24-2013.html?eventid=349)
 
-<iframe width="280" height="210" src="http://www.youtube.com/embed/IAERu2LObjY" align="right"><p>Relax-and-Recover talk</p></iframe>
+<iframe width="280" height="210" src="http://www.youtube.com/embed/IAERu2LObjY" align="right" frameborder="0" allowfullscreen><p>Relax-and-Recover talk</p></iframe>
 <br clear="right">
 
 ### LinuxTag 2012, Berlin, DE
@@ -108,7 +108,7 @@ and/or [Relax-and-Recover workshop](http://www.linuxtag.org/2012/de/program/work
 
 The Relax-and-Recover talk has been placed on-line by OpenSUSE TV.
 
-<iframe width="280" height="210" src="http://www.youtube.com/embed/jUfFzFU-SWY" align="right"><p>Relax-and-Recover talk</p></iframe>
+<iframe width="280" height="210" src="http://www.youtube.com/embed/jUfFzFU-SWY" align="right" frameborder="0" allowfullscreen><p>Relax-and-Recover talk</p></iframe>
 <br clear="right">
 
 ### FlossUK 2012 Spring conference, Edinburgh, UK
@@ -129,5 +129,5 @@ Gratien gave a presentation about Linux disaster recovery in general and Relax-a
 
 The Relax-and-Recover talk has been placed on-line by FOSDEM.
 
-<iframe width="280" height="210" src="http://www.youtube.com/embed/4SMdxIGWxeQ" align="right"><p>Relax-and-Recover talk</p></iframe>
+<iframe width="280" height="210" src="http://www.youtube.com/embed/4SMdxIGWxeQ" align="right" frameborder="0" allowfullscreen><p>Relax-and-Recover talk</p></iframe>
 <br clear="right">
