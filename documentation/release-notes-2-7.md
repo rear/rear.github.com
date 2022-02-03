@@ -4,8 +4,7 @@ title: Relax-and-Recover Release Notes
 ---
 
 ## This is currently work in progress for the upcoming ReaR 2.7 release
-
-## see https://github.com/rear/rear/issues/2751
+see https://github.com/rear/rear/issues/2751
 
 ## Release Notes for Relax-and-Recover version 2.7
 
@@ -73,9 +72,9 @@ functionality:
    - GNU tar with openssl encryption (BACKUP=NETFS, BACKUP_PROG=tar, BACKUP_PROG_CRYPT_ENABLED=1)
    - rsync on local devices (BACKUP=NETFS, BACKUP_PROG=rsync), such USB and local disks
    - rsync over the network (BACKUP=RSYNC, BACKUP_PROG=rsync)
-   - Multiple backup methods. See ([the documentation about Using Multiple Backups for Relax-and-Recover](https://github.com/rear/rear/blob/master/doc/user-guide/11-multiple-backups.adoc)
-   - Any partition (e.g. a Windows partition) via BACKUP=BLOCKCLONE. See [the documention about BLOCKCLONE](https://github.com/rear/rear/blob/master/doc/user-guide/12-BLOCKCLONE.adoc)
-   - BACKUP=ZYPPER for SUSE systems only (*Experimental*)
+   - Multiple backup methods. See the [documentation about Using Multiple Backups for Relax-and-Recover](https://github.com/rear/rear/blob/master/doc/user-guide/11-multiple-backups.adoc)
+   - Any partition (e.g. a Windows partition) via BACKUP=BLOCKCLONE. See the [documention about BLOCKCLONE](https://github.com/rear/rear/blob/master/doc/user-guide/12-BLOCKCLONE.adoc)
+   - BACKUP=ZYPPER is for SUSE systems only (*Experimental*)
    - BACKUP=YUM is for RedHat architectures ony (*Experimental*)
 
 * Integrates with _external_ backup solutions such as:
