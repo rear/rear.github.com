@@ -181,7 +181,104 @@ New features, bigger enhancements, and possibly backward incompatible changes:
 
 * This is currently work in progress for the upcoming ReaR 2.7 release, see https://github.com/rear/rear/issues/2751
 
+* ReaR's default TMPDIR is now /var/tmp (it was /tmp before) i.e. ReaR's default working area is now /var/tmp/rear.XXXXX
+because ReaR needs lots of space (from 300MB up to more than 1GB) to build the ReaR rescue/recovery system e.g. as ISO image
+and even much more space to also store the backup archive e.g. when the backup should be included in the ISO image.
+The system's default temporary directory /tmp is no longer suited as default temporary directory for ReaR because
+nowadays /tmp is often a "tmpfs" that is in RAM so /tmp has RAM/swap limitations
+and file-hierarchy(7) recommends to use /var/tmp for cases as ReaR.
+If the user sets TMPDIR explicitly, it still takes precedence.
 
+* Stop ReaR from possibly overwriting its own disk and backup drives for OUTPUT=USB and OUTPUT=RAWDISK
+via new WRITE_PROTECTED_... config variables (see /usr/share/rear/conf/default.conf)
+where UUIDs or filesystem labels can be specified so that disks that contain such UUIDs or filesystem labels
+will be 'write protected' during "rear recover".
+
+* Added initial LUKS2 support.
+
+* Initial preliminary basic support to automatically resize an active last partition on RAID0 and RAID1 disks
+to be able to automatically resize RAID0 and RAID1 arrays
+
+* Overhauled RAID code with changed RAID related entries in /var/lib/rear/layout/disklayout.conf
+so users who use RAID and a selfmade /etc/rear/disklayout.conf must adapt their RAID related entries
+
+* Automatically shrink LVs if needed during "rear recover".
+This enables to run "rear recover" with automated LVM LVs shrinking as needed on a bit smaller replacement disk
+(e.g. when a nominally same sized replacement disk is actually a bit smaller than the original disk).
+This automated LVs shrinking is not intended when disk(s) are substantially smaller.
+To migrate onto a substantially smaller replacement disk the user must in advance
+manually adapt his disklayout.conf file before he runs "rear recover". 
+
+* Support to wipe disks before recreating partitions/volumes/filesystems/...
+(see the new DISKS_TO_BE_WIPED in /usr/share/rear/conf/default.conf).
+This is currently new and experimental functionality so that currently
+by default via DISKS_TO_BE_WIPED='false' no disk is wiped to avoid possible regressions
+until this new feature was more tested by interested users via explicit DISKS_TO_BE_WIPED='' 
+
+* Error out when files greater or equal ISO_FILE_SIZE_LIMIT should be included in the ISO:
+See the reasoning in /usr/share/rear/conf/default.conf why the default ISO_FILE_SIZE_LIMIT is 2GiB
+and why we error out when files >= ISO_FILE_SIZE_LIMIT should be included in the ISO.
+
+* RAWDISK: Add local rescue partition installation capability:
+Introduce a configuration variable 'RAWDISK_INSTALL_GPT_PARTITION_NAME', which is unset by default.
+When set, the rescue system will be installed to local disk partitions having the corresponding name.
+
+* Allow setting a PBA-specific firmware configuration via the new OPAL_PBA_FIRMWARE_FILES configuration variable.
+
+* Support OPAL 2 self-encrypting NVMe disk drives.
+
+* OPALPBA: Provide a permanent unlocking mode as a workaround when the firmware did not initialize properly during a 'simple' reboot
+so the only reliable way to boot was a power cycle after Opal disks were unlocked.
+To reboot with unlocked disks there is now a new unlocking mode "permanent" via OPAL_PBA_UNLOCK_MODE (see default.conf).
+Reactivating locking is then the responsibility of the user.
+Additionally enhanced security by disabling shell access via keyboard interrupt
+and switching to a password hash for OPAL_PBA_DEBUG_PASSWORD.
+
+* POWER architecture (ppc64) support for BACKUP=DP:
+Other platforms supporting the Data Protector Disk Agent, but not the Cell Console (GUI)
+that is only available on i386, x86_64 and ia64 are now supported with ReaR.
+This includes in particular ppc64.
+Checks unavailable on clients without the Data Protector Cell Console (GUI) are skipped.
+In such cases backup restore can be done using Data Protector GUI only.
+
+* NSR enhancement for point-in-time recovery with EMC Networker client:
+A new variable NSR_CLIENT_REQUESTRESTORE for the BACKUP=NSR workflow has been introduced
+to deal with situations in which the NSR client is allowed/granted to perform its recovery action "on its own"
+but does not have full control of the EMC networker service/environment, for details see its default.conf section.
+
+* BACKUP=NBKDC: Enhanced ReaR backup and restore to also work with NovaStor DataCenter 8.0 and higher
+plus fixed wording "NovaBACKUP DC" -> "NovaStor DC"
+
+* Support for systemd and parallel restore with Data Protector BACKUP=DP:
+Support starting Data Protector daemon 'omni.socket' via systemd in the recovery system.
+Restore performance has been increased by doing parallel restores now. 
+
+* Now "rear format" has in addition to the '--efi' switch a '--bios' switch.
+If none is given (i.e. by default) it will now do hybrid formatting with a BIOS boot partition (on GPT) and an EFI system partition.
+This is a starting point for implementing OUTPUT=USB support for UEFI and BIOS dual boot from the same medium.
+See https://github.com/rear/rear/issues/2698
+
+* Overhauled serial console support code.
+A serial console of the ReaR recovery system can now be specified separately for the kernel and the recovery system bootloader
+via the generic config variables USE_SERIAL_CONSOLE and SERIAL_CONSOLE_DEVICES
+and specific config variables SERIAL_CONSOLE_DEVICES_KERNEL SERIAL_CONSOLE_DEVICE_SYSLINUX SERIAL_CONSOLE_DEVICE_GRUB
+(see /usr/share/rear/conf/default.conf for details)
+
+* Support for HTTP sources when using PXE:
+There is a new config variable PXE_HTTP_URL to specify a HTTP download source for PXE.
+See the PXE_HTTP_URL description in /usr/share/rear/conf/default.conf
+
+* In /usr/share/rear/conf/default.conf increased USB_UEFI_PART_SIZE to 512 MiB
+because mkfs.vfat automatically makes FAT32 starting at 512 MiB
+so the FAT filesystem of the ESP will be in compliance with
+that the ESP should officially use a FAT32 filesystem
+(a FAT16 ESP causes issues with certain UEFI firmware)
+
+* In /usr/share/rear/conf/default.conf changed ISO_VOLID from "RELAXRECOVER" to "REAR-ISO"
+so the first ISO has the label "REAR-ISO" (8 characters)
+and subsequent ISOs get the labels "REAR-ISO_01" "REAR-ISO_02" ... respectively
+that have 11 characters (the maximum length for FAT volume names)
+so things work now by default when the ISO image is used to (manually) create a FAT bootable USB stick
 
 #### Details (mostly in chronological order - newest topmost):
 
@@ -1070,13 +1167,6 @@ that using the  ...IfError functions can result unexpected behaviour in certain 
 cf. https://github.com/rear/rear/pull/2443#pullrequestreview-440609407
 and https://github.com/rear/rear/issues/534
 and https://github.com/rear/rear/issues/1415#issuecomment-315692391
-
-* Added "--type luks1" to the default LUKS_CRYPTSETUP_OPTIONS.
-Because LUKS2 is not supported by ReaR (cf. https://github.com/rear/rear/issues/2204)
-the option '--type luks1' is needed to enforce the LUKS1 header format
-because the default header format is LUKS1 with cryptsetup < 2.1.0
-but LUKS2 with cryptsetup ≥ 2.1.0 (cf. https://github.com/rear/rear/issues/2432)
-to ensure LUKS1 gets recreated as LUKS1 also with with newer cryptsetup versions.
 
 * Migrate XFS configuration files.
 When in MIGRATION_MODE, migrate/rename XFS configuration files so they follow disk mapping set by user.
