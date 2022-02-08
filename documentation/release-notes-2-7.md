@@ -187,7 +187,54 @@ New features, bigger enhancements, and possibly backward incompatible changes:
 
 This is currently work in progress for the upcoming ReaR 2.7 release, see https://github.com/rear/rear/issues/2751
 
+* Update default.conf :
+In default.conf describe that when OUTPUT_URL is set
+OUTPUT_OPTIONS does not inherit the BACKUP_OPTIONS value
+cf. https://github.com/rear/rear/issues/2753
 
+* Include dmsetup and dmeventd as PROGS in conf/GNU/Linux.conf
+because older releases of os-prober (1.74 and below) use dmsetup
+as a fallback solution for mounting when grub-mount is missing
+but without dmsetup and dmeventd also in the recovery system
+that would block indefinitely at "Installing GRUB2 boot loader...",
+for details see https://github.com/rear/rear/pull/2748
+
+* In the function cmdline_add_console in lib/serial-functions.sh
+add 'console=tty0' as fallback to cmdline only if no real serial device was found
+otherwise on a machine with e.g. ttyS0 and ttyS1 where only ttyS0 is real
+only kernel messages (but nothing else) would appear on ttyS0,
+see https://github.com/rear/rear/pull/2749
+
+* Skip unneeded /usr/lib*/syslog-ng/loggen/ from recovery system:
+In conf/GNU/Linux.conf do no longer copy all in /usr/lib*/syslog-ng/*
+but only copy .so files in /usr/lib*/syslog-ng/ (same as for rsyslog).
+This skips in particular /usr/lib*/syslog-ng/loggen/
+because 'loggen' is not included in the recovery system
+('loggen' does not appear in any ReaR code).
+See https://github.com/rear/rear/issues/2743
+
+* For BACKUP=CDM removed need for the whole /usr/lib64 in the recovery system.
+See https://github.com/rear/rear/pull/2747 and the related issues
+https://github.com/rear/rear/issues/2266
+https://github.com/rear/rear/issues/2314
+https://github.com/rear/rear/issues/2685
+https://github.com/rear/rear/issues/2700
+
+* Update 400_copy_modules.sh :
+Do no longer error out if 'cp -a -L' failed to to copy all contents of /lib/modules/...
+but only tell the user about the issue so he could inspect his system and decide,
+see https://github.com/rear/rear/issues/2739#issuecomment-1014304127
+
+* Support for HTTP sources when using PXE:
+There is a new config variable PXE_HTTP_URL to specify the HTTP download source for PXE.
+If the variable is set the PXE config file will generate an additional 3rd boot option
+(besides the unchanged standard options "rear" via TFTP and "local") namely "rear-http"
+which includes the HTTP URL information to download the kernel and initrd data.
+See https://github.com/rear/rear/pull/2738
+
+* Also add ssh-add prog when ssh-agent is added.
+Since ssh-agent gets added it makes sense to add ssh-add as well.
+See https://github.com/rear/rear/pull/2729
 
 * In layout/prepare/default/420_autoresize_last_partitions.sh
 automatically resize active last partitions on RAID0 disks,
