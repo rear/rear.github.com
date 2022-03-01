@@ -196,11 +196,11 @@ will be 'write protected' during "rear recover".
 
 * Added initial LUKS2 support.
 
-* Initial preliminary basic support to automatically resize an active last partition on RAID0 and RAID1 disks
-to be able to automatically resize RAID0 and RAID1 arrays
-
 * Overhauled RAID code with changed RAID related entries in /var/lib/rear/layout/disklayout.conf
 so users who use RAID and a selfmade /etc/rear/disklayout.conf must adapt their RAID related entries
+
+* Initial preliminary basic support to automatically resize an active last partition on RAID0 and RAID1 disks
+to be able to automatically resize RAID0 and RAID1 arrays
 
 * Automatically shrink LVs if needed during "rear recover".
 This enables to run "rear recover" with automated LVM LVs shrinking as needed on a bit smaller replacement disk
@@ -213,7 +213,7 @@ manually adapt his disklayout.conf file before he runs "rear recover".
 (see the new DISKS_TO_BE_WIPED in /usr/share/rear/conf/default.conf).
 This is currently new and experimental functionality so that currently
 by default via DISKS_TO_BE_WIPED='false' no disk is wiped to avoid possible regressions
-until this new feature was more tested by interested users via explicit DISKS_TO_BE_WIPED='' 
+until this new feature was more tested by interested users via an explicit DISKS_TO_BE_WIPED setting. 
 
 * Error out when files greater or equal ISO_FILE_SIZE_LIMIT should be included in the ISO:
 See the reasoning in /usr/share/rear/conf/default.conf why the default ISO_FILE_SIZE_LIMIT is 2GiB
@@ -268,12 +268,6 @@ and specific config variables SERIAL_CONSOLE_DEVICES_KERNEL SERIAL_CONSOLE_DEVIC
 There is a new config variable PXE_HTTP_URL to specify a HTTP download source for PXE.
 See the PXE_HTTP_URL description in /usr/share/rear/conf/default.conf
 
-* In /usr/share/rear/conf/default.conf increased USB_UEFI_PART_SIZE to 512 MiB
-because mkfs.vfat automatically makes FAT32 starting at 512 MiB
-so the FAT filesystem of the ESP will be in compliance with
-that the ESP should officially use a FAT32 filesystem
-(a FAT16 ESP causes issues with certain UEFI firmware)
-
 * In /usr/share/rear/conf/default.conf changed ISO_VOLID from "RELAXRECOVER" to "REAR-ISO"
 so the first ISO has the label "REAR-ISO" (8 characters)
 and subsequent ISOs get the labels "REAR-ISO_01" "REAR-ISO_02" ... respectively
@@ -283,6 +277,28 @@ so things work now by default when the ISO image is used to (manually) create a 
 #### Details (mostly in chronological order - newest topmost):
 
 This is currently work in progress for the upcoming ReaR 2.7 release, see https://github.com/rear/rear/issues/2751
+
+* New EXCLUDE_IP_ADDRESSES and EXCLUDE_NETWORK_INTERFACES directives :
+These new array variables enable to exclude specific IP addresses or
+network interfaces when building the network configuration used in the rescue environment.
+This is typically useful when floating IP addresses are used.
+Not excluding these may lead to outage if the floating IP address
+is used by another system at time the system is getting recovered,
+see https://github.com/rear/rear/pull/2736
+
+* multipath: fix exclusion of still wanted devices :
+The current code excluding multipath devices is broken when a device
+being excluded matches other devices.
+This leads to excluding wanted devices.
+This happens when having custom alias for multipath devices *or* there
+are more than 26 multipath devices and 'mpatha' is getting excluded,
+which leads to excluding all 'mpathaX' devices are well,
+see https://github.com/rear/rear/pull/2750
+
+* Update 06-layout-configuration.adoc :
+Enhance the "disk layout file syntax" description:
+Describe that one cannot rely on backward compatibility.
+Describe positional parameters vs. option=value parameters.
 
 * Update default.conf :
 In default.conf describe that when OUTPUT_URL is set
@@ -802,7 +818,7 @@ see usr/share/rear/layout/recreate/default/README.wipe_disks
 This is currently new and experimental functionality so that
 currently by default via DISKS_TO_BE_WIPED='false' no disk is wiped
 to avoid possible regressions until this new feature was more tested
-by interested users via explicit DISKS_TO_BE_WIPED='' in local.conf
+by interested users via an explicit DISKS_TO_BE_WIPED setting in local.conf
 see https://github.com/rear/rear/pull/2514
 
 * In etc/scripts/system-setup.d/41-load-special-modules.sh
