@@ -60,10 +60,9 @@ A new sub-project is born to create a proper [ReaR User Guide](https://relax-and
 
  - [Linux Disaster Recovery mit Relax-and-Recover und EMC Networker](http://backupinferno.de/?p=358) - in German
  - Official SEP documentation on [Linux Disaster Recovery with Relax-and-Recover and SEP sesam](http://wiki.sepsoftware.com/wiki/index.php/Disaster_Recovery_for_Linux_3.0_en)
- - [Linux Bare Metal Disaster Recovery on USB](http://www.cloudconsulted.com/cloud/linux-labs/linux-bare-metal-disaster-recovery-on-usb)
  - [iX](http://ix.de) article [P2V-Migration mit ReaR](http://www.heise.de/ix/heft/Umzugshilfe-2458904.html) - article in German language
- - [HOWTO: Prune backups made with Relax and Recover](https://www.harperink.de/?p=2735)
  - [Admin Magazine](http://www.admin-magazine.com) article [Exploring the Relax and Recoverbackup and rescue system](http://www.admin-magazine.com/Archive/2014/22/Exploring-the-Relax-and-Recoverbackup-and-rescue-system)
  - [Admin Magazine](http://www.admin-magazine.com) article [Better Backups](http://www.admin-magazine.com/Articles/Free-Enterprise-Backup-with-Bareos) introduction to Bareos and ReaR
  - IBM [Power Systems Linux Center Montpellier](https://www.ibm.com/ibm/clientcenter/montpellier/) presentation on [Relax and Recover on POWER (Updated 05-2017)](https://www.slideshare.net/sebastienchabrolles/relax-and-recover-on-power-updated-052017)
  - [How to install and use ReaR (Migration & Recovery tool) on CentOS 7 / RHEL 7](https://www.linuxtechi.com/install-rear-migration-recovery-tool-centos-7-rhel-7/)
+ - [Relax and Recover (ReaR) | 1 Easy Guide](https://www.linuxsysadmins.com/relax-and-recover-rear-1-easy-guide/)
