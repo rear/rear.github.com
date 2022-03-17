@@ -65,4 +65,4 @@ A new sub-project is born to create a proper [ReaR User Guide](https://relax-and
  - [Admin Magazine](http://www.admin-magazine.com) article [Better Backups](http://www.admin-magazine.com/Articles/Free-Enterprise-Backup-with-Bareos) introduction to Bareos and ReaR
  - IBM [Power Systems Linux Center Montpellier](https://www.ibm.com/ibm/clientcenter/montpellier/) presentation on [Relax and Recover on POWER (Updated 05-2017)](https://www.slideshare.net/sebastienchabrolles/relax-and-recover-on-power-updated-052017)
  - [How to install and use ReaR (Migration & Recovery tool) on CentOS 7 / RHEL 7](https://www.linuxtechi.com/install-rear-migration-recovery-tool-centos-7-rhel-7/)
- - [Relax and Recover (ReaR) | 1 Easy Guide](https://www.linuxsysadmins.com/relax-and-recover-rear-1-easy-guide/)
+ - [Relax and Recover (ReaR) 1 Easy Guide](https://www.linuxsysadmins.com/relax-and-recover-rear-1-easy-guide/)
