@@ -167,6 +167,8 @@ Since rear release 1.17.2 you will find the stable packages under the architectu
     [19.10](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/xUbuntu_19.10/amd64/),
     [20.04](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/xUbuntu_20.04/amd64/),
     [20.10](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/xUbuntu_20.10/amd64/)
+    [21.04](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/xUbuntu_21.04/amd64/)
+    [21.10](http://download.opensuse.org/repositories/Archiving:/Backup:/Rear:/Snapshot/xUbuntu_21.10/amd64/)
 
 
 ### Future releases
