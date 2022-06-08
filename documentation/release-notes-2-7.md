@@ -273,10 +273,322 @@ so the first ISO has the label "REAR-ISO" (8 characters)
 and subsequent ISOs get the labels "REAR-ISO_01" "REAR-ISO_02" ... respectively
 that have 11 characters (the maximum length for FAT volume names)
 so things work now by default when the ISO image is used to (manually) create a FAT bootable USB stick
+Accordingly 'RELAXRECOVER' in variable names was replaced. In particular
+the user config variable for automated input USER_INPUT_RELAXRECOVER_SYMLINK_TARGET
+was renamed as USER_INPUT_ISO_SYMLINK_TARGET so only that new name will work.
 
 #### Details (mostly in chronological order - newest topmost):
 
 This is currently work in progress for the upcoming ReaR 2.7 release, see https://github.com/rear/rear/issues/2751
+
+* In finalize/Linux-i386/660_install_grub2.sh
+explain that it is also used as fallback
+to install the nowadays most often used bootloader GRUB2
+unless the BOOTLOADER variable tells to install another bootloader
+(other bootloader install scripts check the BOOTLOADER variable),
+cf. https://github.com/rear/rear/issues/2817#issuecomment-1148488339
+
+* Replace 'RELAXRECOVER' in variable names:
+In lib/global-functions.sh in the function mount_url()
+renamed the user config variable for automated input
+USER_INPUT_RELAXRECOVER_SYMLINK_TARGET
+as USER_INPUT_ISO_SYMLINK_TARGET
+because the old name contained a user config value:
+"RELAXRECOVER" was an old default value of ISO_VOLID,
+see https://github.com/rear/rear/pull/2457 and
+https://github.com/rear/rear/pull/2813#discussion_r885576867
+
+* In default.conf properly describe
+PRE_BACKUP_SCRIPT and POST_BACKUP_SCRIPT
+to match what the current implementation does, see
+https://github.com/rear/rear/pull/2735#issuecomment-1145006984
+and for special cases see
+https://github.com/rear/rear/pull/2735#issuecomment-1148620157
+
+* Add PRE_RECOVERY_COMMANDS and POST_RECOVERY_COMMANDS
+as alternative to PRE_RECOVERY_SCRIPT and POST_RECOVERY_SCRIPT
+see the description in default.conf how to use them and how they work.
+See https://github.com/rear/rear/pull/2811 and see also
+https://github.com/rear/rear/pull/2735 therein in particular
+https://github.com/rear/rear/pull/2735#issuecomment-1134686196
+Additionally use LogPrint to show the user the executed commands,
+see https://github.com/rear/rear/pull/2789
+
+* In default.conf describe the new user config variables
+USB_BOOT_PART_SIZE and USB_DEVICE_BOOT_LABEL
+see https://github.com/rear/rear/pull/2660
+
+* Exclude dev/watchdog* from the ReaR recovery system:
+In default.conf add dev/watchdog* to COPY_AS_IS_EXCLUDE
+because watchdog functionality is not wanted in the recovery system
+because we do not want any automated reboot functionality
+while disaster recovery happens via "rear recover",
+see https://github.com/rear/rear/pull/2808
+Furthermore having a copy of dev/watchdog*
+during "rear mkrescue" in ReaR's build area
+may even trigger a system crash that is caused by a
+buggy TrendMicro ds_am module touching dev/watchdog
+in ReaR's build area (/var/tmp/rear.XXX/rootfs),
+see https://github.com/rear/rear/issues/2798
+
+* In output/default/940_grub2_rescue.sh
+for GRUB_RESCUE set 'root=/dev/ram0 vga=normal rw'
+(the same is already done for other boot media) to avoid a
+"Kernel panic ... Unable to mount root fs on unknown-block(0,0)"
+that could otherwise happen in certain cases,
+see https://github.com/rear/rear/pull/2791
+
+* In build/GNU/Linux/400_copy_modules.sh
+always include loaded kernel modules
+i.e. also for MODULES=() or MODULES=( 'moduleX' 'moduleY' )
+include the currently loaded kernel modules,
+cf. https://github.com/rear/rear/issues/2727#issuecomment-994731345
+
+* In layout/save/GNU/Linux/200_partition_layout.sh
+ensure $disk_label is one of the supported partition tables
+(i.e. one of 'msdos' 'gpt' 'gpt_sync_mbr' 'dasd')
+and ensure syntactically correct 'disk' and 'part' entries in disklayout.conf
+(each value must exist and each value must be a single non-blank word),
+see the last part about "error out directly ... when things failed" in
+https://github.com/rear/rear/issues/2801#issuecomment-1122015129
+But do not error out when there is no partition label type value
+for a 'disk' entry in disklayout.conf because "rear recover" works
+in a special case without partition label type value when there is
+only a 'disk' entry but nothing else for this disk exists in disklayout.conf
+which can happen when /dev/sdX is an empty SD card slot without medium,
+see https://github.com/rear/rear/issues/2810
+
+* In default.conf explain how to use LIBS properly,
+see https://github.com/rear/rear/issues/2743
+
+* In the function find_syslinux_modules_dir in lib/bootloader-functions.sh
+the fallback 'find /usr' to find the SYSLINUX modules directory
+may take a very long time on some systems (up to several hours)
+so tell the user in debug mode what is going on,
+see https://github.com/rear/rear/issues/2792
+and https://github.com/rear/rear/issues/624
+
+* In default.conf tell that
+MODULES=( 'loaded_modules' 'additional_module' ) is not supported
+(the generic COPY_AS_IS method can be used to include additional modules)
+cf. https://github.com/rear/rear/issues/2727
+
+* Use disklayout.conf keyword 'raidarray' instead of 'raid'
+because we have a new 'raiddisk' keyword and a keyword
+must not be a leading substring of another keyword
+so we have now 'raidarray' and 'raiddisk',
+see https://github.com/rear/rear/issues/2759 and
+https://github.com/rear/rear/commit/53757eab1447c712fb7c8e44be9c8b3b3ffd9faa
+
+* In layout/save/default/450_check_bootloader_files.sh
+use /[e]tc/grub*.cfg and /[b]oot/*/grub*.cfg
+with '*' globbing patterns (as in the EFI|GRUB2-EFI case)
+to find any of grub.cgf or grub2.cfg in /etc/ or in /boot/
+(e.g. in openSUSE Leap 15.3 there is /boot/grub2/grub.cfg),
+cf. https://github.com/rear/rear/pull/2796#issuecomment-1118387393
+
+* In default.conf added '[e]tc/crypttab' to FILES_TO_PATCH_PATTERNS,
+cf. https://github.com/rear/rear/pull/2795#discussion_r859670066
+
+* New FILES_TO_PATCH_PATTERNS in default.conf
+to verify file hashes at the end of recover after file restore from backup
+and show an error when config files were restored from an outdated backup
+so the restored files do not match the recreated system,
+see https://github.com/rear/rear/pull/2795
+and https://github.com/rear/rear/issues/2785
+and https://github.com/rear/rear/issues/2787
+
+* In backup/RSYNC/default/450_calculate_req_space.sh
+comment out remote space check with rsync
+see https://github.com/rear/rear/issues/2760
+
+* In layout/save/default/450_check_bootloader_files.sh
+and layout/save/default/450_check_network_files.sh
+added bash globbing characters [] around the first letter to ensure
+that with 'shopt -s nullglob' files that do not exist will not appear
+so nonexistent files are not appended to CHECK_CONFIG_FILES
+cf. https://github.com/rear/rear/pull/2796#issuecomment-1117171070
+
+* In backup/DUPLICITY/default/500_make_duplicity_backup.sh
+disable SC2068
+cf. https://github.com/rear/rear/issues/1040
+
+* In backup/YUM/default/500_make_backup.sh
+and backup/NETFS/default/500_make_backup.sh
+and prep/NETFS/default/070_set_backup_archive.sh
+fixed SC2068
+cf. https://github.com/rear/rear/issues/1040
+
+* In rescue/default/850_save_sysfs_uefi_vars.sh
+disable SC2045
+cf. https://github.com/rear/rear/issues/1040
+
+* In layout/save/GNU/Linux/240_swaps_layout.sh
+and lib/output-functions.sh
+fixed SC2045
+cf. https://github.com/rear/rear/issues/1040
+
+* In lib/_input-output-functions.sh
+disable SC2218
+cf. https://github.com/rear/rear/issues/1040
+
+* In layout/save/GNU/Linux/230_filesystem_layout.sh
+aviod SC1087
+cf. https://github.com/rear/rear/issues/1040 
+
+* In default.conf tell that USB_RETAIN_BACKUP_NR
+is only supported when EXTLINUX is used as bootloader for USB
+and in output/USB/Linux-i386/300_create_extlinux.sh
+add an explanatory comment how that code works,
+cf. https://github.com/rear/rear/pull/2794#issuecomment-1106286485
+
+* In layout/save/GNU/Linux/210_raid_layout.sh
+fixed and overhauled the RAID10 'layout' support code
+(i.e. what belongs to the mdadm --layout option).
+This was triggered by ShellCheck SC2034 and SC2066 for the old code,
+see https://github.com/rear/rear/pull/2768
+
+* In finalize/Fedora/i386/550_rebuild_initramfs.sh
+fixed SC2068 and SC2145 via some generic code cleanup
+cf. https://github.com/rear/rear/issues/1040#issuecomment-1062945160
+and see https://github.com/rear/rear/pull/2771
+
+* In rescue/GNU/Linux/310_network_devices.sh
+fix SC2091
+see https://github.com/rear/rear/pull/2776
+
+* In default.conf increase USB_UEFI_PART_SIZE to 1024 MiB,
+cf. https://github.com/rear/rear/pull/1205
+in particular to also make things work by default when additional
+third-party kernel modules and firmware (e.g. from Nvidia) are used,
+cf. https://github.com/rear/rear/issues/2770#issuecomment-1068935688
+
+* In doc/rear.8 and doc/rear.8.adoc fixed typo 
+'/dev/disk/by-path/REAR-000' -> '/dev/disk/by-label/REAR-000'
+
+* In default.conf better describe USB_DEVICE
+cf. https://github.com/rear/rear/issues/2770#issuecomment-1068831482
+
+* In output/default/940_grub_rescue.sh
+removed a misleading comment that shows a wrong get_version function call
+and in output/USB/Linux-i386/850_make_USB_bootable.sh
+fixed a wrong get_version function call
+that is needed since the ShellCheck SC2068
+fixed get_version function in lib/layout-functions.sh
+
+* In layout/recreate/default/120_confirm_wipedisk_disks.sh
+and layout/prepare/Linux-s390/205_s390_enable_disk.sh
+and rescue/GNU/Linux/310_network_devices.sh
+and rescue/GNU/Linux/230_storage_and_network_modules.sh
+and restore/default/990_move_away_restored_files.sh
+and restore/NBU/default/300_create_nbu_restore_fs_list.sh
+and skel/default/etc/scripts/system-setup.d/00-functions.sh
+and skel/default/etc/scripts/dhcp-setup-functions.sh
+and wrapup/default/990_copy_logfile.sh
+and usr/share/rear/lib/output-functions.sh
+and lib/layout-functions.sh
+and lib/filesystems-functions.sh
+and lib/linux-functions.sh
+avoid ShellCheck SC2068
+cf. https://github.com/rear/rear/issues/1040#issuecomment-1062945160
+
+* In output/ISO/Linux-i386/800_create_isofs.sh
+avoid ShellCheck SC2068 and SC2145
+cf. https://github.com/rear/rear/issues/1040#issuecomment-1062945160
+
+* In output/TSM/default/960_dsmc_verify_isofile.sh
+avoid ShellCheck SC2068 and SC2145
+cf. https://github.com/rear/rear/issues/1040#issuecomment-1062945160
+plus better error checking and messaging and other code cleanup
+
+* In output/default/940_grub2_rescue.sh
+and output/default/940_grub_rescue.sh
+avoid ShellCheck SC2068
+cf. https://github.com/rear/rear/issues/1040#issuecomment-1062945160
+
+* In output/default/950_email_result_files.sh
+avoid ShellCheck SC2068 and SC2145
+cf. https://github.com/rear/rear/issues/1040#issuecomment-1062945160
+and replaced ...IfError function calls by calling Error
+
+* In restore/FDRUPSTREAM/default/260_copy_log_and_report.sh
+fixed ShellCheck reported error SC2199
+cf. https://github.com/rear/rear/issues/1040#issuecomment-1062945160
+and fixed possible "bash: conditional binary operator expected" error
+
+* In output/USB/Linux-i386/300_create_extlinux.sh
+and rescue/GNU/Linux/310_network_devices.sh
+avoid ShellCheck reported error SC2199
+cf. https://github.com/rear/rear/issues/1040#issuecomment-1062945160
+
+* In prep/NBKDC/default/400_prep_nbkdc.s
+and lib/sesam-functions.sh
+avoid ShellCheck false error indication SC1097
+cf. https://github.com/rear/rear/issues/1040#issuecomment-1062945160
+
+* In lib/_input-output-functions.sh
+fixed ShellCheck reported errors SC2145 and SC2068
+and avoided ShellCheck false error indication SC1087
+cf. https://github.com/rear/rear/issues/1040#issuecomment-1062945160
+
+* In usr/sbin/rear
+avoid ShellCheck SC1075 and fixed ShellCheck SC2145
+cf. https://github.com/rear/rear/issues/1040
+
+* In output/RAWDISK/Linux-i386/260_create_syslinux_efi_bootloader.sh
+fixed ShellCheck SC2235
+cf. https://github.com/rear/rear/issues/1040#issuecomment-1034870262
+
+* In rear/lib/sesam-functions.sh
+fixed ShellCheck SC2221
+cf. https://github.com/rear/rear/issues/1040#issuecomment-1034870262
+
+* In lib/filesystems-functions.sh in function xfs_parse
+fixed ShellCheck SC2179 and SC2128
+cf. https://github.com/rear/rear/issues/1040#issuecomment-1034870262
+furthermore 'xfs_opts' is local in both functions xfs_parse and create_fs
+in layout/prepare/GNU/Linux/131_include_filesystem_code.sh
+
+* In lib/layout-functions.sh
+fixed ShellCheck SC2178
+cf. https://github.com/rear/rear/issues/1040#issuecomment-1034870262
+
+* In skel/default/etc/scripts/system-setup.d/00-functions.sh
+ignore ShellCheck SC2119 and SC2120
+cf. https://github.com/rear/rear/issues/1040#issuecomment-1062703092
+
+* In restore/DUPLICITY/default/150_restore_duply.sh
+avoid ShellCheck SC2103
+cf. https://github.com/rear/rear/issues/1040#issuecomment-1034870262
+
+* In layout/prepare/GNU/Linux/100_include_partition_code.sh
+fixed ShellCheck SC2199 and SC2076
+cf. https://github.com/rear/rear/issues/1040#issuecomment-1034870262
+
+* In output/ISO/Linux-ia64/400_create_local_efi_dir.sh
+fixed ShellCheck SC2050
+cf. https://github.com/rear/rear/issues/1040#issuecomment-1034870262
+
+* In layout/save/GNU/Linux/230_filesystem_layout.sh
+fixed ShellCheck SC2030
+cf. https://github.com/rear/rear/issues/1040#issuecomment-1034870262
+
+* In verify/NBU/default/380_request_client_destination.sh
+fixed ShellCheck SC2018 and SC2019
+cf. https://github.com/rear/rear/issues/1040#issuecomment-1034870262
+
+* In backup/YUM/default/500_make_backup.sh
+fixed ShellCheck SC2000
+cf. https://github.com/rear/rear/issues/1040#issuecomment-1034870262
+
+* Simpler code in prep/Linux-s390/305_include_s390_tools.sh
+to set a fixed bootdir="/boot" that also fixes ShellCheck SC1066
+cf. https://github.com/rear/rear/issues/1040#issuecomment-1034890880
+
+* New GRUB2_SEARCH_ROOT_COMMAND in default.conf 
+to overrule the setting in output/USB/Linux-i386/100_create_efiboot.sh
+see https://github.com/rear/rear/pull/2763
+and https://github.com/rear/rear/issues/2500
 
 * New EXCLUDE_IP_ADDRESSES and EXCLUDE_NETWORK_INTERFACES directives :
 These new array variables enable to exclude specific IP addresses or
