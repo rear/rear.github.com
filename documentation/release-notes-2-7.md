@@ -3,9 +3,6 @@ layout: default
 title: Relax-and-Recover Release Notes
 ---
 
-## This is currently work in progress for the upcoming ReaR 2.7 release
-see https://github.com/rear/rear/issues/2751
-
 ## Release Notes for Relax-and-Recover version 2.7
 
 This document contains the release notes for the open source project Relax-and-Recover.
