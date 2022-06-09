@@ -173,13 +173,11 @@ for each change of your basic system you must re-validate that your disaster rec
 
 The references pointing to *fix #nr* or *issue #nr* refer to our [GitHub issues tracker](https://github.com/rear/rear/issues).
 
-### Version 2.7 (perhaps March 2022 or later cf. https://github.com/rear/rear/issues/2751)
+### Version 2.7 (June 2022)
 
 #### Abstract
 
 New features, bigger enhancements, and possibly backward incompatible changes:
-
-* This is currently work in progress for the upcoming ReaR 2.7 release, see https://github.com/rear/rear/issues/2751
 
 * ReaR's default TMPDIR is now /var/tmp (it was /tmp before) i.e. ReaR's default working area is now /var/tmp/rear.XXXXX
 because ReaR needs lots of space (from 300MB up to more than 1GB) to build the ReaR rescue/recovery system e.g. as ISO image
@@ -279,8 +277,6 @@ was renamed as USER_INPUT_ISO_SYMLINK_TARGET so only that new name will work.
 
 #### Details (mostly in chronological order - newest topmost):
 
-This is currently work in progress for the upcoming ReaR 2.7 release, see https://github.com/rear/rear/issues/2751
-
 * In finalize/Linux-i386/660_install_grub2.sh
 explain that it is also used as fallback
 to install the nowadays most often used bootloader GRUB2
@@ -300,7 +296,7 @@ https://github.com/rear/rear/pull/2813#discussion_r885576867
 
 * In default.conf properly describe
 PRE_BACKUP_SCRIPT and POST_BACKUP_SCRIPT
-to match what the current implementation does, see
+to match what the implementation does, see
 https://github.com/rear/rear/pull/2735#issuecomment-1145006984
 and for special cases see
 https://github.com/rear/rear/pull/2735#issuecomment-1148620157
@@ -381,7 +377,7 @@ see https://github.com/rear/rear/issues/2759 and
 https://github.com/rear/rear/commit/53757eab1447c712fb7c8e44be9c8b3b3ffd9faa
 
 * In layout/save/default/450_check_bootloader_files.sh
-use /[e]tc/grub*.cfg and /[b]oot/*/grub*.cfg
+use /[e]tc/grub*.cfg and /[b]oot/.../grub*.cfg
 with '*' globbing patterns (as in the EFI|GRUB2-EFI case)
 to find any of grub.cgf or grub2.cfg in /etc/ or in /boot/
 (e.g. in openSUSE Leap 15.3 there is /boot/grub2/grub.cfg),
@@ -590,7 +586,7 @@ to overrule the setting in output/USB/Linux-i386/100_create_efiboot.sh
 see https://github.com/rear/rear/pull/2763
 and https://github.com/rear/rear/issues/2500
 
-* New EXCLUDE_IP_ADDRESSES and EXCLUDE_NETWORK_INTERFACES directives :
+* New EXCLUDE_IP_ADDRESSES and EXCLUDE_NETWORK_INTERFACES directives:
 These new array variables enable to exclude specific IP addresses or
 network interfaces when building the network configuration used in the rescue environment.
 This is typically useful when floating IP addresses are used.
@@ -598,7 +594,7 @@ Not excluding these may lead to outage if the floating IP address
 is used by another system at time the system is getting recovered,
 see https://github.com/rear/rear/pull/2736
 
-* multipath: fix exclusion of still wanted devices :
+* multipath: fix exclusion of still wanted devices:
 The current code excluding multipath devices is broken when a device
 being excluded matches other devices.
 This leads to excluding wanted devices.
@@ -607,12 +603,12 @@ are more than 26 multipath devices and 'mpatha' is getting excluded,
 which leads to excluding all 'mpathaX' devices are well,
 see https://github.com/rear/rear/pull/2750
 
-* Update 06-layout-configuration.adoc :
+* Update 06-layout-configuration.adoc:
 Enhance the "disk layout file syntax" description:
 Describe that one cannot rely on backward compatibility.
 Describe positional parameters vs. option=value parameters.
 
-* Update default.conf :
+* Update default.conf:
 In default.conf describe that when OUTPUT_URL is set
 OUTPUT_OPTIONS does not inherit the BACKUP_OPTIONS value
 cf. https://github.com/rear/rear/issues/2753
@@ -645,7 +641,7 @@ https://github.com/rear/rear/issues/2314
 https://github.com/rear/rear/issues/2685
 https://github.com/rear/rear/issues/2700
 
-* Update 400_copy_modules.sh :
+* Update 400_copy_modules.sh:
 Do no longer error out if 'cp -a -L' failed to to copy all contents of /lib/modules/...
 but only tell the user about the issue so he could inspect his system and decide,
 see https://github.com/rear/rear/issues/2739#issuecomment-1014304127
@@ -715,14 +711,14 @@ in https://github.com/rear/rear/pull/2514#issuecomment-743483945
 based on https://github.com/rear/rear/pull/2702
 that is about initial software RAID IMSM support
 i.e. with the changes in that pull request:
-Completely overhauled layout/save/GNU/Linux/210_raid_layout.sh :
+Completely overhauled layout/save/GNU/Linux/210_raid_layout.sh:
 No longer a subshell that appends all stdout to disklayout.conf
 but explicit append to disklayout.conf where needed
 to be safe against accidental things written to disklayout.conf.
 Handle each mdadm option in one place i.e. parse and prepare output.
 Handle options ordered by importance, mandatory first, then optional ones.
 Basic tests that mandatory options are syntactically valid plus Error if not.
-Overhauled layout/prepare/GNU/Linux/120_include_raid_code.sh :
+Overhauled layout/prepare/GNU/Linux/120_include_raid_code.sh:
 The FEATURE_MDADM_UUID code is meanwhile obsolete because
 all mdadm versions in supported ReaR Linux distributions support '--uuid'.
 New layout/recreate/default/220_verify_layout.sh
@@ -734,7 +730,7 @@ Support user specified DISKS_TO_BE_WIPED to mitigate
 https://github.com/rear/rear/issues/2715
 see the DISKS_TO_BE_WIPED description in default.conf
 
-* Update 100_create_layout_file.sh :
+* Update 100_create_layout_file.sh:
 Additionally show the filesystem LABEL in the 'lsblk' output of the original system
 as comment in disklayout.conf to make it easier to understand subsequent data
 in particular for RAID where the array name is shown as LABEL in 'lsblk'
@@ -743,14 +739,14 @@ for example like "/dev/sda ... linux_raid_member any:raid1sdab" - see also
 in https://github.com/rear/rear/pull/2702#issuecomment-951769031 and see also
 https://github.com/rear/rear/commit/1a8a88c20d01f01fac65e296e9481ab9172c3ac7
 
-* Update 100_create_layout_file.sh :
+* Update 100_create_layout_file.sh:
 Additionally show UUID in 'lsblk' output of the original system as comment in disklayout.conf
 to make it easier to compare UUIDs of the original system with what was recreated,
 cf. "... shouldn't it [ReaR] restore the [RAID] arrays with the same UUIDs ...?"
 in https://github.com/rear/rear/pull/2702#issuecomment-968904230
 and https://github.com/rear/rear/pull/2714#issuecomment-970279152
 
-* Update 050_start_required_nfs_daemons.sh :
+* Update 050_start_required_nfs_daemons.sh:
 Start rpcbind with the -s option to avoid that in some cases
 rpcbind is not started / not available in the recovery system
 cf. https://github.com/rear/rear/issues/2672
@@ -775,7 +771,7 @@ for UEFI and BIOS dual boot from the same medium
 see https://github.com/rear/rear/issues/2698
 and https://github.com/rear/rear/pull/2705
 
-* Update write-protect-functions.sh :
+* Update write-protect-functions.sh:
 In the function is_write_protected_by_id()
 assume a disk without any of UUID PTUUID PARTUUID WWN is empty
 and meant to be used to recreate the system so it should not be write-protected
@@ -824,7 +820,7 @@ also when there is a unique mapping between more than two disks,
 see https://github.com/rear/rear/issues/2690
 
 * Fix multiple VG recreation, see https://github.com/rear/rear/pull/2691
-Do not use global variables in diskrestore.sh :
+Do not use global variables in diskrestore.sh:
 Fix a problem introduced in commits
 b184194f37dd22a7e55655ff388579297239e73c and
 311bfb3da1d5e47a2ff144123a2457e634f67893 (PR #1806) that shows up when
@@ -952,7 +948,7 @@ see https://github.com/rear/rear/pull/2655
 and it also makes correcting the input possible (before [Enter] is pressed)
 see https://github.com/rear/rear/issues/2622
 
-* Update default.conf :
+* Update default.conf:
 Since https://github.com/rear/rear/pull/2633
 export TMPDIR="..."
 in ReaR config files like etc/rear/local.conf
@@ -1169,7 +1165,7 @@ to get by default (via mkfs.vfat) a FAT32 ESP to be in compliance that
 to avoid possible FAT16 ESP issues with certain UEFI firmware.
 See https://github.com/rear/rear/pull/2576
 
-* Update 230_filesystem_layout.sh :
+* Update 230_filesystem_layout.sh:
 Increase the 'docker info' timeout value from 5 seconds to 10 seconds
 because sometimes 'docker info' needs more than 5 seconds to finish,
 cf. https://github.com/rear/rear/pull/2572#issuecomment-784110872
@@ -1177,7 +1173,7 @@ cf. https://github.com/rear/rear/pull/2572#issuecomment-784110872
 * Support loop devices in format_usb_disk
 see https://github.com/rear/rear/pull/2555
 
-* Update 110_include_lvm_code.sh :
+* Update 110_include_lvm_code.sh:
 Make sure we delete the volume group before re-creating it.
 The issue happens in Migration mode when ReaR is not trying to use vgcfgrestore.
 See https://github.com/rear/rear/pull/2564
@@ -1191,16 +1187,16 @@ https://github.com/rear/rear/issues/2552
 * Add terminal password check via 'TTY_ROOT_PASSWORD' and describe it in default.conf, see
 https://github.com/rear/rear/pull/2539
 
-* Changes for NetBackup (NBU) support :
+* Changes for NetBackup (NBU) support:
 Copy NetBackup PBX related files to the rescue system and start vxpbx_exchanged on boot.
 Add /usr/openv/tmp directory to the NBU skeleton.
 See https://github.com/rear/rear/pull/2544
 
-* RAWDISK: Add local rescue partition installation capability :
+* RAWDISK: Add local rescue partition installation capability:
 Introduce a configuration variable 'RAWDISK_INSTALL_GPT_PARTITION_NAME',
 which is unset by default. When set, the rescue system will be installed
 to local disk partitions having the corresponding name.
-RAWDISK: fix local rescue partition installs (unmount before copying) :
+RAWDISK: fix local rescue partition installs (unmount before copying):
 While the recently created EFI boot partition is still mounted, its
 file system might not be fully synced. Unmounting ensures that the
 underlying loop block device is up to date before possibly being
@@ -1265,7 +1261,7 @@ Furthermore reporting when a binary requires additional libraries happens now
 in the same 'for' loop after the ldd test was run which further simplifies the code.
 See https://github.com/rear/rear/pull/2523
 
-* Skip the ldd test for ReaR files :
+* Skip the ldd test for ReaR files:
 In build/default/990_verify_rootfs.sh skip the ldd test for ReaR files
 (mainly bash scripts) where it does not make sense, cf.
 https://github.com/rear/rear/issues/2519#issuecomment-731196820
@@ -1361,7 +1357,7 @@ see https://github.com/rear/rear/issues/2491
 plus some general code cleanup and improvements
 in layout/save/GNU/Linux/260_crypt_layout.sh
 
-* Update 05-integration.adoc :
+* Update 05-integration.adoc:
 Explain that error messages in ReaR's log may not come from ReaR itself
 but from programs that are called by ReaR because stdout and stderr are
 redirected into ReaR’s log file, cf. https://github.com/rear/rear/issues/2479
@@ -1439,7 +1435,7 @@ and switching to a password hash for OPAL_PBA_DEBUG_PASSWORD.
 because single quotes avoid issues with the special bash characters
 like $ in the password, cf. https://github.com/rear/rear/pull/2178
 
-* Update format-workflow.sh :
+* Update format-workflow.sh:
 For "rear format" show "Use 'rear format -- --help' for more information"
 also when a "rear format" argument is not accepted to help the user
 what the right syntax is (e.g. "rear format help" and "rear format -- help"
@@ -1454,7 +1450,7 @@ to restore the client certificate when Data Protector Secure Communication is us
 Plus several general script cleanup things.
 See https://github.com/rear/rear/pull/2443
 
-* Supply default value for root in grub in UEFI ISO :
+* Supply default value for root in grub in UEFI ISO:
 Sometimes the search command in GRUB2 used in UEFI ISO does not find
 the root device. This was seen at least in Debian Buster running in Qemu
 (VirtualBox works fine, RHEL/CentOS in Qemu works fine as well).
@@ -1464,7 +1460,7 @@ set to memdisk, which can't work.
 This essentially matches how it used to work before https://github.com/rear/rear/pull/2293
 and fixes https://github.com/rear/rear/issues/2434
 
-* Update 300_format_usb_disk.sh :
+* Update 300_format_usb_disk.sh:
 In format/USB/default/300_format_usb_disk.sh when prompting user
 for size of EFI system partition on USB disk if no valid value is specified
 also use 400 MiB as default (same as the default value in default.conf)
@@ -1508,7 +1504,7 @@ See https://github.com/rear/rear/issues/2333
 New features, bigger enhancements, and possibly backward incompatible changes:
 
 * Initial preliminary first basic support for IBM Z architecture "s390x"
-(a.k.a. "z Systems", formerly "System/390", simply called "s390") :
+(a.k.a. "z Systems", formerly "System/390", simply called "s390"):
 Currently primarily for Red Hat and SUSE enterprise systems
 so that interested users can try out early how far things work
 in their particular IBM Z environments and provide feedback
@@ -1656,7 +1652,7 @@ for installing GRUB2 as recovery system UEFI bootloader
 so that user can add or remove GRUB2 modules as needed
 (issues #2283 #2293 #2392).
 
-* No longer load GRUB2 modules efi_gop and efi_uga in function create_grub2_cfg :
+* No longer load GRUB2 modules efi_gop and efi_uga in function create_grub2_cfg:
 In the create_grub2_cfg function in lib/bootloader-functions.sh
 do no longer enfore loading the GRUB2 modules efi_gop and efi_uga
 because loading only the module all_video is sufficient and fail-safe
@@ -1931,7 +1927,7 @@ now outdated symlink target is the current log file
 (issue #2301).
 
 * Initial preliminary first basic support for IBM Z architecture "s390x"
-(a.k.a. "z Systems", formerly "System/390", simply called "s390") :
+(a.k.a. "z Systems", formerly "System/390", simply called "s390"):
 Currently primarily for Red Hat and SUSE enterprise systems
 so that interested users can try out early how far things work
 in their particular IBM Z environments and provide feedback
@@ -1965,7 +1961,7 @@ of the "lvm..." entries in disklayout.conf are.
 
 * Fixed missing delete_dummy_partitions_and_resize_real_ones calls:
 Use same code as for disks for multipath devices (these are just regular disks),
-including MBR erasing and partition creation and cleanup : create_multipath()
+including MBR erasing and partition creation and cleanup: create_multipath()
 cannot call create_disk() because create_disk() verifies that the device
 is a block device, which it isn't with multipath because it's a symlink
 to a device mapper instead. Make sure new code handling re-creation
@@ -2059,7 +2055,7 @@ except those cases where it was not possible to implement validation
 when it is unknown what is valid for third-party tools (issue #2253).
 
 * Removed '2>/dev/null' redirection where possible: 
-Some general cleanup for ReaR 2.6. in all scripts 
+Some general cleanup for ReaR 2.6 in all scripts 
 by removing '2>/dev/null' where it makes sense 
 and replacing '&>/dev/null' by '1>/dev/null' where it makes sense 
 or also removing '&>/dev/null' where that seems to be better (issue #1395).
@@ -3096,7 +3092,7 @@ that only makes sense as long as 'rear recover' was not ever started (issue 1433
 
 * Implement simulation mode with simulation with the workflows validate and shell (issue #1098)
 
-* Update 11-multiple-backups.adoc : Multiple backups are in general not supported for
+* Update 11-multiple-backups.adoc: Multiple backups are in general not supported for
 BACKUP_TYPE=incremental or BACKUP_TYPE=differential (issues #1074 and #1123)
 
 * Using RUNTIME_LOGFILE in all scripts as needed (issue #1119)
@@ -3446,9 +3442,11 @@ That does not mean we let our user basis in the cold as we do deliver support as
 
 ## Supported and Unsupported Operating Systems
 
-We try to keep our wiki page [Test Matrix rear 2.6](https://github.com/rear/rear/wiki/Test-Matrix-rear-2.6) up-to-date with feedback we receive from the community.
+We try to keep our wiki page
+[Test Matrix ReaR 2.7](https://github.com/rear/rear/wiki/Test-Matrix-ReaR-2.7)
+up-to-date with feedback we receive from the community.
 
-ReaR-2.6 is supported on the following Linux based operating systems:
+ReaR 2.7 is supported on the following Linux based operating systems:
 
 * Fedora 29, 30, 31, and 32
 * RHEL 6, 7, and 8
@@ -3459,7 +3457,7 @@ ReaR-2.6 is supported on the following Linux based operating systems:
 * Debian 8, and 9
 * Ubuntu 16, 17, and 18
 
-ReaR-2.6 dropped official support for the following Linux based operating systems:
+ReaR 2.7 dropped official support for the following Linux based operating systems:
 
 * Fedora < 29
 * RHEL < 6
@@ -3471,13 +3469,26 @@ ReaR-2.6 dropped official support for the following Linux based operating system
 * Debian < 8
 * Ubuntu < 16
 
-Usually ReaR-2.6 should also work on newer versions of the above listed supported Linux based operating systems but sometimes arbitrary failures can happen when software that is used by ReaR (like partitioning tools, filesystem tools, bootloader tools, ISO image creating tools, networking tools, and so on) changes in not fully backward compatible ways or when there are innovations of the basic system (like kernel, storage, bootloader, init, networking, and so on) that are not yet supported by ReaR.
+Usually ReaR 2.7 should also work on newer versions of the above listed supported Linux based operating systems
+but sometimes arbitrary failures can happen when software that is used by ReaR
+(like partitioning tools, filesystem tools, bootloader tools, ISO image creating tools, networking tools, and so on)
+changes in not fully backward compatible ways or when there are innovations of the basic system
+(like kernel, storage, bootloader, init, networking, and so on)
+that are not yet supported by ReaR.
 
-In theory ReaR-2.6 should work on openSUSE Tumbleweed but in practice arbitrary failures could happen at any time because the Tumbleweed distribution is a pure rolling release version of openSUSE containing the latest stable versions of all software (cf. https://en.opensuse.org/Portal:Tumbleweed) so arbitrary changes of any software are possible at any time that could arbitrarily break how ReaR works.
+In theory ReaR 2.7 should work on openSUSE Tumbleweed
+but in practice arbitrary failures could happen at any time
+because the Tumbleweed distribution is a pure rolling release version of openSUSE
+containing the latest stable versions of all software
+(cf. https://en.opensuse.org/Portal:Tumbleweed)
+so arbitrary changes of any software are possible at any time
+that could arbitrarily break how ReaR works.
 
-ReaR-2.6 may still work for SLES 11 and openSUSE Leap 42.x or even earlier openSUSE versions but it is no longer sufficiently well tested there so arbitrary regressions could appear.
+ReaR 2.7 may still work for SLES 11 and openSUSE Leap 42.x or even earlier openSUSE versions
+but it is no longer sufficiently well tested there so arbitrary regressions could appear.
 
-ReaR 2.6, ReaR-2.5, and ReaR-2.4 (and probably also some earlier versions) are known to no longer work reasonably well for the following Linux based operating systems:
+ReaR 2.7 and earlier versions
+are known to no longer work reasonably well for the following Linux based operating systems:
 
 * RHEL 5 (and probably also CentOS 5): See issue #1766
 * SLES 9 and 10: See issue #1842
@@ -3488,32 +3499,40 @@ Requests to port ReaR to another operating system (not Linux) can only be achiev
 
 ## Supported and Unsupported Architectures
 
-ReaR-2.6 is supported on:
+ReaR 2.7 is supported on:
 
 * Intel x86 type of processors
 * AMD x86 type of processors
 * PPC64 processors
 * PPC64LE processors
 
-ReaR-2.6 may or may not work on:
+ReaR 2.7 may or may not work on:
 
 * Intel Itanium processors
 * ARM type of processors
 * IBM Z "s390x" type of processors
 
-ReaR-2.6 does not support:
+ReaR 2.7 does not support:
 
 * old PPC (32bit) processors
 
-If you feel the need to get a fully functional ReaR working on one of the above mentioned type of processors please buy
-consultancy from one of our official developers.
+If you feel the need to get a fully functional ReaR working
+on one of the above mentioned types of processors
+please buy consultancy from one of our official developers.
 
 ## Supported ReaR versions
 
-ReaR has a long history (since 2006) and we cannot support all released versions. If you have a problem we urge you to install the latest stable ReaR version or the development version (available on GitHub) before submitting an issue.
+ReaR has a long history (since 2006) and we cannot support all released versions.
+If you have a problem we urge you to install the latest stable ReaR version
+or the development version (available on GitHub)
+before submitting an issue.
 
-However, we do understand that it is not always possible to install on hundreds of systems the latest version so we are willing to support previous versions of ReaR if you buy a support contract. Why do we change our policy? We cannot handle the big support requests anymore and we must give paid projects priority, therefore, we urge our customers to buy a support contract for one or more systems. You buy time with our core developers.
-
+We understand that it is not always possible to install on hundreds of systems the latest version
+so we are willing to support previous versions of ReaR when you buy a support contract.
+We cannot handle the big amount of support requests anymore on a voluntary base
+and we must give paid projects priority, therefore, we urge our customers
+to buy a support contract for one or more systems.
+You buy time with our core developers.
 
 ## Known Problems and Workarounds
 
