@@ -1357,7 +1357,7 @@ in layout/save/GNU/Linux/260_crypt_layout.sh
 * Update 05-integration.adoc:
 Explain that error messages in ReaR's log may not come from ReaR itself
 but from programs that are called by ReaR because stdout and stderr are
-redirected into ReaR’s log file, cf. https://github.com/rear/rear/issues/2479
+redirected into ReaR's log file, cf. https://github.com/rear/rear/issues/2479
 
 * Have 'cd WORKING_DIR' in Source() function:
 Ensure that after each sourced file we are back in ReaR's usual working directory
