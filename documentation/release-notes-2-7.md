@@ -170,7 +170,7 @@ for each change of your basic system you must re-validate that your disaster rec
 
 The references pointing to *fix #nr* or *issue #nr* refer to our [GitHub issues tracker](https://github.com/rear/rear/issues).
 
-### Version 2.7 (June 2022)
+### Version 2.7 (July 2022)
 
 #### Abstract
 
@@ -250,8 +250,11 @@ Restore performance has been increased by doing parallel restores now.
 
 * Now "rear format" has in addition to the '--efi' switch a '--bios' switch.
 If none is given (i.e. by default) it will now do hybrid formatting with a BIOS boot partition (on GPT) and an EFI system partition.
+Accordingly the USB_DEVICE_PARTED_LABEL default is no longer "msdos" (see the updated description in /usr/share/rear/conf/default.conf).
 This is a starting point for implementing OUTPUT=USB support for UEFI and BIOS dual boot from the same medium.
 See https://github.com/rear/rear/issues/2698
+and https://github.com/rear/rear/issues/2818
+and https://github.com/rear/rear/pull/2829
 
 * Overhauled serial console support code.
 A serial console of the ReaR recovery system can now be specified separately for the kernel and the recovery system bootloader
@@ -273,6 +276,28 @@ the user config variable for automated input USER_INPUT_RELAXRECOVER_SYMLINK_TAR
 was renamed as USER_INPUT_ISO_SYMLINK_TARGET so only that new name will work.
 
 #### Details (mostly in chronological order - newest topmost):
+
+* In usr/share/rear/lib/format-workflow.sh
+do actually recognise -b/--bios options,
+see https://github.com/rear/rear/pull/2828
+
+* In layout/prepare/GNU/Linux/110_include_lvm_code.sh
+use a fail-safe 'yes' pipe for "lvm lvcreate"
+to pipe as many 'y' as asked for into "lvm lvcreate"
+see https://github.com/rear/rear/issues/513
+and https://github.com/rear/rear/issues/2820
+
+* Avoid creating a /bin/vim symlink to vi:
+The symlink is more confusing than helpful: If one has both vi and vim,
+and they are different (vi usually has less features), one expects to
+get the more featureful version by executing "vim", but one gets "vi".
+More importantly, in recent Fedora and RHEL, "vi" is a shell script that
+executes "vim" if found, so linking "vim" to "vi" leads to an infinite loop.
+See https://github.com/rear/rear/pull/2822
+
+* RPM spec: update build requirement for Fedora
+to unblock Packit build and run make validate after build,
+see https://github.com/rear/rear/pull/2816
 
 * In finalize/Linux-i386/660_install_grub2.sh
 explain that it is also used as fallback
