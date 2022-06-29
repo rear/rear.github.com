@@ -3508,6 +3508,9 @@ that could arbitrarily break how ReaR works.
 
 ReaR 2.7 may still work for SLES 11 and openSUSE Leap 42.x or even earlier openSUSE versions
 but it is no longer sufficiently well tested there so arbitrary regressions could appear.
+For example recreating LUKS encrypted volumes does no longer work with SLES11 SP4 because
+cryptsetup 1.1.3 in SLES11 SP4 does not support UUID and some other cryptsetup options
+that are used by default in ReaR 2.7.
 
 ReaR 2.7 and earlier versions
 are known to no longer work reasonably well for the following Linux based operating systems:
