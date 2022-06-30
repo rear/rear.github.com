@@ -210,6 +210,17 @@ This is currently new and experimental functionality so that currently
 by default via DISKS_TO_BE_WIPED='false' no disk is wiped to avoid possible regressions
 until this new feature was more tested by interested users via an explicit DISKS_TO_BE_WIPED setting. 
 
+* Rsync OUTPUT_URLs are now properly supported with BACKUP=RSYNC. 
+Previously the output went to the location specified by BACKUP_URL
+and OUTPUT_URL was ignored. One exception was OUTPUT=PXE, where the output
+was uploaded to OUTPUT_URL in addition to BACKUP_URL, but RSYNC_PREFIX was
+not respected and the interpretation of the URL was different: A URL of
+the form rsync://[USER@]HOST[:PORT]/PATH was interpreted as using the
+rsync protocol, while in all other cases such URL would be interpreted
+as using rsync over ssh. This special handling is now removed:
+An rsync OUTPUT_URL with OUTPUT=PXE now creates the RSYNC_PREFIX directory
+at the destination and the URL is interpreted as in all other cases.
+
 * Error out when files greater or equal ISO_FILE_SIZE_LIMIT should be included in the ISO:
 See the reasoning in /usr/share/rear/conf/default.conf why the default ISO_FILE_SIZE_LIMIT is 2GiB
 and why we error out when files >= ISO_FILE_SIZE_LIMIT should be included in the ISO.
