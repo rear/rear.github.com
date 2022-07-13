@@ -7,31 +7,31 @@ title: Relax-and-Recover documentation
 
 ### Getting started
 
- - [Quick start guide](http://relax-and-recover.org/documentation/getting-started)
+ - [Quick start guide](https://relax-and-recover.org/documentation/getting-started)
 
- - [Usage scenarios](http://relax-and-recover.org/usage/)
+ - [Usage scenarios](https://relax-and-recover.org/usage/)
 
  - [Manual page](https://github.com/rear/rear/blob/master/doc/rear.8.adoc)
 
- - [Frequently Asked Questions](http://relax-and-recover.org/documentation/faq)
+ - [Frequently Asked Questions](https://relax-and-recover.org/documentation/faq)
 
  - [Layout Configuration](https://github.com/rear/rear/blob/master/doc/user-guide/06-layout-configuration.adoc)
 
 ### Release notes
 
- - [Relax-and-Recover Release Notes 2.6](http://relax-and-recover.org/documentation/release-notes-2-6)
- - [Relax-and-Recover Release Notes 2.5](http://relax-and-recover.org/documentation/release-notes-2-5)
- - [Relax-and-Recover Release Notes 2.4](http://relax-and-recover.org/documentation/release-notes-2-4)
- - [Relax-and-Recover Release Notes 2.3](http://relax-and-recover.org/documentation/release-notes-2-3)
- - [Relax-and-Recover Release Notes 2.2](http://relax-and-recover.org/documentation/release-notes-2-2)
- - [Relax-and-Recover Release Notes 2.1](http://relax-and-recover.org/documentation/release-notes-2-1)
- - [Relax-and-Recover Release Notes 2.00](http://relax-and-recover.org/documentation/release-notes-2-00)
- - [Relax-and-Recover Release Notes 1.19](http://relax-and-recover.org/documentation/release-notes-1-19)
- - [Relax-and-Recover Release Notes 1.18](http://relax-and-recover.org/documentation/release-notes-1-18)
- - [Relax-and-Recover Release Notes 1.17.2](http://relax-and-recover.org/documentation/release-notes-1-17)
- - [Relax-and-Recover Release Notes 1.16.1](http://relax-and-recover.org/documentation/release-notes-1-16)
- - [Relax-and-Recover Release Notes 1.15.0](http://relax-and-recover.org/documentation/release-notes-1-15)
- - [Relax-and-Recover Release Notes 1.14.0](http://relax-and-recover.org/documentation/release-notes-1-14)
+ - [Relax-and-Recover Release Notes 2.6](https://relax-and-recover.org/documentation/release-notes-2-6)
+ - [Relax-and-Recover Release Notes 2.5](https://relax-and-recover.org/documentation/release-notes-2-5)
+ - [Relax-and-Recover Release Notes 2.4](https://relax-and-recover.org/documentation/release-notes-2-4)
+ - [Relax-and-Recover Release Notes 2.3](https://relax-and-recover.org/documentation/release-notes-2-3)
+ - [Relax-and-Recover Release Notes 2.2](https://relax-and-recover.org/documentation/release-notes-2-2)
+ - [Relax-and-Recover Release Notes 2.1](https://relax-and-recover.org/documentation/release-notes-2-1)
+ - [Relax-and-Recover Release Notes 2.00](https://relax-and-recover.org/documentation/release-notes-2-00)
+ - [Relax-and-Recover Release Notes 1.19](https://relax-and-recover.org/documentation/release-notes-1-19)
+ - [Relax-and-Recover Release Notes 1.18](https://relax-and-recover.org/documentation/release-notes-1-18)
+ - [Relax-and-Recover Release Notes 1.17.2](https://relax-and-recover.org/documentation/release-notes-1-17)
+ - [Relax-and-Recover Release Notes 1.16.1](https://relax-and-recover.org/documentation/release-notes-1-16)
+ - [Relax-and-Recover Release Notes 1.15.0](https://relax-and-recover.org/documentation/release-notes-1-15)
+ - [Relax-and-Recover Release Notes 1.14.0](https://relax-and-recover.org/documentation/release-notes-1-14)
 
 ### User guide
 
@@ -51,18 +51,18 @@ A new sub-project is born to create a proper [ReaR User Guide](https://relax-and
 
  Other documentation (not integrated into the User Guide yet)
 
- - [Concept](http://relax-and-recover.org/documentation/concept)
- - [Installation](http://relax-and-recover.org/documentation/installation)
- - [Use cases](http://relax-and-recover.org/documentation/usecases)
+ - [Concept](https://relax-and-recover.org/documentation/concept)
+ - [Installation](https://relax-and-recover.org/documentation/installation)
+ - [Use cases](https://relax-and-recover.org/documentation/usecases)
  - Best practices
 
 ### External Links
 
- - [Linux Disaster Recovery mit Relax-and-Recover und EMC Networker](http://backupinferno.de/?p=358) - in German
- - Official SEP documentation on [Linux Disaster Recovery with Relax-and-Recover and SEP sesam](http://wiki.sepsoftware.com/wiki/index.php/Disaster_Recovery_for_Linux_3.0_en)
- - [iX](http://ix.de) article [P2V-Migration mit ReaR](http://www.heise.de/ix/heft/Umzugshilfe-2458904.html) - article in German language
- - [Admin Magazine](http://www.admin-magazine.com) article [Exploring the Relax and Recoverbackup and rescue system](http://www.admin-magazine.com/Archive/2014/22/Exploring-the-Relax-and-Recoverbackup-and-rescue-system)
- - [Admin Magazine](http://www.admin-magazine.com) article [Better Backups](http://www.admin-magazine.com/Articles/Free-Enterprise-Backup-with-Bareos) introduction to Bareos and ReaR
+ - [Linux Disaster Recovery mit Relax-and-Recover und EMC Networker](https://backupinferno.de/?p=358) - in German
+ - Official SEP documentation on [Linux Disaster Recovery with Relax-and-Recover and SEP sesam](https://wiki.sepsoftware.com/wiki/index.php/Disaster_Recovery_for_Linux_3.0_en)
+ - [iX](https://www.heise.de/ix/) article [P2V-Migration mit ReaR](https://www.heise.de/select/ix/archiv/2014/12/seite-127) - article in German language
+ - [Admin Magazine](https://www.admin-magazine.com/) article [Exploring the Relax and Recoverbackup and rescue system](https://www.admin-magazine.com/Archive/2014/22/Exploring-the-Relax-and-Recoverbackup-and-rescue-system)
+ - [Admin Magazine](https://www.admin-magazine.com) article [Better Backups](https://www.admin-magazine.com/Articles/Free-Enterprise-Backup-with-Bareos) introduction to Bareos and ReaR
  - IBM [Power Systems Linux Center Montpellier](https://www.ibm.com/ibm/clientcenter/montpellier/) presentation on [Relax and Recover on POWER (Updated 05-2017)](https://www.slideshare.net/sebastienchabrolles/relax-and-recover-on-power-updated-052017)
  - [How to install and use ReaR (Migration & Recovery tool) on CentOS 7 / RHEL 7](https://www.linuxtechi.com/install-rear-migration-recovery-tool-centos-7-rhel-7/)
  - [Relax and Recover (ReaR) 1 Easy Guide](https://www.linuxsysadmins.com/relax-and-recover-rear-1-easy-guide/)
