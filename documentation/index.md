@@ -19,6 +19,7 @@ title: Relax-and-Recover documentation
 
 ### Release notes
 
+ - [Relax-and-Recover Release Notes 2.7](https://relax-and-recover.org/documentation/release-notes-2-7)
  - [Relax-and-Recover Release Notes 2.6](https://relax-and-recover.org/documentation/release-notes-2-6)
  - [Relax-and-Recover Release Notes 2.5](https://relax-and-recover.org/documentation/release-notes-2-5)
  - [Relax-and-Recover Release Notes 2.4](https://relax-and-recover.org/documentation/release-notes-2-4)
