@@ -35,7 +35,6 @@ albeit not always the latest stable release. Here is an overview:
     zypper install rear
 
 #### RHEL, CentOS, Scientific Linux, Oracle Linux
-ReaR is not part anymore of EPEL as it is now part of the distribution repositories.
 
     yum install rear
     dnf install rear
@@ -43,7 +42,6 @@ ReaR is not part anymore of EPEL as it is now part of the distribution repositor
 #### SLES
 
     zypper install rear
-
 
 ### openSUSE Build Service packages
 If you are looking for newer stable release or snapshot release, take a look at
