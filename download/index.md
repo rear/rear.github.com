@@ -4,27 +4,18 @@ title: Relax-and-Recover download
 ---
 
 ## Download Relax-and-Recover
-The project announces new releases on the low-traffic [rear-announce mailinglist](http://lists.relax-and-recover.org/mailman/listinfo/rear-announce).
-
-
-### Stable releases
-The various stable releases are available as tar.gz files from the
-[Sourceforge Downloads](https://sourceforge.net/projects/rear/files/rear/) page.
-
 
 ### Master branch snapshot
-The latest development snapshot is available through the [Github Download ZIP](https://github.com/rear/rear/archive/master.zip) button.
+The latest development snapshot is available via the [Github Download ZIP](https://github.com/rear/rear/archive/master.zip) button.
 
-All stable releases are available via the [Github ReaR releases](https://github.com/rear/rear/releases) page.
-
-Or you can get a private source copy through:
+Or you can get a private source copy via:
 
     git clone git://github.com/rear/rear.git
 
 
 ### Distribution packages
 Various distributions ship Relax-and-Recover as part of their distribution,
-albeit not always the latest stable release. Here is an overview:
+albeit not always the latest stable release. Here an overview how to get and install ReaR:
 
 #### Fedora
 
@@ -44,8 +35,8 @@ albeit not always the latest stable release. Here is an overview:
     zypper install rear
 
 ### openSUSE Build Service packages
-If you are looking for newer stable release or snapshot release, take a look at
-our automated builds from the openSUSE Build Service project Archiving:Backup:Rear
+If you are looking for newer stable releases, take a look at our recent builds
+from the openSUSE Build Service project Archiving:Backup:Rear
 
 https://build.opensuse.org/project/show/Archiving:Backup:Rear
 
