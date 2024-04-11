@@ -1,3 +1,3 @@
-The web site of Relax-and-Recover
+# The web site of Relax-and-Recover
 
-To develop install jekyll and ruby-kramdown and start the jekyll server with `jekyll serve -w`
+To develop install `jekyll` and `ruby-kramdown` and start the jekyll server with `./serve.sh`

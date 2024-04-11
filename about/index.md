@@ -5,8 +5,8 @@ title: Relax-and-Recover project
 
 ## About Relax-and-Recover
 
-Relax-and-Recover has a few interesting characteristics you may find useful when assessing
-it as a Disaster Recovery solution:
+Relax-and-Recover has a few interesting characteristics you may find useful
+when assessing it as a Disaster Recovery or Bare Metal Restore solution:
 
  * Modular design, written in Bash
    * easy to extend with custom functionality
@@ -54,19 +54,27 @@ it as a Disaster Recovery solution:
    * LUKS (encrypted partitions and filesystems)
 
  * Supports various 3rd party backup technologies, incl.
-   * CommVault Galaxy
-   * EMC NetWorker (Legato)
+   * [CommVault Galaxy](https://www.commvault.com/) (Simpana)
+   * [Dell / EMC NetWorker](https://www.dell.com/en-us/dt/data-protection/data-protection-suite/networker-data-protection-software.htm) (Legato)
+   * EMC Avamar
+   * [Dell PowerProtect Data Manager](https://www.dell.com/en-us/dt/data-protection/powerprotect-data-manager.htm)
    * HP DataProtector
    * IBM Tivoli Storage Manager (TSM)
+   * FDR Upstream
+   * NovaStor DC
+   * Rubrik Cloud Data Management
    * [SEP Sesam](https://www.sepsoftware.com/sep-sesam/disaster-recovery/)
    * Symantec NetBackup
    * [Bacula](http://www.bacula.org)
    * [Bareos](http://www.bareos.org/en/HOWTO/articles/relax-and-recover-with-bareos.html)
+   * BorgBackup
    * [duplicity](http://duplicity.nongnu.org) / [duply](http://duply.net)
+   * Rsync Backup Made Easy (rbme)
 
- * Supports various internal backup methods
+ * Supports various internal backup methods and restore methods
    * [tar](http://www.gnu.org/software/tar)
    * [rsync](http://rsync.samba.org)
+   * restore via NFS4 Server running on rescue system
 
  * Two phase disk layout recovery, allows reconfiguration before recovery, e.g.
    * migrations from e.g. SWRAID to HWRAID, or unencryped to encrypted partitions

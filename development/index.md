@@ -109,7 +109,7 @@ To make your life it bit easier we made a very simple script [rebase_myfork_rear
 ### Sponsoring
 We have a list of missing features that were requested but never got to a point
 of being implemented by the team members. If you feel an urgent need to see a
-missing feature added not hesitate to [sponsor us in the ways listed](http://relax-and-recover.org/support/sponsors)
+missing feature added not hesitate to [sponsor us in the ways listed](/support/sponsors)
 
 ### Professional services
 If your company requires integrating Relax-and-Recover into their DRP setup or

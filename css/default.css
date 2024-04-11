@@ -4,10 +4,6 @@
 }
 
 
-html {
-    background-image: url(/images/white_texture.png);
-    overflow-y: scroll;
-}
 
 body {
     max-width: 60em;
@@ -105,5 +101,6 @@ iframe {
 .footer {
     border-top: 1px solid black;
     padding-top: 10px;
+    padding-bottom: 10px;
     text-align: center;
 }

@@ -8,10 +8,11 @@ We need you - the community - for feedback to improve Relax-and-Recover features
 
 You can sponsor in many ways:
 
+ - hire a ReaR maintainer for paid work on ReaR via [professional support](./#professional-support)
  - create [pull requests](https://help.github.com/articles/using-pull-requests/)
  - read, advise and improve the current documentation (with pull requests)
  - [donate an amount of money](https://www.paypal.com/cgi-bin/webscr?item_name=Donation+to+Relax+and+Recover&cmd=_donations&business=gratien.dhaese%40gmail.com)
- - [professionally consultancy (onsite or remote)](http://relax-and-recover.org/development/)
+ - [professionally consultancy (onsite or remote)](development)
  - [a ReaR subscription to foresee in continuous development](https://www.it3.be/rear-support/)
  - [sponsor the ReaR User Guide writing](https://www.it3.be/projects/rear-user-guide/)
  - [a support contract as insurance](https://www.it3.be/rear-support/)
@@ -21,23 +22,6 @@ You can sponsor in many ways:
 
 If you have a missing feature please first [submit an issue](https://github.com/rear/rear/issues). We are informed automatically and we will add it to this list. The community can select any missing feature and decide to sponsor it (via one of the above mentioned possibilities). When a missing feature has been added to this list we will close it. However, it will be re-opened by us when we have found a sponsor for it.
 
-#### Issues waiting on sponsorship:
+#### Sponsor an existing GitHub issue
 
- - [Full list of ReaR issues waiting on sponsorship on GitHub](https://github.com/rear/rear/issues?q=is%3Aissue+label%3A%22needs+sponsorship%22)
- - [Missing backup in recovery iso for IBM PowerVM LPAR #697](https://github.com/rear/rear/issues/697)
- - [Align OUTPUT_URL=null description of man page #734](https://github.com/rear/rear/issues/734)
- - [Remove duplicate ISO image in /var/lib/rear when using BACKUP=TSM #634](https://github.com/rear/rear/issues/634)
- - [iscsi support - howto example requested #435](https://github.com/rear/rear/issues/435)
- - [Add iscsi support #64](https://github.com/rear/rear/issues/64)
- - [Make component-prefix mandatory in layout code #55](https://github.com/rear/rear/issues/55)
- - [Better UI when mapping disks. #48](https://github.com/rear/rear/issues/48)
- - [Add support for excluding logicaldrive #19](https://github.com/rear/rear/issues/19)
- - [Automatic creation of an /etc/rear/os.conf file on Debian/Ubuntu at installation time](//github.com/rear/rear/issues/468)
- - [SELinux support in backup code](https://github.com/rear/rear/issues/44)
-
-#### CLOSED issues with sponsorship:
-
- - UEFI booting from USB disk #603 *(sponsor: gozora)*
- - [Partitions not properly aligned for best performance](https://github.com/rear/rear/issues/102) *(sponsor: jsmeix)*
- - Extend PXE_TFTP_PATH and PXE_CONFIG_PATH to support url #193 *(sponsor: IT3 Consultants)*
-
+Check out our [GitHub Issues labeled "Needs Sponsorship"](https://github.com/rear/rear/issues?q=label%3A%22needs+sponsorship%22) to find something that inspires you to sponsor ReaR development. Please reach out to [professional support](./#professional-support) to get work done.

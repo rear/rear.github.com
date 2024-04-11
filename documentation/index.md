@@ -7,36 +7,36 @@ title: Relax-and-Recover documentation
 
 ### Getting started
 
- - [Quick start guide](https://relax-and-recover.org/documentation/getting-started)
+ - [Quick start guide](/documentation/getting-started)
 
- - [Usage scenarios](https://relax-and-recover.org/usage/)
+ - [Usage scenarios](/usage/)
 
  - [Manual page](https://github.com/rear/rear/blob/master/doc/rear.8.adoc)
 
- - [Frequently Asked Questions](https://relax-and-recover.org/documentation/faq)
+ - [Frequently Asked Questions](/documentation/faq)
 
  - [Layout Configuration](https://github.com/rear/rear/blob/master/doc/user-guide/06-layout-configuration.adoc)
 
 ### Release notes
 
- - [Relax-and-Recover Release Notes 2.7](https://relax-and-recover.org/documentation/release-notes-2-7)
- - [Relax-and-Recover Release Notes 2.6](https://relax-and-recover.org/documentation/release-notes-2-6)
- - [Relax-and-Recover Release Notes 2.5](https://relax-and-recover.org/documentation/release-notes-2-5)
- - [Relax-and-Recover Release Notes 2.4](https://relax-and-recover.org/documentation/release-notes-2-4)
- - [Relax-and-Recover Release Notes 2.3](https://relax-and-recover.org/documentation/release-notes-2-3)
- - [Relax-and-Recover Release Notes 2.2](https://relax-and-recover.org/documentation/release-notes-2-2)
- - [Relax-and-Recover Release Notes 2.1](https://relax-and-recover.org/documentation/release-notes-2-1)
- - [Relax-and-Recover Release Notes 2.00](https://relax-and-recover.org/documentation/release-notes-2-00)
- - [Relax-and-Recover Release Notes 1.19](https://relax-and-recover.org/documentation/release-notes-1-19)
- - [Relax-and-Recover Release Notes 1.18](https://relax-and-recover.org/documentation/release-notes-1-18)
- - [Relax-and-Recover Release Notes 1.17.2](https://relax-and-recover.org/documentation/release-notes-1-17)
- - [Relax-and-Recover Release Notes 1.16.1](https://relax-and-recover.org/documentation/release-notes-1-16)
- - [Relax-and-Recover Release Notes 1.15.0](https://relax-and-recover.org/documentation/release-notes-1-15)
- - [Relax-and-Recover Release Notes 1.14.0](https://relax-and-recover.org/documentation/release-notes-1-14)
+ - [Relax-and-Recover Release Notes 2.7](/documentation/release-notes-2-7)
+ - [Relax-and-Recover Release Notes 2.6](/documentation/release-notes-2-6)
+ - [Relax-and-Recover Release Notes 2.5](/documentation/release-notes-2-5)
+ - [Relax-and-Recover Release Notes 2.4](/documentation/release-notes-2-4)
+ - [Relax-and-Recover Release Notes 2.3](/documentation/release-notes-2-3)
+ - [Relax-and-Recover Release Notes 2.2](/documentation/release-notes-2-2)
+ - [Relax-and-Recover Release Notes 2.1](/documentation/release-notes-2-1)
+ - [Relax-and-Recover Release Notes 2.00](/documentation/release-notes-2-00)
+ - [Relax-and-Recover Release Notes 1.19](/documentation/release-notes-1-19)
+ - [Relax-and-Recover Release Notes 1.18](/documentation/release-notes-1-18)
+ - [Relax-and-Recover Release Notes 1.17.2](/documentation/release-notes-1-17)
+ - [Relax-and-Recover Release Notes 1.16.1](/documentation/release-notes-1-16)
+ - [Relax-and-Recover Release Notes 1.15.0](/documentation/release-notes-1-15)
+ - [Relax-and-Recover Release Notes 1.14.0](/documentation/release-notes-1-14)
 
 ### User guide
 
-A new sub-project is born to create a proper [ReaR User Guide](https://relax-and-recover.org/rear-user-guide/). Please submit your [ideas](https://github.com/rear/rear-user-guide/issues), [pull requests](https://github.com/rear/rear-user-guide/pulls) or buy some time with a [ReaR subscription](https://relax-and-recover.org/rear-user-guide/welcome/index.html).
+A new sub-project is born to create a proper [ReaR User Guide](/rear-user-guide/). Please submit your [ideas](https://github.com/rear/rear-user-guide/issues), [pull requests](https://github.com/rear/rear-user-guide/pulls) or buy some time with a [ReaR subscription](/rear-user-guide/welcome/index.html).
 
  1. [Introduction](https://github.com/rear/rear/blob/master/doc/user-guide/01-introduction.adoc)
  2. [Getting started](https://github.com/rear/rear/blob/master/doc/user-guide/02-getting-started.adoc)
@@ -49,12 +49,18 @@ A new sub-project is born to create a proper [ReaR User Guide](https://relax-and
  9. [Design concepts](https://github.com/rear/rear/blob/master/doc/user-guide/09-design-concepts.adoc)
 10. [Integrating external backup programs into rear](https://github.com/rear/rear/blob/master/doc/user-guide/10-integrating-external-backup.adoc)
 11. [Using Multiple Backups for Relax-and-Recover](https://github.com/rear/rear/blob/master/doc/user-guide/11-multiple-backups.adoc)
+12. [BLOCKCLONE as backup method](https://github.com/rear/rear/blob/master/doc/user-guide/12-BLOCKCLONE.adoc)
+13. [Support for TCG Opal 2-compliant Self-Encrypting Disks](https://github.com/rear/rear/blob/master/doc/user-guide/13-tcg-opal-support.adoc)
+14. [Documentation for the ZYPPER and YUM Methods](https://github.com/rear/rear/blob/master/doc/user-guide/14-ZYPPER-and-YUM.adoc)
+15. [EFISTUB support](https://github.com/rear/rear/blob/master/doc/user-guide/15-EFISTUB.adoc)
+16. [Documentation for the Rubrik Cloud Data Management (CDM) Backup and Restore Method](https://github.com/rear/rear/blob/master/doc/user-guide/16-Rubrik-CDM.adoc)
+17. [Documentation for the Portable Recovery Mode](https://github.com/rear/rear/blob/master/doc/user-guide/17-Portable-Mode.adoc)
 
- Other documentation (not integrated into the User Guide yet)
+Other documentation (not integrated into the User Guide yet)
 
- - [Concept](https://relax-and-recover.org/documentation/concept)
- - [Installation](https://relax-and-recover.org/documentation/installation)
- - [Use cases](https://relax-and-recover.org/documentation/usecases)
+ - [Concept](/documentation/concept)
+ - [Installation](/documentation/installation)
+ - [Use cases](/documentation/usecases)
  - Best practices
 
 ### External Links

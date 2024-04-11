@@ -5,6 +5,18 @@ title: Relax-and-Recover events
 
 ## Relax-and-Recover events
 
+### Foss Backstage 2024, Berlin, 4 March, 2024
+
+**Why is there no new Release? Nobody pays for the basics :-(**
+
+The Relax-and-Recover (ReaR) Open Source project exists since 2006 and is now the de-facto standard for automated Linux Disaster Recovery.
+
+A behind-the-scenes look at how a project works for such a long time, what goes well and what could be better, with specific examples and advice for others.
+
+Presentation by Gratien &amp; Schlomo, [Download Slides](https://archive.schlomo.schapiro.org/2024/Why%20is%20there%20no%20new%20Release,%20Nobody%20pays%20for%20the%20basics%20-%20Relax%20and%20Recover%20-%20ReaR%20-%20FOSS%20Backstage%202024%20-%20Gratien%20Dhaese%20and%20Schlomo%20Schapiro.pdf) or [Watch Video](https://www.youtube.com/watch?v=QdOPhDkuJM8)
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/QdOPhDkuJM8?si=io_KakSfzvKVu5Rd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ### FOSDEM 2020, Brussels, 1 February 2020
 The slides and video of ["Relax-and-Recover (ReaR) Basics"](https://fosdem.org/2020/schedule/event/basicrear/)
 
