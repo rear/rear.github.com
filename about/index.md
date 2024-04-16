@@ -65,6 +65,7 @@ when assessing it as a Disaster Recovery or Bare Metal Restore solution:
    * Rubrik Cloud Data Management
    * [SEP Sesam](https://www.sepsoftware.com/sep-sesam/disaster-recovery/)
    * Symantec NetBackup
+   * [Veeam Backup](https://www.veeam.com/)
    * [Bacula](http://www.bacula.org)
    * [Bareos](http://www.bareos.org/en/HOWTO/articles/relax-and-recover-with-bareos.html)
    * BorgBackup
