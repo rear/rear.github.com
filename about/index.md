@@ -59,7 +59,7 @@ when assessing it as a Disaster Recovery or Bare Metal Restore solution:
    * EMC Avamar
    * [Dell PowerProtect Data Manager](https://www.dell.com/en-us/dt/data-protection/powerprotect-data-manager.htm)
    * HP DataProtector
-   * IBM Tivoli Storage Manager (TSM)
+   * IBM Tivoli Storage Manager / IBM Spectrum Protect (TSM)
    * FDR Upstream
    * NovaStor DC
    * Rubrik Cloud Data Management
