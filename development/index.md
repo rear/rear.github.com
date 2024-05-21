@@ -10,21 +10,14 @@ issue tracking and this website.
 Rear is fully developed with the bash language and we follow the [coding styling described on the rear wiki page](https://github.com/rear/rear/wiki/Coding-Style)
 
 
-### Mailinglists
-The Relax-and-Recover project offers three mailinglists:
-
- - [rear-announce mailinglist](http://lists.relax-and-recover.org/mailman/listinfo/rear-announce)
-   used for release announcements
- - [rear-users mailinglist](http://lists.relax-and-recover.org/mailman/listinfo/rear-users)
-   used for end-user support
- - [rear-devel mailinglist](http://lists.relax-and-recover.org/mailman/listinfo/rear-devel)
-   used for development discussions
-
 
 ### Reporting issues
 The Github interface enables users to report issues or discuss improvements
-and new features through the issue-tracker at:
-<http://github.com/rear/rear/issues>
+and new features through the issue-tracker at <http://github.com/rear/rear/issues>
+
+For new issues or features use the
+[New issue](http://github.com/rear/rear/issues)
+button and fill in your information as needed.
 
 Once reported, one of the contributors can assign it to someone, classify it
 and attached it to a milestone release. Managing issues in this manner helps
