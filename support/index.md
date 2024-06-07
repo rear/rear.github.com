@@ -3,10 +3,9 @@ layout: default
 title: Relax-and-Recover support
 ---
 ## Community support
-For voluntary community support, you can use the
-[issue-tracker](http://github.com/rear/rear/issues), the
-[rear-users mailinglist](http://lists.relax-and-recover.org/mailman/listinfo/rear-users)
-or the [chat channel](https://gitter.im/rear/rear).
+For voluntary community support open an issue via the
+[New issue](http://github.com/rear/rear/issues)
+button at GitHub and fill in the needed information.
 
 Please visit the [Development](/development/) page for information on
 how to collaborate on the project and discuss issues.
