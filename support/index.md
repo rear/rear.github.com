@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Relax-and-Recover support
+title: Relax-and-Recover Support Options
 ---
 ## Community support
+
 For voluntary community support open an issue via the
 [New issue](http://github.com/rear/rear/issues)
 button at GitHub and fill in the needed information.
@@ -31,6 +32,7 @@ are gladly accepted as a token of appreciation.
 We also foresee other means for [sponsoring](sponsors)
 
 ## Professional Support
+
 If your company depends on Relax-and-Recover as a disaster recovery solution,
 we kindly ask you to support Relax-and-Recover development by taking a support
 contract, sponsor development or make use of consulting services offered by

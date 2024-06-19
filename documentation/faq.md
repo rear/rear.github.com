@@ -1,19 +1,17 @@
 ---
 layout: default
-title: Relax-and-Recover FAQ
+title: Relax-and-Recover Frequently Asked Questions
 ---
 
-## Relax-and-Recover Frequently Asked Questions
-
-### Upgrading Support
+## Upgrading Support
 
 *Question:* rear upgrade fails via `rpm -U`
 
 If you ever have this behavior you better first remove the old version with `rpm -e` and then do a fresh installation again with `rpm -ivh` or `yum install rear`
 
-### Hardware support
+## Hardware support
 
-### mkrescue support
+## mkrescue support
 
 *Question:* Not enough disk space available in /boot for GRUB rescue image?
 
@@ -24,7 +22,7 @@ If you see above error message then you can edit the `/etc/rear/local.conf` and 
 to avoid the rear generates a rescue image under the `/boot/grub` directory. By default,
 rear is not anymore generating a rescue image and adding it to your grub configuration.
 
-### General Questions
+## General Questions
 
 *Question:* cannot make pipe for command substitution: Too many open files
 
@@ -52,11 +50,11 @@ More information about unetbootin can be found at [http://sourceforge.net/p/unet
 
 Indeed that is try by default setting within rear. We prefer to have smaller boot image on ISO. However, when combining the tar archive and rescue image on the same ISO then it could happen that 4 Gb is not enough. To solve this read [issue #581](https://github.com/rear/rear/issues/581)
 
-### Backup support
+## Backup support
 
-### System migrations
+## System migrations
 
-#### IP Migration
+### IP Migration
 
 *Question:* Can we define a fixed IP address with a rescue image?
 
@@ -85,14 +83,14 @@ Yes, even when you are currently using DHCP you can define the variable
 in the configuration file `/etc/rear/local.conf`. You might also consider to define a static IP address in `/etc/rear/mappings/ip_addresses` (see previous question).
 
 
-#### P2P
+### P2P
 
-#### P2V
+### P2V
 
-#### V2V
+### V2V
 
-#### V2P
+### V2P
 
-### Virtualization
+## Virtualization
 
-#### Why use Relax-and-Recover in a virtualized setup ?
+### Why use Relax-and-Recover in a virtualized setup ?

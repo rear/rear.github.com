@@ -1,9 +1,7 @@
 ---
 layout: default
-title: Relax-and-Recover quick start
+title: Relax-and-Recover Quick Start
 ---
-
-## Getting Started
 
 This quick start guide will show you how to run Relax-and-Recover from the git
 checkout and create a bootable USB backup.
@@ -40,6 +38,10 @@ Now edit the 'etc/rear/local.conf' configuration file:
 
     ### write both rescue image and backup to the device labeled REAR-000
     BACKUP_URL=usb:///dev/disk/by-label/REAR-000
+
+    ### add this if you use Secure Boot
+    SECURE_BOOT_BOOTLOADER=(/boot/efi/EFI/*/shimx64.efi)
+    
     EOF
 
 Now you are ready to create a rescue image. We want verbose output.

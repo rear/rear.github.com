@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Relax-and-Recover events
+title: Events featuring Relax-and-Recover
 ---
 
 ## stackconf 2024, Berlin, 18 June, 2024

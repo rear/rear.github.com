@@ -11,8 +11,9 @@
 </head>
 
 <body>
-    <h1><a href="/">Relax-and-Recover</a></h1>
+    <header><a href="/">Relax-and-Recover</a></header>
     <ul class="nav">
+        <li><a href="/">Home</a>
         <li><a href="/about/">Features</a>
         <li><a href="/documentation/">Documentation</a>
         <li><a href="/download/">Downloads</a>
@@ -21,15 +22,17 @@
         <li><a href="/events/">Events</a>
     </ul>
 
-    <div class="content">
-        {{ content }}
-    </div>
+    <content>
+        <h1>{{page.title}}</h1>
 
-    <div class="footer">
+        {{ content }}
+    </content>
+
+    <footer>
         <a href="/support/sponsors">
             <h3>If you like Relax-and-Recover please consider sponsorship</h3>
         </a>
-    </div>
+    </footer>
 </body>
 
 </html>

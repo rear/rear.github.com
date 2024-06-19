@@ -14,17 +14,17 @@ body {
 }
 
 
-h1 {
+header {
     background-color: black;
     text-align: center;
     padding: 0.5em;
     font-size: 250%;
+    font-weight: bold;
 
 }
 
-h1 a {
+header a {
     color: white;
-    font-size: 100%;
     text-decoration: none;
 }
 
@@ -42,11 +42,11 @@ h1 a {
     width: 100%;
 }
 
-.content {
+content {
     padding: 1em;
 }
 
-h2, h3 {
+h1, h2, h3 {
     margin: 0.5em 0;
 }
 
@@ -98,7 +98,7 @@ iframe {
     border: 0;
 }
 
-.footer {
+footer {
     border-top: 1px solid black;
     padding-top: 10px;
     padding-bottom: 10px;

@@ -1,9 +1,7 @@
 ---
 layout: default
-title: Relax-and-Recover download
+title: Download Relax-and-Recover
 ---
-
-# Download Relax-and-Recover
 
 ## Master branch snapshot
 
