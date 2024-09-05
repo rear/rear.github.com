@@ -6,7 +6,16 @@ title: Relax-and-Recover Quick Start
 This quick start guide will show you how to run Relax-and-Recover from the git
 checkout and create a bootable USB backup.
 
+
 Start by cloning the Relax-and-Recover sources from GitHub:
+
+Avoid that a non-root user controls what ReaR does (ReaR must run as root):
+You should run "git clone" as root to ensure that ReaR's files (bash scripts)
+in your local git clone directory are only under root's control
+(i.e. with file owner root and without write permissions for a non-root user)
+to avoid crossing a privilege boundary when running ReaR
+from 'root' who runs ReaR to a non-root user who controls ReaR
+which would happen when ReaR's files were downloaded as a non-root user.
 
     git clone https://github.com/rear/rear.git
 
