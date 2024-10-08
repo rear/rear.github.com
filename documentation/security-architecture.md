@@ -47,7 +47,7 @@ To facilitate protecting secrets even from verbose tracing of the Bash scripts (
 
 ### Protecting Against Code Injections
 
-*NOTE: This is our plan, the implementation will follow with the next release. This section will be updated accordingly.*
+*NOTE: These are our ideas, the implementation will follow with the next release. This section will be updated accordingly. See issues [3258](https://github.com/rear/rear/pull/3258), [3259](https://github.com/rear/rear/issues/3259), [3203](https://github.com/rear/rear/pull/3203) and [3171](https://github.com/rear/rear/pull/3171) for more details.*
 
 ReaR is written in the Bash scripting language, the configuration is actually Bash script code and the ReaR system architecture is designed for easily extending ReaR functionality via dropping shell scripts into the ReaR script directories. Therefore the ReaR code is by nature more open than close, which is - from a security perspective - a trade-off for convenience and extensibility over security.
 
@@ -57,15 +57,15 @@ We differentiate between the following scenarios for potential code injections:
    1. from trusted operating system configuration files like `/etc/os-release`
    2. from untrusted configuration files, for example provided by a backup tool that ReaR integrates with
 2. Reading ReaR scripts
-   1. when ReaR is installed
-   2. when ReaR is running in portable mode (`--portable`) or from source checkout
+   1. when ReaR is installed properly via a package or via `sudo make install`
+   2. when ReaR is running in portable mode (`--portable`) or from a source checkout
 3. Reading ReaR configuration files in `/etc/rear` or provided via the `-C` option
 
 To mitigate the risk of code injections, the following checks are implemented:
 
 * Trusted operating system configuration files defined as "shell compatible" are read with `source` as we must also support the different quoting styles that can be used there. This is considered safe, as the operating system configuration files are under the control of the operating system vendor and are not writable by unprivileged users.
-* Untrusted configuration files are never read with `source`. Instead, we use `grep` and other tools to extract the required information. This is considered safe, as the configuration files are not executed as code.
-* When ReaR is installed and not run from source or in portable mode, then we validate that ReaR scripts and configuration files are owned by `root` and are not writable by unprivileged users. This is considered safe, as the ReaR scripts are under the control of the ReaR package and are not writable by unprivileged users.
+* Untrusted configuration files are never read with `source`. Instead, we use `grep` or other tools to extract the required information. This is considered safe, as the configuration files are not executed as code.
+* When ReaR is installed properly and not run from source or in portable mode, then we validate for example that ReaR scripts and configuration files are owned by `root` and are not writable by unprivileged users or that the scripts are sourced from the ReaR scripts paths. This is considered safe, as normally the ReaR scripts are under the control of the ReaR package and are not writable by unprivileged users. If ReaR is run from a remote file system then the security of ReaR depends on the security of the remote file system.
 
 Unfortunately, when running ReaR from a source checkout or in portable mode, we cannot implement further safeguards without compromising on core ReaR functionality. This is a trade-off between security and usability in favour of ReaR doing its designated job. If you run ReaR from a source checkout or in portable mode, you must take extra care and ensure that the ReaR scripts and configuration files are protected accordingly.
 
