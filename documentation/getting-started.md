@@ -4,7 +4,7 @@ title: Relax-and-Recover Quick Start
 ---
 
 This quick start guide will show you how to run Relax-and-Recover from the git
-checkout and create a bootable USB backup.
+checkout and create a bootable USB backup. Please note that this is intended for testing, experimentation and development as it runs ReaR in portable mode and therefore bypasses some of the [security measures](/documentation/security-architecture) that are in place for production use. For production use, please install ReaR into your system, either via a package or via `sudo make install` from source.
 
 Start by cloning the Relax-and-Recover sources from GitHub:
 

@@ -6,13 +6,10 @@ title: Relax-and-Recover documentation
 ## Getting started
 
 - [Quick start guide](/documentation/getting-started)
-
 - [Usage scenarios](/usage/)
-
 - [Manual page](https://github.com/rear/rear/blob/master/doc/rear.8.adoc)
-
+- [Security Architecture](/documentation/security-architecture)
 - [Frequently Asked Questions](/documentation/faq)
-
 - [Layout Configuration](https://github.com/rear/rear/blob/master/doc/user-guide/06-layout-configuration.adoc)
 
 ## Release notes
