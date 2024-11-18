@@ -91,7 +91,7 @@ ReaR is written entirely in the native language for system administration: as sh
 The intent is that experienced users and system admins can adapt or extend the ReaR scripts
 as needed to make things work for their specific cases.
 
-We need Bash version 4 which is standard on current GNU/Linux based systems.
+We need Bash version 4 which is standard on current GNU/Linux systems.
 
 The default backup software used by ReaR is standard GNU/tar.
 
@@ -115,12 +115,12 @@ so we are willing to support previous versions of ReaR when you buy a support co
 We cannot handle all those various support requests on a voluntary base
 and we give paid projects priority, therefore, we urge our customers
 to buy a support contract for one or more systems.
-You buy time with our core developers.
+You buy time with the core developers.
 
 ## Supported and Unsupported Operating Systems
 
 We try to keep our "Test Matrix" wiki pages up-to-date with feedback we receive from the community.
-For examplple for ReaR 2.8 see
+For example for ReaR 2.8 see
 [Test Matrix ReaR 2.8](https://github.com/rear/rear/wiki/Test-Matrix-ReaR-2.8)
 
 ReaR 2.8 is supported on the following Linux operating systems:
@@ -171,7 +171,7 @@ for the following Linux based operating systems:
 * RHEL 5 (and probably also CentOS 5): See issue #1766
 * SLES 9 and 10: See issue #1842
 
-If you require support for unsupported Linux operating systems you must acquire a ReaR support contract.
+If you need support for an unsupported Linux operating system you must acquire a ReaR support contract.
 
 Requests to port ReaR to another operating system (not Linux) can only be achieved with serious sponsoring.
 
