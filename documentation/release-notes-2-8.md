@@ -166,7 +166,7 @@ but it is no longer tested there so arbitrary regressions could appear,
 in particular on systems with Bash before version 4.
 
 ReaR 2.8 and earlier versions are known to no longer work
-for the following Linux based operating systems:
+for the following Linux operating systems:
 
 * RHEL 5 (and probably also CentOS 5): See issue #1766
 * SLES 9 and 10: See issue #1842
