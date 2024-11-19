@@ -73,6 +73,9 @@ Things like 'issue NNNN' or only '#NNNN' refer to [GitHub issues tracker](https:
 
 ## New features, bigger enhancements, and possibly backward incompatible changes:
 
+Initial VEEAM Bare Metal Recovery integration
+
+New portable mode --portable and OUTPUT=PORTABLE
 
 New -e/--expose-secrets option.
 
@@ -104,13 +107,989 @@ or view the [ReaR 2.8 changes at GitHub](https://github.com/rear/rear/commits/re
 or the current [ReaR GitHub master code changes](https://github.com/rear/rear/commits/master).
 
 The following entries are basically excerpts of what the command
-"git log --format="%ae %H %ad%n%s :%n%b%n" --graph | fmt -w 160 -u -t | less"
-shows in a local git clone:
+```
+git log --format="%ae %H %ad%n%s :%n%b%n" --graph | fmt -w 160 -u -t | less
+```
+shows in a local git clone.
 
 
-
-
-
+```
+Make get_disklabel_type() also work for 'multipath' devices (#3334) :
+Without this fix, get_disklabel_type() used to find a disk to install GRUB on 
+was returning nothing when the disk was a multipath device. 
+The reason is that then the line in disklayout.conf starts with 'multipath' 
+but ReaR had searched for 'disk' only. Now it also searches for 'multipath'. 
+See https://github.com/rear/rear/pull/3334 
+```
+```
+Merge pull request #3329 :
+Fix partition naming on RHEL when migrating devices :
+The previous code was appending a "p" to the device name
+unconditionally, which ended up having partition names such as 'wwidp0'
+instead of 'wwid1', when the device name (e.g. 'wwid') ended with a
+letter and not a digit.
+The new code applies the proper naming, which is 'wwid1' when device
+doesn't end with a digit (e.g. 'wwid'), and 'wwid0000p1' when the device
+(e.g. 'wwid0000') ends with a digit.
+```
+```
+Use OS_MASTER_VERSION for major releases (#3331) :
+Use OS_MASTER_VERSION for major releases, see 
+https://github.com/rear/rear/pull/3331 
+Contrary to its name, the OS_MASTER_VERSION variable 
+was already used for this purpose for some versions, e.g. RHEL 7. 
+This fixes version comparison on RHEL 10 and newer. 
+Related: https://github.com/rear/rear/issues/3149#issuecomment-1966068640 
+Fixes commit: f4932c1cfe13d4a855bec93c1d3aa0b2b9128c6a 
+"Add OS version mappings for RHEL 8 and RHEL 9"
+```
+```
+Update 400_restore_with_galaxy.sh: Use 'source' instead of '.' :
+In usr/share/rear/restore/GALAXY/default/400_restore_with_galaxy.sh 
+use 'source' instead of '.' 
+see https://github.com/rear/rear/issues/3319#issuecomment-2355118862 
+and https://github.com/rear/rear/pull/3165#discussion_r1503932927
+```
+```
+Use 'source' instead of '.' :
+In usr/share/rear/skel/default/etc/scripts/system-setup.d/00-functions.sh 
+use 'source' instead of '.' 
+see https://github.com/rear/rear/issues/3319#issuecomment-2355037630 
+and https://github.com/rear/rear/pull/3165#discussion_r1503932927
+```
+```
+Use 'source' instead of '.' :
+In usr/share/rear/skel/default/etc/scripts/run-syslog 
+use 'source' instead of '.' 
+see https://github.com/rear/rear/issues/3319#issuecomment-2355037630 
+and https://github.com/rear/rear/pull/3165#discussion_r1503932927
+```
+```
+Merge pull request #3312 :
+#3178 improve USB device detection
+#3312 improve the text output; add example on how to fetch NVME RAW_USB_DEVICE device
+#3312 parse string through uniq for RAW_USB_DEVICE
+```
+```
+BACKUP=NSR: Deprecate 650_check_iso_recoverable.sh (#3309) :
+Deprecate layout/save/NSR/default/650_check_iso_recoverable.sh 
+because it conflicts with "rear checklayout", see 
+https://github.com/rear/rear/issues/3069 
+```
+```
+In 990_verify_rootfs.sh show relative paths in user messages for files in ROOTFS_DIR (#3308) :
+In build/default/990_verify_rootfs.sh 
+enhanced how files from within the ReaR recovery system 
+(i.e. files from within ROOTFS_DIR) are shown to the user: 
+In user messages it is misleading to show the full path from 
+within the recovery system without leading ROOTFS_DIR 
+for example showing /bin/parted for what actually is 
+/var/tmp/rear.XXX/rootfs/bin/parted 
+because for the user /bin/parted means the full path 
+on his original system but there is no /bin/parted on 
+the original system because there it is /usr/sbin/parted 
+so to show files inside the recovery system to the user 
+even without (the long) leading ROOTFS_DIR we can show them 
+as relative path i.e. without leading slash e.g. as bin/parted 
+when from the context it should be clear enough 
+that a file inside the recovery system is meant. 
+```
+```
+Merge pull request #3281 :
+conf: reintroduce Linux-s390.conf :
+The conf directory is the expected location for architecture-specific settings.
+Moreover, the 305_include_s390_tools.sh script contained a potentially harmful
+check that could result in all s390/s390x tools being omitted from the recovery
+image with disastrous results.
+Fixes: cba3590b27bedb526e5b439cd8d4d01e1ec0169a ("pull #2142")
+Resolves: https://github.com/rear/rear/issues/3144
+```
+```
+Overhauled SLE11-SLE12-SAP-HANA-UEFI-example.conf (#3306) :
+In conf/examples/SLE11-SLE12-SAP-HANA-UEFI-example.conf 
+removed the meanwhile outdated and obsolete 
+information about ebiso, see 
+https://github.com/rear/rear/issues/3084#issuecomment-1833496190 
+so with /usr/bin/xorrisofs it "just works" 
+to make a UEFI bootable ISO image 
+that should boot even with Secure Boot, cf. 
+https://github.com/rear/rear/issues/3084#issuecomment-1835773844 
+Additionally I added a part about SECURE_BOOT_BOOTLOADER, see 
+https://github.com/rear/rear/issues/3300 
+Furthermore I overhauled the whole comment texts, in particular: 
+Removed the parts about SSH_ROOT_PASSWORD. 
+Added hint about SAN and multipath to look at 
+conf/examples/RHEL7-PPC64LE-Multipath-PXE-GRUB.conf 
+Plus several more general improvements of the comment texts.
+```
+```
+Make 13-tcg-opal-support.adoc ASCII :
+In doc/user-guide/13-tcg-opal-support.adoc 
+there are UTF-8 characters in the lines 
+"Install ... within root's search path (e.g. `/usr/local/sbin`)." and 
+"Use ... the USB stick's device name." 
+(here those lines are already shown in ASCII) 
+where UTF-8 characters were used 
+instead of ASCII single quote in "root's" and "stick's" 
+and instead of ASCII backtick in "`/usr/local/sbin", see 
+https://github.com/rear/rear/wiki/Coding-Style#character-encoding
+```
+```
+Make 420_autoresize_last_partitions.sh ASCII :
+In layout/prepare/default/420_autoresize_last_partitions.sh 
+there is a comment that quotes some text 
+which contained a ' character (single quote in ASCII) 
+in the text part "there's a lot of talk" where instead of an ASCII single quote
+an UTF-8 character was used in the word "there's". 
+Now this is fixed by using ASCII single quote, see 
+https://github.com/rear/rear/wiki/Coding-Style#character-encoding
+```
+```
+Make lib/layout-functions.sh ASCII :
+In lib/layout-functions.sh 
+there is a comment that quotes German text 
+which contains German [a_umlaut] and [u_umlaut] characters. 
+Fixed it by writing the German umlauts as 'ae' and 'ue' to get ASCII, see 
+https://github.com/rear/rear/wiki/Coding-Style#character-encoding 
+I found that because 
+https://github.com/rear/rear/blob/master/.codespellignore 
+mentions the German word "f[u_umlaut]r" 
+but a [u_umlaut] should not appear in ReaR code.
+```
+```
+Update local.conf description comment :
+In the local.conf comment explain that 
+one must ensure commands in configuration files 
+work always without errors regardless in which
+environment those commands will be run, 
+in particular on the original system and 
+also within the ReaR recovery system, 
+see https://github.com/rear/rear/issues/3296
+```
+```
+Update drlm-functions.sh :
+In lib/drlm-functions.sh added a comment 
+that explains how DRLM sources ReaR config files 
+(same as a local etc/rear/local.conf and other ReaR config files) 
+which are stored on a DRLM server where various ReaR configs 
+of various clients are managed centrally 
+cf. https://github.com/rear/rear/issues/3294
+```
+```
+Autodetect secure boot via mokutil and guess the secure boot shim (#3278) :
+* Autodetect Secure Boot status via mokutil and guess the secure boot shim 
+* Check that a shim is found when Secure Boot is active, improved diagnostic messages 
+Fixes #3276 
+```
+```
+In skel/default/bin/dhcpcd.sh use 'source' instead of '.' :
+In skel/default/bin/dhcpcd.sh use 'source' instead of '.' 
+see https://github.com/rear/rear/issues/3285 
+and https://github.com/rear/rear/pull/3165#discussion_r1503932927
+```
+```
+Avoid returning 1 from a script if all is OK (#3245) :
+If an error is not found in log, return 0. Not finding an error is good, 
+so don't return 1 from the output/ISO/Linux-i386/850_check_for_errors.sh script. 
+Avoids the message 
+Source function: 'source /usr/share/rear/output/ISO/Linux-i386/850_check_for_errors.sh' returns 1 
+in the log.
+```
+```
+Improve layout configuration part of the user guide (#3125) :
+* Do not refer to "restore list" in the docs 
+  This term is never defined or used anywhere. Let's talk about the layout 
+  file instead. 
+* Add "from" forgotten in the original version 
+* Neutral wording of the EXCLUDE_RECREATE example 
+  Avoid the "easiest", "inadvertently" expressions. 
+* Don't copy EXCLUDE_BACKUP/RESTORE to layout doc 
+  EXCLUDE_RESTORE and EXCLUDE_BACKUP are irrelevant for layout file and 
+  disk layout recreation. They merely influence file backup or restore 
+  (for supported backup methods). This guide is about the recreation of 
+  the disk layout. Therefore, omit the variables from here. They are not 
+  used in the doc anywhere anyway after showing a copy of their 
+  description originating from default.conf. So, why to show it at all? 
+* layout doc: move autoexcludes description 
+  I believe that "This behavior is controlled by the 
+  AUTOEXCLUDE_DISKS=y parameter" must refer to the exclusion of the 
+  unused backup disk. At the current location (disk layout when the backup 
+  disk is NOT unused anymore) it does not make sense. 
+  Move the whole part about autoexcludes just after the section where it 
+  is mentioned that a disk was automatically excluded. 
+* Do not copy almost identical layout file in docs 
+  Show only the parts that have changed after changing something. 
+* Update whitespace after comment in layout examples 
+  4d6fac780f9234b55dbb0ca7fa55b56e4fbc7157 changed the formatting of 
+  commented entries in layout: 
+  "Change commenting in layout file to have no space after the #." 
+  Adapt the examples that had been generated before the change to match. 
+* Describe EXCLUDE_RECREATE in layout docs better 
+  Instead of copying a snippet of default.conf, describe in prose what the 
+  variable does and what is the syntax. 
+* Describe assumptions of the layout conf example 
+  Instead of referring to what seems prudent, describe the assumptions 
+  beyond the example explicitly. This way, the reader can understand what 
+  we want to achieve, regardless what is their opinion on what is prudent 
+  and what is not. 
+  Also, describe briefly the relation between layout configuration and 
+  backup exclusion. 
+* Don't claim that EXCLUDE_RECREATE is the most generic
+```
+```
+Automatically include mounted btrfs subvolumes in NETFS backups (#3175) :
+* automatically exclude btrfs snapshot subvolumes from 'btrfsmountedsubvol' 
+  Related: https://github.com/rear/rear/pull/3175#issuecomment-1983498175 
+* automatically include mounted btrfs subvolumes in NETFS backups 
+  ... unless they are explicitly excluded. 
+  Resolves: https://github.com/rear/rear/issues/2928 
+* always add the excluded component in RESTORE_EXCLUDE_FILE 
+  Otherwise, the component itself would not be included if it had any child 
+  components of the `fs` type. 
+ * automatically exclude btrfs subvolume children of excluded components
+```
+```
+Migrate MAC addresses and interface names in NetworkManager keyfiles during network configuration migration (#3179) :
+* Migrate NM keyfiles during network conf migration 
+  See https://fedoramagazine.org/converting-networkmanager-from-ifcfg-to-keyfiles/ 
+  for more details on NetworkManager keyfiles. 
+  Only MAC addresses and interface names are migrated for now. 
+  TODO: migrate also IP addresses and routes. 
+* Quote name when assembling network files to patch 
+  Otherwise patching fails on files with spaces in them, often used by NetworkManager: 
+  Failed to rewrite MAC addresses and network interfaces in /mnt/local/etc/NetworkManager/system-connections/ZSSK 
+  Failed to rewrite MAC addresses and network interfaces in WIFI.nmconnection 
+  (the original file is named 'ZSSK WIFI.nmconnection'). 
+* Quote network config filenames in log messages 
+  It is our common practice to log and show messages with single-quoted 
+  file names like "Processed the file 'file name'" and it is 
+  especially useful with file names containing spaces. 
+* Properly test for empty array 
+  Instead of chjecking whether the first member of the array is empty, 
+  check whether the array is actually empty.
+```
+```
+improve device recognition when creating efibootmgr entry (#3267) :
+via the get_device_name function to normalize the device names
+```
+```
+Merge pull request #3041 :
+Reorder systemd units in the rescue system and make sure syslog is started
+Adapt init files to separate rear autostart :
+After the ReaR autostart on rescue system boot was separated from
+/etc/scripts/system-setup into its own script
+/etc/scripts/run-automatic-rear, this script needs to be executed on
+system boot. Adapt inittab and the Upstart configuration to start it.
+XXX neither the inittab (SysV init) nor the Upstart part was tested.
+Also, I don't understand why there are two locations for the Upstart
+files (/etc/init and /etc/event.d), with slightly different structure
+of services.
+Start syslog after rescue system init :
+The syslog socket used to be started early in the rescue system boot and
+for some reason this does not work well: logging to /dev/log does not
+trigger the start of rsyslogd and therefore the log data are never read
+(happens on RHEL 9 at least).
+Fix by ordering the syslog start after basic system initialization
+(sysinit.target), just like usual daemons.
+This seem to be the case without systemd as well, see /etc/inittab.
+Make sysinit.service start early in rescue boot :
+The /etc/scripts/system-setup script in the rescue system is intended to
+start early and perform basic system initialization (according to
+/etc/inittab and /etc/init/rcS.conf in the pre-systemd configs). Make
+the sysinit.service that starts the script under systemd part of
+sysinit.target so that even with systemd it starts early.
+/etc/scripts/boot, executed by rear-boot-helper.service, is intended to
+run even earlier - make this ordering explicit.
+Remove run-system-setup.service from rescue image :
+It is not needed by any other systemd units, therefore it is unused.
+Duplicates sysinit.service.
+multi-user target in rescue requires basic target :
+otherwise basic.target and the services/sockets that it contains get
+never started (affect logging among others).
+This matches the systemd's default setup, see bootup(7)
+Separate automated ReaR startup :
+Make it a separate script and systemd unit. This allows to run services
+after sysinit (which initializes network) but before ReaR starts.
+Especially useful for network backup daemons that are needed to restore
+files during "rear recover".
+Configure network-online.target in rescue system :
+Services that need network to be configured can be made to be run after
+this target.
+This matches the usual systemd setup: https://www.freedesktop.org/wiki/Software/systemd/NetworkTarget/
+Intended especially for 3rd party network backup solutions where restore
+needs some daemon running and communicating over network in the rescue
+system.
+```
+```
+Merge pull request #3261 :
+bareos: require Bareos Director >= 21 :
+The Bareos ReaR integration uses features introduced with Bareos 20.
+However, the oldest official supported version of Bareos is 21
+(the current version is Bareos 23).
+Therefore we add a requirement for a Bareos Director >= 21.
+```
+```
+Rewrite Bareos integration (#3240) :
+Major rework of Baros support provided by the Bareos company 
+* remove untested bextract method, now we only use bconsole 
+* update to support recent Bareos versions 
+* autoconfigure client, job and fileset if possible 
+* automatic (latest) and manual (bconsole commands) restore 
+* improved logging of bconsole output 
+* start bareos-fd in restore-only mode to prevent accidentally creating a backup of the rescue system 
+* generate systemd unit for bareos-fd 
+* ensure client is fully functional 
+* create bareos specific functions to handle bareos tasks 
+* significantly simplify code, improve readability 
+* remove variables not needed any more 
+* show progress information during restore 
+* get jobid from restore command from returned result 
+* bcommand now works without the "@out" command, which might get removed with Baroes >= 24. 
+```
+```
+Merge pull request #3242 :
+Fix IPv6 address support in OUTPUT_URL/BACKUP_URL :
+Currently there is no proper support for IPv6 addresses in
+OUTPUT_URL/BACKUP_URL properties:
+- OUTPUT_URL=nfs://2001:db8:ca2:6::101/root/REAR is not recognized
+  (and should not be)
+- OUTPUT_URL=nfs://[2001:db8:ca2:6::101]/root/REAR fails
+  because of bash substitutions occurring in various places
+- OUTPUT_URL="nfs://\[2001:db8:ca2:6::101\]/root/REAR" works
+  but is somehow cumbersome (double quotes + square brackets quoting).
+This patch makes the following (proper) scheme work with both NFS and SSHFS:
+  OUTPUT_URL=nfs://[2001:db8:ca2:6::101]/root/REAR
+  OUTPUT_URL=sshfs://[2001:db8:ca2:6::101]/root/REAR
+For this to occur, a lot of bash quoting had to be fixed.
+```
+```
+In 990_verify_rootfs.sh fix issue #3021 (#3250) :
+In build/default/990_verify_rootfs.sh 
+for each 'not found' shared object 
+(i.e. a shared object that was 'not found' by 'ldd') 
+check whether or not the shared object 
+may exist nevertheless in the recovery system 
+and if yes, we may sufficiently safely assume 
+things are OK in the ReaR recovery system 
+so we do not report it as missing to the user 
+(for debugging we have all in the log), see 
+https://github.com/rear/rear/issues/3021#issuecomment-2165453757 
+Additionally in 990_verify_rootfs.sh 
+more consistent level when messages are shown, 
+i.e. now only LogPrint and LogPrintError 
+to show nothing (except errors) when not in verbose mode 
+and all messages when in verbose mode 
+to make the messages as a whole 
+better understandable by the user. 
+```
+```
+On POWER tell the user when the initrd is big (#3233) :
+In pack/GNU/Linux/900_create_initramfs.sh 
+tell the user on POWER architecture 
+when the initrd is bigger than 100 MiB 
+that this may cause a boot failure, see 
+https://github.com/rear/rear/issues/3189 
+Show initrd size in MiB (not in bytes) to the user. 
+Added user info messages to consider things like 
+REAR_INITRD_COMPRESSION='lzma' 
+MODULES=('loaded_modules') 
+FIRMWARE_FILES=('no') 
+and COPY_AS_IS_EXCLUDE_TSM in case of BACKUP=TSM 
+```
+```
+Merge pull request #3239 :
+Fix version test in udev start by desupporting systemd < 190 :
+/etc/scripts/system-setup.d/40-start-udev-or-load-modules.sh in the
+rescue system examines systemd version in order to know whether it
+should use udev or load modules manually.
+Unfortunately, at least on Fedora, the systemd version can contain a
+tilde (the systemd version is equal to the systemd package version,
+which conforms to the Fedora conventions:
+https://docs.fedoraproject.org/en-US/packaging-guidelines/Versioning/#_handling_non_sorting_versions_with_tilde_dot_and_caret )
+and the bash code that compares versions chokes on it:
+/etc/scripts/system-setup.d/40-start-udev-or-load-modules.sh: line 24: [[: 256~rc3: syntax error in expression (error token is "~rc3")
+and then the wrong branch is taken.
+This leads at least to non-working make-backup-and-restore-iso CI test
+due to the ramdisk (brd) module being loaded earlier and thus not
+respecting the desired parameters. (A ramdisk of a pre-determined size
+is used to emulate the backup ISO in the test.) Probably has other unwanted
+consequences as well.
+As reasonably modern distros should have a newer systemd (even RHEL 7
+has systemd 219 and Ubuntu 16.04 has 229), delete the check and error
+out in a similar check during mkrescue if a too old systemd is
+encountered.
+The check in build/GNU/Linux/600_verify_and_adjust_udev.sh is more robust,
+so it could be used as an alternative if desupporting old systemd is not
+desired. The version_newer function would have to be moved to a library
+available during boot, though, and the function does not really check
+for a tilde in version, thus it appears to work more by accident than by
+design.
+```
+```
+Set RECOVERY_MODE also in PORTABLE mode (#3228) :
+In sbin/rear set RECOVERY_MODE also in PORTABLE mode, 
+because the PORTABLE mode is meant to be used only 
+to run 'rear recover' within a foreign rescue system 
+see https://github.com/rear/rear/pull/3206#issuecomment-2122159018 
+and https://github.com/rear/rear/pull/3206#issuecomment-2122173021
+```
+```
+Update 400_save_directories.sh (#3232) :
+In prep/default/400_save_directories.sh 
+dirty hack to fix 
+https://github.com/rear/rear/issues/3222 
+for now until a proper solution is found, cf. 
+https://github.com/rear/rear/pull/3223
+```
+```
+In 400_create_include_exclude_files.sh fixed regression of pull request 3221 :
+In backup/NETFS/default/400_create_include_exclude_files.sh 
+fixed a regression of 
+https://github.com/rear/rear/pull/3221 
+that errors out in case of 
+rear -C something_else_backup mkbackuponly 
+when not the basic system but only something else 
+should be backed up as documented in 
+doc/user-guide/11-multiple-backups.adoc 
+see https://github.com/rear/rear/pull/3221#issuecomment-2129240645
+```
+```
+Do not exclude '/var/tmp/rear.*' in default.conf (#3229) :
+Revert the actual change in 
+https://github.com/rear/rear/pull/3224 
+and have BACKUP_PROG_EXCLUDE in default.conf 
+same as it was before because the current BUILD_DIR 
+gets automatically excluded in usr/sbin/rear via 
+BACKUP_PROG_EXCLUDE+=( "$BUILD_DIR" ) 
+and it is not ReaR's task to exclude possibly lefover 
+older ReaR working areas because in general 
+files in /var/tmp are persistent which need to be 
+cleaned up deliberately by the user 
+(and not by ReaR from behind via its backup). 
+Described things more clearly in the comment. 
+```
+```
+In sbin/rear make it clear when ReaR's TMP_DIR is used (#3225) :
+In usr/sbin/rear make it more clear 
+in a comment and in DebugPrint messages 
+when ReaR's TMP_DIR gets used 
+(in contrast to the system's TMPDIR), 
+see https://github.com/rear/rear/pull/3225
+```
+```
+Update default.conf (#3224) :
+In default.conf add '/var/tmp/rear.*' to BACKUP_PROG_EXCLUDE 
+because since ReaR uses /var/tmp/rear.* as BUILD_DIR 
+one would get at least the whole BUILD_DIR 
+of the current "rear mkbackup" run 
+in the backup by default, 
+see at the end of 
+https://github.com/rear/rear/pull/3175#issuecomment-2114478980 
+Additionally describe why ReaR's VAR_DIR/output is excluded. 
+Also describe why the '/directory/*' form is used. 
+```
+```
+Overhauled 400_create_include_exclude_files.sh (#3221) :
+Overhauled backup/NETFS/default/400_create_include_exclude_files.sh 
+* Now do first backup the mounted filesystems to backup '/' first 
+  so the basic system files get stored first in the backup and 
+  then backup what is specified in BACKUP_PROG_INCLUDE 
+  see https://github.com/rear/rear/pull/3177#issuecomment-1985926458 
+  and https://github.com/rear/rear/issues/3217#issue-2277985295 
+* Report suspicious cases as LogPrintError to have the user at least informed. 
+* Remove duplicates in backup-[in/ex]clude.txt but keep the ordering 
+  to avoid possibly unwanted and unexpected subtle consequences 
+  see https://github.com/rear/rear/pull/3175#issuecomment-1985382738 
+* Verify that at least '/' is in backup-include.txt 
+  see https://github.com/rear/rear/issues/3217 
+* Redirect stdout into files exactly at the command where needed 
+  instead of more global redirections, cf. "horrible coding style" 
+  in https://github.com/rear/rear/pull/3175#issuecomment-2109554865 
+Update backup/NETFS/default/500_make_backup.sh 
+* In backup/NETFS/default/500_make_backup.sh 
+  unique_unsorted is no longer needed because 
+  backup-include.txt is already without duplicates 
+  because unique_unsorted is now called in 
+  backup/NETFS/default/400_create_include_exclude_files.sh 
+```
+```
+change find backup procedure for Veeam V12.1 and later (#3214) :
+Running rear recover on different hardware will not show the backups of the original system due to the way 
+how Veeam registers the rescue system as a new client (under the same name, but with different ID). 
+This change handles this situation by searching for all backups for HOSTNAME and selecting the newest one. 
+Searching for HOSTNAME, which is guaranteed to be a short machine name, also to matches the fqdn
+in case the system is registered in Veeam under the fqdn instead of the short machine name.
+```
+```
+enable default ramdisk if not set to satisfy Veeam 12.1ff requirements (#3216) :
+Closes #3213
+```
+```
+default.conf example for COPY_AS_IS_EXCLUDE_TSM (#3212) :
+In default.conf explain how one could reduce 
+the size of the ReaR recovery system initrd 
+in particular on POWER architecture 
+via COPY_AS_IS_TSM and alternatively 
+via COPY_AS_IS_EXCLUDE_TSM, see 
+https://github.com/rear/rear/issues/3189 
+and describe the about 123 MiB initrd size limit on POWER 
+(128 MiB minus about 4 MiB for additional prep boot data), see 
+https://github.com/rear/rear/pull/3212#issuecomment-2092481874 
+Also tell about generic methods to reduce the size of the initrd 
+like MODULES=( 'loaded_modules' ) 
+and REAR_INITRD_COMPRESSION="lzma" 
+and mention that on POWER by default 
+FIRMWARE_FILES=( 'no' ) is used. 
+```
+```
+Merge pull request #3182 :
+#3067 use exit code of nc to check BACULA directory availability
+#3082 improved the way to grab the BACULA_DIRECTOR and BACULA_CLIENT
+```
+```
+Better describe OUTPUT_PREFIX and NETFS_PREFIX (#3204) :
+In default.conf better descriptions 
+for OUTPUT_PREFIX and NETFS_PREFIX 
+(OUTPUT_PREFIX was not at all described) 
+plus explanation how OUTPUT_PREFIX and NETFS_PREFIX 
+belong to each other for the usual case 
+OUTPUT=ISO and BACKUP=NETFS 
+and made it explicit that by default 
+NETFS_PREFIX="$OUTPUT_PREFIX" 
+to get backup.tar.gz and ISO image stored 
+at the same place.
+```
+```
+Add veeam support (#3150) :
+Initial VEEAM Bare Metal Recovery integration 
+Register the Veeam Linux Agent to Veeam VBRServer with Role of Veeam Restore Operator 
+Query latest Fullbackup, mount and copy it to the original restored operating system disks 
+``` 
+```
+Implement portable mode --portable and OUTPUT=PORTABLE
+```
+```
+New unique_unsorted() function (#3177) :
+In lib/global-functions.sh added a 
+new unique_unsorted() function 
+that outputs lines in a file or from STDIN 
+without subsequent duplicate lines 
+which keeps the ordering of the lines, see 
+https://github.com/rear/rear/pull/3177 
+In backup/NETFS/default/500_make_backup.sh use 
+unique_unsorted $TMP_DIR/backup-include.txt 
+to ignore duplicate arguments provided 
+to 'tar' and 'rsync' what should be archived 
+to avoid that 'tar' and 'rsync' archive 
+exact same things multiple times 
+which needlessly increases backup time and 
+in case of 'tar' the backup archive size and 
+storage space and backup restore time, cf. 
+https://github.com/rear/rear/pull/3175#issuecomment-1985306750 
+``` 
+```
+move all /var/run to /run directories in skel :
+Fixing b838a352136811900511a209d06c809ce552e636
+```
+```
+Add OS version mappings for RHEL 8 and RHEL 9 Remember MASTER version and combinations so that RHEL 9.3 will be mapped to Fedora/9
+``` 
+```
+Check recover mode before applying remote update Remove double check for recovery system :
+Fixes #3198
+```
+```
+change /var/run to be a symlink to /run accomodating current systemd requirements and FHS recommendation :
+fixes #3197
+maybe also fixes #3139
+``` 
+```
+Update 330_set_efi_arch.sh :
+As an addition to 
+https://github.com/rear/rear/pull/3192 
+in prep/Linux-i386/330_set_efi_arch.sh also mention 
+https://github.com/rear/rear/issues/3195 
+because this is the matching issue for 
+the GRUB2_IMAGE_FORMAT usage in 
+output/RAWDISK/Linux-i386/270_create_grub2_efi_bootloader.sh
+```
+```
+Set GRUB2_IMAGE_FORMAT correctly in prep/Linux-i386/330_set_efi_arch.sh (#3192) :
+In prep/Linux-i386/330_set_efi_arch.sh 
+set GRUB2_IMAGE_FORMAT=i386-efi in case of i686|i586|i386 
+and set GRUB2_IMAGE_FORMAT=x86_64-efi in case of x86_64 
+to fix https://github.com/rear/rear/issues/3191 
+and https://github.com/rear/rear/issues/3195 
+Additionally describe current GRUB2_IMAGE_FORMAT usage 
+only in case of EFI so that currently it does not matter 
+when GRUB2_IMAGE_FORMAT is set to a value for EFI systems 
+also on BIOS systems, cf. 
+https://github.com/rear/rear/issues/3191#issuecomment-2036618057 
+``` 
+```
+Set TMPDIR to ReaR's TMP_DIR for programs that are called by ReaR :
+In usr/sbin/rear set TMPDIR to ReaR's TMP_DIR (within BUILD_DIR) 
+(except in RECOVERY_MODE to avoid failures in "chroot /mnt/local"). 
+This ensures that also for programs that are called by ReaR 
+ReaR will clean up all temporary stuff carefully and completely 
+via the function cleanup_build_area_and_end_program() and 
+it ensures that temporary files from programs that are called by ReaR 
+are sufficiently safe against unwanted access by non-root users 
+via 'mktemp -d' where BUILD_DIR and implicitly TMP_DIR=$BUILD_DIR/tmp 
+has permissions only for root but none for the group or others, 
+see https://github.com/rear/rear/issues/3167 
+Furthermore added the changes from 
+https://github.com/rear/rear/pull/3181 
+to fix https://github.com/rear/rear/issues/3180 
+which is also about BUILD_DIR / TMPDIR related code. 
+```
+```
+Merge pull request #3183 :
+Stale NFS detection in a very early stage #3109
+``` 
+```
+Merge pull request #3176 :
+skip btrfs subvolumes when detecting ESP partitions :
+The idea is to find all direct partitions that contain the ESP
+mount point and to skip all other transitive `fs:` dependencies.
+The `diskdeps.conf` file contains following entries on default Fedora
+installations (the list was shortened to only the relevant ones):
+ /dev/vda1 /dev/vda
+ /dev/vda4 /dev/vda
+ /dev/vda5 /dev/vda
+ fs:/boot/efi /dev/vda1
+ fs:/boot/efi fs:/boot
+ fs:/boot/efi fs:/
+ fs:/boot/efi btrfsmountedsubvol:/
+ fs:/boot /dev/vda4
+ fs:/boot fs:/
+ fs:/boot btrfsmountedsubvol:/
+ fs:/ /dev/vda5
+ btrfsmountedsubvol:/ /dev/vda5
+The ESP partition is only on `/dev/vda1`.  However, the `find_partition` call
+was not taking into account the need to skip mounted btrfs subvolumes as well.
+Therefore, `/dev/vda5` was listed as an ESP partition as well.
+This change makes sure that only direct ESP partitions are listed and
+fixes a bug where ReaR would create broken BootXXXX entries which point to
+completely unrelated partitions.
+```
+```
+Merge pull request #3157 :
+Remove hardcoded architecture-dependend strings from EFI code.
+More general name & comments of build_bootx86_efi :
+Change the name of the function to build_boot_efi, not functional change
+intended.
+Introduce a variable for GRUB image format :
+Use it as the argument of the -O option to
+grub-mkstandalone/grub-mkimage instead of the hardcoded x86_64-efi.
+For easier porting to non-x86_64 EFI platforms.
+Introduce variables EFI_ARCH{_UPPER} :
+Use them for various EFI bootloader suffixes instead of hardcoding
+strings like BOOTX64.EFI. EFI_ARCH is "x64" and EFI_ARCH_UPPER is "X64" on
+x86_64 architecture.
+Should make it easier to port the code to e.g. Arm.
+See e.g. https://github.com/rhboot/shim/blob/main/Make.defaults for
+possible values.
+``` 
+```
+docs: document booting of ReaR rescue initramfs on s390/s390x (#3158) :
+In doc/user-guide/04-scenarios.adoc 
+document booting of ReaR rescue initramfs on s390/s390x, see the related 
+https://github.com/rear/rear/issues/3149#issuecomment-1943375764
+```
+```
+Allow 'shell' workflow in recovery system :
+Add 'shell' to the workflows that are allowed 
+to be run from within the ReaR recovery system 
+because it can be useful for special cases, cf. 
+https://github.com/rear/rear/issues/3170#issuecomment-1981222992
+``` 
+```
+Update 04-scenarios.adoc :
+In doc/user-guide/04-scenarios.adoc 
+removed parts that mention 'udev' 
+from the section about USB devices, cf. 
+https://github.com/rear/rear/pull/3103#issuecomment-1973785249 
+and also removed some other parts there 
+which are outdated, could be misleading, 
+or are questionable or discursive 
+to make the text simpler and more to the point
+```
+```
+Fix some of the OS detection issues (#3149) :
+Delete init/default/005_verify_os_conf.sh - reasoning: 
+The generation of the /etc/rear/os.conf file is permanent. 
+Once it is created, it won't be regenerated unless it is manually removed. 
+Therefore, it will contain incorrect values if ReaR detects them incorrectly 
+like in https://github.com/rear/rear/issues/3149#issue-2125066459 
+and/or it will contain stale information after major version system upgrades, 
+see also https://github.com/rear/rear/issues/3149#issuecomment-1964290116 
+Furthermore in lib/config-functions.sh in SetOSVendorAndVersion() 
+fix the collection of VERSION_ID from /etc/os-release because 
+the code had falsely assumed that the VERSION_ID value 
+is enclosed in quotation marks which is false on Fedora, 
+see https://github.com/rear/rear/pull/3165 and the related 
+https://github.com/rear/rear/issues/3149#issuecomment-1964290116
+``` 
+```
+Replace the OUTPUT=IPL with equivalent OUTPUT=RAMDISK (#3153) :
+The initial PR with s390 support in ReaR introduced 
+undocumented OUTPUT=IPL which is redundant because 
+it does the same thing as the documented OUTPUT=RAMDISK. 
+This commit removes the IPL directory sub-tree and introduces 
+a fallback that replaces OUTPUT=IPL with OUTPUT=RAMDISK 
+during the prep phase with a deprecation warning, 
+see https://github.com/rear/rear/pull/3153 and the related 
+https://github.com/rear/rear/issues/3149#issuecomment-1941620475
+```
+```
+Merge pull request #3163 :
+Error out if TMPDIR is set in user config :
+Setting TMPDIR in {site,local}.conf has not worked since
+0022063 (PR #2633), as discussed in #2654.
+```
+```
+Update 03-configuration.adoc :
+In doc/user-guide/03-configuration.adoc 
+removed the outdated and obsolete part about TMPDIR=/bigdisk 
+because since the default is /var/tmp there is enough space 
+for things like a big ISO image
+```
+```
+Update rescue-and-backup-on-same-ISO-image-example.conf :
+In conf/examples/rescue-and-backup-on-same-ISO-image-example.conf 
+removed wrong TMPDIR=/mnt2/tmp 
+that is no longer needed since the default is /var/tmp which has enough space, cf. 
+https://github.com/rear/rear/pull/3163#issuecomment-1965886579
+```
+```
+Use dracut by default in SUSE 550_rebuild_initramfs.sh (#3155) :
+Overhauled finalize/SUSE_LINUX/i386/550_rebuild_initramfs.sh 
+Now it uses dracut by default and mkinitrd as fallback 
+see https://github.com/rear/rear/issues/3152 
+Additionally improved the user messages (in particular the warnings) 
+to make it more clear that the point is to decide if the recreated system 
+will boot with the initrd 'as is' from the backup restore, 
+cf. https://github.com/rear/rear/issues/3162 
+Furthermore removed the whole INITRD_MODULES code 
+because INITRD_MODULES is not used and 
+/etc/sysconfig/kernel does no longer exist since SLES12 
+so the INITRD_MODULES code is dead code.
+```
+```
+ErrorIfDeprecated when 'gpt_sync_mbr' is used (#3159) :
+In layout/save/default/950_verify_disklayout_file.sh 
+ErrorIfDeprecated when 'gpt_sync_mbr' is used 
+see https://github.com/rear/rear/issues/3148
+```
+```
+Update _input-output-functions.sh :
+In lib/_input-output-functions.sh 
+enhanced ErrorIfDeprecated() to support a multi-line $reason message 
+and remove leading spaces and tabs to be fail-safe 
+if a $reason message is indented with tabs. 
+Additionally improved the user message texts to be more to the point 
+in particular that the user needs explain to us 
+why there is no alternative for a deprecated feature.
+```
+```
+Fix issue 3151: missing .vimrc and overhauled 130_create_dotfiles.sh (#3154) :
+Create an empty 
+usr/share/rear/skel/default/root/.vimrc 
+to fix https://github.com/rear/rear/issues/3151 
+Furthermore in build/GNU/Linux/130_create_dotfiles.sh 
+dynamically generate .bash_history entries depending on 
+whether or not 'nano' and 'vi' are available, see 
+https://github.com/rear/rear/issues/3151#issuecomment-1941544530 
+and see https://github.com/rear/rear/pull/1306 regarding nano 
+and https://github.com/rear/rear/issues/1298 when vi is not available. 
+```
+```
+Merge pull request #3145 :
+Support saving and restoring hybrid BIOS/UEFI bootloader setup and clean up bootloader detection.
+Abort if BOOTLOADER=GRUB and GRUB 2 is installed:
+BOOTLOADER = "GRUB" used to mean GRUB 2 if GRUB 2 was installed and GRUB
+Legacy if not. With the improved GRUB detection, we don't want this
+ambiguity any more. "GRUB" should mean GRUB Legacy and GRUB2 should mean
+GRUB 2.
+Delete comment obsolete since 67ac463446:
+Commit 67ac463446 ("initial attemp to guess bootloader") introduced
+bootloader detection, so it has not been true since then that
+"There is no guarantee that GRUB was the boot loader used originally.
+One possible attempt would be to save and restore the MBR for each disk,
+but this does not guarantee a correct boot order, or even a working boot
+loader config" We don't save and restore the MBR for each disk, we
+detect the bootloader and reinstall it, thus avoiding the latter issue.
+Mention that we make "all suitable disks" bootable, not "all disks", as
+we make only the / and /boot partition disks bootable and there are
+further rules to skip some disks.
+Warn when using BOOTLOADER = GRUB:
+Update comments for the code that detects if the "GRUB" value for
+BOOTLOADER actually means GRUB2 and emit warnings (using LogPrintError)
+about "GRUB" value to mean GRUB 2 being deprecated and the GRUB Legacy
+support itself being deprecated as well.
+Do not error out in this situation as erroring out near the end of
+recovery only to inform about a deprecated setting would be unhelpful.
+Specify target i386-pc if installing GRUB with EFI:
+finalize/Linux-i386/660_install_grub2.sh installs GRUB2 for legacy BIOS
+boot into the disks(s) MBR(s). When using EFI, this can be still used in
+a hybrid BIOS/UEFI boot scenario, but we need to pass --target=i386-pc
+to grub-install in this case, otherwise it will attempt to install the
+EFI GRUB, not the BIOS GRUB.
+See also output/USB/Linux-i386/300_create_grub.sh
+Make USING_UEFI_BOOTLOADER known during savelayout:
+layout/save/default/445_guess_bootloader.sh needs to know whether we are
+using UEFI. Source prep/default/320_include_uefi_env.sh (which sets
+USING_UEFI_BOOTLOADER) in the savelayout workflow.
+This is a minimally invasive change; there may be other variables set
+during prep stage that are needed during savelayout (see
+https://github.com/rear/rear/pull/1673 ) so a more general, but more
+invasive solution would be to source the entire prep stage in the
+savelayout workflow.
+Check that disk is suitable before installing GRUB:
+Not all disks are suitable for GRUB installation into their MBR. For
+example, GPT-partitioned disks need a BIOS boot partition
+( https://www.gnu.org/software/grub/manual/grub/html_node/BIOS-installation.html )
+and attempting to install GRUB on disks without it makes grub-install
+error out. This is shown in the recovery log ona BIOS system with
+GPT-partitioned disks, where /dev/vdb and the following disks are part
+of the / volume, but don't have a BIOS boot partition.
+To fix that, introduce function is_disk_grub_candidate and use it before
+installing GRUB/GRUB2 on the disk. This functions currently performs the
+check for the BIOS boot partition on GPT-formatted disks and the check
+that the disk is not a LVM PV.
+Support BOOTLOADER=GRUB with UEFI:
+This will happen with hybrid boot: BOOTLOADER=GRUB indicates that there
+is the BIOS version of GRUB installed and at the same time,
+USING_UEFI_BOOTLOADER=1 indicates theat there is also an EFI bootloader.
+Don't look for EFI bootloader in the start of disk:
+EFI bootloader is not installed to the start of the disk, but to the EFI
+System partition as a regular file. It is this futile to search for EFI
+bootloaders in the first sectors of disks. If we find "EFI", it is only
+because there is a GPT, and "EFI PART" is the GPT signature (this does
+not tell anything about the presence of an EFI bootloader).
+Delete the code that checked for 'Hah!IdontNeedEFI' as a special case -
+it is not needed now. The code effectively skipped the check for EFI
+when there was a BIOS boot partition. Its presence does not indicate
+the absence of an EFI bootloader, though. We could be on an UEFI machine
+with the disk partitioned in hybrid (BIOS/UEFI compatible) mode. In this
+case ReaR can error out if legacy GRUB is not installed, because it does
+not find any bootloader (the EFI check is skipped).
+Detect EFI instead according to the USING_UEFI_BOOTLOADER variable when
+no other bootloader is found.
+Note that it is now perfectly legal to have USING_UEFI_BOOTLOADER=1
+and BOOTLOADER neither EFI nor GRUB2-EFI nor ELILO. This will happen
+with hybrid BIOS/UEFI booting: BOOTLOADER will be detected as GRUB2, but
+USING_UEFI_BOOTLOADER=1.
+BOOTLOADER=EFI is now intended as a fallback when no other bootloader is
+found to avod an empty BOOTLOADER value.
+Detect GRUB2 when saving layout:
+We used to distinguish between GRUB and GRUB2 when reinstalling the
+bootloader. This meant that the saved bootloader was wrong: GRUB for
+GRUB2. Detect GRUB2 earlier, already at the moment when we guess the
+bootloader, and save the correct value.
+This should help with the problem reported in PR #3128 (misdetection of
+GRUB2 as GRUB on any non-SUSE distro).
+```
+```
+OUTPUT=PXE: Support downloading kernel and initrd by HTTP (#3100) :
+For OUTPUT=PXE added support for downloading kernel and initrd by HTTP. 
+Details are described in default.conf. The main changes are: 
+PXE_TFTP_URL: deprecated, use PXE_TFTP_UPLOAD_URL 
+PXE_HTTP_URL: deprecated, use PXE_HTTP_DOWNLOAD_URL 
+PXE_TFTP_UPLOAD_URL: where the TFTP files shall be put 
+PXE_HTTP_UPLOAD_URL: where the HTTP files shall be put 
+PXE_HTTP_DOWNLOAD_URL: where the HTTP files shall be downloaded from 
+new prep/PXE/default/010_PXE_check.sh (deprecation warnings) 
+new output/PXE/default/801_copy_to_http.sh 
+see https://github.com/rear/rear/pull/3100 
+```
+```
+Update _input-output-functions.sh :
+Added a comment that the ...IfError functions 
+should no longer be used in new code and 
+when existing code is modified the 
+existing ...IfError functions should be replaced 
+by using bash directly plus added example 
+about using $? with 'if then else'. 
+Also fixed two typos (in a comment and in a message).
+```
+```
+Merge pull request #3136 :
+Include GRUB tools unconditionally and don't create $VAR_DIR/recovery/bootdisk in prep.
+Do not detect GRUB before including GRUB tools:
+When there was a file matching grub* in /boot (e.g. /boot/grub2FAIL),
+the code got confused by the glob pattern intended to match /boot/grub
+or /boot/grub2 and subsequently the rest of the script was skipped, as
+grubdir got assigned something like "/boot/grub2 /boot/grub2FAIL", which
+does not exist, so grubdir was set to /boot/grub, which does not exist
+either, and grub-probe fails.
+As a result, the GRUB tools were not included in the recovery image.
+The code have been proceeding anyway when neither grub-probe nor
+grub2-probe was found, so the tests have not been very useful.
+Fix and simplify by not checking for the existence of GRUB and just
+trying to include the GRUB tools always.
+See the discussion in
+https://github.com/rear/rear/commit/ccae513d8362078c5d4bcffe9b1167835e6449b8
+Don't create $VAR_DIR/recovery/bootdisk in prep:
+This file is unused and creating it in prep stage is against the
+guideline in prep/README:
+You should not put scripts into this 'prep' stage that modify things
+in ROOTFS_DIR or in VAR_DIR/recovery and VAR_DIR/layout because
+scripts for ROOTFS_DIR belong to the 'rescue' stage and scripts
+for VAR_DIR/recovery and VAR_DIR/layout belong to the 'layout' stages.
+```
+```
+Merge pull request #3138 :
+Add support for new backup software Dell PowerProtect Data Manager.
+Fully automated restore if lockbox works.
+Ask admin to "set lockbox" and wait for working lockbox.
+Point in time restore.
+Restore EFI System Partition from ReaR rescue image if needed.
+Modularise LD_LIBRARY_PATH handling for third-party backup tools.
+Ensure minimum Bash version: Fixes #2941
+Support automated keyboard configuration on systems with setupcon: Fixes #3133
+Fix module names with underscore bug: Fixes #3137
+Support Bash assoc arrays and improve rear shell.
+```
+```
+Let is_write_protected() report devices without device node as not write protected (#3091) :
+In lib/write-protect-functions.sh 
+let the is_write_protected function report candidate devices 
+without device node as not write protected 
+because not all /sys/block devices have a "dev" file 
+e.g. /sys/block/nvme0c0n1 has no /dev/nvme0c0n1 device node 
+see https://github.com/rear/rear/issues/3085 
+Because the is_write_protected function is meant to identify 
+write-protected disks and partitions, only candidate devices 
+with a device node are considered for write protection. 
+Additionally completely overhauled lib/write-protect-functions.sh 
+which now contains only the is_write_protected function 
+(the only one intended to be called by other scripts). 
+The former helper functions are not needed as functions because 
+all what happens is a single straightforward sequence of actions. 
+```
+```
+Merge pull request #3131 :
+Improve the description of AUTOEXCLUDE_PATH:
+Separate the example of AUTOEXCLUDE_PATH handling from the treatment of
+/tmp. /tmp is a bad example, because it is handled specially by the
+default setting of another config variable (BACKUP_PROG_EXCLUDE).
+Use /mnt as an example for AUTOEXCLUDE_PATH instead and make clear that
+AUTOEXCLUDE_PATH=( /tmp ) does not exclude files under /tmp from the
+backup and an independent setting is used for that purpose.
+```
+```
+Make initrd accessible only by root (#3123) :
+In pack/GNU/Linux/900_create_initramfs.sh call 
+chmod 0600 "$TMP_DIR/$REAR_INITRD_FILENAME" 
+to let only 'root' access the ReaR initrd because 
+the ReaR recovery system in the initrd can contain secrets 
+(not by default but when certain things are explicitly 
+configured by the user like SSH keys without passphrase) 
+see https://github.com/rear/rear/issues/3122 
+and https://bugzilla.opensuse.org/show_bug.cgi?id=1218728 
+```
 ```
 Merge pull request #3124 :
 Take AUTOEXCLUDE_PATH into account in layout doc:
