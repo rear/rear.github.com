@@ -47,7 +47,7 @@ To facilitate protecting secrets even from verbose tracing of the Bash scripts (
 
 ### Protecting Against Code Injections
 
-*NOTE: These are our ideas, the implementation will follow with the next release. This section will be updated accordingly. See issues [3258](https://github.com/rear/rear/pull/3258), [3259](https://github.com/rear/rear/issues/3259), [3203](https://github.com/rear/rear/pull/3203) and [3171](https://github.com/rear/rear/pull/3171) for more details.*
+*NOTE: These are our ideas, the implementation will follow step by step with the next major release 3.0. This section will be updated accordingly. See issues [3258](https://github.com/rear/rear/pull/3258), [3259](https://github.com/rear/rear/issues/3259), [3203](https://github.com/rear/rear/pull/3203) and [3171](https://github.com/rear/rear/pull/3171) for more details.*
 
 ReaR is written in the Bash scripting language, the configuration is actually Bash script code and the ReaR system architecture is designed for easily extending ReaR functionality via dropping shell scripts into the ReaR script directories. Therefore the ReaR code is by nature more open than close, which is - from a security perspective - a trade-off for convenience and extensibility over security.
 
