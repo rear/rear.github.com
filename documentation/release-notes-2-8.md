@@ -73,26 +73,28 @@ Things like 'issue NNNN' or only '#NNNN' refer to [GitHub issues tracker](https:
 
 ## New features, bigger enhancements, and possibly backward incompatible changes:
 
-Initial VEEAM Bare Metal Recovery integration
+Initial VEEAM Bare Metal Recovery integration.
 
-New portable mode --portable and OUTPUT=PORTABLE
+Bareos integration was rewritten.
+
+New portable mode --portable and OUTPUT=PORTABLE.
 
 New -e/--expose-secrets option.
 
 New non-interactive mode.
 
-NFS4SERVER as new restore method
+NFS4SERVER as new restore method.
 
-New OpalPBA AuthToken feature
+New OpalPBA AuthToken feature.
 
-Add support for Commvault Galaxy 11
+Add support for Commvault Galaxy 11.
 
-Layout changes and fixes for S/390 DASDs (major code overhauling)
+Layout changes and fixes for S/390 DASDs (major code overhauling).
 
-Initial basic 'barrel' support, see https://github.com/aschnell/barrel  
+Initial basic 'barrel' support, see https://github.com/aschnell/barrel.  
 
 By default "rear recover" wipes disks that get completely recreated          
-via DISKS_TO_BE_WIPED="" in default.conf          
+via DISKS_TO_BE_WIPED="" in default.conf.
 
 
 
@@ -2197,25 +2199,25 @@ For example for ReaR 2.8 see
 ReaR 2.8 is supported on the following Linux operating systems:
 
 * Fedora 29, 30, 31, 32, 33, and 34
-* RHEL 6, 7, 8, and 9
+* RHEL 7, 8, and 9
 * CentOS 6, 7, and 8
 * Scientific Linux 6 and 7
 * SLES 15
 * openSUSE Leap 15.x
 * Debian 8, and 9
-* Ubuntu 16, 17, and 18
+* Ubuntu 18, 20 and 22
 
 ReaR 2.8 dropped official support for the following Linux operating systems:
 
 * Fedora < 29
-* RHEL < 6
-* CentOS < 6
-* Scientific Linux < 6
+* RHEL < 7
+* CentOS < 7
+* Scientific Linux < 7
 * SLES < 15
 * openSUSE Leap < 15.x and older openSUSE versions
 * openSUSE Tumbleweed
 * Debian < 8
-* Ubuntu < 16
+* Ubuntu < 18
 
 Usually ReaR 2.7 should also work on newer versions of the above listed supported Linux operating systems
 but sometimes arbitrary failures can happen when software that is used by ReaR
