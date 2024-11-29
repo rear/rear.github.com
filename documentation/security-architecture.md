@@ -23,6 +23,12 @@ Specifically, we own the security of:
 
 For these we will do our best to ensure that there are no security issues and that the software is secure. We will also respond to security incidents and vulnerabilities and fix them as soon as possible. For other means of distributing ReaR packages or source code we unfortunately cannot feel responsible as they are outside of our control.
 
+### Responsibility versus Accountability and Warranty and Liability
+
+The ReaR Maintainers act responsible for ReaR in its literal meaning (being responsive and active) as described above.
+
+Accountability and warranty and liability are limited by the ReaR license "Disclaimer of Warranty" and "Limitation of Liability" in the GNU General Public License version 3 or any later version.
+
 ## Shared Responsibility Model
 
 ReaR follows the shared responsibility model. This means that ReaR is responsible for the security of the ReaR software itself, while the user is responsible for the security of the data and systems that ReaR interacts with. This includes the data that ReaR backs up and restores, as well as the systems that ReaR runs on. The user is especially responsible for safeguarding the ReaR configuration files against potential attacks, see [below](#protecting-against-code-injections). Furthermore, the user is responsible for the security of the rescue media that ReaR creates. The biggest attack vector in the context of using ReaR is actually manipulating the rescue media. If an attacker can manipulate the rescue media, they can easily compromise the system that is being recovered. This is why it is important to protect the rescue media and ensure that it is only accessible to authorized users and only when actually needed.
