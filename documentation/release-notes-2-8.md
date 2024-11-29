@@ -23,16 +23,16 @@ and SUSE Linux Enterprise Server (SLES).
 ReaR is a system administrator tool and framework to create a bootable disaster recovery system image
 for bare metal disaster recovery with data backup restore on physical or virtual replacement hardware.
 
-For bare metal disaster recovery the ReaR recovery system is booted on plain replacement hardware.
+For bare metal disaster recovery the ReaR recovery system is booted on pristine replacement hardware.
 On replacement hardware first the storage setup/layout is recreated (disk partitioning, filesystems, mount points),
 then a backup restore program is called to restore the data (system files) into the recreated storage,
-and finally a boot loader gets installed.
+and finally a boot loader is installed.
 
 System administrators use the ReaR framework to set up a disaster recovery procedure
 as part of their disaster recovery policy (which complements their existing backup policy).
 
-ReaR complements backup and restore of data but ReaR is neither a backup software
-nor a backup management software and it is not meant to be one.
+ReaR complements backup and restore of data
+but ReaR is neither a backup software nor a backup management software.
 Data backup and restore happens via dedicated backup software which is called by ReaR.
 
 ReaR has built-in support for some 'internal' backup programs like 'tar' and 'rsync'.
@@ -71,6 +71,7 @@ for each change of your basic system you must re-validate that your disaster rec
 
 Things like 'issue NNNN' or only '#NNNN' refer to [GitHub issues tracker](https://github.com/rear/rear/issues).
 
+
 ## New features, bigger enhancements, and possibly backward incompatible changes:
 
 Initial VEEAM Bare Metal Recovery integration.
@@ -97,8 +98,6 @@ By default "rear recover" wipes disks that get completely recreated
 via DISKS_TO_BE_WIPED="" in default.conf.
 
 
-
-
 ## Details (mostly in chronological order - newest topmost):
 
 Only changes of the ReaR software and its documentation that could be of common interest are listed here.
@@ -110,11 +109,107 @@ or the current [ReaR GitHub master code changes](https://github.com/rear/rear/co
 
 The following entries are basically excerpts of what the command
 ```
-git log --format="%ae %H %ad%n%s :%n%b%n" --graph | fmt -w 160 -u -t | less
+git log --format="%ae %H %ad%n%s :%n%b%n" --graph | fmt -w 160 -u -t
 ```
 shows in a local git clone.
 
-
+```
+Merge pull request #3349 :
+After doing lots of experiments with RAMdisks it is good to have
+some extra software as default in our ReaR rescue image
+```
+```
+Call 'lsblk' with 'MOUNTPOINTS' to show all mounted btrfs subvolumes (#3348) :
+In layout/save/GNU/Linux/100_create_layout_file.sh 
+try to call 'lsblk' with 'MOUNTPOINTS' with plural 'S' 
+to show all mounted btrfs subvolumes 
+in contrast to 'MOUNTPOINT' that shows only 
+a random one of the mounted btrfs subvolumes 
+which is misleading when several btrfs subvolumes 
+of one btrfs are mounted,
+see https://github.com/rear/rear/pull/3348
+```
+```
+Update 400_create_include_exclude_files.sh (#3347) :
+In backup/NETFS/default/400_create_include_exclude_files.sh 
+skip to add /.snapshots by default to the backup include list 
+see https://github.com/rear/rear/issues/3346
+```
+```
+Minor os-detection improvements (#3344) :
+See https://github.com/rear/rear/pull/3344 
+* Remove incorrect check for SUSE_LINUX: 
+  On SUSE, the OS_MASTER_VENDOR variable is set to SUSE and not SUSE_LINUX. 
+  Since the code was still executed on this platform and no problems have been 
+  reported so far, let's assume that it is safe and remove this redundant condition. 
+  Related: https://github.com/rear/rear/issues/3149#issuecomment-1966068640 
+* Set OS_VENDOR to Arch_Linux on Arch Linux: 
+  Because the plain 'Arch' could be confused with 'Architecture'. 
+  Related: https://github.com/rear/rear/issues/3149#issuecomment-1972731026
+```
+```
+Minimal changes to fix detection of Fedora from `/etc/os-release` (#3171) :
+See https://github.com/rear/rear/pull/3171 
+and https://github.com/rear/rear/issues/3149 
+* Search for `rhel` when detecting RHEL: 
+  The `redhat` substring is present only in auxiliary variables and URLs
+  in `/etc/os-release` both on Fedora and RHEL. 
+  Therefore, the `grep` worked only by accident on RHEL and was broken 
+  on Fedora because it wrongly classified Fedora as RHEL because 
+  its BUG_REPORT_URL refers to Red Hat's Bugzilla. 
+  On the other hand, `rhel` is the actual `ID` of RHEL and this string 
+  is not present in Fedora's `/etc/os-release` at all. 
+  Resolves: https://github.com/rear/rear/issues/3149#issuecomment-1964290116 
+* Always source a script in SourceStage at most once: 
+  Use `sort -u` to ensure that each relevant script is listed 
+  and sourced only once and that duplicates get discarded. 
+  Otherwise, some scripts could have been executed repeatedly 
+  (see the last linked comment '.../3149#issuecomment-1935586311'). 
+  Especially, when `OS_VENDOR` and `OS_MASTER_VENDOR` 
+  have the same value which is the case at least on Fedora. 
+  Related: https://github.com/rear/rear/pull/3171#pullrequestreview-2053278291 
+  Resolves: https://github.com/rear/rear/issues/3149#issuecomment-1935586311 
+```
+```
+Make sourcing DUPLY_PROFILE reasonably secure (#3345) :
+See https://github.com/rear/rear/issues/3293 
+and https://github.com/rear/rear/issues/3259 
+Overhauled prep/DUPLICITY/default/200_find_duply_profile.sh 
+so that now only an explicitly user specified DUPLY_PROFILE 
+will get sourced to avoid that some automatism 
+finds and sources whatever it may have found. 
+Error out when DUPLY_PROFILE is empty or does not exist 
+to make the user aware that he must explicitly 
+specify his correct DUPLY_PROFILE. 
+In default.conf explain the new DUPLY_PROFILE behaviour 
+that is backward incompatible but much more secure. 
+In 500_make_duplicity_backup.sh overhauled the code 
+that makes a backup with duply in particular 
+regarding command output which appears in the logfile 
+only in debug modes. 
+Also stdout to stderr redirections are no longer needed, see 
+https://github.com/rear/rear/wiki/Coding-Style#what-to-do-with-stdin-stdout-and-stderr 
+```
+```
+Update default.conf :
+In default.conf fixed a typo in the 
+DISABLE_DEPRECATION_ERRORS description 
+('sete' in "Users who sete this")
+and by the way improved the text a bit 
+e.g. telling more about "feature" than about "code" 
+and be more outspoken that without talking to us 
+deprecated features get removed without further notice 
+to urge users to actually do open GitHub issues
+```
+```
+Update 400_prep_nbkdc.sh :
+In prep/NBKDC/default/400_prep_nbkdc.sh fixed the wrong 
+TRUSTED_FILE_OWNERS+=( "${TRUSTED_FILE_OWNERS[@]}" novastor ) 
+by 
+TRUSTED_FILE_OWNERS+=( novastor ) 
+see 
+https://github.com/rear/rear/commit/8d01a37c8b79a879cea59cb369f7ca8728189b02#commitcomment-148880379
+```
 ```
 Make get_disklabel_type() also work for 'multipath' devices (#3334) :
 Without this fix, get_disklabel_type() used to find a disk to install GRUB on 
@@ -2190,6 +2285,7 @@ and we give paid projects priority, therefore, we urge our customers
 to buy a support contract for one or more systems.
 You buy time with the core developers.
 
+
 ## Supported and Unsupported Operating Systems
 
 We try to keep our "Test Matrix" wiki pages up-to-date with feedback we receive from the community.
@@ -2247,6 +2343,7 @@ for the following Linux operating systems:
 If you need support for an unsupported Linux operating system you must acquire a ReaR support contract.
 
 Requests to port ReaR to another operating system (not Linux) can only be achieved with serious sponsoring.
+
 
 ## Supported and Unsupported Architectures
 
