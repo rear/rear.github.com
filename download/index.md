@@ -3,9 +3,15 @@ layout: default
 title: Download Relax-and-Recover
 ---
 
+## General Available (GA) Release of Relax-and-Recover Announcement
+
+Relax-and-Recover (ReaR) v2.8 will be released around Christmas 2024.
+
+A pre-release version of ReaR v2.8 is available on our [GitHub Releases](https://github.com/rear/rear/releases) page.
+
 ## Master branch snapshot
 
-The latest development snapshot is available via the [GitHub download rear-master.zip](https://github.com/rear/rear/archive/master.zip) button.
+The latest development snapshot is available via the [GitHub download rear-master.zip](https://github.com/rear/rear/archive/master.zip) link.
 
 Or you can get a private source copy via:
 
