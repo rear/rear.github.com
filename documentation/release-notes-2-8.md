@@ -113,10 +113,41 @@ git log --format="%ae %H %ad%n%s :%n%b%n" --graph | fmt -w 160 -u -t
 ```
 shows in a local git clone.
 
+
+```
+In 100_copy_as_is.sh error out if symlinking VAR_DIR SHARE_DIR fails (#3356) :
+In build/GNU/Linux/100_copy_as_is.sh 
+error out if symlinking VAR_DIR and/or SHARE_DIR fails 
+because with non-default VAR_DIR and/or SHARE_DIR 
+(e.g. when running from checkout) 
+it is mandatory that in the ReaR recovery system 
+all ReaR files are accessible via the default 
+/var/lib/rear and /usr/share/rear directories, 
+see https://github.com/rear/rear/pull/3356 
+So old systems with 'ln' from coreutils < 8.16 
+that does not support the '-r/--relative' option 
+are no longer supported because the 
+relative symlink is needed for portable mode, 
+see https://github.com/rear/rear/pull/3206
+```
+```
+Tell why 300_include_grub_tools.sh exists :
+In prep/GNU/Linux/300_include_grub_tools.sh 
+explain why it exists at all, see 
+https://github.com/rear/rear/pull/3354#issuecomment-2519520750
+```
+```
+Merge pull request #3354 :
+cleanup: move grubby and grub2-editenv to 300_include_grub_tools.sh (#3349)
+```
 ```
 Merge pull request #3349 :
 After doing lots of experiments with RAMdisks it is good to have
 some extra software as default in our ReaR rescue image
+```
+```
+Merge pull request #3351 :
+fix: add -xdev option to find to avoid hanging NFS (#3350)
 ```
 ```
 Call 'lsblk' with 'MOUNTPOINTS' to show all mounted btrfs subvolumes (#3348) :
