@@ -188,7 +188,7 @@ for each change of your basic system you must re-validate that your disaster rec
 
 # Relax-and-Recover Version 2.8 (November 2024)
 
-Things like 'issue NNNN' or only '#NNNN' refer to the GitHub issues tracker https://github.com/rear/rear/issues
+Things like 'issue NNNN' or only '#NNNN' refer to the GitHub issues tracker <https://github.com/rear/rear/issues>
 
 
 ## New features, bigger enhancements, and possibly backward incompatible changes:
@@ -211,7 +211,7 @@ Things like 'issue NNNN' or only '#NNNN' refer to the GitHub issues tracker http
 
 * Layout changes and fixes for S/390 DASDs (major code overhauling).
 
-* Initial basic 'barrel' support, see https://github.com/aschnell/barrel 
+* Initial basic 'barrel' support, see <https://github.com/aschnell/barrel>
 
 * By default "rear recover" wipes disks that get completely recreated          
 via DISKS_TO_BE_WIPED="" in default.conf.
@@ -223,8 +223,8 @@ Only changes of the ReaR software and its documentation that could be of common 
 For example changes of ReaR GitHub infrastructure things (like GitHub workflows, actions, CI, and package building)
 or minor changes in documentation (like unimportant typo fixes) are not listed here.
 To see all changes use the 'git log' command on a local git clone/checkout
-or view the ReaR 2.8 changes at GitHub https://github.com/rear/rear/commits/rear-2.8
-or the current ReaR GitHub master code changes https://github.com/rear/rear/commits/master
+or view the ReaR 2.8 changes at GitHub <https://github.com/rear/rear/commits/rear-2.8>
+or the current ReaR GitHub master code changes <https://github.com/rear/rear/commits/master>
 
 The following entries are basically excerpts of what the command
 ```
