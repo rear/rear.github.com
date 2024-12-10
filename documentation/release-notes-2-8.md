@@ -251,24 +251,28 @@ are no longer supported because the
 relative symlink is needed for portable mode, 
 see https://github.com/rear/rear/pull/3206
 ```
-
+<br>
 ```
 Tell why 300_include_grub_tools.sh exists :
 In prep/GNU/Linux/300_include_grub_tools.sh 
 explain why it exists at all, see 
 https://github.com/rear/rear/pull/3354#issuecomment-2519520750
 ```
-
+<br>
 ```
 Merge pull request #3354 :
 cleanup: move grubby and grub2-editenv to 300_include_grub_tools.sh (#3349)
 ```
+
+---
 
 ```
 Merge pull request #3349 :
 After doing lots of experiments with RAMdisks it is good to have
 some extra software as default in our ReaR rescue image
 ```
+
+---
 
 ```
 Merge pull request #3351 :
