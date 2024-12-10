@@ -8,12 +8,12 @@ title: Relax-and-Recover Release Notes
 
 This document contains the latest release notes for the Free and Open Source Software project Relax-and-Recover.
 
-[Relax-and-Recover website](http://relax-and-recover.org/)
+Relax-and-Recover website: http://relax-and-recover.org
 
-[GitHub project](https://github.com/rear/)
+GitHub project: https://github.com/rear
 
 For older Relax-and-Recover version release notes see the
-[Relax-and-Recover website release notes](http://relax-and-recover.org/documentation)
+Relax-and-Recover website release notes: http://relax-and-recover.org/documentation
 
 
 # Overview
@@ -56,7 +56,7 @@ ReaR integrates with various external (third-party) backup software solutions, f
 * Borg (BORG)
 * Rubrik Cloud Data Management (CDM)
 
-ReaR integrates with [Disaster Recovery Linux Manager (DRLM)](http://drlm.org)
+ReaR integrates with Disaster Recovery Linux Manager (DRLM) http://drlm.org
 
 
 # System and Software Requirements
@@ -91,15 +91,13 @@ and we give paid projects priority, therefore, we urge our customers
 to buy a support contract for one or more systems.
 You buy time with the core developers.
 
-See the
-[Relax-and-Recover website support](http://relax-and-recover.org/support)
+See the Relax-and-Recover website support http://relax-and-recover.org/support
 
 
 ## Supported and Unsupported Operating Systems
 
 We try to keep our "Test Matrix" wiki pages up-to-date with feedback we receive from the community.
-For example for ReaR 2.8 see
-[Test Matrix ReaR 2.8](https://github.com/rear/rear/wiki/Test-Matrix-ReaR-2.8)
+For example for ReaR 2.8 see https://github.com/rear/rear/wiki/Test-Matrix-ReaR-2.8
 
 ReaR 2.8 is supported on the following Linux operating systems:
 
@@ -190,7 +188,7 @@ for each change of your basic system you must re-validate that your disaster rec
 
 # Relax-and-Recover Version 2.8 (November 2024)
 
-Things like 'issue NNNN' or only '#NNNN' refer to the [GitHub issues tracker](https://github.com/rear/rear/issues).
+Things like 'issue NNNN' or only '#NNNN' refer to the GitHub issues tracker https://github.com/rear/rear/issues
 
 
 ## New features, bigger enhancements, and possibly backward incompatible changes:
@@ -213,7 +211,7 @@ Things like 'issue NNNN' or only '#NNNN' refer to the [GitHub issues tracker](ht
 
 * Layout changes and fixes for S/390 DASDs (major code overhauling).
 
-* Initial basic 'barrel' support, see https://github.com/aschnell/barrel.  
+* Initial basic 'barrel' support, see https://github.com/aschnell/barrel 
 
 * By default "rear recover" wipes disks that get completely recreated          
 via DISKS_TO_BE_WIPED="" in default.conf.
@@ -225,8 +223,8 @@ Only changes of the ReaR software and its documentation that could be of common 
 For example changes of ReaR GitHub infrastructure things (like GitHub workflows, actions, CI, and package building)
 or minor changes in documentation (like unimportant typo fixes) are not listed here.
 To see all changes use the 'git log' command on a local git clone/checkout
-or view the [ReaR 2.8 changes at GitHub](https://github.com/rear/rear/commits/rear-2.8)
-or the current [ReaR GitHub master code changes](https://github.com/rear/rear/commits/master).
+or view the ReaR 2.8 changes at GitHub https://github.com/rear/rear/commits/rear-2.8
+or the current ReaR GitHub master code changes https://github.com/rear/rear/commits/master
 
 The following entries are basically excerpts of what the command
 ```
