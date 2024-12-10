@@ -1,18 +1,18 @@
 ---
 layout: default
-title: Relax-and-Recover Release Notes
+title: Relax-and-Recover Release Notes 2.8
 ---
 
 
 # Release Notes for Relax-and-Recover Version 2.8
 
-This document contains the latest release notes for the Free and Open Source Software project Relax-and-Recover.
+This document contains the latest release notes for the Open Source Software project Relax-and-Recover.
 
 Relax-and-Recover website: <http://relax-and-recover.org>
 
 GitHub project: <https://github.com/rear>
 
-For older Relax-and-Recover version release notes see the
+For the release notes of previous Relax-and-Recover versions see the
 Relax-and-Recover website release notes: <http://relax-and-recover.org/documentation>
 
 
@@ -20,7 +20,7 @@ Relax-and-Recover website release notes: <http://relax-and-recover.org/documenta
 
 Relax-and-Recover (abbreviated ReaR) is the de facto standard disaster recovery framework on Linux.
 
-It is particular used on enterprise Linux distributions like Red Hat Enterprise Linux (RHEL)
+It is in particular used on enterprise Linux distributions like Red Hat Enterprise Linux (RHEL)
 and SUSE Linux Enterprise Server (SLES).
 
 ReaR is a system administrator tool and framework to create a bootable disaster recovery system image
@@ -34,27 +34,39 @@ and finally a boot loader is installed.
 System administrators use the ReaR framework to set up a disaster recovery procedure
 as part of their disaster recovery policy (which complements their existing backup policy).
 
-ReaR complements backup and restore of data
-but ReaR is neither a backup software nor a backup management software.
-Data backup and restore happens via dedicated backup software which is called by ReaR.
+ReaR complements backup and restore of data with bare metal disaster recovery. ReaR can also act as local backup software,
+but ReaR is not a a backup management software. In many enterprise environmentments, data backup and restore happens via dedicated backup software which is integrated by ReaR and used to restore the data onto a recovery system.
 
-ReaR has built-in support for some 'internal' backup programs like 'tar' and 'rsync'.
+ReaR has support for built-in backup methods using 'tar' and 'rsync' that are used for backup and restore.
 
-ReaR integrates with various external (third-party) backup software solutions, for example:
+ReaR integrates supports the following 3rd party, also commercial, tools for restoring a backup.
 
-* IBM Storage Protect (TSM) / Tivoli Storage Manager / IBM Spectrum Protect
-* Data Protector (DP)
-* Veritas NetBackup (NBU) / Symantec NetBackup
-* Commvault Simpana (GALAXY10) / Galaxy 10
-* Bacula (BACULA)
-* Bareos (BAREOS)
-* Rsync Backup Made Easy (RBME)
-* Duplicity/Duply (DUPLICITY)
-* Dell NetWorker (NSR) / EMC NetWorker / Legato NetWorker
-* Dell EMC Avamar (AVA) / EMC Avamar
-* SEP Sesam (SESAM)
-* Borg (BORG)
-* Rubrik Cloud Data Management (CDM)
+The complete list of backup methods (`BACKUP=...`) is:
+
+* `AVA` Dell EMC Avamar / EMC Avamar
+* `BACULA` Bacula
+* `BAREOS` Bareos
+* `BLOCKCLONE` block device cloning via `dd`
+* `BORG` Borg Backup
+* `CDM` Rubrik Cloud Data Management
+* `DP` HP Data Protector
+* `DUPLICITY` Duplicity / Duply
+* `EXTERNAL` External custom restore method
+* `FDRUPSTREAM` FDR/Upstream
+* `GALAXY11` Commvault Galaxy 11 / Commvault Simpana
+* `NBKDC` NovaStor DataCenter
+* `NBU` Veritas NetBackup / Symantec NetBackup
+* `NETFS` ReaR built-in backup and restore via `rsync` or `tar` to a network file system or to a locally attached backup disk (USB, eSATA, ...)
+* `NFS4SERVER` NFS4 server to push data *to* the rescue system
+* `NSR` Dell EMC NetWorker / EMC NetWorker / Legato NetWorker
+* `OBDR` One Button Disaster Recovery via tape
+* `PPDM` Dell PowerProtect Data Manager
+* `RBME` Rsync Backup Made Easy
+* `REQUESTRESTORE` Request restore from a human operator
+* `RSYNC` ReaR built-in backup using `rsync` via `rsync` or `ssh` protocol
+* `SESAM` SEP Sesam
+* `TSM` IBM Storage Protect / Tivoli Storage Manager / IBM Spectrum Protect
+* `VEEAM` Veeam Backup
 
 ReaR integrates with Disaster Recovery Linux Manager (DRLM) <http://drlm.org>
 
@@ -79,17 +91,17 @@ Relax-and-Recover (ReaR) is a Free and Open Source Software project under GPLv3 
 
 The creators of ReaR have spend many, many hours in development and support.
 We may give voluntary support, but only as work-life balance allows it.
-We also provide support as a service (not free of charge).
+Some of the maintainers also provide paid support as a commercial service.
 
-ReaR has a long history (since 2006) and we cannot support all released versions.
-If you have a problem we urge you to install the latest stable ReaR version
-or the development version (available on GitHub) before submitting an issue.
-We understand that it is not always possible to install the latest version on hundreds of systems
+ReaR has a long history (since 2006) and we can therefore only support the latest release version.
+If you have a problem, we urge you to install the latest stable ReaR version
+or the snapshot (development) version available on GitHub before submitting an issue.
+We understand, that it is not always possible to install the latest version on hundreds of systems,
 so we are willing to support previous versions of ReaR when you buy a support contract.
 We cannot handle all those various support requests on a voluntary base
 and we give paid projects priority, therefore, we urge our customers
 to buy a support contract for one or more systems.
-You buy time with the core developers.
+Buying a support contract actually buys time for the core developers to work on ReaR.
 
 See the Relax-and-Recover website support <http://relax-and-recover.org/support>
 
@@ -101,26 +113,25 @@ For example for ReaR 2.8 see <https://github.com/rear/rear/wiki/Test-Matrix-ReaR
 
 ReaR 2.8 is supported on the following Linux operating systems:
 
-* Fedora 29, 30, 31, 32, 33, and 34
+* Fedora 39, 40, 41
 * RHEL 7, 8, and 9
-* CentOS 6, 7, and 8
-* Scientific Linux 6 and 7
+* RHEL clones (CentOS, Scientific Linux, Alma Linux, Oracle Linux) 7, 8, and 9
 * SLES 15
 * openSUSE Leap 15.x
-* Debian 8, and 9
-* Ubuntu 18, 20 and 22
+* Debian 10 and 11
+* Ubuntu 20.04, 22.04, 24.04
+* Arch Linux / Manjaro
 
 ReaR 2.8 dropped official support for the following Linux operating systems:
 
-* Fedora < 29
+* Fedora < 39
 * RHEL < 7
-* CentOS < 7
-* Scientific Linux < 7
+* RHEL clones (CentOS, Scientific Linux, Alma Linux, Oracle Linux) < 7
 * SLES < 15
 * openSUSE Leap < 15.x and older openSUSE versions
 * openSUSE Tumbleweed
-* Debian < 8
-* Ubuntu < 18
+* Debian < 10
+* Ubuntu < 20
 
 Usually ReaR 2.8 should also work on newer versions of the above listed supported Linux operating systems
 but sometimes arbitrary failures can happen when software that is used by ReaR
@@ -178,7 +189,8 @@ you can buy consultancy from one of our official developers.
 # Relax-and-Recover Releases
 
 The first release of ReaR, version 1.0, was posted to the web in July 2006.
-For each release, this document lists new features, backward incompatible changes, and defect fixes.
+This document lists new features, backward incompatible changes, and defect fixes for the current release only,
+please refer to <http://relax-and-recover.org/documentation> for the older release notes for previous versions.
 Unless otherwise noted releases of ReaR are intended to work reasonably backward compatible with previous versions.
 In addition to the GPL disclaimer of warranty and liability there is no guarantee that all works backward compatible.
 In general the older a system is the less likely it is that a newer ReaR version works.
@@ -186,35 +198,38 @@ For each ReaR version upgrade and for each change of a software that is used by 
 for each change of your basic system you must re-validate that your disaster recovery procedure still works for you.
 
 
-# Relax-and-Recover Version 2.8 (November 2024)
+# Relax-and-Recover Version 2.8 (December 2024)
 
 Things like 'issue NNNN' or only '#NNNN' refer to the GitHub issues tracker <https://github.com/rear/rear/issues>
 
 
 ## New features, bigger enhancements, and possibly backward incompatible changes:
 
-* Initial VEEAM Bare Metal Recovery integration.
+* New support for additional commercial backup software
 
-* Bareos integration was rewritten.
+  * Veeam Backup.
 
-* New portable mode --portable and OUTPUT=PORTABLE.
+  * Dell PowerProtect Data Manager.
+  
+  * CommvaultGalaxy 11 (Simpana).
 
-* New -e/--expose-secrets option.
+* Bareos integration was rewritten and updated.
 
-* New non-interactive mode.
+* New portable mode `--portable` and `OUTPUT=PORTABLE`, see <https://github.com/rear/rear/blob/master/doc/user-guide/17-Portable-Mode.adoc> for more information.
 
-* NFS4SERVER as new restore method.
+* Improved handling and protecting of secrets in ReaR configuration variables. New `-e`/`--expose-secrets` option to show secrets in configuration variables.
+
+* New non-interactive mode `-n`/`--non-interactive` to suppress all interactive questions and answers and facilitate truly unattended recovery automation.
+
+* `NFS4SERVER` as new restore method where the rescue systems starts an NFS4 server to push the data to the rescue system.
 
 * New OpalPBA AuthToken feature.
 
-* Add support for Commvault Galaxy 11.
-
 * Layout changes and fixes for S/390 DASDs (major code overhauling).
 
-* Initial basic 'barrel' support, see <https://github.com/aschnell/barrel>
+* Initial basic `barrel` support, see <https://github.com/aschnell/barrel>
 
-* By default "rear recover" wipes disks that get completely recreated          
-via DISKS_TO_BE_WIPED="" in default.conf.
+* By default `rear recover` wipes disks that get completely recreated via `DISKS_TO_BE_WIPED=""` in default.conf.
 
 
 ## Details (mostly in chronological order - newest topmost):
@@ -227,9 +242,11 @@ or view the ReaR 2.8 changes at GitHub <https://github.com/rear/rear/commits/rea
 or the current ReaR GitHub master code changes <https://github.com/rear/rear/commits/master>
 
 The following entries are basically excerpts of what the command
-```
+
+```sh
 git log --format="%ae %H %ad%n%s :%n%b%n" --graph | fmt -w 160 -u -t
 ```
+
 shows in a local git clone:
 
 

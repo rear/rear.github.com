@@ -14,6 +14,7 @@ title: Relax-and-Recover documentation
 
 ## Release notes
 
+- [Relax-and-Recover Release Notes 2.8](/documentation/release-notes-2-8)
 - [Relax-and-Recover Release Notes 2.7](/documentation/release-notes-2-7)
 - [Relax-and-Recover Release Notes 2.6](/documentation/release-notes-2-6)
 - [Relax-and-Recover Release Notes 2.5](/documentation/release-notes-2-5)
