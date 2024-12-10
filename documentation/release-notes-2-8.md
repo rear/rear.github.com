@@ -12,6 +12,9 @@ This document contains the latest release notes for the Free and Open Source Sof
 
 [GitHub project](https://github.com/rear/)
 
+For older Relax-and-Recover version release notes see the
+[Relax-and-Recover website release notes](http://relax-and-recover.org/documentation)
+
 
 # Overview
 
@@ -56,6 +59,124 @@ ReaR integrates with various external (third-party) backup software solutions, f
 ReaR integrates with [Disaster Recovery Linux Manager (DRLM)](http://drlm.org)
 
 
+# System and Software Requirements
+
+ReaR is written entirely in the native language for system administration: as shell (bash) scripts.
+The intent is that experienced users and system admins can adapt or extend the ReaR scripts
+as needed to make things work for their specific cases.
+
+We need Bash version 4 which is standard on current GNU/Linux systems.
+
+The default backup software used by ReaR is standard GNU/tar.
+
+ReaR is known to work on x86 (32bit and 64bit) and ppc64le architectures.
+ReaR was also ported to ia64 and arm architectures, but these are rarely tested.
+
+
+# Support
+
+Relax-and-Recover (ReaR) is a Free and Open Source Software project under GPLv3 license.
+
+The creators of ReaR have spend many, many hours in development and support.
+We may give voluntary support, but only as work-life balance allows it.
+We also provide support as a service (not free of charge).
+
+ReaR has a long history (since 2006) and we cannot support all released versions.
+If you have a problem we urge you to install the latest stable ReaR version
+or the development version (available on GitHub) before submitting an issue.
+We understand that it is not always possible to install the latest version on hundreds of systems
+so we are willing to support previous versions of ReaR when you buy a support contract.
+We cannot handle all those various support requests on a voluntary base
+and we give paid projects priority, therefore, we urge our customers
+to buy a support contract for one or more systems.
+You buy time with the core developers.
+
+See the
+[Relax-and-Recover website support](http://relax-and-recover.org/support)
+
+
+## Supported and Unsupported Operating Systems
+
+We try to keep our "Test Matrix" wiki pages up-to-date with feedback we receive from the community.
+For example for ReaR 2.8 see
+[Test Matrix ReaR 2.8](https://github.com/rear/rear/wiki/Test-Matrix-ReaR-2.8)
+
+ReaR 2.8 is supported on the following Linux operating systems:
+
+* Fedora 29, 30, 31, 32, 33, and 34
+* RHEL 7, 8, and 9
+* CentOS 6, 7, and 8
+* Scientific Linux 6 and 7
+* SLES 15
+* openSUSE Leap 15.x
+* Debian 8, and 9
+* Ubuntu 18, 20 and 22
+
+ReaR 2.8 dropped official support for the following Linux operating systems:
+
+* Fedora < 29
+* RHEL < 7
+* CentOS < 7
+* Scientific Linux < 7
+* SLES < 15
+* openSUSE Leap < 15.x and older openSUSE versions
+* openSUSE Tumbleweed
+* Debian < 8
+* Ubuntu < 18
+
+Usually ReaR 2.8 should also work on newer versions of the above listed supported Linux operating systems
+but sometimes arbitrary failures can happen when software that is used by ReaR
+(like partitioning tools, filesystem tools, bootloader tools, ISO image creating tools, networking tools, and so on)
+changes in not fully backward compatible ways or when there are innovations of the basic system
+(like kernel, storage, bootloader, init, networking, and so on)
+that are not yet supported by ReaR.
+
+In theory ReaR 2.8 should work on openSUSE Tumbleweed
+but in practice arbitrary failures could happen at any time
+because the Tumbleweed distribution is a pure rolling release version of openSUSE
+containing the latest stable versions of all software
+(cf. https://en.opensuse.org/Portal:Tumbleweed)
+so arbitrary changes of any software are possible at any time
+that could arbitrarily break how ReaR works.
+
+ReaR 2.8 may still work for SLES < 15 and openSUSE Leap < 15.x
+but it is no longer tested there so arbitrary regressions could appear,
+in particular on systems with Bash before version 4.
+
+ReaR 2.8 and earlier versions are known to no longer work
+for the following Linux operating systems:
+
+* RHEL 5 (and probably also CentOS 5): See issue #1766
+* SLES 9 and 10: See issue #1842
+
+If you need support for an unsupported Linux operating system you must acquire a ReaR support contract.
+
+Requests to port ReaR to another operating system (not Linux) can only be achieved with serious sponsoring.
+
+
+## Supported and Unsupported Architectures
+
+ReaR 2.8 is supported on:
+
+* Intel x86 (32bit and 64bit) architectures
+* AMD x86 (64bit) architecture
+* PPC64LE architecture
+
+ReaR 2.8 may or may not work on:
+
+* PPC64 processors
+* Intel Itanium processors
+* ARM type of processors
+* IBM Z "s390x" type of processors
+
+ReaR 2.8 is known to not support:
+
+* old PPC (32bit) processors
+
+If you need to get ReaR working on an architecture that is currently not supported,
+you can buy consultancy from one of our official developers.
+
+
 # Relax-and-Recover Releases
 
 The first release of ReaR, version 1.0, was posted to the web in July 2006.
@@ -69,7 +190,7 @@ for each change of your basic system you must re-validate that your disaster rec
 
 # Relax-and-Recover Version 2.8 (November 2024)
 
-Things like 'issue NNNN' or only '#NNNN' refer to [GitHub issues tracker](https://github.com/rear/rear/issues).
+Things like 'issue NNNN' or only '#NNNN' refer to the [GitHub issues tracker](https://github.com/rear/rear/issues).
 
 
 ## New features, bigger enhancements, and possibly backward incompatible changes:
@@ -111,7 +232,7 @@ The following entries are basically excerpts of what the command
 ```
 git log --format="%ae %H %ad%n%s :%n%b%n" --graph | fmt -w 160 -u -t
 ```
-shows in a local git clone.
+shows in a local git clone:
 
 
 ```
@@ -477,7 +598,8 @@ Automatically include mounted btrfs subvolumes in NETFS backups (#3175) :
  * automatically exclude btrfs subvolume children of excluded components
 ```
 ```
-Migrate MAC addresses and interface names in NetworkManager keyfiles during network configuration migration (#3179) :
+Migrate MAC addresses and interface names in NetworkManager keyfiles
+during network configuration migration (#3179) :
 * Migrate NM keyfiles during network conf migration 
   See https://fedoramagazine.org/converting-networkmanager-from-ifcfg-to-keyfiles/ 
   for more details on NetworkManager keyfiles. 
@@ -820,7 +942,8 @@ move all /var/run to /run directories in skel :
 Fixing b838a352136811900511a209d06c809ce552e636
 ```
 ```
-Add OS version mappings for RHEL 8 and RHEL 9 Remember MASTER version and combinations so that RHEL 9.3 will be mapped to Fedora/9
+Add OS version mappings for RHEL 8 and RHEL 9 Remember MASTER version
+and combinations so that RHEL 9.3 will be mapped to Fedora/9
 ``` 
 ```
 Check recover mode before applying remote update Remove double check for recovery system :
@@ -2282,120 +2405,3 @@ Pass -y to lvcreate instead of piping the output of yes
 Better description of COPY_KERNEL_PARAMETERS in default.conf, 
 cf. https://github.com/rear/rear/pull/2749#issuecomment-1197843273
 ```
-
-
-# System and Software Requirements
-
-ReaR is written entirely in the native language for system administration: as shell (bash) scripts.
-The intent is that experienced users and system admins can adapt or extend the ReaR scripts
-as needed to make things work for their specific cases.
-
-We need Bash version 4 which is standard on current GNU/Linux systems.
-
-The default backup software used by ReaR is standard GNU/tar.
-
-ReaR is known to work on x86 (32bit and 64bit) and ppc64le architectures.
-ReaR was also ported to ia64 and arm architectures, but these are rarely tested.
-
-
-# Support
-
-Relax-and-Recover (ReaR) is a Free and Open Source Software project under GPLv3 license.
-
-The creators of ReaR have spend many, many hours in development and support.
-We may give voluntary support, but only as work-life balance allows it.
-We also provide support as a service (not free of charge).
-
-ReaR has a long history (since 2006) and we cannot support all released versions.
-If you have a problem we urge you to install the latest stable ReaR version
-or the development version (available on GitHub) before submitting an issue.
-We understand that it is not always possible to install the latest version on hundreds of systems
-so we are willing to support previous versions of ReaR when you buy a support contract.
-We cannot handle all those various support requests on a voluntary base
-and we give paid projects priority, therefore, we urge our customers
-to buy a support contract for one or more systems.
-You buy time with the core developers.
-
-
-## Supported and Unsupported Operating Systems
-
-We try to keep our "Test Matrix" wiki pages up-to-date with feedback we receive from the community.
-For example for ReaR 2.8 see
-[Test Matrix ReaR 2.8](https://github.com/rear/rear/wiki/Test-Matrix-ReaR-2.8)
-
-ReaR 2.8 is supported on the following Linux operating systems:
-
-* Fedora 29, 30, 31, 32, 33, and 34
-* RHEL 7, 8, and 9
-* CentOS 6, 7, and 8
-* Scientific Linux 6 and 7
-* SLES 15
-* openSUSE Leap 15.x
-* Debian 8, and 9
-* Ubuntu 18, 20 and 22
-
-ReaR 2.8 dropped official support for the following Linux operating systems:
-
-* Fedora < 29
-* RHEL < 7
-* CentOS < 7
-* Scientific Linux < 7
-* SLES < 15
-* openSUSE Leap < 15.x and older openSUSE versions
-* openSUSE Tumbleweed
-* Debian < 8
-* Ubuntu < 18
-
-Usually ReaR 2.7 should also work on newer versions of the above listed supported Linux operating systems
-but sometimes arbitrary failures can happen when software that is used by ReaR
-(like partitioning tools, filesystem tools, bootloader tools, ISO image creating tools, networking tools, and so on)
-changes in not fully backward compatible ways or when there are innovations of the basic system
-(like kernel, storage, bootloader, init, networking, and so on)
-that are not yet supported by ReaR.
-
-In theory ReaR 2.8 should work on openSUSE Tumbleweed
-but in practice arbitrary failures could happen at any time
-because the Tumbleweed distribution is a pure rolling release version of openSUSE
-containing the latest stable versions of all software
-(cf. https://en.opensuse.org/Portal:Tumbleweed)
-so arbitrary changes of any software are possible at any time
-that could arbitrarily break how ReaR works.
-
-ReaR 2.8 may still work for SLES < 15 and openSUSE Leap < 15.x
-but it is no longer tested there so arbitrary regressions could appear,
-in particular on systems with Bash before version 4.
-
-ReaR 2.8 and earlier versions are known to no longer work
-for the following Linux operating systems:
-
-* RHEL 5 (and probably also CentOS 5): See issue #1766
-* SLES 9 and 10: See issue #1842
-
-If you need support for an unsupported Linux operating system you must acquire a ReaR support contract.
-
-Requests to port ReaR to another operating system (not Linux) can only be achieved with serious sponsoring.
-
-
-## Supported and Unsupported Architectures
-
-ReaR 2.8 is supported on:
-
-* Intel x86 (32bit and 64bit) architectures
-* AMD x86 (64bit) architecture
-* PPC64LE architecture
-
-ReaR 2.8 may or may not work on:
-
-* PPC64 processors
-* Intel Itanium processors
-* ARM type of processors
-* IBM Z "s390x" type of processors
-
-ReaR 2.8 is known to not support:
-
-* old PPC (32bit) processors
-
-If you need to get ReaR working on an architecture that is currently not supported,
-you can buy consultancy from one of our official developers.
-
-
