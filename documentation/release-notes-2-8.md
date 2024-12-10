@@ -42,19 +42,19 @@ ReaR has built-in support for some 'internal' backup programs like 'tar' and 'rs
 
 ReaR integrates with various external (third-party) backup software solutions, for example:
 
-  - IBM Storage Protect (TSM) / Tivoli Storage Manager / IBM Spectrum Protect
-  - Data Protector (DP)
-  - Veritas NetBackup (NBU) / Symantec NetBackup
-  - Commvault Simpana (GALAXY10) / Galaxy 10
-  - Bacula (BACULA)
-  - Bareos (BAREOS)
-  - Rsync Backup Made Easy (RBME)
-  - Duplicity/Duply (DUPLICITY)
-  - Dell NetWorker (NSR) / EMC NetWorker / Legato NetWorker
-  - Dell EMC Avamar (AVA) / EMC Avamar
-  - SEP Sesam (SESAM)
-  - Borg (BORG)
-  - Rubrik Cloud Data Management (CDM)
+* IBM Storage Protect (TSM) / Tivoli Storage Manager / IBM Spectrum Protect
+* Data Protector (DP)
+* Veritas NetBackup (NBU) / Symantec NetBackup
+* Commvault Simpana (GALAXY10) / Galaxy 10
+* Bacula (BACULA)
+* Bareos (BAREOS)
+* Rsync Backup Made Easy (RBME)
+* Duplicity/Duply (DUPLICITY)
+* Dell NetWorker (NSR) / EMC NetWorker / Legato NetWorker
+* Dell EMC Avamar (AVA) / EMC Avamar
+* SEP Sesam (SESAM)
+* Borg (BORG)
+* Rubrik Cloud Data Management (CDM)
 
 ReaR integrates with [Disaster Recovery Linux Manager (DRLM)](http://drlm.org)
 
@@ -195,27 +195,27 @@ Things like 'issue NNNN' or only '#NNNN' refer to the [GitHub issues tracker](ht
 
 ## New features, bigger enhancements, and possibly backward incompatible changes:
 
-Initial VEEAM Bare Metal Recovery integration.
+* Initial VEEAM Bare Metal Recovery integration.
 
-Bareos integration was rewritten.
+* Bareos integration was rewritten.
 
-New portable mode --portable and OUTPUT=PORTABLE.
+* New portable mode --portable and OUTPUT=PORTABLE.
 
-New -e/--expose-secrets option.
+* New -e/--expose-secrets option.
 
-New non-interactive mode.
+* New non-interactive mode.
 
-NFS4SERVER as new restore method.
+* NFS4SERVER as new restore method.
 
-New OpalPBA AuthToken feature.
+* New OpalPBA AuthToken feature.
 
-Add support for Commvault Galaxy 11.
+* Add support for Commvault Galaxy 11.
 
-Layout changes and fixes for S/390 DASDs (major code overhauling).
+* Layout changes and fixes for S/390 DASDs (major code overhauling).
 
-Initial basic 'barrel' support, see https://github.com/aschnell/barrel.  
+* Initial basic 'barrel' support, see https://github.com/aschnell/barrel.  
 
-By default "rear recover" wipes disks that get completely recreated          
+* By default "rear recover" wipes disks that get completely recreated          
 via DISKS_TO_BE_WIPED="" in default.conf.
 
 
