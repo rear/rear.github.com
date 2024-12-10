@@ -251,26 +251,24 @@ are no longer supported because the
 relative symlink is needed for portable mode, 
 see https://github.com/rear/rear/pull/3206
 ```
-  
+
 ```
 Tell why 300_include_grub_tools.sh exists :
 In prep/GNU/Linux/300_include_grub_tools.sh 
 explain why it exists at all, see 
 https://github.com/rear/rear/pull/3354#issuecomment-2519520750
 ```
-___
+
 ```
 Merge pull request #3354 :
 cleanup: move grubby and grub2-editenv to 300_include_grub_tools.sh (#3349)
 ```
----
+
 ```
 Merge pull request #3349 :
 After doing lots of experiments with RAMdisks it is good to have
 some extra software as default in our ReaR rescue image
 ```
-
----
 
 ```
 Merge pull request #3351 :
@@ -288,6 +286,7 @@ which is misleading when several btrfs subvolumes
 of one btrfs are mounted,
 see https://github.com/rear/rear/pull/3348
 ```
+
 ```
 Update 400_create_include_exclude_files.sh (#3347) :
 In backup/NETFS/default/400_create_include_exclude_files.sh 
