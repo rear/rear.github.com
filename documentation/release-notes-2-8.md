@@ -252,12 +252,14 @@ relative symlink is needed for portable mode,
 see https://github.com/rear/rear/pull/3206
 ```
 
+
 ```
 Tell why 300_include_grub_tools.sh exists :
 In prep/GNU/Linux/300_include_grub_tools.sh 
 explain why it exists at all, see 
 https://github.com/rear/rear/pull/3354#issuecomment-2519520750
 ```
+
 
 ```
 Merge pull request #3354 :
@@ -274,7 +276,7 @@ some extra software as default in our ReaR rescue image
 Merge pull request #3351 :
 fix: add -xdev option to find to avoid hanging NFS (#3350)
 ```
-
+&nbsp;
 ```
 Call 'lsblk' with 'MOUNTPOINTS' to show all mounted btrfs subvolumes (#3348) :
 In layout/save/GNU/Linux/100_create_layout_file.sh 
@@ -286,13 +288,14 @@ which is misleading when several btrfs subvolumes
 of one btrfs are mounted,
 see https://github.com/rear/rear/pull/3348
 ```
-
+&nbsp;
 ```
 Update 400_create_include_exclude_files.sh (#3347) :
 In backup/NETFS/default/400_create_include_exclude_files.sh 
 skip to add /.snapshots by default to the backup include list 
 see https://github.com/rear/rear/issues/3346
 ```
+ 
 ```
 Minor os-detection improvements (#3344) :
 See https://github.com/rear/rear/pull/3344 
@@ -305,6 +308,7 @@ See https://github.com/rear/rear/pull/3344
   Because the plain 'Arch' could be confused with 'Architecture'. 
   Related: https://github.com/rear/rear/issues/3149#issuecomment-1972731026
 ```
+ 
 ```
 Minimal changes to fix detection of Fedora from `/etc/os-release` (#3171) :
 See https://github.com/rear/rear/pull/3171 
