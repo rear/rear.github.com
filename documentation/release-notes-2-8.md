@@ -251,27 +251,25 @@ are no longer supported because the
 relative symlink is needed for portable mode, 
 see https://github.com/rear/rear/pull/3206
 ```
-
-
+&nbsp;
 ```
 Tell why 300_include_grub_tools.sh exists :
 In prep/GNU/Linux/300_include_grub_tools.sh 
 explain why it exists at all, see 
 https://github.com/rear/rear/pull/3354#issuecomment-2519520750
 ```
-
-
+&nbsp;
 ```
 Merge pull request #3354 :
 cleanup: move grubby and grub2-editenv to 300_include_grub_tools.sh (#3349)
 ```
-
+&nbsp;
 ```
 Merge pull request #3349 :
 After doing lots of experiments with RAMdisks it is good to have
 some extra software as default in our ReaR rescue image
 ```
-
+&nbsp;
 ```
 Merge pull request #3351 :
 fix: add -xdev option to find to avoid hanging NFS (#3350)
@@ -295,7 +293,7 @@ In backup/NETFS/default/400_create_include_exclude_files.sh
 skip to add /.snapshots by default to the backup include list 
 see https://github.com/rear/rear/issues/3346
 ```
- 
+&nbsp;
 ```
 Minor os-detection improvements (#3344) :
 See https://github.com/rear/rear/pull/3344 
@@ -308,7 +306,7 @@ See https://github.com/rear/rear/pull/3344
   Because the plain 'Arch' could be confused with 'Architecture'. 
   Related: https://github.com/rear/rear/issues/3149#issuecomment-1972731026
 ```
- 
+&nbsp;
 ```
 Minimal changes to fix detection of Fedora from `/etc/os-release` (#3171) :
 See https://github.com/rear/rear/pull/3171 
@@ -332,6 +330,7 @@ and https://github.com/rear/rear/issues/3149
   Related: https://github.com/rear/rear/pull/3171#pullrequestreview-2053278291 
   Resolves: https://github.com/rear/rear/issues/3149#issuecomment-1935586311 
 ```
+&nbsp;
 ```
 Make sourcing DUPLY_PROFILE reasonably secure (#3345) :
 See https://github.com/rear/rear/issues/3293 
@@ -352,6 +351,7 @@ only in debug modes.
 Also stdout to stderr redirections are no longer needed, see 
 https://github.com/rear/rear/wiki/Coding-Style#what-to-do-with-stdin-stdout-and-stderr 
 ```
+&nbsp;
 ```
 Update default.conf :
 In default.conf fixed a typo in the 
@@ -363,6 +363,7 @@ and be more outspoken that without talking to us
 deprecated features get removed without further notice 
 to urge users to actually do open GitHub issues
 ```
+&nbsp;
 ```
 Update 400_prep_nbkdc.sh :
 In prep/NBKDC/default/400_prep_nbkdc.sh fixed the wrong 
