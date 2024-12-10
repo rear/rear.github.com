@@ -235,6 +235,7 @@ git log --format="%ae %H %ad%n%s :%n%b%n" --graph | fmt -w 160 -u -t
 shows in a local git clone:
 
 
+&nbsp;
 ```
 In 100_copy_as_is.sh error out if symlinking VAR_DIR SHARE_DIR fails (#3356) :
 In build/GNU/Linux/100_copy_as_is.sh 
@@ -373,6 +374,7 @@ TRUSTED_FILE_OWNERS+=( novastor )
 see 
 https://github.com/rear/rear/commit/8d01a37c8b79a879cea59cb369f7ca8728189b02#commitcomment-148880379
 ```
+&nbsp;
 ```
 Make get_disklabel_type() also work for 'multipath' devices (#3334) :
 Without this fix, get_disklabel_type() used to find a disk to install GRUB on 
@@ -381,6 +383,7 @@ The reason is that then the line in disklayout.conf starts with 'multipath'
 but ReaR had searched for 'disk' only. Now it also searches for 'multipath'. 
 See https://github.com/rear/rear/pull/3334 
 ```
+&nbsp;
 ```
 Merge pull request #3329 :
 Fix partition naming on RHEL when migrating devices :
@@ -392,6 +395,7 @@ The new code applies the proper naming, which is 'wwid1' when device
 doesn't end with a digit (e.g. 'wwid'), and 'wwid0000p1' when the device
 (e.g. 'wwid0000') ends with a digit.
 ```
+&nbsp;
 ```
 Use OS_MASTER_VERSION for major releases (#3331) :
 Use OS_MASTER_VERSION for major releases, see 
@@ -403,6 +407,7 @@ Related: https://github.com/rear/rear/issues/3149#issuecomment-1966068640
 Fixes commit: f4932c1cfe13d4a855bec93c1d3aa0b2b9128c6a 
 "Add OS version mappings for RHEL 8 and RHEL 9"
 ```
+&nbsp;
 ```
 Update 400_restore_with_galaxy.sh: Use 'source' instead of '.' :
 In usr/share/rear/restore/GALAXY/default/400_restore_with_galaxy.sh 
@@ -410,6 +415,7 @@ use 'source' instead of '.'
 see https://github.com/rear/rear/issues/3319#issuecomment-2355118862 
 and https://github.com/rear/rear/pull/3165#discussion_r1503932927
 ```
+&nbsp;
 ```
 Use 'source' instead of '.' :
 In usr/share/rear/skel/default/etc/scripts/system-setup.d/00-functions.sh 
@@ -417,6 +423,7 @@ use 'source' instead of '.'
 see https://github.com/rear/rear/issues/3319#issuecomment-2355037630 
 and https://github.com/rear/rear/pull/3165#discussion_r1503932927
 ```
+&nbsp;
 ```
 Use 'source' instead of '.' :
 In usr/share/rear/skel/default/etc/scripts/run-syslog 
@@ -424,18 +431,21 @@ use 'source' instead of '.'
 see https://github.com/rear/rear/issues/3319#issuecomment-2355037630 
 and https://github.com/rear/rear/pull/3165#discussion_r1503932927
 ```
+&nbsp;
 ```
 Merge pull request #3312 :
 #3178 improve USB device detection
 #3312 improve the text output; add example on how to fetch NVME RAW_USB_DEVICE device
 #3312 parse string through uniq for RAW_USB_DEVICE
 ```
+&nbsp;
 ```
 BACKUP=NSR: Deprecate 650_check_iso_recoverable.sh (#3309) :
 Deprecate layout/save/NSR/default/650_check_iso_recoverable.sh 
 because it conflicts with "rear checklayout", see 
 https://github.com/rear/rear/issues/3069 
 ```
+&nbsp;
 ```
 In 990_verify_rootfs.sh show relative paths in user messages for files in ROOTFS_DIR (#3308) :
 In build/default/990_verify_rootfs.sh 
@@ -454,6 +464,7 @@ as relative path i.e. without leading slash e.g. as bin/parted
 when from the context it should be clear enough 
 that a file inside the recovery system is meant. 
 ```
+&nbsp;
 ```
 Merge pull request #3281 :
 conf: reintroduce Linux-s390.conf :
@@ -464,6 +475,7 @@ image with disastrous results.
 Fixes: cba3590b27bedb526e5b439cd8d4d01e1ec0169a ("pull #2142")
 Resolves: https://github.com/rear/rear/issues/3144
 ```
+&nbsp;
 ```
 Overhauled SLE11-SLE12-SAP-HANA-UEFI-example.conf (#3306) :
 In conf/examples/SLE11-SLE12-SAP-HANA-UEFI-example.conf 
@@ -482,6 +494,7 @@ Added hint about SAN and multipath to look at
 conf/examples/RHEL7-PPC64LE-Multipath-PXE-GRUB.conf 
 Plus several more general improvements of the comment texts.
 ```
+&nbsp;
 ```
 Make 13-tcg-opal-support.adoc ASCII :
 In doc/user-guide/13-tcg-opal-support.adoc 
@@ -494,6 +507,7 @@ instead of ASCII single quote in "root's" and "stick's"
 and instead of ASCII backtick in "`/usr/local/sbin", see 
 https://github.com/rear/rear/wiki/Coding-Style#character-encoding
 ```
+&nbsp;
 ```
 Make 420_autoresize_last_partitions.sh ASCII :
 In layout/prepare/default/420_autoresize_last_partitions.sh 
@@ -504,6 +518,7 @@ an UTF-8 character was used in the word "there's".
 Now this is fixed by using ASCII single quote, see 
 https://github.com/rear/rear/wiki/Coding-Style#character-encoding
 ```
+&nbsp;
 ```
 Make lib/layout-functions.sh ASCII :
 In lib/layout-functions.sh 
@@ -516,6 +531,7 @@ https://github.com/rear/rear/blob/master/.codespellignore
 mentions the German word "f[u_umlaut]r" 
 but a [u_umlaut] should not appear in ReaR code.
 ```
+&nbsp;
 ```
 Update local.conf description comment :
 In the local.conf comment explain that 
@@ -526,6 +542,7 @@ in particular on the original system and
 also within the ReaR recovery system, 
 see https://github.com/rear/rear/issues/3296
 ```
+&nbsp;
 ```
 Update drlm-functions.sh :
 In lib/drlm-functions.sh added a comment 
@@ -535,18 +552,21 @@ which are stored on a DRLM server where various ReaR configs
 of various clients are managed centrally 
 cf. https://github.com/rear/rear/issues/3294
 ```
+&nbsp;
 ```
 Autodetect secure boot via mokutil and guess the secure boot shim (#3278) :
 * Autodetect Secure Boot status via mokutil and guess the secure boot shim 
 * Check that a shim is found when Secure Boot is active, improved diagnostic messages 
 Fixes #3276 
 ```
+&nbsp;
 ```
 In skel/default/bin/dhcpcd.sh use 'source' instead of '.' :
 In skel/default/bin/dhcpcd.sh use 'source' instead of '.' 
 see https://github.com/rear/rear/issues/3285 
 and https://github.com/rear/rear/pull/3165#discussion_r1503932927
 ```
+&nbsp;
 ```
 Avoid returning 1 from a script if all is OK (#3245) :
 If an error is not found in log, return 0. Not finding an error is good, 
@@ -555,6 +575,7 @@ Avoids the message
 Source function: 'source /usr/share/rear/output/ISO/Linux-i386/850_check_for_errors.sh' returns 1 
 in the log.
 ```
+&nbsp;
 ```
 Improve layout configuration part of the user guide (#3125) :
 * Do not refer to "restore list" in the docs 
@@ -596,6 +617,7 @@ Improve layout configuration part of the user guide (#3125) :
   backup exclusion. 
 * Don't claim that EXCLUDE_RECREATE is the most generic
 ```
+&nbsp;
 ```
 Automatically include mounted btrfs subvolumes in NETFS backups (#3175) :
 * automatically exclude btrfs snapshot subvolumes from 'btrfsmountedsubvol' 
@@ -608,6 +630,7 @@ Automatically include mounted btrfs subvolumes in NETFS backups (#3175) :
   components of the `fs` type. 
  * automatically exclude btrfs subvolume children of excluded components
 ```
+&nbsp;
 ```
 Migrate MAC addresses and interface names in NetworkManager keyfiles
 during network configuration migration (#3179) :
@@ -629,10 +652,12 @@ during network configuration migration (#3179) :
   Instead of chjecking whether the first member of the array is empty, 
   check whether the array is actually empty.
 ```
+&nbsp;
 ```
 improve device recognition when creating efibootmgr entry (#3267) :
 via the get_device_name function to normalize the device names
 ```
+&nbsp;
 ```
 Merge pull request #3041 :
 Reorder systemd units in the rescue system and make sure syslog is started
@@ -681,6 +706,7 @@ Intended especially for 3rd party network backup solutions where restore
 needs some daemon running and communicating over network in the rescue
 system.
 ```
+&nbsp;
 ```
 Merge pull request #3261 :
 bareos: require Bareos Director >= 21 :
@@ -689,6 +715,7 @@ However, the oldest official supported version of Bareos is 21
 (the current version is Bareos 23).
 Therefore we add a requirement for a Bareos Director >= 21.
 ```
+&nbsp;
 ```
 Rewrite Bareos integration (#3240) :
 Major rework of Baros support provided by the Bareos company 
@@ -707,6 +734,7 @@ Major rework of Baros support provided by the Bareos company
 * get jobid from restore command from returned result 
 * bcommand now works without the "@out" command, which might get removed with Baroes >= 24. 
 ```
+&nbsp;
 ```
 Merge pull request #3242 :
 Fix IPv6 address support in OUTPUT_URL/BACKUP_URL :
@@ -723,6 +751,7 @@ This patch makes the following (proper) scheme work with both NFS and SSHFS:
   OUTPUT_URL=sshfs://[2001:db8:ca2:6::101]/root/REAR
 For this to occur, a lot of bash quoting had to be fixed.
 ```
+&nbsp;
 ```
 In 990_verify_rootfs.sh fix issue #3021 (#3250) :
 In build/default/990_verify_rootfs.sh 
@@ -743,6 +772,7 @@ and all messages when in verbose mode
 to make the messages as a whole 
 better understandable by the user. 
 ```
+&nbsp;
 ```
 On POWER tell the user when the initrd is big (#3233) :
 In pack/GNU/Linux/900_create_initramfs.sh 
@@ -757,6 +787,7 @@ MODULES=('loaded_modules')
 FIRMWARE_FILES=('no') 
 and COPY_AS_IS_EXCLUDE_TSM in case of BACKUP=TSM 
 ```
+&nbsp;
 ```
 Merge pull request #3239 :
 Fix version test in udev start by desupporting systemd < 190 :
@@ -786,6 +817,7 @@ available during boot, though, and the function does not really check
 for a tilde in version, thus it appears to work more by accident than by
 design.
 ```
+&nbsp;
 ```
 Set RECOVERY_MODE also in PORTABLE mode (#3228) :
 In sbin/rear set RECOVERY_MODE also in PORTABLE mode, 
@@ -794,6 +826,7 @@ to run 'rear recover' within a foreign rescue system
 see https://github.com/rear/rear/pull/3206#issuecomment-2122159018 
 and https://github.com/rear/rear/pull/3206#issuecomment-2122173021
 ```
+&nbsp;
 ```
 Update 400_save_directories.sh (#3232) :
 In prep/default/400_save_directories.sh 
@@ -802,6 +835,7 @@ https://github.com/rear/rear/issues/3222
 for now until a proper solution is found, cf. 
 https://github.com/rear/rear/pull/3223
 ```
+&nbsp;
 ```
 In 400_create_include_exclude_files.sh fixed regression of pull request 3221 :
 In backup/NETFS/default/400_create_include_exclude_files.sh 
@@ -814,6 +848,7 @@ should be backed up as documented in
 doc/user-guide/11-multiple-backups.adoc 
 see https://github.com/rear/rear/pull/3221#issuecomment-2129240645
 ```
+&nbsp;
 ```
 Do not exclude '/var/tmp/rear.*' in default.conf (#3229) :
 Revert the actual change in 
@@ -829,6 +864,7 @@ cleaned up deliberately by the user
 (and not by ReaR from behind via its backup). 
 Described things more clearly in the comment. 
 ```
+&nbsp;
 ```
 In sbin/rear make it clear when ReaR's TMP_DIR is used (#3225) :
 In usr/sbin/rear make it more clear 
@@ -837,6 +873,7 @@ when ReaR's TMP_DIR gets used
 (in contrast to the system's TMPDIR), 
 see https://github.com/rear/rear/pull/3225
 ```
+&nbsp;
 ```
 Update default.conf (#3224) :
 In default.conf add '/var/tmp/rear.*' to BACKUP_PROG_EXCLUDE 
@@ -849,6 +886,7 @@ https://github.com/rear/rear/pull/3175#issuecomment-2114478980
 Additionally describe why ReaR's VAR_DIR/output is excluded. 
 Also describe why the '/directory/*' form is used. 
 ```
+&nbsp;
 ```
 Overhauled 400_create_include_exclude_files.sh (#3221) :
 Overhauled backup/NETFS/default/400_create_include_exclude_files.sh 
@@ -873,6 +911,7 @@ Update backup/NETFS/default/500_make_backup.sh
   because unique_unsorted is now called in 
   backup/NETFS/default/400_create_include_exclude_files.sh 
 ```
+&nbsp;
 ```
 change find backup procedure for Veeam V12.1 and later (#3214) :
 Running rear recover on different hardware will not show the backups of the original system due to the way 
@@ -881,10 +920,12 @@ This change handles this situation by searching for all backups for HOSTNAME and
 Searching for HOSTNAME, which is guaranteed to be a short machine name, also to matches the fqdn
 in case the system is registered in Veeam under the fqdn instead of the short machine name.
 ```
+&nbsp;
 ```
 enable default ramdisk if not set to satisfy Veeam 12.1ff requirements (#3216) :
 Closes #3213
 ```
+&nbsp;
 ```
 default.conf example for COPY_AS_IS_EXCLUDE_TSM (#3212) :
 In default.conf explain how one could reduce 
@@ -902,11 +943,13 @@ and REAR_INITRD_COMPRESSION="lzma"
 and mention that on POWER by default 
 FIRMWARE_FILES=( 'no' ) is used. 
 ```
+&nbsp;
 ```
 Merge pull request #3182 :
 #3067 use exit code of nc to check BACULA directory availability
 #3082 improved the way to grab the BACULA_DIRECTOR and BACULA_CLIENT
 ```
+&nbsp;
 ```
 Better describe OUTPUT_PREFIX and NETFS_PREFIX (#3204) :
 In default.conf better descriptions 
@@ -920,15 +963,18 @@ NETFS_PREFIX="$OUTPUT_PREFIX"
 to get backup.tar.gz and ISO image stored 
 at the same place.
 ```
+&nbsp;
 ```
 Add veeam support (#3150) :
 Initial VEEAM Bare Metal Recovery integration 
 Register the Veeam Linux Agent to Veeam VBRServer with Role of Veeam Restore Operator 
 Query latest Fullbackup, mount and copy it to the original restored operating system disks 
 ``` 
+&nbsp;
 ```
 Implement portable mode --portable and OUTPUT=PORTABLE
 ```
+&nbsp;
 ```
 New unique_unsorted() function (#3177) :
 In lib/global-functions.sh added a 
@@ -948,23 +994,28 @@ in case of 'tar' the backup archive size and
 storage space and backup restore time, cf. 
 https://github.com/rear/rear/pull/3175#issuecomment-1985306750 
 ``` 
+&nbsp;
 ```
 move all /var/run to /run directories in skel :
 Fixing b838a352136811900511a209d06c809ce552e636
 ```
+&nbsp;
 ```
 Add OS version mappings for RHEL 8 and RHEL 9 Remember MASTER version
 and combinations so that RHEL 9.3 will be mapped to Fedora/9
 ``` 
+&nbsp;
 ```
 Check recover mode before applying remote update Remove double check for recovery system :
 Fixes #3198
 ```
+&nbsp;
 ```
 change /var/run to be a symlink to /run accomodating current systemd requirements and FHS recommendation :
 fixes #3197
 maybe also fixes #3139
 ``` 
+&nbsp;
 ```
 Update 330_set_efi_arch.sh :
 As an addition to 
@@ -975,6 +1026,7 @@ because this is the matching issue for
 the GRUB2_IMAGE_FORMAT usage in 
 output/RAWDISK/Linux-i386/270_create_grub2_efi_bootloader.sh
 ```
+&nbsp;
 ```
 Set GRUB2_IMAGE_FORMAT correctly in prep/Linux-i386/330_set_efi_arch.sh (#3192) :
 In prep/Linux-i386/330_set_efi_arch.sh 
@@ -988,6 +1040,7 @@ when GRUB2_IMAGE_FORMAT is set to a value for EFI systems
 also on BIOS systems, cf. 
 https://github.com/rear/rear/issues/3191#issuecomment-2036618057 
 ``` 
+&nbsp;
 ```
 Set TMPDIR to ReaR's TMP_DIR for programs that are called by ReaR :
 In usr/sbin/rear set TMPDIR to ReaR's TMP_DIR (within BUILD_DIR) 
@@ -1005,10 +1058,12 @@ https://github.com/rear/rear/pull/3181
 to fix https://github.com/rear/rear/issues/3180 
 which is also about BUILD_DIR / TMPDIR related code. 
 ```
+&nbsp;
 ```
 Merge pull request #3183 :
 Stale NFS detection in a very early stage #3109
 ``` 
+&nbsp;
 ```
 Merge pull request #3176 :
 skip btrfs subvolumes when detecting ESP partitions :
@@ -1035,6 +1090,7 @@ This change makes sure that only direct ESP partitions are listed and
 fixes a bug where ReaR would create broken BootXXXX entries which point to
 completely unrelated partitions.
 ```
+&nbsp;
 ```
 Merge pull request #3157 :
 Remove hardcoded architecture-dependend strings from EFI code.
@@ -1053,12 +1109,14 @@ Should make it easier to port the code to e.g. Arm.
 See e.g. https://github.com/rhboot/shim/blob/main/Make.defaults for
 possible values.
 ``` 
+&nbsp;
 ```
 docs: document booting of ReaR rescue initramfs on s390/s390x (#3158) :
 In doc/user-guide/04-scenarios.adoc 
 document booting of ReaR rescue initramfs on s390/s390x, see the related 
 https://github.com/rear/rear/issues/3149#issuecomment-1943375764
 ```
+&nbsp;
 ```
 Allow 'shell' workflow in recovery system :
 Add 'shell' to the workflows that are allowed 
@@ -1066,6 +1124,7 @@ to be run from within the ReaR recovery system
 because it can be useful for special cases, cf. 
 https://github.com/rear/rear/issues/3170#issuecomment-1981222992
 ``` 
+&nbsp;
 ```
 Update 04-scenarios.adoc :
 In doc/user-guide/04-scenarios.adoc 
@@ -1077,6 +1136,7 @@ which are outdated, could be misleading,
 or are questionable or discursive 
 to make the text simpler and more to the point
 ```
+&nbsp;
 ```
 Fix some of the OS detection issues (#3149) :
 Delete init/default/005_verify_os_conf.sh - reasoning: 
@@ -1093,6 +1153,7 @@ is enclosed in quotation marks which is false on Fedora,
 see https://github.com/rear/rear/pull/3165 and the related 
 https://github.com/rear/rear/issues/3149#issuecomment-1964290116
 ``` 
+&nbsp;
 ```
 Replace the OUTPUT=IPL with equivalent OUTPUT=RAMDISK (#3153) :
 The initial PR with s390 support in ReaR introduced 
@@ -1104,12 +1165,14 @@ during the prep phase with a deprecation warning,
 see https://github.com/rear/rear/pull/3153 and the related 
 https://github.com/rear/rear/issues/3149#issuecomment-1941620475
 ```
+&nbsp;
 ```
 Merge pull request #3163 :
 Error out if TMPDIR is set in user config :
 Setting TMPDIR in {site,local}.conf has not worked since
 0022063 (PR #2633), as discussed in #2654.
 ```
+&nbsp;
 ```
 Update 03-configuration.adoc :
 In doc/user-guide/03-configuration.adoc 
@@ -1117,6 +1180,7 @@ removed the outdated and obsolete part about TMPDIR=/bigdisk
 because since the default is /var/tmp there is enough space 
 for things like a big ISO image
 ```
+&nbsp;
 ```
 Update rescue-and-backup-on-same-ISO-image-example.conf :
 In conf/examples/rescue-and-backup-on-same-ISO-image-example.conf 
@@ -1124,6 +1188,7 @@ removed wrong TMPDIR=/mnt2/tmp
 that is no longer needed since the default is /var/tmp which has enough space, cf. 
 https://github.com/rear/rear/pull/3163#issuecomment-1965886579
 ```
+&nbsp;
 ```
 Use dracut by default in SUSE 550_rebuild_initramfs.sh (#3155) :
 Overhauled finalize/SUSE_LINUX/i386/550_rebuild_initramfs.sh 
@@ -1138,12 +1203,14 @@ because INITRD_MODULES is not used and
 /etc/sysconfig/kernel does no longer exist since SLES12 
 so the INITRD_MODULES code is dead code.
 ```
+&nbsp;
 ```
 ErrorIfDeprecated when 'gpt_sync_mbr' is used (#3159) :
 In layout/save/default/950_verify_disklayout_file.sh 
 ErrorIfDeprecated when 'gpt_sync_mbr' is used 
 see https://github.com/rear/rear/issues/3148
 ```
+&nbsp;
 ```
 Update _input-output-functions.sh :
 In lib/_input-output-functions.sh 
@@ -1154,6 +1221,7 @@ Additionally improved the user message texts to be more to the point
 in particular that the user needs explain to us 
 why there is no alternative for a deprecated feature.
 ```
+&nbsp;
 ```
 Fix issue 3151: missing .vimrc and overhauled 130_create_dotfiles.sh (#3154) :
 Create an empty 
@@ -1166,6 +1234,7 @@ https://github.com/rear/rear/issues/3151#issuecomment-1941544530
 and see https://github.com/rear/rear/pull/1306 regarding nano 
 and https://github.com/rear/rear/issues/1298 when vi is not available. 
 ```
+&nbsp;
 ```
 Merge pull request #3145 :
 Support saving and restoring hybrid BIOS/UEFI bootloader setup and clean up bootloader detection.
@@ -1253,6 +1322,7 @@ bootloader, and save the correct value.
 This should help with the problem reported in PR #3128 (misdetection of
 GRUB2 as GRUB on any non-SUSE distro).
 ```
+&nbsp;
 ```
 OUTPUT=PXE: Support downloading kernel and initrd by HTTP (#3100) :
 For OUTPUT=PXE added support for downloading kernel and initrd by HTTP. 
@@ -1266,6 +1336,7 @@ new prep/PXE/default/010_PXE_check.sh (deprecation warnings)
 new output/PXE/default/801_copy_to_http.sh 
 see https://github.com/rear/rear/pull/3100 
 ```
+&nbsp;
 ```
 Update _input-output-functions.sh :
 Added a comment that the ...IfError functions 
@@ -1276,6 +1347,7 @@ by using bash directly plus added example
 about using $? with 'if then else'. 
 Also fixed two typos (in a comment and in a message).
 ```
+&nbsp;
 ```
 Merge pull request #3136 :
 Include GRUB tools unconditionally and don't create $VAR_DIR/recovery/bootdisk in prep.
@@ -1301,6 +1373,7 @@ in ROOTFS_DIR or in VAR_DIR/recovery and VAR_DIR/layout because
 scripts for ROOTFS_DIR belong to the 'rescue' stage and scripts
 for VAR_DIR/recovery and VAR_DIR/layout belong to the 'layout' stages.
 ```
+&nbsp;
 ```
 Merge pull request #3138 :
 Add support for new backup software Dell PowerProtect Data Manager.
@@ -1314,6 +1387,7 @@ Support automated keyboard configuration on systems with setupcon: Fixes #3133
 Fix module names with underscore bug: Fixes #3137
 Support Bash assoc arrays and improve rear shell.
 ```
+&nbsp;
 ```
 Let is_write_protected() report devices without device node as not write protected (#3091) :
 In lib/write-protect-functions.sh 
@@ -1331,6 +1405,7 @@ which now contains only the is_write_protected function
 The former helper functions are not needed as functions because 
 all what happens is a single straightforward sequence of actions. 
 ```
+&nbsp;
 ```
 Merge pull request #3131 :
 Improve the description of AUTOEXCLUDE_PATH:
@@ -1341,6 +1416,7 @@ Use /mnt as an example for AUTOEXCLUDE_PATH instead and make clear that
 AUTOEXCLUDE_PATH=( /tmp ) does not exclude files under /tmp from the
 backup and an independent setting is used for that purpose.
 ```
+&nbsp;
 ```
 Make initrd accessible only by root (#3123) :
 In pack/GNU/Linux/900_create_initramfs.sh call 
@@ -1352,6 +1428,7 @@ configured by the user like SSH keys without passphrase)
 see https://github.com/rear/rear/issues/3122 
 and https://bugzilla.opensuse.org/show_bug.cgi?id=1218728 
 ```
+&nbsp;
 ```
 Merge pull request #3124 :
 Take AUTOEXCLUDE_PATH into account in layout doc:
@@ -1365,6 +1442,7 @@ from /media/backup to /backup.
 Take this opportunity to also describe the AUTOEXCLUDE_PATH variable
 among other autoexclusions.
 ```
+&nbsp;
 ```
 More clear AUTOEXCLUDE_PATH description in default.conf :
 In default.conf make it more clear how the defaults for 
@@ -1372,6 +1450,7 @@ AUTOEXCLUDE_PATH and BACKUP_PROG_EXCLUDE interact
 when /tmp is a separated filesystem, see 
 https://github.com/rear/rear/pull/2261#discussion_r1444282008
 ```
+&nbsp;
 ```
 Set 'dmesg -n [4-6]' in new 'setup' script 007_set_dmesg_level.sh (#3113) :
 The new 'setup' stage script setup/default/007_set_dmesg_level.sh 
@@ -1380,6 +1459,7 @@ recover layoutonly restoreonly finalizeonly mountonly
 depending on verbose and debug modes for ReaR. 
 This is related to https://github.com/rear/rear/pull/3108 
 ```
+&nbsp;
 ```
 Set 'dmesg -n 5' in etc/scripts/boot (#3108) :
 In [skel/default]/etc/scripts/boot set 'dmesg -n 5'
@@ -1391,6 +1471,7 @@ in kernel area which helps to understand problems,
 see the related issue 
 https://github.com/rear/rear/issues/3107 
 ```
+&nbsp;
 ```
 Fixed 800_enforce_usb_output.sh (#3110) :
 Overhauled build/USB/default/800_enforce_usb_output.sh 
@@ -1400,6 +1481,7 @@ plus explanatory comments in the code.
 Triggered by https://github.com/rear/rear/pull/3103 
 and replacing this by a new pull request. 
 ```
+&nbsp;
 ```
 Error() instead of BugError() in 850_make_USB_bootable.sh (#3104) :
 In output/USB/Linux-i386/850_make_USB_bootable.sh replaced the 
@@ -1419,6 +1501,7 @@ of the form /var/tmp/rear.XXXXXXXXXXXXXXX/outputfs
 so $RAW_USB_DEVICE provides some context to the user 
 that those two messages are about his USB or disk device. 
 ```
+&nbsp;
 ```
 Merge pull request #3105 :
 Do not touch $BUILD_DIR/outputfs :
@@ -1428,6 +1511,7 @@ Should have been deleted in 7dda23d708854db2d09db1308c159aea667763c0
 with other code that touched the backup location.
 For the YUM method, the same change was already done in 6b9d8d8508183144f56eec92b828ae037c03a6f7
 ```
+&nbsp;
 ```
 Merge pull request #3102 :
 OUTPUT=USB: add a check that OUTPUT_URL is mounted :
@@ -1435,6 +1519,7 @@ If OUTPUT_URL uses the file:// scheme, ReaR aborts with a weird error
 message "BUG: Filesystem where the booting related files are on ...
 could not be found" in output/USB/Linux-i386/850_make_USB_bootable.sh.
 ```
+&nbsp;
 ```
 Tell WHY in DebugPrint in 320_autoexclude.sh :
 In layout/save/default/320_autoexclude.sh tell WHY in DebugPrint message: 
@@ -1444,6 +1529,7 @@ Now:
 "Automatically excluding filesystem /tmp/sdb (belogs to /tmp in AUTOEXCLUDE_PATH)" 
 Noticed while reproducing https://github.com/rear/rear/issues/3101
 ```
+&nbsp;
 ```
 New RECOVERY_COMMANDS array (#3089) :
 New RECOVERY_COMMANDS array (plus RECOVERY_COMMANDS_LABEL) 
@@ -1457,6 +1543,7 @@ with a 'timeout' (normally 30 seconds or 3 seconds in unattended mode)
 to automatically proceed (in particular in unattended mode), 
 cf. https://github.com/rear/rear/issues/1366 
 ```
+&nbsp;
 ```
 Merge pull request #3070 :
 New REBOOT_COMMANDS config array variable: 
@@ -1482,6 +1569,7 @@ Set SECRET_OUTPUT_DEV="null"
 also for sourcing other config files (e.g. local.conf), cf. 
 https://github.com/rear/rear/commit/9629b29dbbb73efb6229c4bfc509d1fcb70b29e3 
 ```
+&nbsp;
 ```
 Merge pull request #3079 :
 Do not mount /sys if already mounted:
@@ -1495,6 +1583,7 @@ Do the same for the other system mountpoints like /proc, /dev, /dev/pts.
 Not sure if they suffer from the same problem, but they probably could.
 N.B. the 'mountpoint' command is already among REQUIRED_PROGS.
 ```
+&nbsp;
 ```
 Merge pull request #3078 :
 Mention xorrisofs when no ISO image tool is found:
@@ -1502,6 +1591,7 @@ xorrisofs is supposed to be the preferred method, so mention it first
 among the suggested tools that the user can install to produce an ISO
 image if none is found.
 ```
+&nbsp;
 ```
 Merge pull request #3073 :
 Link back to the PR & issue #3064 from code.
@@ -1523,6 +1613,7 @@ prep/GNU/Linux/280_include_systemd.sh.
 Gets rid of one exception for symlinks, which looks good in any case
 (shorter and simpler code).
 ```
+&nbsp;
 ```
 Merge pull request #3072 :
 New USER_INPUT_UNATTENDED_TIMEOUT config variable 
@@ -1530,6 +1621,7 @@ to specify the timeout in seconds (by default 3)
 for how long UserInput() waits for user input 
 when ReaR is run in 'unattended' or 'non-interactive' mode. 
 ```
+&nbsp;
 ```
 Update default.conf :
 In default.conf describe that 
@@ -1537,6 +1629,7 @@ with MIGRATION_MODE='TRUE' ('TRUE' in uppercase letters)
 one can enfore MIGRATION_MODE also when 
 "rear recover" is run in 'unattended' or 'non-interactive' mode.
 ```
+&nbsp;
 ```
 Update 250_compare_disks.sh :
 In layout/prepare/default/250_compare_disks.sh 
@@ -1546,6 +1639,7 @@ because USER_INPUT_INTERRUPT_TIMEOUT matches better
 the intent of the user confirmation dialog 
 when "Disk configuration looks identical"
 ```
+&nbsp;
 ```
 Merge pull request #3061 :
 Fix comments and error message obsolete since #2903.
@@ -1564,6 +1658,7 @@ enough space in the VG for recovery of all LVs (as layout restoration
 would create a larger pool metadata size than before and if restoring to
 disks of the same size, the space will be missing elsewhere).
 ```
+&nbsp;
 ```
 Merge pull request #3058 :
 Skip useless xfs mount options when mounting during recovery:
@@ -1592,6 +1687,7 @@ mount options before mounting the file system.
 layout, in layout/save/GNU/Linux/230_filesystem_layout.sh, but I decided
 to follow the example of btrfs here.)
 ```
+&nbsp;
 ```
 Update 450_check_BACULA_client_configured.sh :
 In prep/BACULA/default/450_check_BACULA_client_configured.sh 
@@ -1600,6 +1696,7 @@ to make it clear to the user what exactly is missing.
 This enhancement was triggered by 
 https://github.com/rear/rear/issues/3060
 ```
+&nbsp;
 ```
 Merge pull request #2961 :
 For the automated serial console setup for the recovery system 
@@ -1613,6 +1710,7 @@ In particular prep/GNU/Linux/200_include_serial_console.sh
 and lib/serial-functions.sh were overhauled which results 
 that rescue/GNU/Linux/400_use_serial_console.sh is obsolete. 
 ```
+&nbsp;
 ```
 Update 510_current_disk_usage.sh :
 In layout/save/GNU/Linux/510_current_disk_usage.sh 
@@ -1620,6 +1718,7 @@ USB_DEVICE_FILESYSTEM_LABEL must not be empty, otherwise
 readlink -f "/dev/disk/by-label/$USB_DEVICE_FILESYSTEM_LABEL" 
 would result '/dev/disk/by-label'
 ```
+&nbsp;
 ```
 Update 400_save_directories.sh :
 In prep/default/400_save_directories.sh 
@@ -1627,6 +1726,7 @@ USB_DEVICE_FILESYSTEM_LABEL must not be empty, otherwise
 grep -vE "this|that|$USB_DEVICE_FILESYSTEM_LABEL" 
 would output nothing at all.
 ```
+&nbsp;
 ```
 Merge pull request #3054 :
 Fail safe USB_DEVICE_BOOT_LABEL setting and fallback: 
@@ -1638,6 +1738,7 @@ if something with that label exists on the USB device
 and if yes use that as USB_DEVICE_BOOT_LABEL, 
 otherwise error out
 ```
+&nbsp;
 ```
 Update default.conf :
 In default.conf better (more generic) description 
@@ -1645,11 +1746,13 @@ of USB_DEVICE_FILESYSTEM_PERCENTAGE
 that also takes a possible 'bios_grub' partition 
 and an optional boot partition into account.
 ```
+&nbsp;
 ```
 Merge pull request #3053 :
 Better description of BACKUP=RBME in default.conf - triggered by 
 https://github.com/rear/rear/issues/3050#issuecomment-1748197886
 ```
+&nbsp;
 ```
 Merge pull request #3047 :
 Skip invalid disk drives (zero sized, no media) when saving layout:
@@ -1677,6 +1780,7 @@ and skip the device.
 Move "parted $devname" after validation of $devname:
 This prevents errors when parted is called on an invalid device.
 ```
+&nbsp;
 ```
 Merge pull request #3043 :
 Remove the lvmdevices file at the end of recovery :
@@ -1688,12 +1792,14 @@ won't find any disks).  Therefore it is safer to remove the file to
 force the old behavior where LVM scans all disks. This used to be the
 LVM default (use_devicesfile=0).
 ```
+&nbsp;
 ```
 Merge pull request #3038 :
 In the DoExitTasks function skip 'sleep 3' 
 when all went well and DoExitTasks is called at normal exit 
 to avoid needless 3 seconds delay of normal end of program.
 ```
+&nbsp;
 ```
 Merge pull request #3037 :
 Avoid multiple 'set -x' messages for one message output function call (like LogPrint): 
@@ -1707,6 +1813,7 @@ for the subsequently resulting "Log 'text'" and "echo 'text" calls.
 Now only one 'set -x' debug message appears in the log: 
 Only the first one for the initial message output function call.
 ```
+&nbsp;
 ```
 Merge pull request #3039 :
 In doc/rear.8.adoc describe the new -e/--expose-secrets option 
@@ -1715,12 +1822,14 @@ and https://github.com/rear/rear/issues/2967
 Additionally a more exact description what the non-interactive mode does 
 and some general simplifications of other GLOBAL OPTIONS texts.
 ```
+&nbsp;
 ```
 Set SECRET_OUTPUT_DEV in etc/scripts/system-setup :
 In usr/share/rear/skel/default/etc/scripts/system-setup 
 set SECRET_OUTPUT_DEV="null" before sourcing default.conf 
 see https://github.com/rear/rear/pull/3034#issuecomment-1691609782
 ```
+&nbsp;
 ```
 Merge pull request #3036 :
 Overhauled init/default/998_dump_variables.sh 
@@ -1731,6 +1840,7 @@ to avoid that possibly confidential values
 are output into the log file by accident, see 
 https://github.com/rear/rear/issues/2967
 ```
+&nbsp;
 ```
 Merge pull request #3034 :
 Use '{ SECRET COMMAND ; } 2>>/dev/$SECRET_OUTPUT_DEV' 
@@ -1744,6 +1854,7 @@ from usual unwanted output discard via '2>/dev/null'
 see https://github.com/rear/rear/pull/3006 
 and https://github.com/rear/rear/issues/2967 
 ```
+&nbsp;
 ```
 Update authtoken-functions.sh :
 In lib/authtoken-functions.sh 
@@ -1756,6 +1867,7 @@ where all secret user-input happens only in that pre-boot environment,
 and the image is immutable (PBA-area is RO on locked drive), 
 see https://github.com/rear/rear/issues/3035
 ```
+&nbsp;
 ```
 Merge pull request #3031 :
 Secure Boot support for OUTPUT=USB: 
@@ -1769,6 +1881,7 @@ is to "just copy" the (signed) EFI binaries of the Linux distribution
 instead of let ReaR make its own EFI binary via build_bootx86_efi() 
 see https://github.com/rear/rear/pull/3031
 ```
+&nbsp;
 ```
 Merge pull request #3030 :
 In format/USB/default/200_check_usb_layout.sh 
@@ -1778,6 +1891,7 @@ because it is clearer to abort for configuation errors
 than silently "correcting" a users's specified value, 
 see https://github.com/rear/rear/issues/3029 
 ```
+&nbsp;
 ```
 Merge pull request #3025 :
 Fixed create_grub2_cfg function usage: 
@@ -1787,6 +1901,7 @@ to get consistency how GRUB2 sets and/or searches its 'root' device
 and adapted the create_grub2_cfg function calls accordingly. 
 Furthermore enhanced some messages regarding Secure Boot setup.
 ```
+&nbsp;
 ```
 Merge pull request #3027 :
 In build/GNU/Linux/100_copy_as_is.sh 
@@ -1796,6 +1911,7 @@ in particular when padding zeroes get added when a file being read shrinks
 because for 'tar' (without '-i') two consecutive 512-blocks of zeroes mean EOF, 
 cf. https://github.com/rear/rear/pull/3027
 ```
+&nbsp;
 ```
 Update 830_copy_kernel_initrd.sh :
 In output/USB/Linux-i386/830_copy_kernel_initrd.sh 
@@ -1804,6 +1920,7 @@ so when one is looking at such a log file on USB from another user
 one gets not confused why things are missing (e.g. the 'backup' stage) in such a log file 
 cf. https://github.com/rear/rear/issues/3017#issuecomment-1620385835
 ```
+&nbsp;
 ```
 Merge pull request #3023 :
 In prep/SESAM/default/400_prep_sesam.sh 
@@ -1816,6 +1933,7 @@ due to missing semaphore files. Removing the sesam work directory
 where those information is stored from the excludes solves this problem. 
 See https://github.com/rear/rear/issues/3018
 ```
+&nbsp;
 ```
 Merge pull request #3019 :
 In lib/sesam-functions.sh 
@@ -1825,6 +1943,7 @@ so 'tar' did not match ('tar' is picky about exclude items)
 and then things ended up in the ISO image, 
 see https://github.com/rear/rear/issues/3018
 ```
+&nbsp;
 ```
 Merge pull request #3006 :
 New --expose-secrets option plus SECRET_OUTPUT_DEV: 
@@ -1837,20 +1956,24 @@ Script code usage example:
 Both are requirements to solve 
 https://github.com/rear/rear/issues/2967 
 ```
+&nbsp;
 ```
 Merge pull request #2991 :
 ISO OUTPUT Improvements to filter RESULT_FILES transferred
 ```
+&nbsp;
 ```
 Merge pull request #2980 :
 SYSLINUX timeout is now a configuration item
 ```
+&nbsp;
 ```
 Merge pull request #2988 :
 Implement non-interactive mode to abort on repeated UserInput calls in the absence of user interaction.
 Add fully automated restore to REQUESTRESTORE, where ReaR waits for a signal file to appear.
 Mention experimental state of non-interactive mode in README.
 ```
+&nbsp;
 ```
 In layout/save/GNU/Linux/200_partition_layout.sh 
 also show the disk device in the 
@@ -1859,6 +1982,7 @@ to make it meaningful on systems with more than one disk.
 Add fallback wipefs command for CentOS 6.
 Add -f (force) option to wipefs command in 120_include_raid_code.sh
 ```
+&nbsp;
 ```
 Do not leak the SSH_ROOT_PASSWORD value into the log file: 
 In build/default/500_ssh_setup.sh 
@@ -1869,6 +1993,7 @@ run commands that deal with SSH_ROOT_PASSWORD
 in a confidential way via { confidential_command ; } 2>/dev/null 
 see https://github.com/rear/rear/issues/2967
 ```
+&nbsp;
 ```
 Do not leak the OPAL_PBA_DEBUG_PASSWORD value into the log file :
 In prep/OPALPBA/Linux-i386/001_configure_workflow.sh 
@@ -1876,6 +2001,7 @@ run commands that deal with OPAL_PBA_DEBUG_PASSWORD
 in a confidential way via { confidential_command ; } 2>/dev/null 
 see https://github.com/rear/rear/issues/2967
 ```
+&nbsp;
 ```
 Merge pull request #2985 :
 Do not leak the GALAXY11_PASSWORD value into the log file: 
@@ -1884,6 +2010,7 @@ run commands that deal with GALAXY11_PASSWORD
 in a confidential way via { confidential_command ; } 2>/dev/null 
 see https://github.com/rear/rear/issues/2967
 ```
+&nbsp;
 ```
 Update 04-scenarios.adoc :
 In doc/user-guide/04-scenarios.adoc 
@@ -1896,6 +2023,7 @@ https://github.com/rear/rear/pull/2156
 which was triggered by what was done in 
 https://github.com/rear/rear/pull/2982
 ```
+&nbsp;
 ```
 Update default.conf :
 In default.conf cleaned up all cases of variables for secret values 
@@ -1917,15 +2045,18 @@ RSYNC_PREFIX is the destination prefix directory
 where a 'backup' sub-directory will be created, see 
 https://github.com/rear/rear/issues/2978
 ```
+&nbsp;
 ```
 NFS4SERVER as new restore method (#2973) :
 Added new backup method NFS4SERVER for restore via NFSv4 export (restore only)
 Add ability to abort NFS4SERVER restore.
 ```
+&nbsp;
 ```
 Merge pull request #2878 :
 Exclusions for Veritas Cluster Filesystem, solving https://access.redhat.com/solutions/3214491 by default.
 ```
+&nbsp;
 ```
 Merge pull request #2963 :
 OBDR fixes for modern systems using hpsa driver:
@@ -1942,6 +2073,7 @@ In case of large number of connected devices f.x. [6:0:15:0] tape HP Ultrium 5-S
 devices might not be recognized properly.
 HP cciss driver was replaced by hpsa driver so consider it when checking tapes.
 ```
+&nbsp;
 ```
 Merge pull request #2965 :
 Add proper Python support / fix GALAXY11-related issues.
@@ -1955,12 +2087,14 @@ Handling symlinks for Python interpreter.
 Choose Python interpreter and stdlib only.
 Copy full site and dist packages as well.
 ```
+&nbsp;
 ```
 Update rear :
 In sbin/rear quoting is mandatory in test -d "$TMP_DIR" 
 otherwise 'test -d' falsely succeeds if $TMP_DIR is empty, cf. 
 https://github.com/rear/rear/issues/2966#issuecomment-1497825493
 ```
+&nbsp;
 ```
 Merge pull request #2950 :
 ReaR in Docker for development & fix package dependencies.
@@ -1968,6 +2102,7 @@ Simple way to run a command via Docker in all,
 some or specific distros that are relevant for ReaR.
 multi-arch support for run-in-docker
 ```
+&nbsp;
 ```
 Merge pull request #2907 :
 In rescue/GNU/Linux/310_network_devices.sh 
@@ -1978,6 +2113,7 @@ instead of before 'ip r' that defaults to 'ip -4 r' (so 'ip -6 r' was ignored)
 in particular to make networking also work with IPv6 only NICs 
 see https://github.com/rear/rear/issues/2902 
 ```
+&nbsp;
 ```
 Merge pull request #2956 :
 New OpalPBA AuthToken feature: 
@@ -1992,12 +2128,14 @@ Allows for unattended cold booting optionally restricted
 to SecureBoot-active environment only. 
 See https://github.com/rear/rear/pull/2956 
 ```
+&nbsp;
 ```
 Update default.conf :
 In default.conf added 'mt' command to REQUIRED_PROGS_OBDR 
 because 'mt' is required for restore (e.g. seek with fsf), see 
 https://github.com/rear/rear/issues/2637#issuecomment-1475690995
 ```
+&nbsp;
 ```
 Merge pull request #2909 :
 Inform the user when it could not umount something in certain cases: 
@@ -2021,6 +2159,7 @@ so inform the user about an umounting failure
 so he can understand why the subsequent mounting fails 
 or why several things got mounted stacked one over the other.
 ```
+&nbsp;
 ```
 Merge pull request #2937 :
 Add support for Commvault Galaxy 11
@@ -2032,6 +2171,7 @@ Improve rear shell to stay in SHARE_DIR after using Source and add show helper.
 Support multiple -C options and log runtime configuration.
 Enable running from checkout and specify -C /etc/rear/local.conf to use host ReaR configuration.
 ```
+&nbsp;
 ```
 Update 100_include_partition_code.sh :
 In layout/prepare/GNU/Linux/100_include_partition_code.sh 
@@ -2039,6 +2179,7 @@ verify we could read the intended 'disk /dev/sdX ' entry (with trailing space)
 from disklayout.conf and BugError if that fails, cf. 
 https://github.com/rear/rear/issues/2958#issuecomment-1477963982
 ```
+&nbsp;
 ```
 Update 950_verify_disklayout_file.sh :
 In layout/save/default/950_verify_disklayout_file.sh 
@@ -2046,6 +2187,7 @@ add 'dasd' to the error message because 'dasd' is
 also an allowed partition label in disklayout.conf 
 since https://github.com/rear/rear/pull/2142
 ```
+&nbsp;
 ```
 Merge pull request #2954 :
 Better user messages for finalize/default/060_compare_files.sh 
@@ -2055,11 +2197,13 @@ Consistency of what was recreated with his restored backup.
 See https://github.com/rear/rear/issues/2952 
 and https://github.com/rear/rear/pull/2954
 ```
+&nbsp;
 ```
 Update 200_run_layout_code.sh :
 lsblk MOUNTPOINTS works on SLES15-SP4 but not on SLES15-SP3 
 (on SLES15-SP3 only MOUNTPOINT works)
 ```
+&nbsp;
 ```
 Merge pull request #2953 :
 New prep/default/990_verify_empty_rootfs.sh 
@@ -2068,6 +2212,7 @@ plus enhanced prep/README to better explain
 why ROOTFS_DIR must not be touched by 'prep' scripts, 
 see https://github.com/rear/rear/issues/2951
 ```
+&nbsp;
 ```
 Update 001_verify_config_arrays.sh :
 In init/default/001_verify_config_arrays.sh 
@@ -2075,6 +2220,7 @@ do not check comment lines for falsely assigned array variables
 cf. https://github.com/rear/rear/pull/2932 
 and https://github.com/rear/rear/issues/2930
 ```
+&nbsp;
 ```
 Merge pull request #2947 :
 In layout/save/GNU/Linux/240_swaps_layout.sh
@@ -2084,6 +2230,7 @@ replaced the subshell that appends its stdout to DISKLAYOUT_FILE
 by a group command with redirection: { ... } >> $DISKLAYOUT_FILE 
 see https://github.com/rear/rear/issues/2927#issuecomment-1440044143
 ```
+&nbsp;
 ```
 Merge pull request #2943 :
 s390x (IBM Z) disk formatting fixes
@@ -2149,6 +2296,7 @@ Add information about number of cylinders to the disk directive for
 DASDs, it is more stable than the size in bytes (which depends on
 the format). Currently unused.
 ```
+&nbsp;
 ```
 Update rear :
 In usr/sbin/rear show different messages for different things 
@@ -2158,11 +2306,13 @@ which looks like an unintended duplicated output
 but actually it is two messages for two similar things. 
 Triggered by https://github.com/rear/rear/issues/2936
 ```
+&nbsp;
 ```
 Merge pull request #2932 :
 check for wrong syntax of array assignments in user configs
 (disabled on ancient systems with bash 3)
 ```
+&nbsp;
 ```
 Update 330_find_isolinux.sh :
 In prep/ISO/Linux-i386/330_find_isolinux.sh 
@@ -2170,6 +2320,7 @@ less misleading error message when isolinux.bin cannot be found
 (no longer show a distribution specific software package name), 
 see https://github.com/rear/rear/issues/2921
 ```
+&nbsp;
 ```
 Update 230_filesystem_layout.sh :
 In layout/save/GNU/Linux/230_filesystem_layout.sh 
@@ -2177,12 +2328,14 @@ add 'chattr' to REQUIRED_PROGS (and not only to PROGS)
 because 'chattr' is called in diskrestore.sh 
 see https://github.com/rear/rear/issues/2927
 ```
+&nbsp;
 ```
 Update 420_autoresize_last_partitions.sh :
 Fixed fallback assignments of mandatory values 
 to not let them evaluate to nonsense commands, see 
 https://github.com/rear/rear/issues/2926
 ```
+&nbsp;
 ```
 Merge pull request #2915 :
 In lib/serial-functions.sh make the 
@@ -2190,6 +2343,7 @@ get_serial_console_devices() function
 fail-safe if no serial device node exists, see 
 https://github.com/rear/rear/issues/2914
 ```
+&nbsp;
 ```
 Merge pull request #2910 :
 In finalize/Linux-ppc64le/660_install_grub2.sh remove the 
@@ -2201,6 +2355,7 @@ but there the file finalize/Linux-ppc64le/..._install_grub2.sh
 was accidentally forgotten (see its initial description), 
 see https://github.com/rear/rear/pull/2910 
 ```
+&nbsp;
 ```
 Merge pull request #2905 :
 OUTPUT=USB: Use target=i386-pc for legacy BIOS GRUB2 install on EFI systems: 
@@ -2208,6 +2363,7 @@ grub-install defaults to '--target=x86_64-efi' when the system is booted with EF
 So setting a legacy BIOS target is needed when the system is booted with EFI. 
 See https://github.com/rear/rear/issues/2883
 ```
+&nbsp;
 ```
 Merge pull request #2904 :
 In output/USB/Linux-i386/850_make_USB_bootable.sh 
@@ -2215,6 +2371,7 @@ install extlinux for OUTPUT=USB also for a vfat boot partition
 because since SYSLINUX version 4.00 extlinux also works for vfat 
 see https://github.com/rear/rear/issues/2884
 ```
+&nbsp;
 ```
 Merge pull request #2903 :
 Protect against colons in pvdisplay output :
@@ -2237,6 +2394,7 @@ says that size is in bytes, but it actually was not in bytes. As nothing
 is actually using the PV size field, this inconsistency has not caused
 any problem in practice, and no code needs adjusting for the change.
 ```
+&nbsp;
 ```
 Merge pull request #2901 :
 BACKUP=BAREOS: fix bconsole CLI argument format in 
@@ -2249,6 +2407,7 @@ Before "bconsole ...xc" is called, it now checks the bconsole version
 and uses the new argument format '--xc' when version >= 22. 
 The backward compatible fallback is "bconsole -xc".
 ```
+&nbsp;
 ```
 Update 340_generate_mountpoint_device.sh :
 Fix a false and misleading comment in 
@@ -2262,6 +2421,7 @@ except those where the mountpoint is in the excluded_mountpoints array
 which is generated from what is specified in EXCLUDE_BACKUP, see also 
 https://github.com/rear/rear/issues/2906#issuecomment-1369902659
 ```
+&nbsp;
 ```
 Merge pull request #2894 :
 For BACKUP=SESAM with SESAM version 5.x two more directories 
@@ -2273,6 +2433,7 @@ and additional libraries are now included within the python3 subdirectory.
 Additionally RTS components need additional libraries from the SMS subfolder. 
 See https://github.com/rear/rear/pull/2894 
 ```
+&nbsp;
 ```
 Update default.conf :
 In default.conf tell what gets stored in the ESP on a USB disk: 
@@ -2283,6 +2444,7 @@ In default.conf also tell that grub.cfg is stored in the ESP
 on a USB disk to have that part of the description complete 
 cf. https://github.com/rear/rear/pull/2829#issuecomment-1168547117
 ```
+&nbsp;
 ```
 Merge pull request #2876 :
 Implement initial basic 'barrel' support as a first step 
@@ -2313,6 +2475,7 @@ by only using the ReaR shell and then confirm what he created
 on his disks and continue with restoring the backup, see 
 https://github.com/rear/rear/pull/2876 
 ```
+&nbsp;
 ```
 Merge pull request #2873 :
 Fix initrd regeneration on s390x and Fedora/RHEL :
@@ -2323,6 +2486,7 @@ Since all other architectures were actually using the same script,
 let's just move it one level up to fix this bug and to also simplify
 the directory structure a bit.
 ```
+&nbsp;
 ```
 Merge pull request #2872 :
 In default.conf more accurate description of BACKUP=EXTERNAL 
@@ -2333,6 +2497,7 @@ e.g. removed the colloquial word 'stuff' where not useful and
 made blocks of config variables that belong together more clear 
 by using '####' as indicators where a block begins and ends. 
 ```
+&nbsp;
 ```
 Merge pull request #2868 :
 In the UserInput function drain stdin if stdin is a terminal (i.e. in interactive mode): 
@@ -2345,6 +2510,7 @@ and let the next UserInput dialog proceed unintendedly automatically
 without an explicit ENTER from the user for this current dialog, 
 see https://github.com/rear/rear/issues/2866 
 ```
+&nbsp;
 ```
 Merge pull request #2857 :
 In output/PXE/default/810_create_pxelinux_cfg.sh 
@@ -2356,6 +2522,7 @@ output/PXE/default/810_create_pxelinux_cfg.sh
 plus some more "cleanup" code and comments changes 
 (including minor bug fixes).
 ```
+&nbsp;
 ```
 Merge pull request #2859 :
 By default let "rear recover" wipe disks that get completely recreated 
@@ -2367,12 +2534,14 @@ so that we could use it by default in ReaR 2.8.
 See https://github.com/rear/rear/pull/2514 
 and https://github.com/rear/rear/issues/799
 ```
+&nbsp;
 ```
 Update _input-output-functions.sh :
 Since https://github.com/rear/rear/commit/74de0966a5f21fb41531e9d4711932b6df83856a 
 the default USER_INPUT_INTERRUPT_TIMEOUT is 10 seconds 
 so set the same default value in the UserInput() function.
 ```
+&nbsp;
 ```
 Merge pull request #2851 :
 In output/PXE/default/810_create_pxelinux_cfg.sh 
@@ -2381,6 +2550,7 @@ because PXE_CONFIG_GRUB_STYLE=y
 did not work with PXE_CREATE_LINKS=MAC 
 see https://github.com/rear/rear/issues/2850
 ```
+&nbsp;
 ```
 Merge pull request #2846 :
 Implement a new config variable BORGBACKUP_IGNORE_WARNING 
@@ -2388,16 +2558,19 @@ which ignores Borg warnings (see its description in default.conf).
 Borg warnings can happen if a file changed while backing it up. 
 See https://github.com/rear/rear/pull/2846
 ```
+&nbsp;
 ```
 Update global-functions.sh :
 Better syntax of the explanation comments 
 for the is_true and is_false functions.
 ```
+&nbsp;
 ```
 Merge pull request #2849 :
 Use STRING+=" additional words" everywhere, 
 see https://github.com/rear/rear/issues/2848
 ```
+&nbsp;
 ```
 Merge pull request #2844 :
 Overhauled rescue/GNU/Linux/290_kernel_cmdline.sh 
@@ -2408,11 +2581,15 @@ for example when /proc/cmdline contains
 then via COPY_KERNEL_PARAMETERS+=( console ) 
 cf. https://github.com/rear/rear/pull/2749#issuecomment-1197843273 
 ```
+&nbsp;
 ```
 Merge pull request #2839 :
 Pass -y to lvcreate instead of piping the output of yes
 ```
+&nbsp;
 ```
 Better description of COPY_KERNEL_PARAMETERS in default.conf, 
 cf. https://github.com/rear/rear/pull/2749#issuecomment-1197843273
 ```
+&nbsp;
+
