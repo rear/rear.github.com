@@ -8,12 +8,12 @@ title: Relax-and-Recover Release Notes
 
 This document contains the latest release notes for the Free and Open Source Software project Relax-and-Recover.
 
-Relax-and-Recover website: http://relax-and-recover.org
+Relax-and-Recover website: <http://relax-and-recover.org>
 
-GitHub project: https://github.com/rear
+GitHub project: <https://github.com/rear>
 
 For older Relax-and-Recover version release notes see the
-Relax-and-Recover website release notes: http://relax-and-recover.org/documentation
+Relax-and-Recover website release notes: <http://relax-and-recover.org/documentation>
 
 
 # Overview
@@ -56,7 +56,7 @@ ReaR integrates with various external (third-party) backup software solutions, f
 * Borg (BORG)
 * Rubrik Cloud Data Management (CDM)
 
-ReaR integrates with Disaster Recovery Linux Manager (DRLM) http://drlm.org
+ReaR integrates with Disaster Recovery Linux Manager (DRLM) <http://drlm.org>
 
 
 # System and Software Requirements
@@ -91,13 +91,13 @@ and we give paid projects priority, therefore, we urge our customers
 to buy a support contract for one or more systems.
 You buy time with the core developers.
 
-See the Relax-and-Recover website support http://relax-and-recover.org/support
+See the Relax-and-Recover website support <http://relax-and-recover.org/support>
 
 
 ## Supported and Unsupported Operating Systems
 
 We try to keep our "Test Matrix" wiki pages up-to-date with feedback we receive from the community.
-For example for ReaR 2.8 see https://github.com/rear/rear/wiki/Test-Matrix-ReaR-2.8
+For example for ReaR 2.8 see <https://github.com/rear/rear/wiki/Test-Matrix-ReaR-2.8>
 
 ReaR 2.8 is supported on the following Linux operating systems:
 
@@ -133,7 +133,7 @@ In theory ReaR 2.8 should work on openSUSE Tumbleweed
 but in practice arbitrary failures could happen at any time
 because the Tumbleweed distribution is a pure rolling release version of openSUSE
 containing the latest stable versions of all software
-(cf. https://en.opensuse.org/Portal:Tumbleweed)
+(cf. <https://en.opensuse.org/Portal:Tumbleweed>)
 so arbitrary changes of any software are possible at any time
 that could arbitrarily break how ReaR works.
 
