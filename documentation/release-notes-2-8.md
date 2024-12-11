@@ -5,12 +5,12 @@ title: Release Notes for Relax-and-Recover Version 2.8
 
 This document contains the latest release notes for the Open Source Software project Relax-and-Recover.
 
-Relax-and-Recover website: [relax-and-recover.org](https://relax-and-recover.org)
+Relax-and-Recover website: [relax-and-recover.org](https://relax-and-recover.org/)
 
 GitHub project: [github.com/rear](https://github.com/rear)
 
 For the release notes of previous Relax-and-Recover versions see the
-Relax-and-Recover website release notes: [relax-and-recover.org/documentation](https://relax-and-recover.org/documentation)
+Relax-and-Recover website release notes: [relax-and-recover.org/documentation](/documentation)
 
 
 ## Overview
@@ -98,7 +98,7 @@ and we give paid projects priority, therefore, we urge our customers
 to buy a support contract for one or more systems.
 Buying a support contract actually buys time for the core developers to work on ReaR.
 
-See the Relax-and-Recover website support [relax-and-recover.org/support](https://relax-and-recover.org/support)
+See the Relax-and-Recover website support [relax-and-recover.org/support](/support)
 
 ## Supported and Unsupported Operating Systems
 
