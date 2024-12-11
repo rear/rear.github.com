@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Relax-and-Recover documentation
+title: Relax-and-Recover Documentation
 ---
 
 ## Getting started

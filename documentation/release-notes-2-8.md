@@ -1,22 +1,19 @@
 ---
 layout: default
-title: Relax-and-Recover Release Notes 2.8
+title: Release Notes for Relax-and-Recover Version 2.8
 ---
-
-
-# Release Notes for Relax-and-Recover Version 2.8
 
 This document contains the latest release notes for the Open Source Software project Relax-and-Recover.
 
-Relax-and-Recover website: <http://relax-and-recover.org>
+Relax-and-Recover website: [relax-and-recover.org](https://relax-and-recover.org)
 
-GitHub project: <https://github.com/rear>
+GitHub project: [github.com/rear](https://github.com/rear)
 
 For the release notes of previous Relax-and-Recover versions see the
-Relax-and-Recover website release notes: <http://relax-and-recover.org/documentation>
+Relax-and-Recover website release notes: [relax-and-recover.org/documentation](https://relax-and-recover.org/documentation)
 
 
-# Overview
+## Overview
 
 Relax-and-Recover (abbreviated ReaR) is the de facto standard disaster recovery framework on Linux.
 
@@ -45,7 +42,7 @@ The complete list of backup methods (`BACKUP=...`) is:
 
 * `AVA` Dell EMC Avamar / EMC Avamar
 * `BACULA` Bacula
-* `BAREOS` Bareos
+* `BAREOS` [Bareos](https://docs.bareos.org/Appendix/DisasterRecoveryUsingBareos.html#linux)
 * `BLOCKCLONE` block device cloning via `dd`
 * `BORG` Borg Backup
 * `CDM` Rubrik Cloud Data Management
@@ -60,18 +57,17 @@ The complete list of backup methods (`BACKUP=...`) is:
 * `NFS4SERVER` NFS4 server to push data *to* the rescue system
 * `NSR` Dell EMC NetWorker / EMC NetWorker / Legato NetWorker
 * `OBDR` One Button Disaster Recovery via tape
-* `PPDM` Dell PowerProtect Data Manager
+* `PPDM` [Dell PowerProtect Data Manager](https://infohub.delltechnologies.com/en-us/t/simplifying-linux-bmr-for-powerprotect-data-manager-using-rear-relax-and-recover-disaster-recovery-solution/)
 * `RBME` Rsync Backup Made Easy
 * `REQUESTRESTORE` Request restore from a human operator
 * `RSYNC` ReaR built-in backup using `rsync` via `rsync` or `ssh` protocol
-* `SESAM` SEP Sesam
+* `SESAM` [SEP Sesam](https://wiki.sep.de/wiki/index.php/Bare_Metal_Recovery_Linux)
 * `TSM` IBM Storage Protect / Tivoli Storage Manager / IBM Spectrum Protect
 * `VEEAM` Veeam Backup
 
-ReaR integrates with Disaster Recovery Linux Manager (DRLM) <http://drlm.org>
+ReaR integrates well with Disaster Recovery Linux Manager (DRLM) [drlm.org](https://drlm.org), which can act as a central management tool for ReaR deployments.
 
-
-# System and Software Requirements
+## System and Software Requirements
 
 ReaR is written entirely in the native language for system administration: as shell (bash) scripts.
 The intent is that experienced users and system admins can adapt or extend the ReaR scripts
@@ -84,8 +80,7 @@ The default backup software used by ReaR is standard GNU/tar.
 ReaR is known to work on x86 (32bit and 64bit) and ppc64le architectures.
 ReaR was also ported to ia64 and arm architectures, but these are rarely tested.
 
-
-# Support
+## Support
 
 Relax-and-Recover (ReaR) is a Free and Open Source Software project under GPLv3 license.
 
@@ -103,8 +98,7 @@ and we give paid projects priority, therefore, we urge our customers
 to buy a support contract for one or more systems.
 Buying a support contract actually buys time for the core developers to work on ReaR.
 
-See the Relax-and-Recover website support <http://relax-and-recover.org/support>
-
+See the Relax-and-Recover website support [relax-and-recover.org/support](https://relax-and-recover.org/support)
 
 ## Supported and Unsupported Operating Systems
 
@@ -162,7 +156,6 @@ If you need support for an unsupported Linux operating system you must acquire a
 
 Requests to port ReaR to another operating system (not Linux) can only be achieved with serious sponsoring.
 
-
 ## Supported and Unsupported Architectures
 
 ReaR 2.8 is supported on:
@@ -185,25 +178,22 @@ ReaR 2.8 is known to not support:
 If you need to get ReaR working on an architecture that is currently not supported,
 you can buy consultancy from one of our official developers.
 
-
-# Relax-and-Recover Releases
+## Relax-and-Recover Releases
 
 The first release of ReaR, version 1.0, was posted to the web in July 2006.
 This document lists new features, backward incompatible changes, and defect fixes for the current release only,
-please refer to <http://relax-and-recover.org/documentation> for the older release notes for previous versions.
+please refer to [our documentation](/documentation) for the older release notes for previous versions.
 Unless otherwise noted releases of ReaR are intended to work reasonably backward compatible with previous versions.
 In addition to the GPL disclaimer of warranty and liability there is no guarantee that all works backward compatible.
 In general the older a system is the less likely it is that a newer ReaR version works.
 For each ReaR version upgrade and for each change of a software that is used by ReaR and
 for each change of your basic system you must re-validate that your disaster recovery procedure still works for you.
 
-
-# Relax-and-Recover Version 2.8 (December 2024)
+## Relax-and-Recover Version 2.8 (December 2024)
 
 Things like 'issue NNNN' or only '#NNNN' refer to the GitHub issues tracker <https://github.com/rear/rear/issues>
 
-
-## New features, bigger enhancements, and possibly backward incompatible changes:
+### New features, bigger enhancements, and possibly backward incompatible changes:
 
 * New support for additional commercial backup software
 
@@ -231,8 +221,7 @@ Things like 'issue NNNN' or only '#NNNN' refer to the GitHub issues tracker <htt
 
 * By default `rear recover` wipes disks that get completely recreated via `DISKS_TO_BE_WIPED=""` in default.conf.
 
-
-## Details (mostly in chronological order - newest topmost):
+### Details (mostly in chronological order - newest topmost):
 
 Only changes of the ReaR software and its documentation that could be of common interest are listed here.
 For example changes of ReaR GitHub infrastructure things (like GitHub workflows, actions, CI, and package building)
