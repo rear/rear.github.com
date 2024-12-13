@@ -107,7 +107,7 @@ For example for ReaR 2.8 see <https://github.com/rear/rear/wiki/Test-Matrix-ReaR
 
 ReaR 2.8 is supported on the following Linux operating systems:
 
-* Fedora 39, 40, 41
+* Fedora 40, 41 (Silverblue not supported)
 * RHEL 7, 8, and 9
 * RHEL clones (CentOS, Scientific Linux, Alma Linux, Oracle Linux) 7, 8, and 9
 * SLES 15
@@ -177,6 +177,10 @@ ReaR 2.8 is known to not support:
 
 If you need to get ReaR working on an architecture that is currently not supported,
 you can buy consultancy from one of our official developers.
+
+## Unsupported Features and Known Issues
+
+* BTRFS support is limited to single-device configurations and doesn't cover advanced BTRFS features like spanning file systems over multiple devices, BTRFS built-in RAID and multi disk configurations. (#2028)
 
 ## Relax-and-Recover Releases
 
