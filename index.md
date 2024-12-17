@@ -10,7 +10,7 @@ Learn more about Relax-and-Recover from the selected usage scenarios below:
 
 <table>
 <tr>
-    <th>Single Computer / Home Hser</th> <th>Server Farm / Data Center / Enterprise User</th>
+    <th>Single Computer / Home User</th> <th>Server Farm / Data Center / Enterprise User</th>
 </tr>
 <tr class="images">
     <td><img src="images/laptop.png" alt="Laptop"/></td> <td><img src="images/servers.png" alt="Servers"/></td>

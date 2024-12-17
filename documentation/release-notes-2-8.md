@@ -32,7 +32,7 @@ System administrators use the ReaR framework to set up a disaster recovery proce
 as part of their disaster recovery policy (which complements their existing backup policy).
 
 ReaR complements backup and restore of data with bare metal disaster recovery. ReaR can also act as local backup software,
-but ReaR is not a a backup management software. In many enterprise environmentments, data backup and restore happens via dedicated backup software which is integrated by ReaR and used to restore the data onto a recovery system.
+but ReaR is not a a backup management software. In many enterprise environmentments, data backup and restore happens via dedicated backup software which is integrated by ReaR and used to restore the data onto a replacement system as part of the automated disaster recovery procedure implemented by ReaR.
 
 ReaR has support for built-in backup methods using 'tar' and 'rsync' that are used for backup and restore.
 
@@ -91,7 +91,7 @@ Some of the maintainers also provide paid support as a commercial service.
 ReaR has a long history (since 2006) and we can therefore only support the latest release version.
 If you have a problem, we urge you to install the latest stable ReaR version
 or the snapshot (development) version available on GitHub before submitting an issue.
-We understand, that it is not always possible to install the latest version on hundreds of systems,
+We understand that it is not always possible to install the latest version on hundreds of systems,
 so we are willing to support previous versions of ReaR when you buy a support contract.
 We cannot handle all those various support requests on a voluntary base
 and we give paid projects priority, therefore, we urge our customers
@@ -183,6 +183,7 @@ you can buy consultancy from one of our official developers.
 We are aware of the following issues and limitations in ReaR 2.8:
 
 * BTRFS support is limited to single-device configurations and doesn't cover advanced BTRFS features like spanning file systems over multiple devices, BTRFS built-in RAID and multi disk configurations. (#2028)
+* [Oracle ASM](https://docs.oracle.com/en/database/oracle/oracle-database/23/ostmg/asm-intro.html) is not supported by ReaR. (#3284)
 
 All of those can be resolved via sponsoring or support contracts, unfortunately we cannot handle all those various requests on a voluntary base. Alternatively we'll be very happy to accept contributions to resolve those issues via GitHub pull requests.
 
