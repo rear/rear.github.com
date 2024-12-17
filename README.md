@@ -13,17 +13,17 @@ We use [Lynx](https://lynx.invisible-island.net/) to convert Markdown to HTML. I
 You can either install `lynx` on your system or use the Docker image `alpine/lynx`.
 
 ```bash
-docker run --rm -it alpine/lynx --dump URL > output.txt
+docker run --rm -it -e LC_ALL=POSIX -e LANG=POSIX  alpine/lynx --dump URL > output.txt
 ```
 
 Example for release notes:
 
 ```bash
-docker run --rm -it alpine/lynx --dump https://relax-and-recover.org/documentation/release-notes-2-8 > release-notes-2-8.txt
+docker run --rm -it -e LC_ALL=POSIX -e LANG=POSIX alpine/lynx --dump https://relax-and-recover.org/documentation/release-notes-2-8 > release-notes-2-8.txt
 ```
 
 To use it with Docker to convert from the local development server (*however note, that the links will also point to the local server*):
 
 ```bash
-docker run --rm -it alpine/lynx --dump http://host.docker.internal:4000/documentation/release-notes-2-8
+docker run --rm -it -e LC_ALL=POSIX -e LANG=POSIX  alpine/lynx --dump http://host.docker.internal:4000/documentation/release-notes-2-8
 ```
