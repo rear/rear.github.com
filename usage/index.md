@@ -45,18 +45,13 @@ directory on the share.
 
 ## Backup integration
 
-Relax-and-Recover integrates with various backup solutions. Your backup
+Relax-and-Recover integrates with [many backup solutions](/#rear-backup-methods). Your backup
 software takes care of backing up all system files, Relax-and-Recover
 recreates the filesystems and starts the file restore.
 
-Currently Bacula, Bareos, SEP Sesam, HP DataProtector, CommVault Galaxy, Symantec NetBackup,
-EMC NetWorker (Legato), FDR/Upstream, and IBM Tivoli Storage Manager are supported.
+The following `/etc/rear/local.conf` uses a USB stick for the rescue system and Bareos for backups. It relies on your Bareos infrastructure to restore all files.
 
-The following `/etc/rear/local.conf` uses a USB stick for the rescue system and Bacula for backups. Multiple
-systems can use the USB stick since the size of the rescue system is probably
-less than 40M. It relies on your Bacula infrastructure to restore all files.
-
-    BACKUP=BACULA
+    BACKUP=BAREOS
     OUTPUT=USB
     OUTPUT_URL="usb:///dev/disk/by-label/REAR-000"
 

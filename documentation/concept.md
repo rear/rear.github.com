@@ -56,10 +56,10 @@ The configuration must define the *BACKUP* and *OUTPUT* methods. Some valid choi
     |CDROM       | BACKUP  | Copy files to ISO image                  | OK
     |NSR         | BACKUP  | Use Legato Networker                     | OK
     |TSM         | BACKUP  | Use Tivoli Storage Manager               | OK
-    |DP          | BACKUP  | Use HP Data Protector                    | OK
+    |DP          | BACKUP  | Use OpenText Data Protector              | OK
     |BACULA      | BACKUP  | Use opensource Bacula                    | OK
     |FDRUPSTREAM | BACKUP  | Use FDR/Upstream                         | OK
-    |
+    | ...        | BACKUP  | (see default.conf for full list)         |
     |            |         |                                          |
     |ISO         | OUTPUT  | Write result to ISO9660 image            | OK
     |CDROM       | OUTPUT  | Write result to CD/DVD                   | on request
