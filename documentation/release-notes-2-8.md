@@ -46,7 +46,7 @@ The complete list of backup methods (`BACKUP=...`) is:
 * `BLOCKCLONE` block device cloning via `dd`
 * `BORG` Borg Backup
 * `CDM` Rubrik Cloud Data Management
-* `DP` HP Data Protector
+* `DP` OpenText Data Protector
 * `DUPLICITY` Duplicity / Duply
 * `EXTERNAL` External custom restore method
 * `FDRUPSTREAM` FDR/Upstream
