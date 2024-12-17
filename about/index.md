@@ -48,7 +48,7 @@ The complete list of backup methods (`BACKUP=...`) is:
 * `NSR` Dell EMC NetWorker / EMC NetWorker / Legato NetWorker
 * `OBDR` One Button Disaster Recovery via tape
 * `PPDM` [Dell PowerProtect Data Manager](https://infohub.delltechnologies.com/en-us/t/simplifying-linux-bmr-for-powerprotect-data-manager-using-rear-relax-and-recover-disaster-recovery-solution/)
-* `RBME` Rsync Backup Made Easy
+* `RBME` [Rsync Backup Made Easy](https://github.com/schlomo/rbme)
 * `REQUESTRESTORE` Request restore from a human operator
 * `RSYNC` ReaR built-in backup using `rsync` via `rsync` or `ssh` protocol
 * `SESAM` [SEP Sesam](https://wiki.sep.de/wiki/index.php/Bare_Metal_Recovery_Linux)
