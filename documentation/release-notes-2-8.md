@@ -267,24 +267,6 @@ see https://github.com/rear/rear/pull/3206
 ```
 &nbsp;
 ```
-Tell why 300_include_grub_tools.sh exists :
-In prep/GNU/Linux/300_include_grub_tools.sh 
-explain why it exists at all, see 
-https://github.com/rear/rear/pull/3354#issuecomment-2519520750
-```
-&nbsp;
-```
-Merge pull request #3354 :
-cleanup: move grubby and grub2-editenv to 300_include_grub_tools.sh (#3349)
-```
-&nbsp;
-```
-Merge pull request #3349 :
-After doing lots of experiments with RAMdisks it is good to have
-some extra software as default in our ReaR rescue image
-```
-&nbsp;
-```
 Merge pull request #3351 :
 fix: add -xdev option to find to avoid hanging NFS (#3350)
 ```
@@ -379,16 +361,6 @@ to urge users to actually do open GitHub issues
 ```
 &nbsp;
 ```
-Update 400_prep_nbkdc.sh :
-In prep/NBKDC/default/400_prep_nbkdc.sh fixed the wrong 
-TRUSTED_FILE_OWNERS+=( "${TRUSTED_FILE_OWNERS[@]}" novastor ) 
-by 
-TRUSTED_FILE_OWNERS+=( novastor ) 
-see 
-https://github.com/rear/rear/commit/8d01a37c8b79a879cea59cb369f7ca8728189b02#commitcomment-148880379
-```
-&nbsp;
-```
 Make get_disklabel_type() also work for 'multipath' devices (#3334) :
 Without this fix, get_disklabel_type() used to find a disk to install GRUB on 
 was returning nothing when the disk was a multipath device. 
@@ -419,30 +391,6 @@ This fixes version comparison on RHEL 10 and newer.
 Related: https://github.com/rear/rear/issues/3149#issuecomment-1966068640 
 Fixes commit: f4932c1cfe13d4a855bec93c1d3aa0b2b9128c6a 
 "Add OS version mappings for RHEL 8 and RHEL 9"
-```
-&nbsp;
-```
-Update 400_restore_with_galaxy.sh: Use 'source' instead of '.' :
-In usr/share/rear/restore/GALAXY/default/400_restore_with_galaxy.sh 
-use 'source' instead of '.' 
-see https://github.com/rear/rear/issues/3319#issuecomment-2355118862 
-and https://github.com/rear/rear/pull/3165#discussion_r1503932927
-```
-&nbsp;
-```
-Use 'source' instead of '.' :
-In usr/share/rear/skel/default/etc/scripts/system-setup.d/00-functions.sh 
-use 'source' instead of '.' 
-see https://github.com/rear/rear/issues/3319#issuecomment-2355037630 
-and https://github.com/rear/rear/pull/3165#discussion_r1503932927
-```
-&nbsp;
-```
-Use 'source' instead of '.' :
-In usr/share/rear/skel/default/etc/scripts/run-syslog 
-use 'source' instead of '.' 
-see https://github.com/rear/rear/issues/3319#issuecomment-2355037630 
-and https://github.com/rear/rear/pull/3165#discussion_r1503932927
 ```
 &nbsp;
 ```
@@ -509,43 +457,6 @@ Plus several more general improvements of the comment texts.
 ```
 &nbsp;
 ```
-Make 13-tcg-opal-support.adoc ASCII :
-In doc/user-guide/13-tcg-opal-support.adoc 
-there are UTF-8 characters in the lines 
-"Install ... within root's search path (e.g. `/usr/local/sbin`)." and 
-"Use ... the USB stick's device name." 
-(here those lines are already shown in ASCII) 
-where UTF-8 characters were used 
-instead of ASCII single quote in "root's" and "stick's" 
-and instead of ASCII backtick in "`/usr/local/sbin", see 
-https://github.com/rear/rear/wiki/Coding-Style#character-encoding
-```
-&nbsp;
-```
-Make 420_autoresize_last_partitions.sh ASCII :
-In layout/prepare/default/420_autoresize_last_partitions.sh 
-there is a comment that quotes some text 
-which contained a ' character (single quote in ASCII) 
-in the text part "there's a lot of talk" where instead of an ASCII single quote
-an UTF-8 character was used in the word "there's". 
-Now this is fixed by using ASCII single quote, see 
-https://github.com/rear/rear/wiki/Coding-Style#character-encoding
-```
-&nbsp;
-```
-Make lib/layout-functions.sh ASCII :
-In lib/layout-functions.sh 
-there is a comment that quotes German text 
-which contains German [a_umlaut] and [u_umlaut] characters. 
-Fixed it by writing the German umlauts as 'ae' and 'ue' to get ASCII, see 
-https://github.com/rear/rear/wiki/Coding-Style#character-encoding 
-I found that because 
-https://github.com/rear/rear/blob/master/.codespellignore 
-mentions the German word "f[u_umlaut]r" 
-but a [u_umlaut] should not appear in ReaR code.
-```
-&nbsp;
-```
 Update local.conf description comment :
 In the local.conf comment explain that 
 one must ensure commands in configuration files 
@@ -557,36 +468,10 @@ see https://github.com/rear/rear/issues/3296
 ```
 &nbsp;
 ```
-Update drlm-functions.sh :
-In lib/drlm-functions.sh added a comment 
-that explains how DRLM sources ReaR config files 
-(same as a local etc/rear/local.conf and other ReaR config files) 
-which are stored on a DRLM server where various ReaR configs 
-of various clients are managed centrally 
-cf. https://github.com/rear/rear/issues/3294
-```
-&nbsp;
-```
 Autodetect secure boot via mokutil and guess the secure boot shim (#3278) :
 * Autodetect Secure Boot status via mokutil and guess the secure boot shim 
 * Check that a shim is found when Secure Boot is active, improved diagnostic messages 
 Fixes #3276 
-```
-&nbsp;
-```
-In skel/default/bin/dhcpcd.sh use 'source' instead of '.' :
-In skel/default/bin/dhcpcd.sh use 'source' instead of '.' 
-see https://github.com/rear/rear/issues/3285 
-and https://github.com/rear/rear/pull/3165#discussion_r1503932927
-```
-&nbsp;
-```
-Avoid returning 1 from a script if all is OK (#3245) :
-If an error is not found in log, return 0. Not finding an error is good, 
-so don't return 1 from the output/ISO/Linux-i386/850_check_for_errors.sh script. 
-Avoids the message 
-Source function: 'source /usr/share/rear/output/ISO/Linux-i386/850_check_for_errors.sh' returns 1 
-in the log.
 ```
 &nbsp;
 ```
@@ -925,17 +810,6 @@ maybe also fixes #3139
 ``` 
 &nbsp;
 ```
-Update 330_set_efi_arch.sh :
-As an addition to 
-https://github.com/rear/rear/pull/3192 
-in prep/Linux-i386/330_set_efi_arch.sh also mention 
-https://github.com/rear/rear/issues/3195 
-because this is the matching issue for 
-the GRUB2_IMAGE_FORMAT usage in 
-output/RAWDISK/Linux-i386/270_create_grub2_efi_bootloader.sh
-```
-&nbsp;
-```
 Set GRUB2_IMAGE_FORMAT correctly in prep/Linux-i386/330_set_efi_arch.sh (#3192) :
 In prep/Linux-i386/330_set_efi_arch.sh 
 set GRUB2_IMAGE_FORMAT=i386-efi in case of i686|i586|i386 
@@ -1098,17 +972,6 @@ ErrorIfDeprecated when 'gpt_sync_mbr' is used (#3159) :
 In layout/save/default/950_verify_disklayout_file.sh 
 ErrorIfDeprecated when 'gpt_sync_mbr' is used 
 see https://github.com/rear/rear/issues/3148
-```
-&nbsp;
-```
-Update _input-output-functions.sh :
-In lib/_input-output-functions.sh 
-enhanced ErrorIfDeprecated() to support a multi-line $reason message 
-and remove leading spaces and tabs to be fail-safe 
-if a $reason message is indented with tabs. 
-Additionally improved the user message texts to be more to the point 
-in particular that the user needs explain to us 
-why there is no alternative for a deprecated feature.
 ```
 &nbsp;
 ```
@@ -1414,7 +1277,6 @@ image if none is found.
 &nbsp;
 ```
 Merge pull request #3073 :
-Link back to the PR & issue #3064 from code.
 Resolve libs for executable links in COPY_AS_IS :
 Do not skip symbolic links when adding libraries required by executables
 in COPY_AS_IS. The symlink targets will be copied later by
@@ -1662,19 +1524,6 @@ are explicitly meant to hide secrets to distinguish them
 from usual unwanted output discard via '2>/dev/null' 
 see https://github.com/rear/rear/pull/3006 
 and https://github.com/rear/rear/issues/2967 
-```
-&nbsp;
-```
-Update authtoken-functions.sh :
-In lib/authtoken-functions.sh 
-added a comment that explains that the functions 
-in lib/authtoken-functions.sh are currently meant 
-to be only executed within the environment where 
-the ReaR system startup script /etc/scripts/unlock-opal-disks is running 
-which is a pre-boot volatile environment 
-where all secret user-input happens only in that pre-boot environment, 
-and the image is immutable (PBA-area is RO on locked drive), 
-see https://github.com/rear/rear/issues/3035
 ```
 &nbsp;
 ```
@@ -2213,20 +2062,6 @@ The backward compatible fallback is "bconsole -xc".
 ```
 &nbsp;
 ```
-Update 340_generate_mountpoint_device.sh :
-Fix a false and misleading comment in 
-layout/save/default/340_generate_mountpoint_device.sh 
-because var/lib/rear/recovery/mountpoint_device does not contain 
-"the list of mountpoints and devices to exclude from backup". 
-Instead it contains the list of mountpoints and devices 
-to be automatically / implicitly included in the backup via 
-backup/NETFS/default/400_create_include_exclude_files.sh 
-except those where the mountpoint is in the excluded_mountpoints array 
-which is generated from what is specified in EXCLUDE_BACKUP, see also 
-https://github.com/rear/rear/issues/2906#issuecomment-1369902659
-```
-&nbsp;
-```
 Merge pull request #2894 :
 For BACKUP=SESAM with SESAM version 5.x two more directories 
 $SM_BIN_SESAM/python3/ and $SM_BIN_SMS are needed 
@@ -2361,18 +2196,6 @@ Implement a new config variable BORGBACKUP_IGNORE_WARNING
 which ignores Borg warnings (see its description in default.conf). 
 Borg warnings can happen if a file changed while backing it up. 
 See https://github.com/rear/rear/pull/2846
-```
-&nbsp;
-```
-Update global-functions.sh :
-Better syntax of the explanation comments 
-for the is_true and is_false functions.
-```
-&nbsp;
-```
-Merge pull request #2849 :
-Use STRING+=" additional words" everywhere, 
-see https://github.com/rear/rear/issues/2848
 ```
 &nbsp;
 ```
