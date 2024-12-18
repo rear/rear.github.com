@@ -513,11 +513,6 @@ via the get_device_name function to normalize the device names
 ```
 Merge pull request #3041 :
 Reorder systemd units in the rescue system and make sure syslog is started
-Adapt init files to separate rear autostart :
-After the ReaR autostart on rescue system boot was separated from
-/etc/scripts/system-setup into its own script
-/etc/scripts/run-automatic-rear, this script needs to be executed on
-system boot. Adapt inittab and the Upstart configuration to start it.
 Start syslog after rescue system init :
 The syslog socket used to be started early in the rescue system boot and
 for some reason this does not work well: logging to /dev/log does not
@@ -525,22 +520,6 @@ trigger the start of rsyslogd and therefore the log data are never read
 (happens on RHEL 9 at least).
 Fix by ordering the syslog start after basic system initialization
 (sysinit.target), just like usual daemons.
-This seem to be the case without systemd as well, see /etc/inittab.
-Make sysinit.service start early in rescue boot :
-The /etc/scripts/system-setup script in the rescue system is intended to
-start early and perform basic system initialization (according to
-/etc/inittab and /etc/init/rcS.conf in the pre-systemd configs). Make
-the sysinit.service that starts the script under systemd part of
-sysinit.target so that even with systemd it starts early.
-/etc/scripts/boot, executed by rear-boot-helper.service, is intended to
-run even earlier - make this ordering explicit.
-Remove run-system-setup.service from rescue image :
-It is not needed by any other systemd units, therefore it is unused.
-Duplicates sysinit.service.
-multi-user target in rescue requires basic target :
-otherwise basic.target and the services/sockets that it contains get
-never started (affect logging among others).
-This matches the systemd's default setup, see bootup(7)
 Separate automated ReaR startup :
 Make it a separate script and systemd unit. This allows to run services
 after sysinit (which initializes network) but before ReaR starts.
