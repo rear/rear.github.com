@@ -267,24 +267,6 @@ see https://github.com/rear/rear/pull/3206
 ```
 &nbsp;
 ```
-Tell why 300_include_grub_tools.sh exists :
-In prep/GNU/Linux/300_include_grub_tools.sh 
-explain why it exists at all, see 
-https://github.com/rear/rear/pull/3354#issuecomment-2519520750
-```
-&nbsp;
-```
-Merge pull request #3354 :
-cleanup: move grubby and grub2-editenv to 300_include_grub_tools.sh (#3349)
-```
-&nbsp;
-```
-Merge pull request #3349 :
-After doing lots of experiments with RAMdisks it is good to have
-some extra software as default in our ReaR rescue image
-```
-&nbsp;
-```
 Merge pull request #3351 :
 fix: add -xdev option to find to avoid hanging NFS (#3350)
 ```
@@ -379,16 +361,6 @@ to urge users to actually do open GitHub issues
 ```
 &nbsp;
 ```
-Update 400_prep_nbkdc.sh :
-In prep/NBKDC/default/400_prep_nbkdc.sh fixed the wrong 
-TRUSTED_FILE_OWNERS+=( "${TRUSTED_FILE_OWNERS[@]}" novastor ) 
-by 
-TRUSTED_FILE_OWNERS+=( novastor ) 
-see 
-https://github.com/rear/rear/commit/8d01a37c8b79a879cea59cb369f7ca8728189b02#commitcomment-148880379
-```
-&nbsp;
-```
 Make get_disklabel_type() also work for 'multipath' devices (#3334) :
 Without this fix, get_disklabel_type() used to find a disk to install GRUB on 
 was returning nothing when the disk was a multipath device. 
@@ -419,30 +391,6 @@ This fixes version comparison on RHEL 10 and newer.
 Related: https://github.com/rear/rear/issues/3149#issuecomment-1966068640 
 Fixes commit: f4932c1cfe13d4a855bec93c1d3aa0b2b9128c6a 
 "Add OS version mappings for RHEL 8 and RHEL 9"
-```
-&nbsp;
-```
-Update 400_restore_with_galaxy.sh: Use 'source' instead of '.' :
-In usr/share/rear/restore/GALAXY/default/400_restore_with_galaxy.sh 
-use 'source' instead of '.' 
-see https://github.com/rear/rear/issues/3319#issuecomment-2355118862 
-and https://github.com/rear/rear/pull/3165#discussion_r1503932927
-```
-&nbsp;
-```
-Use 'source' instead of '.' :
-In usr/share/rear/skel/default/etc/scripts/system-setup.d/00-functions.sh 
-use 'source' instead of '.' 
-see https://github.com/rear/rear/issues/3319#issuecomment-2355037630 
-and https://github.com/rear/rear/pull/3165#discussion_r1503932927
-```
-&nbsp;
-```
-Use 'source' instead of '.' :
-In usr/share/rear/skel/default/etc/scripts/run-syslog 
-use 'source' instead of '.' 
-see https://github.com/rear/rear/issues/3319#issuecomment-2355037630 
-and https://github.com/rear/rear/pull/3165#discussion_r1503932927
 ```
 &nbsp;
 ```
@@ -509,43 +457,6 @@ Plus several more general improvements of the comment texts.
 ```
 &nbsp;
 ```
-Make 13-tcg-opal-support.adoc ASCII :
-In doc/user-guide/13-tcg-opal-support.adoc 
-there are UTF-8 characters in the lines 
-"Install ... within root's search path (e.g. `/usr/local/sbin`)." and 
-"Use ... the USB stick's device name." 
-(here those lines are already shown in ASCII) 
-where UTF-8 characters were used 
-instead of ASCII single quote in "root's" and "stick's" 
-and instead of ASCII backtick in "`/usr/local/sbin", see 
-https://github.com/rear/rear/wiki/Coding-Style#character-encoding
-```
-&nbsp;
-```
-Make 420_autoresize_last_partitions.sh ASCII :
-In layout/prepare/default/420_autoresize_last_partitions.sh 
-there is a comment that quotes some text 
-which contained a ' character (single quote in ASCII) 
-in the text part "there's a lot of talk" where instead of an ASCII single quote
-an UTF-8 character was used in the word "there's". 
-Now this is fixed by using ASCII single quote, see 
-https://github.com/rear/rear/wiki/Coding-Style#character-encoding
-```
-&nbsp;
-```
-Make lib/layout-functions.sh ASCII :
-In lib/layout-functions.sh 
-there is a comment that quotes German text 
-which contains German [a_umlaut] and [u_umlaut] characters. 
-Fixed it by writing the German umlauts as 'ae' and 'ue' to get ASCII, see 
-https://github.com/rear/rear/wiki/Coding-Style#character-encoding 
-I found that because 
-https://github.com/rear/rear/blob/master/.codespellignore 
-mentions the German word "f[u_umlaut]r" 
-but a [u_umlaut] should not appear in ReaR code.
-```
-&nbsp;
-```
 Update local.conf description comment :
 In the local.conf comment explain that 
 one must ensure commands in configuration files 
@@ -557,16 +468,6 @@ see https://github.com/rear/rear/issues/3296
 ```
 &nbsp;
 ```
-Update drlm-functions.sh :
-In lib/drlm-functions.sh added a comment 
-that explains how DRLM sources ReaR config files 
-(same as a local etc/rear/local.conf and other ReaR config files) 
-which are stored on a DRLM server where various ReaR configs 
-of various clients are managed centrally 
-cf. https://github.com/rear/rear/issues/3294
-```
-&nbsp;
-```
 Autodetect secure boot via mokutil and guess the secure boot shim (#3278) :
 * Autodetect Secure Boot status via mokutil and guess the secure boot shim 
 * Check that a shim is found when Secure Boot is active, improved diagnostic messages 
@@ -574,61 +475,7 @@ Fixes #3276
 ```
 &nbsp;
 ```
-In skel/default/bin/dhcpcd.sh use 'source' instead of '.' :
-In skel/default/bin/dhcpcd.sh use 'source' instead of '.' 
-see https://github.com/rear/rear/issues/3285 
-and https://github.com/rear/rear/pull/3165#discussion_r1503932927
-```
-&nbsp;
-```
-Avoid returning 1 from a script if all is OK (#3245) :
-If an error is not found in log, return 0. Not finding an error is good, 
-so don't return 1 from the output/ISO/Linux-i386/850_check_for_errors.sh script. 
-Avoids the message 
-Source function: 'source /usr/share/rear/output/ISO/Linux-i386/850_check_for_errors.sh' returns 1 
-in the log.
-```
-&nbsp;
-```
-Improve layout configuration part of the user guide (#3125) :
-* Do not refer to "restore list" in the docs 
-  This term is never defined or used anywhere. Let's talk about the layout 
-  file instead. 
-* Add "from" forgotten in the original version 
-* Neutral wording of the EXCLUDE_RECREATE example 
-  Avoid the "easiest", "inadvertently" expressions. 
-* Don't copy EXCLUDE_BACKUP/RESTORE to layout doc 
-  EXCLUDE_RESTORE and EXCLUDE_BACKUP are irrelevant for layout file and 
-  disk layout recreation. They merely influence file backup or restore 
-  (for supported backup methods). This guide is about the recreation of 
-  the disk layout. Therefore, omit the variables from here. They are not 
-  used in the doc anywhere anyway after showing a copy of their 
-  description originating from default.conf. So, why to show it at all? 
-* layout doc: move autoexcludes description 
-  I believe that "This behavior is controlled by the 
-  AUTOEXCLUDE_DISKS=y parameter" must refer to the exclusion of the 
-  unused backup disk. At the current location (disk layout when the backup 
-  disk is NOT unused anymore) it does not make sense. 
-  Move the whole part about autoexcludes just after the section where it 
-  is mentioned that a disk was automatically excluded. 
-* Do not copy almost identical layout file in docs 
-  Show only the parts that have changed after changing something. 
-* Update whitespace after comment in layout examples 
-  4d6fac780f9234b55dbb0ca7fa55b56e4fbc7157 changed the formatting of 
-  commented entries in layout: 
-  "Change commenting in layout file to have no space after the #." 
-  Adapt the examples that had been generated before the change to match. 
-* Describe EXCLUDE_RECREATE in layout docs better 
-  Instead of copying a snippet of default.conf, describe in prose what the 
-  variable does and what is the syntax. 
-* Describe assumptions of the layout conf example 
-  Instead of referring to what seems prudent, describe the assumptions 
-  beyond the example explicitly. This way, the reader can understand what 
-  we want to achieve, regardless what is their opinion on what is prudent 
-  and what is not. 
-  Also, describe briefly the relation between layout configuration and 
-  backup exclusion. 
-* Don't claim that EXCLUDE_RECREATE is the most generic
+Improve layout configuration part of the user guide (#3125)
 ```
 &nbsp;
 ```
@@ -653,17 +500,9 @@ during network configuration migration (#3179) :
   Only MAC addresses and interface names are migrated for now. 
   TODO: migrate also IP addresses and routes. 
 * Quote name when assembling network files to patch 
-  Otherwise patching fails on files with spaces in them, often used by NetworkManager: 
-  Failed to rewrite MAC addresses and network interfaces in /mnt/local/etc/NetworkManager/system-connections/ZSSK 
-  Failed to rewrite MAC addresses and network interfaces in WIFI.nmconnection 
-  (the original file is named 'ZSSK WIFI.nmconnection'). 
+  Otherwise patching fails on files with spaces in them, often used by NetworkManager.
 * Quote network config filenames in log messages 
-  It is our common practice to log and show messages with single-quoted 
-  file names like "Processed the file 'file name'" and it is 
-  especially useful with file names containing spaces. 
-* Properly test for empty array 
-  Instead of chjecking whether the first member of the array is empty, 
-  check whether the array is actually empty.
+  - especially useful with file names containing spaces.
 ```
 &nbsp;
 ```
@@ -674,15 +513,6 @@ via the get_device_name function to normalize the device names
 ```
 Merge pull request #3041 :
 Reorder systemd units in the rescue system and make sure syslog is started
-Adapt init files to separate rear autostart :
-After the ReaR autostart on rescue system boot was separated from
-/etc/scripts/system-setup into its own script
-/etc/scripts/run-automatic-rear, this script needs to be executed on
-system boot. Adapt inittab and the Upstart configuration to start it.
-XXX neither the inittab (SysV init) nor the Upstart part was tested.
-Also, I don't understand why there are two locations for the Upstart
-files (/etc/init and /etc/event.d), with slightly different structure
-of services.
 Start syslog after rescue system init :
 The syslog socket used to be started early in the rescue system boot and
 for some reason this does not work well: logging to /dev/log does not
@@ -690,22 +520,6 @@ trigger the start of rsyslogd and therefore the log data are never read
 (happens on RHEL 9 at least).
 Fix by ordering the syslog start after basic system initialization
 (sysinit.target), just like usual daemons.
-This seem to be the case without systemd as well, see /etc/inittab.
-Make sysinit.service start early in rescue boot :
-The /etc/scripts/system-setup script in the rescue system is intended to
-start early and perform basic system initialization (according to
-/etc/inittab and /etc/init/rcS.conf in the pre-systemd configs). Make
-the sysinit.service that starts the script under systemd part of
-sysinit.target so that even with systemd it starts early.
-/etc/scripts/boot, executed by rear-boot-helper.service, is intended to
-run even earlier - make this ordering explicit.
-Remove run-system-setup.service from rescue image :
-It is not needed by any other systemd units, therefore it is unused.
-Duplicates sysinit.service.
-multi-user target in rescue requires basic target :
-otherwise basic.target and the services/sockets that it contains get
-never started (affect logging among others).
-This matches the systemd's default setup, see bootup(7)
 Separate automated ReaR startup :
 Make it a separate script and systemd unit. This allows to run services
 after sysinit (which initializes network) but before ReaR starts.
@@ -745,7 +559,7 @@ Major rework of Baros support provided by the Bareos company
 * remove variables not needed any more 
 * show progress information during restore 
 * get jobid from restore command from returned result 
-* bcommand now works without the "@out" command, which might get removed with Baroes >= 24. 
+* bcommand now works without the "@out" command, which might get removed with Bareos >= 24. 
 ```
 &nbsp;
 ```
@@ -802,33 +616,7 @@ and COPY_AS_IS_EXCLUDE_TSM in case of BACKUP=TSM
 ```
 &nbsp;
 ```
-Merge pull request #3239 :
-Fix version test in udev start by desupporting systemd < 190 :
-/etc/scripts/system-setup.d/40-start-udev-or-load-modules.sh in the
-rescue system examines systemd version in order to know whether it
-should use udev or load modules manually.
-Unfortunately, at least on Fedora, the systemd version can contain a
-tilde (the systemd version is equal to the systemd package version,
-which conforms to the Fedora conventions:
-https://docs.fedoraproject.org/en-US/packaging-guidelines/Versioning/#_handling_non_sorting_versions_with_tilde_dot_and_caret )
-and the bash code that compares versions chokes on it:
-/etc/scripts/system-setup.d/40-start-udev-or-load-modules.sh: line 24: [[: 256~rc3: syntax error in expression (error token is "~rc3")
-and then the wrong branch is taken.
-This leads at least to non-working make-backup-and-restore-iso CI test
-due to the ramdisk (brd) module being loaded earlier and thus not
-respecting the desired parameters. (A ramdisk of a pre-determined size
-is used to emulate the backup ISO in the test.) Probably has other unwanted
-consequences as well.
-As reasonably modern distros should have a newer systemd (even RHEL 7
-has systemd 219 and Ubuntu 16.04 has 229), delete the check and error
-out in a similar check during mkrescue if a too old systemd is
-encountered.
-The check in build/GNU/Linux/600_verify_and_adjust_udev.sh is more robust,
-so it could be used as an alternative if desupporting old systemd is not
-desired. The version_newer function would have to be moved to a library
-available during boot, though, and the function does not really check
-for a tilde in version, thus it appears to work more by accident than by
-design.
+Fix version test in udev start by desupporting systemd < 190  (#3239)
 ```
 &nbsp;
 ```
@@ -863,41 +651,12 @@ see https://github.com/rear/rear/pull/3221#issuecomment-2129240645
 ```
 &nbsp;
 ```
-Do not exclude '/var/tmp/rear.*' in default.conf (#3229) :
-Revert the actual change in 
-https://github.com/rear/rear/pull/3224 
-and have BACKUP_PROG_EXCLUDE in default.conf 
-same as it was before because the current BUILD_DIR 
-gets automatically excluded in usr/sbin/rear via 
-BACKUP_PROG_EXCLUDE+=( "$BUILD_DIR" ) 
-and it is not ReaR's task to exclude possibly lefover 
-older ReaR working areas because in general 
-files in /var/tmp are persistent which need to be 
-cleaned up deliberately by the user 
-(and not by ReaR from behind via its backup). 
-Described things more clearly in the comment. 
-```
-&nbsp;
-```
 In sbin/rear make it clear when ReaR's TMP_DIR is used (#3225) :
 In usr/sbin/rear make it more clear 
 in a comment and in DebugPrint messages 
 when ReaR's TMP_DIR gets used 
 (in contrast to the system's TMPDIR), 
 see https://github.com/rear/rear/pull/3225
-```
-&nbsp;
-```
-Update default.conf (#3224) :
-In default.conf add '/var/tmp/rear.*' to BACKUP_PROG_EXCLUDE 
-because since ReaR uses /var/tmp/rear.* as BUILD_DIR 
-one would get at least the whole BUILD_DIR 
-of the current "rear mkbackup" run 
-in the backup by default, 
-see at the end of 
-https://github.com/rear/rear/pull/3175#issuecomment-2114478980 
-Additionally describe why ReaR's VAR_DIR/output is excluded. 
-Also describe why the '/directory/*' form is used. 
 ```
 &nbsp;
 ```
@@ -1030,17 +789,6 @@ maybe also fixes #3139
 ``` 
 &nbsp;
 ```
-Update 330_set_efi_arch.sh :
-As an addition to 
-https://github.com/rear/rear/pull/3192 
-in prep/Linux-i386/330_set_efi_arch.sh also mention 
-https://github.com/rear/rear/issues/3195 
-because this is the matching issue for 
-the GRUB2_IMAGE_FORMAT usage in 
-output/RAWDISK/Linux-i386/270_create_grub2_efi_bootloader.sh
-```
-&nbsp;
-```
 Set GRUB2_IMAGE_FORMAT correctly in prep/Linux-i386/330_set_efi_arch.sh (#3192) :
 In prep/Linux-i386/330_set_efi_arch.sh 
 set GRUB2_IMAGE_FORMAT=i386-efi in case of i686|i586|i386 
@@ -1103,25 +851,6 @@ This change makes sure that only direct ESP partitions are listed and
 fixes a bug where ReaR would create broken BootXXXX entries which point to
 completely unrelated partitions.
 ```
-&nbsp;
-```
-Merge pull request #3157 :
-Remove hardcoded architecture-dependend strings from EFI code.
-More general name & comments of build_bootx86_efi :
-Change the name of the function to build_boot_efi, not functional change
-intended.
-Introduce a variable for GRUB image format :
-Use it as the argument of the -O option to
-grub-mkstandalone/grub-mkimage instead of the hardcoded x86_64-efi.
-For easier porting to non-x86_64 EFI platforms.
-Introduce variables EFI_ARCH{_UPPER} :
-Use them for various EFI bootloader suffixes instead of hardcoding
-strings like BOOTX64.EFI. EFI_ARCH is "x64" and EFI_ARCH_UPPER is "X64" on
-x86_64 architecture.
-Should make it easier to port the code to e.g. Arm.
-See e.g. https://github.com/rhboot/shim/blob/main/Make.defaults for
-possible values.
-``` 
 &nbsp;
 ```
 docs: document booting of ReaR rescue initramfs on s390/s390x (#3158) :
@@ -1225,17 +954,6 @@ see https://github.com/rear/rear/issues/3148
 ```
 &nbsp;
 ```
-Update _input-output-functions.sh :
-In lib/_input-output-functions.sh 
-enhanced ErrorIfDeprecated() to support a multi-line $reason message 
-and remove leading spaces and tabs to be fail-safe 
-if a $reason message is indented with tabs. 
-Additionally improved the user message texts to be more to the point 
-in particular that the user needs explain to us 
-why there is no alternative for a deprecated feature.
-```
-&nbsp;
-```
 Fix issue 3151: missing .vimrc and overhauled 130_create_dotfiles.sh (#3154) :
 Create an empty 
 usr/share/rear/skel/default/root/.vimrc 
@@ -1256,17 +974,6 @@ BOOTLOADER = "GRUB" used to mean GRUB 2 if GRUB 2 was installed and GRUB
 Legacy if not. With the improved GRUB detection, we don't want this
 ambiguity any more. "GRUB" should mean GRUB Legacy and GRUB2 should mean
 GRUB 2.
-Delete comment obsolete since 67ac463446:
-Commit 67ac463446 ("initial attemp to guess bootloader") introduced
-bootloader detection, so it has not been true since then that
-"There is no guarantee that GRUB was the boot loader used originally.
-One possible attempt would be to save and restore the MBR for each disk,
-but this does not guarantee a correct boot order, or even a working boot
-loader config" We don't save and restore the MBR for each disk, we
-detect the bootloader and reinstall it, thus avoiding the latter issue.
-Mention that we make "all suitable disks" bootable, not "all disks", as
-we make only the / and /boot partition disks bootable and there are
-further rules to skip some disks.
 Warn when using BOOTLOADER = GRUB:
 Update comments for the code that detects if the "GRUB" value for
 BOOTLOADER actually means GRUB2 and emit warnings (using LogPrintError)
@@ -1274,28 +981,12 @@ about "GRUB" value to mean GRUB 2 being deprecated and the GRUB Legacy
 support itself being deprecated as well.
 Do not error out in this situation as erroring out near the end of
 recovery only to inform about a deprecated setting would be unhelpful.
-Specify target i386-pc if installing GRUB with EFI:
-finalize/Linux-i386/660_install_grub2.sh installs GRUB2 for legacy BIOS
-boot into the disks(s) MBR(s). When using EFI, this can be still used in
-a hybrid BIOS/UEFI boot scenario, but we need to pass --target=i386-pc
-to grub-install in this case, otherwise it will attempt to install the
-EFI GRUB, not the BIOS GRUB.
-See also output/USB/Linux-i386/300_create_grub.sh
-Make USING_UEFI_BOOTLOADER known during savelayout:
-layout/save/default/445_guess_bootloader.sh needs to know whether we are
-using UEFI. Source prep/default/320_include_uefi_env.sh (which sets
-USING_UEFI_BOOTLOADER) in the savelayout workflow.
-This is a minimally invasive change; there may be other variables set
-during prep stage that are needed during savelayout (see
-https://github.com/rear/rear/pull/1673 ) so a more general, but more
-invasive solution would be to source the entire prep stage in the
-savelayout workflow.
 Check that disk is suitable before installing GRUB:
 Not all disks are suitable for GRUB installation into their MBR. For
 example, GPT-partitioned disks need a BIOS boot partition
 ( https://www.gnu.org/software/grub/manual/grub/html_node/BIOS-installation.html )
 and attempting to install GRUB on disks without it makes grub-install
-error out. This is shown in the recovery log ona BIOS system with
+error out. This is shown in the recovery log on a BIOS system with
 GPT-partitioned disks, where /dev/vdb and the following disks are part
 of the / volume, but don't have a BIOS boot partition.
 To fix that, introduce function is_disk_grub_candidate and use it before
@@ -1306,21 +997,6 @@ Support BOOTLOADER=GRUB with UEFI:
 This will happen with hybrid boot: BOOTLOADER=GRUB indicates that there
 is the BIOS version of GRUB installed and at the same time,
 USING_UEFI_BOOTLOADER=1 indicates theat there is also an EFI bootloader.
-Don't look for EFI bootloader in the start of disk:
-EFI bootloader is not installed to the start of the disk, but to the EFI
-System partition as a regular file. It is this futile to search for EFI
-bootloaders in the first sectors of disks. If we find "EFI", it is only
-because there is a GPT, and "EFI PART" is the GPT signature (this does
-not tell anything about the presence of an EFI bootloader).
-Delete the code that checked for 'Hah!IdontNeedEFI' as a special case -
-it is not needed now. The code effectively skipped the check for EFI
-when there was a BIOS boot partition. Its presence does not indicate
-the absence of an EFI bootloader, though. We could be on an UEFI machine
-with the disk partitioned in hybrid (BIOS/UEFI compatible) mode. In this
-case ReaR can error out if legacy GRUB is not installed, because it does
-not find any bootloader (the EFI check is skipped).
-Detect EFI instead according to the USING_UEFI_BOOTLOADER variable when
-no other bootloader is found.
 Note that it is now perfectly legal to have USING_UEFI_BOOTLOADER=1
 and BOOTLOADER neither EFI nor GRUB2-EFI nor ELILO. This will happen
 with hybrid BIOS/UEFI booting: BOOTLOADER will be detected as GRUB2, but
@@ -1351,17 +1027,6 @@ see https://github.com/rear/rear/pull/3100
 ```
 &nbsp;
 ```
-Update _input-output-functions.sh :
-Added a comment that the ...IfError functions 
-should no longer be used in new code and 
-when existing code is modified the 
-existing ...IfError functions should be replaced 
-by using bash directly plus added example 
-about using $? with 'if then else'. 
-Also fixed two typos (in a comment and in a message).
-```
-&nbsp;
-```
 Merge pull request #3136 :
 Include GRUB tools unconditionally and don't create $VAR_DIR/recovery/bootdisk in prep.
 Do not detect GRUB before including GRUB tools:
@@ -1372,19 +1037,6 @@ grubdir got assigned something like "/boot/grub2 /boot/grub2FAIL", which
 does not exist, so grubdir was set to /boot/grub, which does not exist
 either, and grub-probe fails.
 As a result, the GRUB tools were not included in the recovery image.
-The code have been proceeding anyway when neither grub-probe nor
-grub2-probe was found, so the tests have not been very useful.
-Fix and simplify by not checking for the existence of GRUB and just
-trying to include the GRUB tools always.
-See the discussion in
-https://github.com/rear/rear/commit/ccae513d8362078c5d4bcffe9b1167835e6449b8
-Don't create $VAR_DIR/recovery/bootdisk in prep:
-This file is unused and creating it in prep stage is against the
-guideline in prep/README:
-You should not put scripts into this 'prep' stage that modify things
-in ROOTFS_DIR or in VAR_DIR/recovery and VAR_DIR/layout because
-scripts for ROOTFS_DIR belong to the 'rescue' stage and scripts
-for VAR_DIR/recovery and VAR_DIR/layout belong to the 'layout' stages.
 ```
 &nbsp;
 ```
@@ -1590,11 +1242,8 @@ Newer versions of systemd (starting with Fedora 39) seem to mount /sys
 themselves. Mounting it again leads to errors on the recovery system
 startup (startup scripts failing with status=219/CGROUP ), see
 https://github.com/rear/rear/issues/3017.
-Check if /sys is already mounted using the `mountpoint` tool and mount it
-only if it is not.
 Do the same for the other system mountpoints like /proc, /dev, /dev/pts.
 Not sure if they suffer from the same problem, but they probably could.
-N.B. the 'mountpoint' command is already among REQUIRED_PROGS.
 ```
 &nbsp;
 ```
@@ -1607,7 +1256,6 @@ image if none is found.
 &nbsp;
 ```
 Merge pull request #3073 :
-Link back to the PR & issue #3064 from code.
 Resolve libs for executable links in COPY_AS_IS :
 Do not skip symbolic links when adding libraries required by executables
 in COPY_AS_IS. The symlink targets will be copied later by
@@ -1655,8 +1303,6 @@ when "Disk configuration looks identical"
 &nbsp;
 ```
 Merge pull request #3061 :
-Fix comments and error message obsolete since #2903.
-Explain the use of LV options in disklayout.
 Save LVM pool metadata volume size in disk layout:
 Instead of letting LVM use the default pool metadata volume size when
 restoring a layout with thin pools, use the size from the original
@@ -1675,10 +1321,8 @@ disks of the same size, the space will be missing elsewhere).
 ```
 Merge pull request #3058 :
 Skip useless xfs mount options when mounting during recovery:
-The mount command displays all mount options for a filesystem, including
-those that are not explictitly set in fstab, and ReaR saves them to disk
-layout. In the case of XFS, some of them can be harmful for mounting the
-filesystem during layout restoration:
+In the case of XFS, some of the mount options can be harmful for
+mounting the filesystem during layout restoration:
 The logbsize=... mount option is a purely performance/memory usage
 optimization option, which can lead to mount failures, because it must
 be an integer multiple of the log stripe unit and the log stripe unit
@@ -1696,9 +1340,6 @@ kernel log: "kernel: XFS (...): alignment check failed: sunit/swidth vs.
 agsize".
 Therefore, remove the logbsize=... and sunit=.../swidth=... from XFS
 mount options before mounting the file system.
-(Another possibility would be to remove them already when saving the
-layout, in layout/save/GNU/Linux/230_filesystem_layout.sh, but I decided
-to follow the example of btrfs here.)
 ```
 &nbsp;
 ```
@@ -1769,9 +1410,7 @@ https://github.com/rear/rear/issues/3050#issuecomment-1748197886
 ```
 Merge pull request #3047 :
 Skip invalid disk drives (zero sized, no media) when saving layout:
-Explain what a disk validation error means.
-Revert "Update 200_partition_layout.sh":
-This reverts commit 0a1d634ed15500bb21f37ac1bbb11c8a4bb11545.
+Revert commit 0a1d634ed15500bb21f37ac1bbb11c8a4bb11545.
 We now skip disks with no data (like when there is no medium), so
 incomplete disk entries (without partition type) should not occur
 anymore. Restore the code that aborted when such disks were encountered.
@@ -1783,15 +1422,13 @@ on the medium would get overwritten and lost. And if there is not medium,
 the layout recreation script would fail.
 See the discussion at https://github.com/rear/rear/issues/2958#issuecomment-1479588829
 Validate disk when saving layout :
-Introduce function is_disk_valid, which performs checks for disk
-usability beyond validating the device name. In some cases the device
-name may be valid, but there are no data, typically because it is a
-drive with removable media and there is no medium in the tray. Happens
-typically with card (e.g. SD card) readers with empty slot.
+Introduce checks for disk usability beyond validating the device name.
+In some cases the device name may be valid, but there are no data,
+typically because it is a drive with removable media and there is no
+medium in the tray. Happens typically with card (e.g. SD card) readers
+with empty slot.
 This is a normal occurrence, so do not Error out, only display a message
 and skip the device.
-Move "parted $devname" after validation of $devname:
-This prevents errors when parted is called on an invalid device.
 ```
 &nbsp;
 ```
@@ -1866,19 +1503,6 @@ are explicitly meant to hide secrets to distinguish them
 from usual unwanted output discard via '2>/dev/null' 
 see https://github.com/rear/rear/pull/3006 
 and https://github.com/rear/rear/issues/2967 
-```
-&nbsp;
-```
-Update authtoken-functions.sh :
-In lib/authtoken-functions.sh 
-added a comment that explains that the functions 
-in lib/authtoken-functions.sh are currently meant 
-to be only executed within the environment where 
-the ReaR system startup script /etc/scripts/unlock-opal-disks is running 
-which is a pre-boot volatile environment 
-where all secret user-input happens only in that pre-boot environment, 
-and the image is immutable (PBA-area is RO on locked drive), 
-see https://github.com/rear/rear/issues/3035
 ```
 &nbsp;
 ```
@@ -2262,15 +1886,10 @@ size comparison. They are supposed to be more reliable and also they
 are set by the s390-specific code for disks (DASDs) that are not yet
 formatted and thus their size is not yet known, so guessing according to
 disk size does not work properly.
-Skip excluded components when creating DASD format :
-520_exclude_components.sh excludes them as well, we run before it, so we
-have to reimplement it here.
 Always let the user confirm the DASD format script :
 Reformatting is a dangerous operation, equivalent to wiping disks (which
 we also let the user always confirm).
 Adapt DASD activation and formatting :
-Adapt to the new format of disklayout.conf entries (dasd_channel and
-disk directives).
 Move the DASD formatting code after the mapping code. Otherwise when
 device names change, the code would format the old names, not the new
 names.
@@ -2422,20 +2041,6 @@ The backward compatible fallback is "bconsole -xc".
 ```
 &nbsp;
 ```
-Update 340_generate_mountpoint_device.sh :
-Fix a false and misleading comment in 
-layout/save/default/340_generate_mountpoint_device.sh 
-because var/lib/rear/recovery/mountpoint_device does not contain 
-"the list of mountpoints and devices to exclude from backup". 
-Instead it contains the list of mountpoints and devices 
-to be automatically / implicitly included in the backup via 
-backup/NETFS/default/400_create_include_exclude_files.sh 
-except those where the mountpoint is in the excluded_mountpoints array 
-which is generated from what is specified in EXCLUDE_BACKUP, see also 
-https://github.com/rear/rear/issues/2906#issuecomment-1369902659
-```
-&nbsp;
-```
 Merge pull request #2894 :
 For BACKUP=SESAM with SESAM version 5.x two more directories 
 $SM_BIN_SESAM/python3/ and $SM_BIN_SMS are needed 
@@ -2570,18 +2175,6 @@ Implement a new config variable BORGBACKUP_IGNORE_WARNING
 which ignores Borg warnings (see its description in default.conf). 
 Borg warnings can happen if a file changed while backing it up. 
 See https://github.com/rear/rear/pull/2846
-```
-&nbsp;
-```
-Update global-functions.sh :
-Better syntax of the explanation comments 
-for the is_true and is_false functions.
-```
-&nbsp;
-```
-Merge pull request #2849 :
-Use STRING+=" additional words" everywhere, 
-see https://github.com/rear/rear/issues/2848
 ```
 &nbsp;
 ```
