@@ -783,7 +783,7 @@ Fixes #3198
 ```
 &nbsp;
 ```
-change /var/run to be a symlink to /run accomodating current systemd requirements and FHS recommendation :
+change /var/run to be a symlink to /run accommodating current systemd requirements and FHS recommendation :
 fixes #3197
 maybe also fixes #3139
 ``` 
@@ -1002,7 +1002,7 @@ and BOOTLOADER neither EFI nor GRUB2-EFI nor ELILO. This will happen
 with hybrid BIOS/UEFI booting: BOOTLOADER will be detected as GRUB2, but
 USING_UEFI_BOOTLOADER=1.
 BOOTLOADER=EFI is now intended as a fallback when no other bootloader is
-found to avod an empty BOOTLOADER value.
+found to avoid an empty BOOTLOADER value.
 Detect GRUB2 when saving layout:
 We used to distinguish between GRUB and GRUB2 when reinstalling the
 bootloader. This meant that the saved bootloader was wrong: GRUB for
@@ -1191,14 +1191,14 @@ In layout/save/default/320_autoexclude.sh tell WHY in DebugPrint message:
 Before (e.g. when something is mounted below tmp): 
 "Automatically excluding filesystem /tmp/sdb" 
 Now: 
-"Automatically excluding filesystem /tmp/sdb (belogs to /tmp in AUTOEXCLUDE_PATH)" 
+"Automatically excluding filesystem /tmp/sdb (belongs to /tmp in AUTOEXCLUDE_PATH)" 
 Noticed while reproducing https://github.com/rear/rear/issues/3101
 ```
 &nbsp;
 ```
 New RECOVERY_COMMANDS array (#3089) :
 New RECOVERY_COMMANDS array (plus RECOVERY_COMMANDS_LABEL) 
-to specifiy the "rear recover" commands which are automatically called 
+to specify the "rear recover" commands which are automatically called 
 after the ReaR recovery system has started up to recreate the system 
 in 'auto_recover'/'automatic' or 'unattended' mode. 
 By default "rear recover" is called (which was hardcoded before). 
@@ -1287,7 +1287,7 @@ when ReaR is run in 'unattended' or 'non-interactive' mode.
 Update default.conf :
 In default.conf describe that 
 with MIGRATION_MODE='TRUE' ('TRUE' in uppercase letters) 
-one can enfore MIGRATION_MODE also when 
+one can enforce MIGRATION_MODE also when 
 "rear recover" is run in 'unattended' or 'non-interactive' mode.
 ```
 &nbsp;
@@ -1524,7 +1524,7 @@ Merge pull request #3030 :
 In format/USB/default/200_check_usb_layout.sh 
 error out if USB_DEVICE_FILESYSTEM is invalid 
 instead of silently using the default value 'ext3' 
-because it is clearer to abort for configuation errors 
+because it is clearer to abort for configuration errors 
 than silently "correcting" a users's specified value, 
 see https://github.com/rear/rear/issues/3029 
 ```
@@ -1574,7 +1574,7 @@ See https://github.com/rear/rear/issues/3018
 ```
 Merge pull request #3019 :
 In lib/sesam-functions.sh 
-fix default exlude paths for BACKUP=SESAM 
+fix default exclude paths for BACKUP=SESAM 
 because the exclude paths did contain a trailing '/' 
 so 'tar' did not match ('tar' is picky about exclude items) 
 and then things ended up in the ISO image, 
@@ -1670,7 +1670,7 @@ by setting such variables always via { VAR=... ; } 2>/dev/null
 to mark them for us and our users that they are meant for secret values 
 and also to provide templates how to set such variables properly 
 in user config files (e.g. local.conf or site.conf).
-In default.conf incresed the default USER_INPUT_INTERRUPT_TIMEOUT 
+In default.conf increased the default USER_INPUT_INTERRUPT_TIMEOUT 
 from 10 seconds to 30 seconds because 10 seconds is far too little time 
 to read and understand the possibly unexpected UserInput() message 
 and then some more time to make a decision whether or not 
@@ -1698,7 +1698,7 @@ Exclusions for Veritas Cluster Filesystem, solving https://access.redhat.com/sol
 Merge pull request #2963 :
 OBDR fixes for modern systems using hpsa driver:
 Add more details in comment why and how we need to better handle output from lsscsi.
-Previosly we would search only on fixed character possitions 2 4 6 8 in a line,
+Previously we would search only on fixed character positions 2 4 6 8 in a line,
 which on some systems with larger nubmber of devices doesn't have to be correct.
 Search exactly only for 'cciss' and 'hpsa' modules. 
 We need ISO to be created already in /var/lib/rear/output/rear-${HOSTNAME}.iso,
