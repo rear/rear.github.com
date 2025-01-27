@@ -32,11 +32,11 @@ System administrators use the ReaR framework to set up a disaster recovery proce
 as part of their disaster recovery policy (which complements their existing backup policy).
 
 ReaR complements backup and restore of data with bare metal disaster recovery. ReaR can also act as local backup software,
-but ReaR is not a a backup management software. In many enterprise environmentments, data backup and restore happens via dedicated backup software which is integrated by ReaR and used to restore the data onto a replacement system as part of the automated disaster recovery procedure implemented by ReaR.
+but ReaR is not a backup management software. In many enterprise environments, data backup and restore happens via dedicated backup software which is integrated by ReaR and used to restore the data onto a replacement system as part of the automated disaster recovery procedure implemented by ReaR.
 
 ReaR has support for built-in backup methods using 'tar' and 'rsync' that are used for backup and restore.
 
-ReaR integrates supports the following 3rd party, also commercial, tools for restoring a backup.
+ReaR integrates support for the following 3rd party, also commercial, tools for restoring a backup.
 
 The complete list of backup methods (`BACKUP=...`) is:
 
@@ -75,7 +75,7 @@ as needed to make things work for their specific cases.
 
 We need Bash version 4 which is standard on current GNU/Linux systems.
 
-The default backup software used by ReaR is standard GNU/tar.
+The default backup software used by ReaR is standard GNU Tar.
 
 ReaR is known to work on x86 (32bit and 64bit) and ppc64le architectures.
 ReaR was also ported to ia64 and arm architectures, but these are rarely tested.
