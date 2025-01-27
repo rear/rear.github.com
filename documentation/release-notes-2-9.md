@@ -190,13 +190,33 @@ All of those can be resolved via sponsoring or support contracts, unfortunately 
 ## Relax-and-Recover Releases
 
 The first release of ReaR, version 1.0, was posted to the web in July 2006.
-This document lists new features, backward incompatible changes, and defect fixes for the current release only,
+This document lists new features, backward incompatible changes, and defect fixes for the recent releases only,
 please refer to [our documentation](/documentation) for the older release notes for previous versions.
 Unless otherwise noted releases of ReaR are intended to work reasonably backward compatible with previous versions.
 In addition to the GPL disclaimer of warranty and liability there is no guarantee that all works backward compatible.
 In general the older a system is the less likely it is that a newer ReaR version works.
 For each ReaR version upgrade and for each change of a software that is used by ReaR and
 for each change of your basic system you must re-validate that your disaster recovery procedure still works for you.
+
+To see all changes use the 'git log' command on a local git clone/checkout
+or view the current ReaR GitHub master branch code changes <https://github.com/rear/rear/commits/master>.
+
+## Relax-and-Recover Version 2.9 (January 2025)
+
+Interim release to solve packaging issues on RPM-based distributions. No functional changes intended.
+
+* Create /var/run symlink dynamically during mkrescue. Not having it as an actual symlink in the source tree
+avoids the packaging problem that [RPM is not able to change a directory into a symlink and vice-versa
+during package upgrade](https://docs.fedoraproject.org/en-US/packaging-guidelines/Directory_Replacement/)
+(before ReaR 2.8 it was a directory, not a symlink).
+See <https://github.com/rear/rear/pull/3380> and <https://github.com/rear/rear/issues/3375>.
+
+* Adapted the RPM spec to the [merge of /usr/bin with /usr/sbin](https://fedoraproject.org/wiki/Changes/Unify_bin_and_sbin) in Fedora 42+.
+See <https://github.com/rear/rear/pull/3382>.
+
+### Details
+
+To view all ReaR 2.9 changes go to GitHub <https://github.com/rear/rear/commits/rear-2.9>.
 
 ## Relax-and-Recover Version 2.8 (December 2024)
 
@@ -235,9 +255,7 @@ Things like 'issue NNNN' or only '#NNNN' refer to the GitHub issues tracker <htt
 Only changes of the ReaR software and its documentation that could be of common interest are listed here.
 For example changes of ReaR GitHub infrastructure things (like GitHub workflows, actions, CI, and package building)
 or minor changes in documentation (like unimportant typo fixes) are not listed here.
-To see all changes use the 'git log' command on a local git clone/checkout
-or view the ReaR 2.9 changes at GitHub <https://github.com/rear/rear/commits/rear-2.9>
-or the current ReaR GitHub master code changes <https://github.com/rear/rear/commits/master>
+To view all ReaR 2.8 changes go to GitHub <https://github.com/rear/rear/commits/rear-2.8>.
 
 The following entries are basically excerpts of what the command
 
