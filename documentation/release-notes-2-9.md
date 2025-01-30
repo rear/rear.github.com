@@ -203,7 +203,8 @@ or view the current ReaR GitHub master branch code changes <https://github.com/r
 
 ## Relax-and-Recover Version 2.9 (January 2025)
 
-Interim release to solve packaging issues on RPM-based distributions. No functional changes intended.
+Interim release to solve packaging issues on RPM-based distributions
+and several other fixes:
 
 * Create /var/run symlink dynamically during mkrescue. Not having it as an actual symlink in the source tree
 avoids the packaging problem that [RPM is not able to change a directory into a symlink and vice-versa
@@ -213,6 +214,9 @@ See <https://github.com/rear/rear/pull/3380> and <https://github.com/rear/rear/i
 
 * Adapted the RPM spec to the [merge of /usr/bin with /usr/sbin](https://fedoraproject.org/wiki/Changes/Unify_bin_and_sbin) in Fedora 42+.
 See <https://github.com/rear/rear/pull/3382>.
+
+* Add 'timeout' to REQUIRED_PROGS - avoids a false "ERROR: Stale NFS mount point" in the recovery system.
+See <https://github.com/rear/rear/pull/3387> and <https://github.com/rear/rear/issues/3386>.
 
 ### Details
 
