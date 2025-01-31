@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Release Notes for Relax-and-Recover Version 2.8
+title: Release Notes for Relax-and-Recover Version 2.9
 ---
 
 This document contains the latest release notes for the Open Source Software project Relax-and-Recover.
@@ -103,9 +103,9 @@ See the Relax-and-Recover website support [relax-and-recover.org/support](/suppo
 ## Supported and Unsupported Operating Systems
 
 We try to keep our "Test Matrix" wiki pages up-to-date with feedback we receive from the community.
-For example for ReaR 2.8 see <https://github.com/rear/rear/wiki/Test-Matrix-ReaR-2.8>
+For example for ReaR 2.9 see <https://github.com/rear/rear/wiki/Test-Matrix-ReaR-2.9>
 
-ReaR 2.8 is supported on the following Linux operating systems:
+ReaR 2.9 is supported on the following Linux operating systems:
 
 * Fedora 40, 41 (Silverblue not supported)
 * RHEL 7, 8, and 9
@@ -127,14 +127,14 @@ ReaR 2.8 dropped official support for the following Linux operating systems:
 * Debian < 10
 * Ubuntu < 20
 
-Usually ReaR 2.8 should also work on newer versions of the above listed supported Linux operating systems
+Usually ReaR 2.9 should also work on newer versions of the above listed supported Linux operating systems
 but sometimes arbitrary failures can happen when software that is used by ReaR
 (like partitioning tools, filesystem tools, bootloader tools, ISO image creating tools, networking tools, and so on)
 changes in not fully backward compatible ways or when there are innovations of the basic system
 (like kernel, storage, bootloader, init, networking, and so on)
 that are not yet supported by ReaR.
 
-In theory ReaR 2.8 should work on openSUSE Tumbleweed
+In theory ReaR 2.9 should work on openSUSE Tumbleweed
 but in practice arbitrary failures could happen at any time
 because the Tumbleweed distribution is a pure rolling release version of openSUSE
 containing the latest stable versions of all software
@@ -142,11 +142,11 @@ containing the latest stable versions of all software
 so arbitrary changes of any software are possible at any time
 that could arbitrarily break how ReaR works.
 
-ReaR 2.8 may still work for SLES < 15 and openSUSE Leap < 15.x
+ReaR 2.9 may still work for SLES < 15 and openSUSE Leap < 15.x
 but it is no longer tested there so arbitrary regressions could appear,
 in particular on systems with Bash before version 4.
 
-ReaR 2.8 and earlier versions are known to no longer work
+ReaR 2.9 and earlier versions are known to no longer work
 for the following Linux operating systems:
 
 * RHEL 5 (and probably also CentOS 5): See issue #1766
@@ -158,20 +158,20 @@ Requests to port ReaR to another operating system (not Linux) can only be achiev
 
 ## Supported and Unsupported Architectures
 
-ReaR 2.8 is supported on:
+ReaR 2.9 is supported on:
 
 * Intel x86 (32bit and 64bit) architectures
 * AMD x86 (64bit) architecture
 * PPC64LE architecture
 
-ReaR 2.8 may or may not work on:
+ReaR 2.9 may or may not work on:
 
 * PPC64 processors
 * Intel Itanium processors
 * ARM type of processors
 * IBM Z "s390x" type of processors
 
-ReaR 2.8 is known to not support:
+ReaR 2.9 is known to not support:
 
 * old PPC (32bit) processors
 
@@ -180,7 +180,7 @@ you can buy consultancy from one of our official developers.
 
 ## Unsupported Features and Known Issues
 
-We are aware of the following issues and limitations in ReaR 2.8:
+We are aware of the following issues and limitations in ReaR 2.9:
 
 * BTRFS support is limited to single-device configurations and doesn't cover advanced BTRFS features like spanning file systems over multiple devices, BTRFS built-in RAID and multi disk configurations. (#2028)
 * [Oracle ASM](https://docs.oracle.com/en/database/oracle/oracle-database/23/ostmg/asm-intro.html) is not supported by ReaR. (#3284)
@@ -190,13 +190,37 @@ All of those can be resolved via sponsoring or support contracts, unfortunately 
 ## Relax-and-Recover Releases
 
 The first release of ReaR, version 1.0, was posted to the web in July 2006.
-This document lists new features, backward incompatible changes, and defect fixes for the current release only,
+This document lists new features, backward incompatible changes, and defect fixes for the recent releases only,
 please refer to [our documentation](/documentation) for the older release notes for previous versions.
 Unless otherwise noted releases of ReaR are intended to work reasonably backward compatible with previous versions.
 In addition to the GPL disclaimer of warranty and liability there is no guarantee that all works backward compatible.
 In general the older a system is the less likely it is that a newer ReaR version works.
 For each ReaR version upgrade and for each change of a software that is used by ReaR and
 for each change of your basic system you must re-validate that your disaster recovery procedure still works for you.
+
+To see all changes use the 'git log' command on a local git clone/checkout
+or view the current ReaR GitHub master branch code changes <https://github.com/rear/rear/commits/master>.
+
+## Relax-and-Recover Version 2.9 (January 2025)
+
+Interim release to solve packaging issues on RPM-based distributions
+and several other fixes:
+
+* Create /var/run symlink dynamically during mkrescue. Not having it as an actual symlink in the source tree
+avoids the packaging problem that [RPM is not able to change a directory into a symlink and vice-versa
+during package upgrade](https://docs.fedoraproject.org/en-US/packaging-guidelines/Directory_Replacement/)
+(before ReaR 2.8 it was a directory, not a symlink).
+See <https://github.com/rear/rear/pull/3380> and <https://github.com/rear/rear/issues/3375>.
+
+* Adapted the RPM spec to the [merge of /usr/bin with /usr/sbin](https://fedoraproject.org/wiki/Changes/Unify_bin_and_sbin) in Fedora 42+.
+See <https://github.com/rear/rear/pull/3382>.
+
+* Add 'timeout' to REQUIRED_PROGS - avoids a false "ERROR: Stale NFS mount point" in the recovery system.
+See <https://github.com/rear/rear/pull/3387> and <https://github.com/rear/rear/issues/3386>.
+
+### Details
+
+To view all ReaR 2.9 changes go to GitHub <https://github.com/rear/rear/commits/rear-2.9>.
 
 ## Relax-and-Recover Version 2.8 (December 2024)
 
@@ -235,9 +259,7 @@ Things like 'issue NNNN' or only '#NNNN' refer to the GitHub issues tracker <htt
 Only changes of the ReaR software and its documentation that could be of common interest are listed here.
 For example changes of ReaR GitHub infrastructure things (like GitHub workflows, actions, CI, and package building)
 or minor changes in documentation (like unimportant typo fixes) are not listed here.
-To see all changes use the 'git log' command on a local git clone/checkout
-or view the ReaR 2.8 changes at GitHub <https://github.com/rear/rear/commits/rear-2.8>
-or the current ReaR GitHub master code changes <https://github.com/rear/rear/commits/master>
+To view all ReaR 2.8 changes go to GitHub <https://github.com/rear/rear/commits/rear-2.8>.
 
 The following entries are basically excerpts of what the command
 
