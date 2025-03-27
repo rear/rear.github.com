@@ -13,9 +13,10 @@ In this talk [Schlomo](https://schlomo.schapiro.org) gives an introduction into 
 
 [Download Slides](https://archive.schlomo.schapiro.org/2024/Relax%20and%20Recover%20-%20ReaR%20-%20Automated%20Linux%20Recovery%20-%20Open%20Source%20Project%20-%20stackconf%202024%20-%20Schlomo%20Schapiro.pdf) or [Watch Video](https://youtu.be/QN6vk5DfzAk)
 
-<iframe width="700" height="315" src="https://www.youtube-nocookie.com/embed/QN6vk5DfzAk?si=KrGAntjtwijBtvoZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-<p>ReaR talk</p>
-</iframe>
+<responsive-video src="https://www.youtube-nocookie.com/embed/QN6vk5DfzAk?si=7_taajKAWkDvLTN5">
+Watch the <a href="https://www.youtube-nocookie.com/embed/QN6vk5DfzAk?si=7_taajKAWkDvLTN5">
+Relax and Recover (ReaR) - Automated Linux Recovery &amp; Open Source Project</a> video.
+</responsive-video>
 
 ## Foss Backstage 2024, Berlin, 4 March, 2024
 
@@ -27,9 +28,10 @@ A behind-the-scenes look at how a project works for such a long time, what goes 
 
 Presentation by Gratien &amp; [Schlomo](https://schlomo.schapiro.org), [Download Slides](https://archive.schlomo.schapiro.org/2024/Why%20is%20there%20no%20new%20Release,%20Nobody%20pays%20for%20the%20basics%20-%20Relax%20and%20Recover%20-%20ReaR%20-%20FOSS%20Backstage%202024%20-%20Gratien%20Dhaese%20and%20Schlomo%20Schapiro.pdf) or [Watch Video](https://www.youtube.com/watch?v=QdOPhDkuJM8)
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/QdOPhDkuJM8?si=io_KakSfzvKVu5Rd" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-<p>ReaR talk</p>
-</iframe>
+<responsive-video src="https://www.youtube-nocookie.com/embed/QdOPhDkuJM8?si=io_KakSfzvKVu5Rd">
+Watch the <a href="https://www.youtube-nocookie.com/embed/QdOPhDkuJM8?si=io_KakSfzvKVu5Rd">
+Why is there no new Release? Nobody pays for the basics :-(</a> video.
+</responsive-video>
 
 ## FOSDEM 2020, Brussels, 1 February 2020
 
@@ -53,7 +55,11 @@ Gratien presented ["Relax-and-Recover Automated Testing"](https://www.flossuk.or
 ## Loadays, Wilrijk, 21-22 April, 2018
 
 Gratien talked and gave a demo around ["Relax-and-Recover Automated Testing"](http://loadays.org/pages/schedule.html)
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/JZ6KNj0BwWs?si=OCMmo-EGgqK56YXx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<responsive-video src="https://www.youtube-nocookie.com/embed/JZ6KNj0BwWs?si=OCMmo-EGgqK56YXx">
+Watch the <a href="https://www.youtube-nocookie.com/embed/JZ6KNj0BwWs?si=OCMmo-EGgqK56YXx">
+Relax-and-Recover Automated Testing</a> video.
+</responsive-video>
 
 ## FrOSCon 2017, Bonn-Rhein-Sieg, 20 August, 2017
 
@@ -64,6 +70,7 @@ Gratien presented "Relax-and-Recover Automated Testing" on Sunday, 20 August 201
 ## CeBIT Open Source Forum 2017, Hannover, 24 March, 2017
 
 Gratien presented ["Relax-and-Recover Automated Testing"](http://www.cebit.de/veranstaltung/relax-and-recover-automated-testing/VOR/77620) in the Open Source Forum, Hall 3, Stand D35 at 13:45.
+
 <iframe src="//www.slideshare.net/slideshow/embed_code/key/2L1XovGt4LKGQZ" width="280" height="210" align="right" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
 <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/gratien_dhaese/relaxandrecover-automated-testing" title="Relax-and-Recover Automated Testing" target="_blank">Relax-and-Recover Automated Testing</a> </strong> from <strong><a target="_blank" href="//www.slideshare.net/gratien_dhaese">Gratien D&#x27;haese</a></strong>
 </div>
@@ -81,9 +88,10 @@ Presentation was given by Sebastien Chabrolles (IBM France) ["Relax-and-Recover"
 
 Presentation was given by Gratien [Building a Business Continuity Plan with Bareos and rear](http://osbconf.org/wp-content/uploads/2016/09/Building-a-Business-Continuity-Plan-with-Bareos-and-REAR-Gratien-D%C2%B4haese.pdf)
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/MsL61ZTJVW8?si=W9CXB7Fc8c3tfPc8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-<p>ReaR talk</p>
-</iframe>
+<responsive-video src="https://www.youtube-nocookie.com/embed/MsL61ZTJVW8?si=W9CXB7Fc8c3tfPc8">
+Watch the <a href="https://www.youtube-nocookie.com/embed/MsL61ZTJVW8?si=W9CXB7Fc8c3tfPc8">
+Building a Business Continuity Plan with Bareos and rear</a> video.
+</responsive-video>
 
 A [workshop around rear](http://osbconf.org/workshops/) was also foreseen. We have created on github the [rear workshop](https://github.com/rear/rear-workshop-osbconf-2016) download section with the scripts of the workshop.
 
@@ -99,9 +107,10 @@ Presentation by Gratien: [Relax-and-Recover simplifies Linux Disaster Recovery](
 
 Presentation given by Gratien called [Relax-and-Recover simplifies Linux Disaster Recovery](https://events.opensuse.org/conference/osc15/proposal/572), 3 May, 2015
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/lBM7_Lxaorw?si=Y6AQXLhR_Z-_kDHL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-<p>OSEM 2015, Relax-and-Recover simplifies Linux Disaster Recovery</p>
-</iframe>
+<responsive-video src="https://www.youtube-nocookie.com/embed/lBM7_Lxaorw?si=Y6AQXLhR_Z-_kDHL">
+Watch the <a href="https://www.youtube-nocookie.com/embed/lBM7_Lxaorw?si=Y6AQXLhR_Z-_kDHL">
+Relax-and-Recover simplifies Linux Disaster Recovery</a> video.
+</responsive-video>
 
 ## LoaDays 2015, Wilrijk, BE
 
@@ -111,17 +120,19 @@ Presentation given by Gratien on April, 12th, 2015 called [Building a Business C
 
 Presentation given by Gratien on October, 25th, 2014 called [Building a Business Continuity Plan with Bareos and rear](http://www.t-dose.org/2014/schedule/full).
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/cNwa2KE5zUU?si=IQ8ez5t0vpEREBO7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-<p>T-Dose 2014, Building a Business Continuity Plan with Bareos and rear, Gratien Dhaese</p>
-</iframe>
+<responsive-video src="https://www.youtube-nocookie.com/embed/cNwa2KE5zUU?si=IQ8ez5t0vpEREBO7">
+Watch the <a href="https://www.youtube-nocookie.com/embed/cNwa2KE5zUU?si=IQ8ez5t0vpEREBO7">
+Building a Business Continuity Plan with Bareos and rear</a> video.
+</responsive-video>
 
 ## Open Source Backup Conference 2014, Cologne, DE
 
 Ralf Dannert (SuSe) presented [ReaR for corporate use](http://osbconf.org/wp-content/uploads/2014/09/REAR-by-Ralf-Dannert.pdf) on [Open Source Backup Conference 2014](http://osbconf.org/program/).
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/4zGll7jlRk4?si=4qe4HgCs8hoQT9gq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-<p>Relax-and-Recover talk of Ralf Dannert (SuSe) at OSBC 2014</p>
-</iframe>
+<responsive-video src="https://www.youtube-nocookie.com/embed/4zGll7jlRk4?si=4qe4HgCs8hoQT9gq">
+Watch the <a href="https://www.youtube-nocookie.com/embed/4zGll7jlRk4?si=4qe4HgCs8hoQT9gq">
+ReaR for corporate use</a> video.
+</responsive-video>
 
 ## LinuxTag 2014, Berlin, DE
 
@@ -131,18 +142,20 @@ Gratien did a Relax-and-Recover Workshop at [LinuxTag](http://linuxtag.org), and
 
 Gratien gave a presentation around rear on [Open Source Backup Conference 2013](https://osbconf.org/archiv/2013-2/).
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/JDUOL_5ck6k?si=roDA1PAVif6-SYYI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-<p>Relax-and-Recover talk at OSBConf</p>
-</iframe>
+<responsive-video src="https://www.youtube-nocookie.com/embed/JDUOL_5ck6k?si=roDA1PAVif6-SYYI">
+Watch the <a href="https://www.youtube-nocookie.com/embed/JDUOL_5ck6k?si=roDA1PAVif6-SYYI">R
+eaR talk</a> video.
+</responsive-video>
 
 ## LinuxTag 2013, Berlin, DE
 
 Relax-and-Recover was present at the [LinuxTag](http://linuxtag.org)
 in Berlin May 22-25! Schlomo gave the following presentation on [Integrating UEFI into Relax-and-Recover](http://www.linuxtag.org/2013/en/program/friday-may-24-2013.html?eventid=349)
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/IAERu2LObjY?si=_5w_EvC6G_9GT8pk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-<p>Relax-and-Recover talk</p>
-</iframe>
+<responsive-video src="https://www.youtube-nocookie.com/embed/IAERu2LObjY?si=_5w_EvC6G_9GT8pk">
+Watch the <a href="https://www.youtube-nocookie.com/embed/IAERu2LObjY?si=_5w_EvC6G_9GT8pk">
+Integrating UEFI into Relax-and-Recover</a> video.
+</responsive-video>
 
 ## LinuxTag 2012, Berlin, DE
 
@@ -154,9 +167,10 @@ and/or [Relax-and-Recover workshop](http://www.linuxtag.org/2012/de/program/work
 
 The Relax-and-Recover talk has been placed on-line by OpenSUSE TV.
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jUfFzFU-SWY?si=hZ9vFURu2E0ZfJ_-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-<p>Relax-and-Recover talk</p>
-</iframe>
+<responsive-video src="https://www.youtube-nocookie.com/embed/jUfFzFU-SWY?si=hZ9vFURu2E0ZfJ_-">
+Watch the <a href="https://www.youtube-nocookie.com/embed/jUfFzFU-SWY?si=hZ9vFURu2E0ZfJ_-">
+Relax-and-Recover talk</a> video.
+</responsive-video>
 
 ## FlossUK 2012 Spring conference, Edinburgh, UK
 
@@ -177,6 +191,8 @@ Gratien gave a presentation about Linux disaster recovery in general and Relax-a
 
 The Relax-and-Recover talk has been placed on-line by FOSDEM.
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/4SMdxIGWxeQ?si=ftSYJhE6gWyMFn6l" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-<p>Relax-and-Recover talk</p>
-</iframe>
+<responsive-video src="https://www.youtube-nocookie.com/embed/4SMdxIGWxeQ?si=ftSYJhE6gWyMFn6l">
+Watch the <a href="https://www.youtube-nocookie.com/embed/4SMdxIGWxeQ?si=ftSYJhE6gWyMFn6l">
+Relax-and-Recover talk</a> video.
+</responsive-video>
+

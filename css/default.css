@@ -9,23 +9,30 @@ body {
     max-width: 60em;
     background-color: white;
     color: black;
-    margin:0 auto;
+    margin: 0 auto;
     font-family: verdana, arial, sans-serif;
 }
 
 
 header {
     background-color: black;
-    text-align: center;
     padding: 0.5em;
     font-size: 250%;
     font-weight: bold;
-
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 header a {
     color: white;
+    margin: 0 auto;
     text-decoration: none;
+}
+
+#logo {
+    height: 3ex;
+    vertical-align: middle;
 }
 
 #survey {
@@ -46,7 +53,9 @@ content {
     padding: 1em;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     margin: 0.5em 0;
 }
 
@@ -75,8 +84,10 @@ th {
     text-align: center;
 }
 
-.images td {
-    text-align: center;
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 td {
@@ -84,18 +95,25 @@ td {
     width: 50%;
 }
 
-ul, ol {
+ul,
+ol {
     margin-left: 2em;
 }
 
 pre {
     margin-left: 2em;
+    overflow-x: auto;
 }
 
-iframe {
-    display: block;
-    margin: 1em auto;
-    border: 0;
+grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    grid-gap: 1rem;
+}
+
+box {
+    text-align: left;
+    padding: 0.5rem;
 }
 
 footer {

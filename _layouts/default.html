@@ -1,38 +1,92 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
-
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{ page.title }}</title>
+    <link type="text/css" rel="stylesheet" href="/css/default.css" />
+  </head>
 
-    <link type="text/css" rel="stylesheet" href="/css/default.css">
-
-</head>
-
-<body>
-    <header><a href="/">Relax-and-Recover</a></header>
+  <body>
+    <header>
+      <img
+        id="logo"
+        src="/images/logos/rear_logo_trans_white.png"
+        alt="Relax-and-Recover"
+      />
+      <a href="/">Relax-and-Recover</a>
+    </header>
     <ul class="nav">
-        <li><a href="/">Home</a>
-        <li><a href="/about/">Features</a>
-        <li><a href="/documentation/">Documentation</a>
-        <li><a href="/download/">Downloads</a>
-        <li><a href="/support/">Support</a>
-        <li><a href="/development/">Development</a>
-        <li><a href="/events/">Events</a>
+      <li><a href="/">Home</a></li>
+      <li><a href="/about/">Features</a></li>
+      <li><a href="/documentation/">Documentation</a></li>
+      <li><a href="/download/">Downloads</a></li>
+      <li><a href="/support/">Support</a></li>
+      <li><a href="/development/">Development</a></li>
+      <li><a href="/events/">Events</a></li>
     </ul>
 
     <content>
-        <h1>{{page.title}}</h1>
+      <h1>{{page.title}}</h1>
 
-        {{ content }}
+      {{ content }}
     </content>
 
     <footer>
-        <a href="/support/sponsors">
-            <h3>If you like Relax-and-Recover please consider sponsorship</h3>
-        </a>
+      <a href="/support/sponsors">
+        <h3>If you like Relax-and-Recover please consider sponsorship</h3>
+      </a>
     </footer>
-</body>
+  </body>
 
+  <!--
+  Custom element for responsive video, it will make the iframe fit into the available horizontal
+  space and look good also on phones (narrow screen). The custom element reduces the ifram attribute overhead and consolidates everything here.
+  
+  TODO: extract to JS file if we add more JS code, this tiny little bit loads faster inline here.
+  -->
+  <script type="text/javascript">
+    class ResponsiveVideo extends HTMLElement {
+      constructor() {
+        super();
+        this.attachShadow({ mode: "open" });
+        this.shadowRoot.innerHTML = `
+      <style>
+        .video-container {
+          position: relative;
+          width: 100%;
+          padding-bottom: 56.25%; /* 16:9 aspect ratio */
+          height: 0;
+        }
+
+        .video-container iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+      </style>
+      <div class="video-container">
+        <iframe 
+          src="" /* Leave src empty initially */
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </div>
+    `;
+      }
+
+      connectedCallback() {
+        const src = this.getAttribute("src");
+        if (src) {
+          this.shadowRoot.querySelector("iframe").setAttribute("src", src);
+        }
+      }
+    }
+
+    customElements.define("responsive-video", ResponsiveVideo);
+  </script>
 </html>
