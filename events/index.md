@@ -3,6 +3,19 @@ layout: default
 title: Events featuring Relax-and-Recover
 ---
 
+## Bareos Expert Circle, March 27, 2025
+
+**Linux Disaster Recovery with Bareos and Relax-and-Recover (ReaR)**
+
+Showcasing the integration of Bareos and Relax-and-Recover (ReaR) for Linux Disaster Recovery, with a live demo.
+
+[Download Slides](https://archive.schlomo.schapiro.org/2024/Relax%20and%20Recover%20-%20ReaR%20-%20Automated%20Linux%20Recovery%20-%20Open%20Source%20Project%20-%20stackconf%202024%20-%20Schlomo%20Schapiro.pdf) or [Watch Video](https://www.youtube.com/watch?v=ZVm_hG70rWg&t=763s)
+
+<responsive-video src="https://www.youtube.com/embed/ZVm_hG70rWg?start=744">
+Watch the <a href="https://www.youtube.com/embed/ZVm_hG70rWg?start=744">
+Linux Disaster Recovery with Bareos and Relax-and-Recover (ReaR)</a> video.
+</responsive-video>
+
 ## stackconf 2024, Berlin, 18 June, 2024
 
 **Relax and Recover (ReaR) - Automated Linux Recovery &amp; Open Source Project**
