@@ -238,7 +238,7 @@ Things like 'issue NNNN' or only '#NNNN' refer to the GitHub issues tracker <htt
 
 * Bareos integration was rewritten and updated.
 
-* New portable mode `--portable` and `OUTPUT=PORTABLE`, see <https://github.com/rear/rear/blob/master/doc/user-guide/17-Portable-Mode.adoc> for more information.
+* New portable mode `--portable` and `OUTPUT=PORTABLE`, see <https://github.com/rear/rear/blob/master/doc/user-guide/17-Portable-Mode.md> for more information.
 
 * Improved handling and protecting of secrets in ReaR configuration variables. New `-e`/`--expose-secrets` option to show secrets in configuration variables.
 
@@ -684,7 +684,7 @@ that errors out in case of
 rear -C something_else_backup mkbackuponly 
 when not the basic system but only something else 
 should be backed up as documented in 
-doc/user-guide/11-multiple-backups.adoc 
+doc/user-guide/11-multiple-backups.md 
 see https://github.com/rear/rear/pull/3221#issuecomment-2129240645
 ```
 &nbsp;
@@ -892,7 +892,7 @@ completely unrelated partitions.
 &nbsp;
 ```
 docs: document booting of ReaR rescue initramfs on s390/s390x (#3158) :
-In doc/user-guide/04-scenarios.adoc 
+In doc/user-guide/04-scenarios.md 
 document booting of ReaR rescue initramfs on s390/s390x, see the related 
 https://github.com/rear/rear/issues/3149#issuecomment-1943375764
 ```
@@ -906,8 +906,8 @@ https://github.com/rear/rear/issues/3170#issuecomment-1981222992
 ``` 
 &nbsp;
 ```
-Update 04-scenarios.adoc :
-In doc/user-guide/04-scenarios.adoc 
+Update 04-scenarios.md :
+In doc/user-guide/04-scenarios.md 
 removed parts that mention 'udev' 
 from the section about USB devices, cf. 
 https://github.com/rear/rear/pull/3103#issuecomment-1973785249 
@@ -954,8 +954,8 @@ Setting TMPDIR in {site,local}.conf has not worked since
 ```
 &nbsp;
 ```
-Update 03-configuration.adoc :
-In doc/user-guide/03-configuration.adoc 
+Update 03-configuration.md :
+In doc/user-guide/03-configuration.md 
 removed the outdated and obsolete part about TMPDIR=/bigdisk 
 because since the default is /var/tmp there is enough space 
 for things like a big ISO image
@@ -1504,7 +1504,7 @@ Only the first one for the initial message output function call.
 &nbsp;
 ```
 Merge pull request #3039 :
-In doc/rear.8.adoc describe the new -e/--expose-secrets option 
+In doc/rear.8.md describe the new -e/--expose-secrets option 
 see https://github.com/rear/rear/pull/3006 
 and https://github.com/rear/rear/issues/2967 
 Additionally a more exact description what the non-interactive mode does 
@@ -1687,8 +1687,8 @@ see https://github.com/rear/rear/issues/2967
 ```
 &nbsp;
 ```
-Update 04-scenarios.adoc :
-In doc/user-guide/04-scenarios.adoc 
+Update 04-scenarios.md :
+In doc/user-guide/04-scenarios.md 
 explain that when a command like 
 export VAR='secret_value' 
 is run on the original system, then one must ensure 
