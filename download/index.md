@@ -5,9 +5,9 @@ title: Download Relax-and-Recover
 
 ## General Available (GA) Release of Relax-and-Recover Announcement
 
-Relax-and-Recover (ReaR) v2.8 will be released around Christmas 2024.
+Relax-and-Recover (ReaR) v2.9 was released in January 2025.
 
-A pre-release version of ReaR v2.8 is available on our [GitHub Releases](https://github.com/rear/rear/releases) page.
+Packages of ReaR v2.9 are available on our [GitHub Releases](https://github.com/rear/rear/releases) page.
 
 ## Master branch snapshot
 
