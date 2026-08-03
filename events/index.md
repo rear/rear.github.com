@@ -57,7 +57,7 @@ The slides and video of ["Relax-an-Recover (ReaR) Mass Deployment"](https://fosd
 <div style="margin-bottom:5px"><a href="https://osbconf.org/2018-2/" title="OSBConf 2018 Archive"><img src="/images/OSBConf2018.png" border="0" width="280" height="210" align="right" alt="OSBConf 2018 picture of Gratien" /></a>
 </div>
 
-The slides of the talk of Gratien around ["Relax-and-Recover Automated Testing with Bareos"](https://osbconf.org/wp-content/uploads/2018/09/rear-automated-testing-with-BAREOS.pdf).
+The slides of the talk of Gratien around ["Relax-and-Recover Automated Testing with Bareos"](https://github.com/bareos/OpenSourceBackupConference/blob/main/2018/osbconf2018-GratienDhaese-REAR_Automated_Testing_with_Bareos.pdf).
 
 <br clear="right">
 
@@ -67,7 +67,7 @@ Gratien presented ["Relax-and-Recover Automated Testing"](https://www.flossuk.or
 
 ## Loadays, Wilrijk, 21-22 April, 2018
 
-Gratien talked and gave a demo around ["Relax-and-Recover Automated Testing"](http://loadays.org/pages/schedule.html)
+Gratien talked and gave a demo around "Relax-and-Recover Automated Testing".
 
 <responsive-video src="https://www.youtube-nocookie.com/embed/JZ6KNj0BwWs?si=OCMmo-EGgqK56YXx">
 Watch the <a href="https://www.youtube-nocookie.com/embed/JZ6KNj0BwWs?si=OCMmo-EGgqK56YXx">
@@ -82,7 +82,7 @@ Gratien presented "Relax-and-Recover Automated Testing" on Sunday, 20 August 201
 
 ## CeBIT Open Source Forum 2017, Hannover, 24 March, 2017
 
-Gratien presented ["Relax-and-Recover Automated Testing"](http://www.cebit.de/veranstaltung/relax-and-recover-automated-testing/VOR/77620) in the Open Source Forum, Hall 3, Stand D35 at 13:45.
+Gratien presented "Relax-and-Recover Automated Testing" in the Open Source Forum, Hall 3, Stand D35 at 13:45.
 
 <iframe src="//www.slideshare.net/slideshow/embed_code/key/2L1XovGt4LKGQZ" width="280" height="210" align="right" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
 <div style="margin-bottom:5px"> <strong> <a href="//www.slideshare.net/gratien_dhaese/relaxandrecover-automated-testing" title="Relax-and-Recover Automated Testing" target="_blank">Relax-and-Recover Automated Testing</a> </strong> from <strong><a target="_blank" href="//www.slideshare.net/gratien_dhaese">Gratien D&#x27;haese</a></strong>
@@ -99,14 +99,14 @@ Presentation was given by Sebastien Chabrolles (IBM France) ["Relax-and-Recover"
 
 ## Open Source Backup Conference, Cologne, Germany, 26-27 September, 2016
 
-Presentation was given by Gratien [Building a Business Continuity Plan with Bareos and rear](http://osbconf.org/wp-content/uploads/2016/09/Building-a-Business-Continuity-Plan-with-Bareos-and-REAR-Gratien-D%C2%B4haese.pdf)
+Presentation was given by Gratien [Building a Business Continuity Plan with Bareos and rear](https://github.com/bareos/OpenSourceBackupConference/blob/main/2016/osbconf2016-GratienDhaese-Building_a_Business_Continuity_Plan_with_Bareos_and_REAR.pdf)
 
 <responsive-video src="https://www.youtube-nocookie.com/embed/MsL61ZTJVW8?si=W9CXB7Fc8c3tfPc8">
 Watch the <a href="https://www.youtube-nocookie.com/embed/MsL61ZTJVW8?si=W9CXB7Fc8c3tfPc8">
 Building a Business Continuity Plan with Bareos and rear</a> video.
 </responsive-video>
 
-A [workshop around rear](http://osbconf.org/workshops/) was also foreseen. We have created on github the [rear workshop](https://github.com/rear/rear-workshop-osbconf-2016) download section with the scripts of the workshop.
+A [workshop around rear](https://github.com/bareos/OpenSourceBackupConference/blob/main/2016/osbconf2016-Workshop_REAR.pdf) was also foreseen. We have created on github the [rear workshop](https://github.com/rear/rear-workshop-osbconf-2016) download section with the scripts of the workshop.
 
 ## Fosdem 2016, Belgium, 30-31 January 2016
 
@@ -114,11 +114,11 @@ Relax-and-Recover project team members were be present at the booth of bareos fr
 
 ## CentOS Dojo Brussels, Belgium, Friday 29th January 2016
 
-Presentation by Gratien: [Relax-and-Recover simplifies Linux Disaster Recovery](https://wiki.centos.org/Events/Dojo/Brussels2016)
+Presentation by Gratien: Relax-and-Recover simplifies Linux Disaster Recovery.
 
 ## openSUSE Conference 2015, Den Haag, NL
 
-Presentation given by Gratien called [Relax-and-Recover simplifies Linux Disaster Recovery](https://events.opensuse.org/conference/osc15/proposal/572), 3 May, 2015
+Presentation given by Gratien called [Relax-and-Recover simplifies Linux Disaster Recovery](https://events.opensuse.org/conferences/osc15/program/proposals/572), 3 May, 2015
 
 <responsive-video src="https://www.youtube-nocookie.com/embed/lBM7_Lxaorw?si=Y6AQXLhR_Z-_kDHL">
 Watch the <a href="https://www.youtube-nocookie.com/embed/lBM7_Lxaorw?si=Y6AQXLhR_Z-_kDHL">
@@ -127,11 +127,11 @@ Relax-and-Recover simplifies Linux Disaster Recovery</a> video.
 
 ## LoaDays 2015, Wilrijk, BE
 
-Presentation given by Gratien on April, 12th, 2015 called [Building a Business Continuity Plan with Bareos and rear](http://loadays.org/)
+Presentation given by Gratien on April, 12th, 2015 called "Building a Business Continuity Plan with Bareos and rear".
 
 ## T-Dose 2014, Eindhoven, NL
 
-Presentation given by Gratien on October, 25th, 2014 called [Building a Business Continuity Plan with Bareos and rear](http://www.t-dose.org/2014/schedule/full).
+Presentation given by Gratien on October, 25th, 2014 called "Building a Business Continuity Plan with Bareos and rear".
 
 <responsive-video src="https://www.youtube-nocookie.com/embed/cNwa2KE5zUU?si=IQ8ez5t0vpEREBO7">
 Watch the <a href="https://www.youtube-nocookie.com/embed/cNwa2KE5zUU?si=IQ8ez5t0vpEREBO7">
@@ -140,7 +140,7 @@ Building a Business Continuity Plan with Bareos and rear</a> video.
 
 ## Open Source Backup Conference 2014, Cologne, DE
 
-Ralf Dannert (SuSe) presented [ReaR for corporate use](http://osbconf.org/wp-content/uploads/2014/09/REAR-by-Ralf-Dannert.pdf) on [Open Source Backup Conference 2014](http://osbconf.org/program/).
+Ralf Dannert (SuSe) presented [ReaR for corporate use](https://github.com/bareos/OpenSourceBackupConference/blob/main/2014/osbconf2014-RalfDannert-REAR.pdf) on [Open Source Backup Conference 2014](https://github.com/bareos/OpenSourceBackupConference/tree/main/2014).
 
 <responsive-video src="https://www.youtube-nocookie.com/embed/4zGll7jlRk4?si=4qe4HgCs8hoQT9gq">
 Watch the <a href="https://www.youtube-nocookie.com/embed/4zGll7jlRk4?si=4qe4HgCs8hoQT9gq">
@@ -149,11 +149,11 @@ ReaR for corporate use</a> video.
 
 ## LinuxTag 2014, Berlin, DE
 
-Gratien did a Relax-and-Recover Workshop at [LinuxTag](http://linuxtag.org), and together with Maik Außendorf (Bareos) we had 2 short workshops around Bareos-rear integration.
+Gratien did a Relax-and-Recover Workshop at [LinuxTag](http://www.linuxtag.org/2014/), and together with Maik Außendorf (Bareos) we had 2 short workshops around Bareos-rear integration.
 
 ## Open Source Backup Conference 2013, Cologne, DE
 
-Gratien gave a presentation around rear on [Open Source Backup Conference 2013](https://osbconf.org/archiv/2013-2/).
+Gratien gave a presentation around rear on [Open Source Backup Conference 2013](https://github.com/bareos/OpenSourceBackupConference/blob/main/2013/osbconf2013-en-GratienDhaese-Linux_Disaster_Recovery_Best_Practices.pdf).
 
 <responsive-video src="https://www.youtube-nocookie.com/embed/JDUOL_5ck6k?si=roDA1PAVif6-SYYI">
 Watch the <a href="https://www.youtube-nocookie.com/embed/JDUOL_5ck6k?si=roDA1PAVif6-SYYI">R
@@ -163,7 +163,7 @@ eaR talk</a> video.
 ## LinuxTag 2013, Berlin, DE
 
 Relax-and-Recover was present at the [LinuxTag](http://linuxtag.org)
-in Berlin May 22-25! Schlomo gave the following presentation on [Integrating UEFI into Relax-and-Recover](http://www.linuxtag.org/2013/en/program/friday-may-24-2013.html?eventid=349)
+in Berlin May 22-25! Schlomo gave the following presentation on [Integrating UEFI into Relax-and-Recover](http://www.linuxtag.org/2013/de/program/freitag-24-mai-2013/349.html)
 
 <responsive-video src="https://www.youtube-nocookie.com/embed/IAERu2LObjY?si=_5w_EvC6G_9GT8pk">
 Watch the <a href="https://www.youtube-nocookie.com/embed/IAERu2LObjY?si=_5w_EvC6G_9GT8pk">
@@ -175,8 +175,8 @@ Integrating UEFI into Relax-and-Recover</a> video.
 Relax-and-Recover was again present at the [LinuxTag](http://linuxtag.org)
 in Berlin May 23-26! A big thank you for the enormous success of this event
 (a lot of people came to our booth and attended the
-[Relax-and-Recover talk](http://www.linuxtag.org/2012/de/program/program/vortragsdetails-talkid195.html)
-and/or [Relax-and-Recover workshop](http://www.linuxtag.org/2012/de/program/workshops/workshops/vortragsdetails-talkid701.html)
+[Relax-and-Recover talk](http://www.linuxtag.org/2012/en/program/overview/details-talkid195.html)
+and/or [Relax-and-Recover workshop](http://www.linuxtag.org/2012/de/program/workshops/workshops.html)
 
 The Relax-and-Recover talk has been placed on-line by OpenSUSE TV.
 
