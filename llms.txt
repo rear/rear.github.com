@@ -1,0 +1,24 @@
+# Relax-and-Recover (ReaR)
+
+> Relax-and-Recover (ReaR) is an open-source (GPLv3) bare metal disaster recovery and system migration tool for Linux, written in Bash. It creates a bootable rescue system (ISO, USB, PXE, etc.) from a running system, records its disk layout, network and boot configuration, and can restore the system onto new or replacement hardware, including to dissimilar hardware or virtual machines. It integrates with many backup tools; the backup of the data itself can be made by ReaR (tar/rsync) or by external backup software.
+
+Key facts:
+- Supports x86/x86_64, ppc64/ppc64le, ARM and IA64 on major Linux distributions (RHEL, SUSE, Debian, Ubuntu, etc.).
+- Main commands: `rear mkrescue` (create rescue system), `rear mkbackup` (rescue system plus backup), `rear recover` (run inside the rescue system to restore), `rear dump` (show configuration and detected environment), `rear -v|-d|-D` (verbose/debug output).
+- Configuration lives in `/etc/rear/local.conf` (and `site.conf`); it is plain Bash, e.g. `OUTPUT=ISO`, `BACKUP=NETFS`, `BACKUP_URL=nfs://server/path`.
+- Output methods: ISO, USB, PXE, RAWDISK, OBDR tape, and more. Backup methods: NETFS (tar over NFS/CIFS/USB/etc.), RSYNC, and integrations with commercial and open-source backup products.
+- Modular architecture: workflows are composed of numbered scripts under `usr/share/rear/` stages (prep, layout, rescue, build, pack, output, verify, recover, restore, finalize).
+
+## Documentation
+- [Home](https://relax-and-recover.org/): overview and usage scenarios
+- [About](https://relax-and-recover.org/about/): project background
+- [Documentation](https://relax-and-recover.org/documentation/): user and release documentation
+- [Usage](https://relax-and-recover.org/usage/): usage scenarios and examples
+- [Download](https://relax-and-recover.org/download/): releases and packages
+- [Support](https://relax-and-recover.org/support/): community and professional support
+- [Development](https://relax-and-recover.org/development/): contributing to ReaR
+
+## Source and community
+- [Source code (GitHub)](https://github.com/rear/rear)
+- [Issue tracker](https://github.com/rear/rear/issues)
+- [Website source](https://github.com/rear/rear.github.com)
